@@ -15,10 +15,10 @@ npm install string
 Make sure that you run the test script to verify that it works on your system.
 ----
 #Mac OS X or Linux Users:
-TEST_fs-extra
+TEST_stringjs
 
 #Windows Users:
-coffee TEST_fs-extra
+coffee TEST_stringjs
 ----
 
 Usage
