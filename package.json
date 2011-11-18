@@ -13,7 +13,7 @@
      , "author"        : "JP Richardson <jprichardson@gmail.com>"
      , "licenses"      : [
                               { 
-                                   "type" : "MIT"
+                                   "type" : "MIT,Apache"
                                    ,"url" : "http://github.com/jprichardson/string.js/raw/master/LICENSE"
                               }
                          ]

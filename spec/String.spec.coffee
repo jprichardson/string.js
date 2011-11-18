@@ -40,5 +40,19 @@ describe "String", ->
     F "-33".isAlphaDigit()
     F "aaff..".isAlphaDigit()
 
+  it "should start with", ->
+    T "JP bla blah".startsWith("JP")
+    F "afafaf".startsWith("JP")
+    T "".startsWith("")
+    T "Hi".startsWith("")
+    T "JP".startsWith("JP")
+
+  it "should end with", ->
+    T "hello jon".endsWith('jon')
+    F 'ffffaaa'.endsWith('jon')
+    T "".endsWith('')
+    T "hi".endsWith('')
+    T "hi".endsWith('hi')
+
   
     

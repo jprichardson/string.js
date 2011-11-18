@@ -33,6 +33,10 @@ Methods:
 License
 ~~~~~~~
 
+(The Apache License)
+
+Some methods as noted, are from Google.
+
 (The MIT License)
 
 Copyright (c) 2011 JP Richardson
