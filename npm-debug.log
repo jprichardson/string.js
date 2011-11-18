@@ -1,0 +1,312 @@
+info it worked if it ends with ok
+verbose cli [ 'node',
+verbose cli   '/Users/jprichardson/.nvm/v0.4.12/bin/npm',
+verbose cli   'publish' ]
+info using npm@1.0.104
+info using node@v0.4.12
+verbose config file /Users/jprichardson/.npmrc
+verbose config file /Users/jprichardson/.nvm/v0.4.12/etc/npmrc
+verbose config file /Users/jprichardson/.nvm/v0.4.12/lib/node_modules/npm/npmrc
+verbose publish [ '.' ]
+silly testEngine { name: 'string',
+silly testEngine   version: '0.0.1',
+silly testEngine   description: 'string contains methods that aren\'t included in the vanilla JavaScript string. It modifies your String prototype. Get over it.',
+silly testEngine   homepage: [ 'https://github.com/jprichardson/string.js' ],
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/jprichardson/string.js.git' },
+silly testEngine   keywords: [ 'string', 'strings' ],
+silly testEngine   author: 
+silly testEngine    { name: 'JP Richardson',
+silly testEngine      email: 'jprichardson@gmail.com' },
+silly testEngine   licenses: 
+silly testEngine    [ { type: 'MIT,Apache',
+silly testEngine        url: 'http://github.com/jprichardson/string.js/raw/master/LICENSE' } ],
+silly testEngine   dependencies: 
+silly testEngine    { 'coffee-script': '>=1.0.1',
+silly testEngine      'jasmine-node': '>=1.0.12' },
+silly testEngine   bin: { TEST_stringjs: './bin/TEST_stringjs' },
+silly testEngine   main: 'String',
+silly testEngine   _npmUser: { name: 'jp', email: 'jprichardson@gmail.com' },
+silly testEngine   _id: 'string@0.0.1',
+silly testEngine   devDependencies: {},
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.104',
+silly testEngine   _nodeVersion: 'v0.4.12',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   scripts: {} }
+verbose caching /Users/jprichardson/Dropbox/Projects/Personal/js/node_modules/string/package.json
+verbose loadDefaults string@0.0.1
+info prepublish string@0.0.1
+verbose cache add [ '.', null ]
+silly cache add: name, spec, args [ undefined, '.', [ '.', null ] ]
+verbose parsed url { pathname: '.', href: '.' }
+silly testEngine { name: 'string',
+silly testEngine   version: '0.0.1',
+silly testEngine   description: 'string contains methods that aren\'t included in the vanilla JavaScript string. It modifies your String prototype. Get over it.',
+silly testEngine   homepage: [ 'https://github.com/jprichardson/string.js' ],
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/jprichardson/string.js.git' },
+silly testEngine   keywords: [ 'string', 'strings' ],
+silly testEngine   author: 
+silly testEngine    { name: 'JP Richardson',
+silly testEngine      email: 'jprichardson@gmail.com' },
+silly testEngine   licenses: 
+silly testEngine    [ { type: 'MIT,Apache',
+silly testEngine        url: 'http://github.com/jprichardson/string.js/raw/master/LICENSE' } ],
+silly testEngine   dependencies: 
+silly testEngine    { 'coffee-script': '>=1.0.1',
+silly testEngine      'jasmine-node': '>=1.0.12' },
+silly testEngine   bin: { TEST_stringjs: './bin/TEST_stringjs' },
+silly testEngine   main: 'String',
+silly testEngine   _npmUser: { name: 'jp', email: 'jprichardson@gmail.com' },
+silly testEngine   _id: 'string@0.0.1',
+silly testEngine   devDependencies: {},
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.104',
+silly testEngine   _nodeVersion: 'v0.4.12',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   path: '/Users/jprichardson/Dropbox/Projects/Personal/js/node_modules/string',
+silly testEngine   bundleDependencies: [] }
+verbose caching package.json
+verbose loadDefaults string@0.0.1
+verbose pack /Users/jprichardson/Dropbox/Projects/Personal/js/node_modules/string /var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/tmp.tgz
+silly testEngine { name: 'jasmine-node',
+silly testEngine   version: '1.0.12',
+silly testEngine   description: 'DOM-less simple JavaScript BDD testing framework for Node',
+silly testEngine   homepage: 
+silly testEngine    [ 'http://pivotal.github.com/jasmine',
+silly testEngine      'https://github.com/mhevery/jasmine-node' ],
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/mhevery/jasmine-node.git' },
+silly testEngine   keywords: [ 'testing', 'bdd' ],
+silly testEngine   author: { name: 'Misko Hevery', email: 'misko@hevery.com' },
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'Rajan Agaskar' },
+silly testEngine      { name: 'Christian Williams' },
+silly testEngine      { name: 'Davis W. Frank',
+silly testEngine        email: 'dwfrank@pivotallabs.com' },
+silly testEngine      { name: 'Matteo Collina',
+silly testEngine        email: 'matteo.collina@gmail.com' } ],
+silly testEngine   maintainers: 'Martin Häger <martin.haeger@gmail.com>',
+silly testEngine   licenses: [ 'MIT' ],
+silly testEngine   dependencies: 
+silly testEngine    { 'coffee-script': '>=1.0.1',
+silly testEngine      'jasmine-reporters': '0.1.0' },
+silly testEngine   bin: { 'jasmine-node': 'bin/jasmine-node' },
+silly testEngine   main: 'lib/jasmine-node',
+silly testEngine   _npmUser: { name: 'jp', email: 'jprichardson@gmail.com' },
+silly testEngine   _id: 'jasmine-node@1.0.12',
+silly testEngine   devDependencies: {},
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.104',
+silly testEngine   _nodeVersion: 'v0.4.12',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /Users/jprichardson/.nvm/v0.4.12/lib/node_modules/jasmine-node/package.json
+verbose loadDefaults jasmine-node@1.0.12
+verbose mkdir (expected) error ENOENT, No such file or directory '/var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359'
+verbose mkdir (expected) error ENOENT, No such file or directory '/var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376'
+verbose mkdir done: /var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376 755
+verbose mkdir'ed /var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376
+verbose tar about to write tar and gzip it.
+silly tar args [ '-czvf', '-', '-T', '-' ]
+silly spawning [ 'tar',
+silly spawning   [ '-czvf', '-', '-T', '-' ],
+silly spawning   '/Users/jprichardson/Dropbox/Projects/Personal/js/node_modules' ]
+verbose mkdir (expected) error ENOENT, No such file or directory '/var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents'
+verbose mkdir (expected) error ENOENT, No such file or directory '/var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/___package.npm'
+verbose mkdir done: /var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/___package.npm 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/package
+silly gunzTarPerm modes [ '755', '644' ]
+silly spawning [ 'tar',
+silly spawning   [ '-zmvxpf',
+silly spawning     '/var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/tmp.tgz' ],
+silly spawning   '/var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/___package.npm' ]
+silly tar err x string/.gitignore
+silly tar err x string/LICENSE
+silly tar err x string/package.json
+silly tar err x string/README.asciidoc
+silly tar err x string/String.coffee
+silly tar err x string/bin/TEST_stringjs
+silly tar err x string/spec/String.spec.coffee
+silly asyncMap in gTP /var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/___package.npm/string
+silly asyncMap in gTP /var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/___package.npm/string/.gitignore
+silly asyncMap in gTP /var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/___package.npm/string/LICENSE
+silly asyncMap in gTP /var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/___package.npm/string/package.json
+silly asyncMap in gTP /var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/___package.npm/string/README.asciidoc
+silly asyncMap in gTP /var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/___package.npm/string/String.coffee
+silly asyncMap in gTP /var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/___package.npm/string/bin
+silly asyncMap in gTP /var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/___package.npm/string/bin/TEST_stringjs
+silly asyncMap in gTP /var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/___package.npm/string/spec
+silly asyncMap in gTP /var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/___package.npm/string/spec/String.spec.coffee
+verbose gunzed /var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/___package.npm/string
+verbose rm'ed /var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/package
+verbose renamed [ '/var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/___package.npm/string',
+verbose renamed   '/var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/package' ]
+silly testEngine { name: 'string',
+silly testEngine   version: '0.0.1',
+silly testEngine   description: 'string contains methods that aren\'t included in the vanilla JavaScript string. It modifies your String prototype. Get over it.',
+silly testEngine   homepage: [ 'https://github.com/jprichardson/string.js' ],
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/jprichardson/string.js.git' },
+silly testEngine   keywords: [ 'string', 'strings' ],
+silly testEngine   author: 
+silly testEngine    { name: 'JP Richardson',
+silly testEngine      email: 'jprichardson@gmail.com' },
+silly testEngine   licenses: 
+silly testEngine    [ { type: 'MIT,Apache',
+silly testEngine        url: 'http://github.com/jprichardson/string.js/raw/master/LICENSE' } ],
+silly testEngine   dependencies: 
+silly testEngine    { 'coffee-script': '>=1.0.1',
+silly testEngine      'jasmine-node': '>=1.0.12' },
+silly testEngine   bin: { TEST_stringjs: './bin/TEST_stringjs' },
+silly testEngine   main: 'String',
+silly testEngine   _npmUser: { name: 'jp', email: 'jprichardson@gmail.com' },
+silly testEngine   _id: 'string@0.0.1',
+silly testEngine   devDependencies: {},
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.104',
+silly testEngine   _nodeVersion: 'v0.4.12',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   path: '/var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/package' }
+verbose caching /var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/package/package.json
+verbose loadDefaults string@0.0.1
+verbose tarball contents [ 'package' ]
+verbose from cache /var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/package/package.json
+verbose pack /var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents/package /Users/jprichardson/.npm/string/0.0.1/package.tgz
+verbose mkdir'ed /Users/jprichardson/.npm/string/0.0.1
+verbose tar about to write tar and gzip it.
+silly tar args [ '-czvf', '-', '-T', '-' ]
+silly spawning [ 'tar',
+silly spawning   [ '-czvf', '-', '-T', '-' ],
+silly spawning   '/var/folders/fl/d9lh7qlj76x784kmxbn964x40000gn/T/npm-1321655375359/1321655375359-0.4104018041398376/contents' ]
+verbose mkdir (expected) error ENOENT, No such file or directory '/Users/jprichardson/.npm/string/0.0.1/___package.npm'
+verbose mkdir done: /Users/jprichardson/.npm/string/0.0.1/___package.npm 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /Users/jprichardson/.npm/string/0.0.1/package
+silly gunzTarPerm modes [ '755', '644' ]
+silly spawning [ 'tar',
+silly spawning   [ '-zmvxpf',
+silly spawning     '/Users/jprichardson/.npm/string/0.0.1/package.tgz' ],
+silly spawning   '/Users/jprichardson/.npm/string/0.0.1/___package.npm' ]
+silly tar err x package/.gitignore
+silly tar err x package/LICENSE
+silly tar err x package/package.json
+silly tar err x package/README.asciidoc
+silly tar err x package/String.coffee
+silly tar err x package/bin/TEST_stringjs
+silly tar err x package/spec/String.spec.coffee
+silly asyncMap in gTP /Users/jprichardson/.npm/string/0.0.1/___package.npm/package
+silly asyncMap in gTP /Users/jprichardson/.npm/string/0.0.1/___package.npm/package/.gitignore
+silly asyncMap in gTP /Users/jprichardson/.npm/string/0.0.1/___package.npm/package/LICENSE
+silly asyncMap in gTP /Users/jprichardson/.npm/string/0.0.1/___package.npm/package/package.json
+silly asyncMap in gTP /Users/jprichardson/.npm/string/0.0.1/___package.npm/package/README.asciidoc
+silly asyncMap in gTP /Users/jprichardson/.npm/string/0.0.1/___package.npm/package/String.coffee
+silly asyncMap in gTP /Users/jprichardson/.npm/string/0.0.1/___package.npm/package/bin
+silly asyncMap in gTP /Users/jprichardson/.npm/string/0.0.1/___package.npm/package/bin/TEST_stringjs
+silly asyncMap in gTP /Users/jprichardson/.npm/string/0.0.1/___package.npm/package/spec
+silly asyncMap in gTP /Users/jprichardson/.npm/string/0.0.1/___package.npm/package/spec/String.spec.coffee
+verbose gunzed /Users/jprichardson/.npm/string/0.0.1/___package.npm/package
+verbose rm'ed /Users/jprichardson/.npm/string/0.0.1/package
+verbose renamed [ '/Users/jprichardson/.npm/string/0.0.1/___package.npm/package',
+verbose renamed   '/Users/jprichardson/.npm/string/0.0.1/package' ]
+silly testEngine { name: 'string',
+silly testEngine   version: '0.0.1',
+silly testEngine   description: 'string contains methods that aren\'t included in the vanilla JavaScript string. It modifies your String prototype. Get over it.',
+silly testEngine   homepage: [ 'https://github.com/jprichardson/string.js' ],
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/jprichardson/string.js.git' },
+silly testEngine   keywords: [ 'string', 'strings' ],
+silly testEngine   author: 
+silly testEngine    { name: 'JP Richardson',
+silly testEngine      email: 'jprichardson@gmail.com' },
+silly testEngine   licenses: 
+silly testEngine    [ { type: 'MIT,Apache',
+silly testEngine        url: 'http://github.com/jprichardson/string.js/raw/master/LICENSE' } ],
+silly testEngine   dependencies: 
+silly testEngine    { 'coffee-script': '>=1.0.1',
+silly testEngine      'jasmine-node': '>=1.0.12' },
+silly testEngine   bin: { TEST_stringjs: './bin/TEST_stringjs' },
+silly testEngine   main: 'String',
+silly testEngine   _npmUser: { name: 'jp', email: 'jprichardson@gmail.com' },
+silly testEngine   _id: 'string@0.0.1',
+silly testEngine   devDependencies: {},
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.104',
+silly testEngine   _nodeVersion: 'v0.4.12',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   dist: 
+silly testEngine    { shasum: '99c9af205736f1f8aa0240b6c924ad28acf4de98',
+silly testEngine      tarball: 'http://registry.npmjs.org/string/-/string-0.0.1.tgz' } }
+verbose caching /Users/jprichardson/.npm/string/0.0.1/package/package.json
+verbose loadDefaults string@0.0.1
+silly updated sha bytes 10240
+info shasum 99c9af205736f1f8aa0240b6c924ad28acf4de98
+info shasum /Users/jprichardson/.npm/string/0.0.1/package.tgz
+verbose from cache /Users/jprichardson/.npm/string/0.0.1/package/package.json
+verbose chmod /Users/jprichardson/.npm/string/0.0.1/package.tgz 644
+verbose chown [ '/Users/jprichardson/.npm/string/0.0.1/package.tgz',
+verbose chown   501,
+verbose chown   20 ]
+silly publish { name: 'string',
+silly publish   version: '0.0.1',
+silly publish   description: 'string contains methods that aren\'t included in the vanilla JavaScript string. It modifies your String prototype. Get over it.',
+silly publish   homepage: [ 'https://github.com/jprichardson/string.js' ],
+silly publish   repository: 
+silly publish    { type: 'git',
+silly publish      url: 'git://github.com/jprichardson/string.js.git' },
+silly publish   keywords: [ 'string', 'strings' ],
+silly publish   author: 
+silly publish    { name: 'JP Richardson',
+silly publish      email: 'jprichardson@gmail.com' },
+silly publish   licenses: 
+silly publish    [ { type: 'MIT,Apache',
+silly publish        url: 'http://github.com/jprichardson/string.js/raw/master/LICENSE' } ],
+silly publish   dependencies: 
+silly publish    { 'coffee-script': '>=1.0.1',
+silly publish      'jasmine-node': '>=1.0.12' },
+silly publish   bin: { TEST_stringjs: './bin/TEST_stringjs' },
+silly publish   main: 'String',
+silly publish   _npmUser: { name: 'jp', email: 'jprichardson@gmail.com' },
+silly publish   _id: 'string@0.0.1',
+silly publish   devDependencies: {},
+silly publish   engines: { node: '*' },
+silly publish   _engineSupported: true,
+silly publish   _npmVersion: '1.0.104',
+silly publish   _nodeVersion: 'v0.4.12',
+silly publish   _defaultsLoaded: true,
+silly publish   dist: 
+silly publish    { shasum: '99c9af205736f1f8aa0240b6c924ad28acf4de98',
+silly publish      tarball: 'http://registry.npmjs.org/string/-/string-0.0.1.tgz' } }
+verbose PUT string
+verbose raw, before any munging string
+verbose url resolving [ 'https://registry.npmjs.org/', './string' ]
+verbose url resolved https://registry.npmjs.org/string
+verbose GET string
+verbose raw, before any munging string
+verbose url resolving [ 'https://registry.npmjs.org/', './string' ]
+verbose url resolved https://registry.npmjs.org/string
+info Already published string@0.0.1
+verbose uploading bin dists []
+ERR! publish fail Cannot publish over existing version.
+ERR! publish fail Bump the 'version' field, set the --force flag, or
+ERR! publish fail     npm unpublish 'string@0.0.1'
+ERR! publish fail and try again
+ERR! 
+ERR! System Darwin 11.2.0
+ERR! command "node" "/Users/jprichardson/.nvm/v0.4.12/bin/npm" "publish"
+ERR! cwd /Users/jprichardson/Dropbox/Projects/Personal/js/node_modules/string
+ERR! node -v v0.4.12
+ERR! npm -v 1.0.104
+ERR! code EPUBLISHCONFLICT
+verbose exit [ 1, true ]
