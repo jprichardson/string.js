@@ -1,7 +1,7 @@
 string.js
--------------------
+---------
 
-This module simply patches the String prototype. Yes, it modifies the protoype, get over it.
+This module simply patches the String prototype. Yes, it modifies the prototype, get over it.
 
 This is *not production* ready yet. *Don't use it*.
 
