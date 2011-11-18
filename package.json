@@ -1,0 +1,29 @@
+{
+       "name"          : "string"
+     , "version"       : "0.0.1"
+     , "description"   : "string contains methods that aren't included in the vanilla JavaScript string. It modifies your String prototype. Get over it."
+     , "homepage"      : 
+     [ 
+          "https://github.com/jprichardson/string.js"
+     ]
+     , "repository"    : { "type" : "git"
+                         , "url"  : "https://github.com/jprichardson/string.js"
+                         }
+     , "keywords"      : ["string","strings"]
+     , "author"        : "JP Richardson <jprichardson@gmail.com>"
+     , "licenses"      : [
+                              { 
+                                   "type" : "MIT"
+                                   ,"url" : "http://github.com/jprichardson/string.js/raw/master/LICENSE"
+                              }
+                         ]
+     , "dependencies"  : { 
+                                "coffee-script" : ">=1.0.1"
+                              , "jasmine-node": ">=1.0.12"
+
+                         }
+     , "bin"           : {
+                              "TEST_stringjs": "./bin/TEST_stringjs" 
+                         }
+     , "main"          : "String"
+}
