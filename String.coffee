@@ -20,6 +20,3 @@ String::isNum = -> Number(this).toString() != 'NaN' #this includes 'Infinity' an
 
 String::startsWith = (prefix) -> this.lastIndexOf(prefix, 0) == 0 #Thanks Google
 
-
-
-
