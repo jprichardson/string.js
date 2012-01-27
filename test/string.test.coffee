@@ -1,4 +1,4 @@
-require('string')
+require('../lib/string')
 assert = require('assert')
 
 T = (v) -> assert(v)
@@ -77,4 +77,12 @@ describe 'String', ->
       T "hello jon paul".includes('hello')
       F "hello jon paul".includes('x')
       F "hello jon paul".includes('JP')
+
+  describe '- trim()', ->
+    it 'should return the string with leading whitespace removed', ->
+      T 'hello '.trim() is 'hello'
+      T ' hello '.trim() is 'hello'
+      T '\nhello'.trim() is 'hello'
+      T '\nhello\r\n'.trim() is 'hello'
+      T '\thello\t'.trim() is 'hello'
     

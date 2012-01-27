@@ -1,6 +1,6 @@
 {
     "name": "string",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "string contains methods that aren't included in the vanilla JavaScript string. It modifies your String prototype.",
     "homepage": [ 
           "https://github.com/jprichardson/string.js"

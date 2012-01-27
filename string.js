@@ -34,4 +34,10 @@
     return this.lastIndexOf(prefix, 0) === 0;
   };
 
+  if (typeof String.prototype.trim !== 'function') {
+    String.prototype.trim = function() {
+      return this.replace(/(^\s*|\s*$)/g, '');
+    };
+  }
+
 }).call(this);
