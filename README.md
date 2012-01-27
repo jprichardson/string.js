@@ -41,15 +41,19 @@ type anyway -->
 See [test file][1] for more details.
 
 ```coffeescript
+#searching
 includes(needle) or contains(needle) #true if string contains needle
 endsWith(suffix) #true if string ends with suffix
 startsWith(prefix) #true if string starts with prefix
 
+#types
 isAlpha() #true if string is only letters
 isDigit() #true if the string only contains digits
 isNumber() #true if the string can be converted to a valid Number object
 isAlphaDigit() #true if the string only contains letters or numbers
 
+#cleansing
+trim() #removes trailing or leading whitespace, only necessary for IE
 ```
 
 ## License
