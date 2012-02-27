@@ -287,7 +287,35 @@ S('\thello\t').trim().s; //'hello'
 I will definitely add more methods, I'll be adding them on as-needed basis.
 
 
-## License
+
+Testing
+-------
+
+### Node.js
+
+Install the dev dependencies:
+
+    $ npm install string
+
+Then navigate to the installed directory:
+
+    $ cd node_modules/string/
+
+Run test package:
+
+    $ cake test
+
+
+
+### Browser
+
+[Click Here](browser.test.html)
+
+
+
+
+License
+-------
 
 Triple licensed under MIT/X11, Apache v2, and LGPL. If you use this, pick which one works for you and your software. Attribution is always nice.
 
