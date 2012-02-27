@@ -99,7 +99,7 @@
       });
     });
     describe('- replaceAll(substring, replacement)', function() {
-      return it('should return the new string with all occurrences of substring replaced with the replacmenet string', function() {
+      return it('should return the new string with all occurrences of substring replaced with the replacment string', function() {
         T(S(' does IT work? ').replaceAll(' ', '_').s === '_does_IT_work?_');
         return T(S('Yes it does!').replaceAll(' ', '').s === 'Yesitdoes!');
       });

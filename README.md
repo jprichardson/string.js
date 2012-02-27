@@ -1,7 +1,7 @@
-string.js
+[string.js](http://stringjs.com)
 =========
 
-`string.js`, `string` or simply `S` is a JavaScript library for the browser or for Node.js that provides extra String methods. Originally, it would modify your String prototype. But I quickly learned that in JavaScript this is considered bad practice.
+`string.js`, simply `S` is a lightweight (< 2k Gzipped) JavaScript library for the browser or for Node.js that provides extra String methods. Originally, it would modify your String prototype. But I quickly learned that in JavaScript this is considered bad practice.
 
 
 
@@ -141,7 +141,7 @@ Return true if the string contains only letters.
 
 Example:
 
-```javascript:
+```javascript
 S("afaf").isAlpha(); //true
 S('fdafaf3').isAlpha(); //false
 S('dfdf--dfd').isAlpha(); //false
