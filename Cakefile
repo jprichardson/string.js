@@ -13,9 +13,6 @@ task 'build', 'build lib/ from src/', ->
     else
       console.log "Error building. Code: #{code}"
 
-task 'release', 'build release browser test and uglify js output', ->
-  uglify = spawn 'uglify'
-
 task 'test', 'test project', (options) ->
   process.env['NODE_ENV'] = 'testing'
   testutil.fetchTestFiles './test', (files) ->

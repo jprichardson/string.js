@@ -1,3 +1,6 @@
+### 0.1.2 / 2012-02-27
+* Package.json updates.
+
 ### 0.1.1 / 2012-02-27
 * Package.json updates.
 
