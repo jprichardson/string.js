@@ -3,7 +3,7 @@
     "version": "0.1.1",
     "description": "string contains methods that aren't included in the vanilla JavaScript string.",
     "homepage": [ 
-          "https://github.com/jprichardson/string.js"
+          "https://stringjs.com"
      ], 
      "repository": {
          "type": "git", 
