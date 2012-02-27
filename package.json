@@ -9,7 +9,7 @@
          "type": "git", 
          "url": "https://github.com/jprichardson/string.js"
     },
-    "keywords": ["string","strings"], 
+    "keywords": ["string","strings", "string.js", "S", "s"], 
     "author": "JP Richardson <jprichardson@gmail.com>",
     "licenses":[{
         "type" : "MIT,Apache v2,LGPL"
