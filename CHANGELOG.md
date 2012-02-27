@@ -1,3 +1,6 @@
+### 0.1.1 / 2012-02-27
+* Package.json updates.
+
 ### 0.1.0 / 2012-02-27
 * Added a few more methods.
 * Removed default behavior of modifying `String.prototype`
