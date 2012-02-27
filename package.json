@@ -1,7 +1,7 @@
 {
     "name": "string",
-    "version": "0.0.4",
-    "description": "string contains methods that aren't included in the vanilla JavaScript string. It modifies your String prototype.",
+    "version": "0.1.0",
+    "description": "string contains methods that aren't included in the vanilla JavaScript string.",
     "homepage": [ 
           "https://github.com/jprichardson/string.js"
      ], 
@@ -12,13 +12,15 @@
     "keywords": ["string","strings"], 
     "author": "JP Richardson <jprichardson@gmail.com>",
     "licenses":[{
-        "type" : "MIT,Apache",
-        "url" : "http://github.com/jprichardson/string.js/raw/master/LICENSE"
+        "type" : "MIT,Apache v2,LGPL"
     }],
     "dependencies": {},
     "devDependencies": {
-        "coffee-script" : ">=1.0.1", 
-        "mocha": ">=0.10"
+        "coffee-script" : "1.2.x", 
+        "mocha": "0.12.x",
+        "uglify-js": "1.2.x",
+        "growl": "1.5.x",
+        "testutil": "0.1.0"
     }, 
     "main": "string.js"
 }

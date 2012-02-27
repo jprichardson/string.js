@@ -1,3 +1,9 @@
+### 0.1.0 / 2012-02-27
+* Added a few more methods.
+* Removed default behavior of modifying `String.prototype`
+* Updated README to be a bit more detailed.
+* Ditched Makefiles for Cakefiles.
+
 ### 0.0.4 / 2012-01-27
 * Added trim() method for IE browsers
 * Moved string.coffee to lib/string.coffee
