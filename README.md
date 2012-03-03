@@ -1,14 +1,14 @@
 [string.js](http://stringjs.com)
 =========
 
-`string.js`, simply `S` is a lightweight (< 2k Gzipped) JavaScript library for the browser or for Node.js that provides extra String methods. Originally, it would modify your String prototype. But I quickly learned that in JavaScript this is considered bad practice.
+`string.js`, or simply `S` is a lightweight (< 2k Gzipped) JavaScript library for the browser or for Node.js that provides extra String methods. Originally, it modified the String prototype. But I quickly learned that in JavaScript, this is considered poor practice.
 
 
 
 Motivation
 ----------
 
-Personally, I prefer the cleanliness of the way code looks when you modify native Javascript prototypes. However, if any app dependency required `string.js` then the app's string prototype would modified as well. This could be troublesome.
+Personally, I prefer the cleanliness of the way code looks when it appears to be native methods. i.e. when you modify native Javascript prototypes. However, if any app dependency required `string.js`, then the app's string prototype in every module would be modified as well. This could be troublesome. So I settled on creating a wrapper a la jQuery style. For those of you prototype hatin' fools, such as myself, there is the method `clobberPrototype()`.
 
 Here's a list of alternative frameworks:
 
@@ -16,15 +16,16 @@ Here's a list of alternative frameworks:
 * [Uize.String](http://www.uize.com/reference/Uize.String.html)
 * [Google Closure's String](http://closure-library.googlecode.com/svn/docs/namespace_goog_string.html)
 * [Underscore.string](http://epeli.github.com/underscore.string/)
+* [Sugar.js](http://sugarjs.com)
 
-Why wasn't I happy with any of them? They are all static methods that don't seem to support chaining in a clean way. 
+Why wasn't I happy with any of them? They are all static methods that don't seem to support chaining in a clean way 'OR' they have an odd dependency. Sugar is the notable exception.
 
 
 
 Installation
 ------------
 
-	npm install --production string
+  npm install --production string
 
 
 
@@ -75,10 +76,10 @@ is the same as…
 var name = S('Your name is JP').right(2).toString(); //'JP'
 ```
 
-Still like the clean look of calling these methods directly on native Strings? No problem. Call `cloberPrototype()`. Make sure to not call this at the module level, at it'll effect the entire application lifecycle. You should really only use this at the method level. The one exception being if your application will not be a dependency of another application.
+Still like the clean look of calling these methods directly on native Strings? No problem. Call `clobberPrototype()`. Make sure to not call this at the module level, at it'll effect the entire application lifecycle. You should really only use this at the method level. The one exception being if your application will not be a dependency of another application.
 
 ```javascript
-S.cloberPrototype();
+S.clobberPrototype();
 var name = 'Your name is JP'.right(2); //'JP'
 S.restorePrototype(); //be a good citizen and clean up
 ```
@@ -92,17 +93,45 @@ See [test file][1] for more details.
 I use the same nomenclature as Objective-C regarding methods. **+** means `static` or `class` method. **-** means `non-static` or `instance` method. 
 
 
-### + cloberPrototype()
+### - camelize()
+
+Remove any underscores or dashes and convert a string into camel casing.
+
+Example:
+
+```javascript
+S('data_rate').camelize().s; //'dataRate'
+S('background-color').camelize().s; //'backgroundColor'
+S('-moz-something').camelize().s; //'mozSomething'
+S('_car_speed_').camelize().s; //'carSpeed'
+S('yes_we_can').camelize().s; //'yesWeCan'
+```
+
+
+### - capitalize() ###
+
+Capitalizes the first character of a string.
+
+Example:
+
+```javascript
+S('jon').capitalize().s; //'Jon'
+S('JP').capitalize().s; //'Jp'
+```
+
+
+### + clobberPrototype() ###
+
 Modifies `String.prototype` to have all of the methods found in string.js.
 
 Example:
 
 ```javascript
-S.cloberPrototype();
+S.clobberPrototype();
 ```
 
 
-### - collapseWhitespace()
+### - collapseWhitespace() ###
 
 Converts all adjacent whitespace characters to a single space.
 
@@ -113,9 +142,11 @@ var str = S('  String   \t libraries are   \n\n\t fun\n!  ').collapseWhitespace(
 ```
 
 
-### - contains(substring) Aliases: include/includes
+### - contains(ss) ###
 
-Returns true if the string contains the substring.
+Returns true if the string contains `ss`.
+
+Alias: `include()`
 
 Example:
 
@@ -124,9 +155,23 @@ S('JavaScript is one of the best languages!').contains('one'); //true
 ```
 
 
-### - endsWith(substring)
+### - dasherize() ###
 
-Returns true if the string ends with the substring.
+Returns a converted camel cased string into a string delimited by dashes.
+
+Examples:
+
+```javascript
+S('dataRate').dasherize().s; //'data-rate'
+S('CarSpeed').dasherize().s; //'-car-speed'
+S('yesWeCan').dasherize().s; //'yes-we-can'
+S('backgroundColor').dasherize().s; //'background-color'
+```
+
+
+### - endsWith(ss) ###
+
+Returns true if the string ends with `ss`.
 
 Example:
 
@@ -135,7 +180,20 @@ S("hello jon").endsWith('jon'); //true
 ```
 
 
-### - isAlpha()
+### - include(ss) ###
+
+Returns true if the string contains the `ss`.
+
+Alias: `contains()`
+
+Example:
+
+```javascript
+S('JavaScript is one of the best languages!').include('one'); //true
+```
+
+
+### - isAlpha() ###
 
 Return true if the string contains only letters.
 
@@ -148,7 +206,7 @@ S('dfdf--dfd').isAlpha(); //false
 ```
 
 
-### - isAlphaNumeric()
+### - isAlphaNumeric() ###
 
 Return true if the string contains only letters and numbers
 
@@ -166,7 +224,7 @@ S("aaff..").isAlphaNumeric(); //false
 ```
 
 
-### - isEmpty()
+### - isEmpty() ###
 
 Return true if the string is solely composed of whitespace
 
@@ -179,7 +237,23 @@ S('\n\n ').isEmpty(); //true
 ```
 
 
-### - isNumeric()
+### - isLower() ###
+
+Return true if the character or string is lowercase
+
+Example:
+
+```javascript      
+S('a').isLower(); //true
+S('z').isLower(); //true
+S('B').isLower(); //false
+S('hijp').isLower(); //true
+S('hi jp').isLower(); //false
+S('HelLO').isLower(); //false
+```
+
+
+### - isNumeric() ###
 
 Return true if the string only contains digits
 
@@ -194,13 +268,29 @@ S("Infinity").isNumeric(); //false
 S("-Infinity").isNumeric(); //false
 S("JP").isNumeric(); //false
 S("-5").isNumeric(); //false
-S("000992424242").isNumeric(); //false
+S("000992424242").isNumeric(); //true
 ```
 
 
-### - ltrim()
+### - isUpper() ###
 
-Return the string with leading and trailing whitespace removed
+Returns true if the character or string is uppercase
+
+Example:
+
+```javascript
+S('a').isUpper() //false
+S('z').isUpper()  //false
+S('B').isUpper() //true
+S('HIJP').isUpper() //true
+S('HI JP').isUpper() //false
+S('HelLO').isUpper() //true
+```
+
+
+### - ltrim() ###
+
+Return the string with leading and whitespace removed
 
 Example:
 
@@ -209,9 +299,9 @@ S('  How are you?').ltrim().s; //'How are you?';
 ```
 
 
-### - left(N)
+### - left(n) ###
 
-Return the substring denoted by N positive left-most characters.
+Return the substring denoted by `n` positive left-most characters.
 
 Example:
 
@@ -222,9 +312,23 @@ S('My name is JP').left(-2).s; //'JP', same as right(2)
 ```
 
 
-### - replaceAll(substring, replacement)
+### - repeat(n) ###
 
-Return the new string with all occurrences of substring replaced with the replacement string
+Returns a string repeated `n` times.
+
+Alias: `times()`
+
+Example:
+
+```javascript
+S(' ').repeat(5).s; //'     '
+S('*').repeat(3).s; //'***'
+```
+
+
+### - replaceAll(ss, newstr) ###
+
+Return the new string with all occurrences of `ss` replaced with `newstr`.
 
 Example:
 
@@ -234,9 +338,9 @@ S('Yes it does!').replaceAll(' ', '').s; //'Yesitdoes!'
 ```
 
 
-### + restorePrototype()
+### + restorePrototype() ###
 
-Restore the original String prototype.
+Restore the original String prototype. Typically used in conjunction with `clobberPrototype()`.
 
 Example:
 
@@ -245,9 +349,9 @@ S.restorePrototype();
 ```
 
 
-### - right(N)
+### - right(n) ###
 
-Return the substring denoted by N positive right-most characters
+Return the substring denoted by `n` positive right-most characters.
 
 Example:
 
@@ -259,9 +363,35 @@ S('My name is JP').right(-2).s; //'My', same as left(2)
 ```
 
 
-### - startsWith(prefix)
+### - rtrim() ###
 
-Return true if the string starts with the input string
+Return the string with trailing whitespace removed.
+
+Example:
+
+```javascript
+S('How are you?   ').rtrim().s; //'How are you?'; 
+```
+
+
+### - s ###
+
+Alias: `toString()`
+
+The encapsulated native string representation of an `S` object. 
+
+Example:
+
+```javascript
+S('my name is JP.').capitalize().s; //My name is JP.
+var a = "Hello " + S('joe!'); //a = "Hello joe!"
+S("Hello").toString() === S("Hello").s; //true
+```
+
+
+### - startsWith(prefix)   ###
+
+Return true if the string starts with `prefix`.
 
 Example:
 
@@ -270,7 +400,22 @@ S("JP is a software engineer").startsWith("JP"); //true
 S('wants to change the world').startsWith("politicians"); //false
 ```
 
-### - trim()
+
+### - times(n) ###
+
+Returns a string repeated `n` times.
+
+Alias: `repeat()`
+
+Example:
+
+```javascript
+S(' ').times(5).s //'     '
+S('*').times(3).s //'***'
+```
+
+
+### - trim() ###
 
 Return the string with leading and trailing whitespace removed. Reverts to native `trim()` if it exists.
 
@@ -283,6 +428,36 @@ S('\nhello').trim().s; //'hello'
 S('\nhello\r\n').trim().s; //'hello'
 S('\thello\t').trim().s; //'hello'
 ```
+
+
+### - toString() ###
+
+Alias: `s`
+
+Return the string representation of an `S` object. Not really necessary to use. However, JS engines will look at an object and display its `toString()` result.
+
+Example:
+
+```javascript
+S('my name is JP.').capitalize().toString(); //My name is JP.
+var a = "Hello " + S('joe!'); //a = "Hello joe!"
+S("Hello").toString() === S("Hello").s; //true
+```
+
+
+### - underscore()
+
+Returns converted camel cased string into a string delimited by underscores.
+
+Example:
+
+```javascript
+S('dataRate').underscore().s; //'data_rate'
+S('CarSpeed').underscore().s; //'_car_speed'
+S('yesWeCan').underscore().s; //'yes_we_can'
+```
+
+
 
 I will definitely add more methods, I'll be adding them on as-needed basis.
 
@@ -307,9 +482,9 @@ Run test package:
 
 
 
-### Browser
+### Browser ###
 
-[Click Here](browser.test.html)
+[Click Here](http://stringjs.com/browser.test.html)
 
 
 

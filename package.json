@@ -1,6 +1,6 @@
 {
     "name": "string",
-    "version": "0.1.2",
+    "version": "0.2.0",
     "description": "string contains methods that aren't included in the vanilla JavaScript string.",
     "homepage": [ 
           "http://stringjs.com"
@@ -19,8 +19,7 @@
         "coffee-script" : "1.2.x", 
         "mocha": "0.12.x",
         "uglify-js": "1.2.x",
-        "growl": "1.5.x",
-        "testutil": "0.1.0"
+        "growl": "1.5.x"
     }, 
     "main": "lib/string.js"
 }

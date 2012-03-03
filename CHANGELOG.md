@@ -1,3 +1,14 @@
+0.2.0 / 2012-03-02
+==================
+* Fixed method type `cloberPrototype()` to `clobberPrototype()`.
+* Fixed Node.js testing bug that caused `T` and `F` to be undefined functions.
+* Moved browser tests to its own directory.
+* Updated README.
+* Added `captialize()`.
+* Added `repeat()`/`times()`.
+* Added `isUpper()`/`isLower()`.
+* Added `dasherize()`, `camelize()`, and `underscore()`.
+
 ### 0.1.2 / 2012-02-27
 * Package.json updates.
 
