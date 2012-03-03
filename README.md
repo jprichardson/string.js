@@ -41,7 +41,7 @@ var S = require('string');
 
 Originally, I was using `$s` but glancing over the code, it was easy to confuse `$s` for string.js with `$` for jQuery. Feel free to use the most convenient variable for you.
 
-### Browsers (IE/Chrome/Safari/Firefox)
+### Browsers
 
 ```html
 <!-- HTML5 -->
