@@ -6,124 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>string.js</title>
     
-    
-      <style type="text/css">
-        html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,code,del,dfn,em,img,q,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline}
-table{border-collapse:separate;border-spacing:0}
-caption,th,td{text-align:left;font-weight:normal}
-table,td,th{vertical-align:middle}
-blockquote:before,blockquote:after,q:before,q:after{content:""}
-blockquote,q{quotes:"" ""}
-a img{border:none}
-body{margin:10px}
-pre code{display:block;padding:.5em;color:#000;background:#f8f8ff;padding:20px;border:1px solid #ccc;overflow-y:auto}
-pre .comment,pre .template_comment,pre .diff .header,pre .javadoc{color:#998;font-style:italic}
-pre .keyword,pre .css .rule .keyword,pre .winutils,pre .javascript .title,pre .lisp .title,pre .subst{color:#000;font-weight:bold}
-pre .number,pre .hexcolor{color:#40a070}
-pre .string,pre .tag .value,pre .phpdoc,pre .tex .formula{color:#d14}
-pre .title,pre .id{color:#900;font-weight:bold}
-pre .javascript .title,pre .lisp .title,pre .subst{font-weight:normal}
-pre .class .title,pre .haskell .label,pre .tex .command{color:#458;font-weight:bold}
-pre .tag,pre .tag .title,pre .rules .property,pre .django .tag .keyword{color:#000080;font-weight:normal}
-pre .attribute,pre .variable,pre .instancevar,pre .lisp .body{color:#008080}
-pre .regexp{color:#009926}
-pre .class{color:#458;font-weight:bold}
-pre .symbol,pre .ruby .symbol .string,pre .ruby .symbol .keyword,pre .ruby .symbol .keymethods,pre .lisp .keyword,pre .tex .special,pre .input_number{color:#990073}
-pre .builtin,pre .built_in,pre .lisp .title{color:#0086b3}
-pre .preprocessor,pre .pi,pre .doctype,pre .shebang,pre .cdata{color:#999;font-weight:bold}
-pre .deletion{background:#fdd}
-pre .addition{background:#dfd}
-pre .diff .change{background:#0086b3}
-pre .chunk{color:#aaa}
-pre .tex .formula{opacity:.5;filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=50)}
-@font-face{font-family:"Droid Sans Mono";src:url("data:font/woff;charset=utf-8;base64,d09GRgABAAAAAD1QABAAAAAAX8wAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABbAAAABsAAAAcWnAAikdERUYAAAGIAAAAHQAAACAAtgAET1MvMgAAAagAAABfAAAAYJ+IkIZjbWFwAAACCAAAASIAAAHSn1IGaWN2dCAAAAMsAAAAQgAAAEIQug3HZnBnbQAAA3AAAAGxAAACZQ+0L6dnYXNwAAAFJAAAAAwAAAAMAAMAB2dseWYAAAUwAAAzBwAAUcjO6TWtaGVhZAAAODgAAAAxAAAANvZvmN5oaGVhAAA4bAAAACAAAAAkDDsEtGhtdHgAADiMAAABIAAAAh5fQlF/bG9jYQAAOawAAAEDAAABFLRJyd5tYXhwAAA6sAAAACAAAAAgAaYBlG5hbWUAADrQAAABCAAAAeophUSucG9zdAAAO9gAAAE3AAAB9Gweq4dwcmVwAAA9EAAAAEAAAABAXsu7eXjaY2BgYGQAguP/NtwH0Sctll+B0tcAXYgIUAB42mNgZGBg4ANiCQYQYGJgBMIOIGYB8xgACiIAuwAAAHjaY2Bm6WacwMDKwMI6i9WYgYFRHkIzX2RIY/zEwMDEzcbJzMHCxMTygIFpvQODQjQDA4MGEDMYOgY7MwAFfrOwyf0TYWhmz2V8osDAMB8kx+LFug1IKTAwAgDE6Q8xAHjaY2BgYGaAYBkGRgYQOAPkMYL5LAwbgLQGgwKQxcFQx7CAYTHDUoaVDOsYtihwKYgoSCrIKigpqCnoK8QrrFFUesDwm+X/f6AOBaDKRWCVa4EqGRQEFCQUZNBUMv7////x/0P/D/4/8H/v/13/tz7IepD6IOlBwoOYB5EPAh8o3b92P1GhhbUF6iqiACMbA1w5IxOQYEJXAPQqCysbOwcnFzcPLx+/gKCQsIiomLiEpJS0jKycvIKikrKKqpq6hqaWto6unr6BoZGxiamZuYWllbWNrZ29g6OTs4urm7uHp5e3j6+ff0BgUHBIaFh4RGRUdExsXHxCIhGuTE4BhiVDRlpzJkwkFZuy+iQwVVFZU1tVDWY2MTC0thEyHQBoIU4nAAD+FAAABEoFtgYUAKQAugCNAJEAqgCcAJgAiQCPALQAqACAAJoArQCHAIsAoQCyAIIApgCvAJ4AeQCEAJMAlQBoAF0AAHjaXVG7TltBEN0NDwOBxNggOdoUs5mQAu+FNkggri7CyHZjOULajVzkYlzAB1AgUYP2awZoKFOkTYOQCyQ+gU+IlJk1iaI0Ozuzc86ZM0vKkap3ab3nqXMWSOFug2abfiek2kWAB9L1jUZG2sEjLTYzeuW6fb+PwWY05U4aQHnPW8pDRtNOoBbtuX8yP4PhPv/LPAeDlmaanlpnIT2EwHwzbmnwNaNZd/1BX7E6XA0GhhTTVNz1x1TK/5bmXG0ZtjYzmndwISI/mAZoaq2NQNOfOqR6Po5iCXL5bKwNJqasP8lEcGEyXdVULTO+dnCf7Cw62KRKc+ABDrBVnoKH46MJhfQtiTJLQ4SD2CoxQsQkh0JOOXeyPylQPpKEMW+S0s64Ya2BceQ1MKjN0xy+zGZT21uHMH4RR/DdL8aSDj6yoTZGhNiOWApgApGQUVW+ocZzL4sBudT+MxAlYHn67V8nAq07NhEvZW2dY4wVgp7fNt/5ZcXdqlznRaG7d1U1VOmU5kMvZ9/jEU+PheGgseDN531/o0DtDYsbDZoDwZDejd7/0Vp1xFXeCx/ZbzWzsRYAAAAAAAACAAQAAv//AAN42sV8e3xUV73vWvs178ne88zkQTIZkoGmZMgMIR0oj1KKGBE5kZODfBAjIlJqRYocRMQc5HJiipRSHkWKNFI+HA5ycO/JmGJKaSgiImIPInCRg1wOUqTFyqm92EBmc3+/tfYMoaVeP/f8cUuTmb33ZO/1e6zf7/v7/tYaIpBDhEhOuZuIxEYeJhmRktqsJBO/VJuBc7VZG3tPdXtCF89kJYVoUq0uqYZMa7MCOzIctJYMr/dHtWgj/BwSP97/8nxhWa5d7r7VNF96k8B/Ar1657JwxXrO50lGgnvrJJEVZFJk3Z6eyYoKicDt5aQuqvisanxWAg8ov0ITXYoo2WFYfCC2RFa5OwhDEjSfrqSH10tqUhVTYoxeNf94MbWsnIbNa/Kp23/gYykXd4m6NZbxhMmpS6msKBM73FNJ5qUF+eJwQlANG0irsCN8kGGD5xhUSqdBboqPwZ/yPw59ga6AX3J37oag5m7gs8gw0G8nPKuUVNBPkkwJ6DcTDEVSqVTGDs/N2FxueJ8tFUrsntqMVlbOjmTyIBggEC5OJpNZRWTX1EEVeE3h1xxOD1yjemXCiNJafWRJz9j/+PNNEqx16iV1ur1OL1GNiK1Pt8PgbX09Y0/8eS+7GKrT3XV6SDWC9j7drRoueClRu4QSm7+2S2S/FfytR9QuR8QOb0JqlzPkgjdBtcsTdMMHVPZbY78D+Bs/E2afgb8qZn8F9yzN36csf59y/EzXoPwnK/C8OL5YEBWb3eF0uT2qFgiGwsWRktKy8kEVdR/xnz6+BB2uIeWPNUT9KRF/UsEY/ETFmB9/GqP+6LD3HrlGheYNzbR6+rPTL7w//oZ5s3njdPN3zc9O3Udj480LdG8HndxBdXMa/nSY+zvM6XQv/sB58IruOx1SQPGRClJDask6og9K6KUpQ5Sv6fFkZpDorO0aP6jcUasHEnp1yiiC8+5kpiiA54s8DnDrBxO6/YxRqVzTK1WjnNZmRPdgNGmZQsrAiN5AHI70MtUYCl4VUa4Zw/B1KHiXTwPvMsRB4NAkrQe0H1PJFxxcOzic1ot8ugY+3tgQSmk18ZrGEY0jGxtSoDdbTVwLhUM2VQ7GGqr8gXAorCl0ZMOIePeR3UeaptJZM3d1dG+dsK7t6LRmam7p+P1DQ4fO3Esb9u/fu3cWzUz41PTvrGqZHsrq9knrxznMmROnNa80r45884LYNWVYbQVdVNo/s2xb21giE3LnHemEfJR4SYiUkKGknpwlmTB4t16SytRgFHlQJpUgYwRnV3GKzfhskJ3LDq+okTzwwo80FzvS2BHVkwmdnMkW8blXpBp+yqY7HtlUoxSOHuBHD6hGHRxV8XmZ4rMgPenyIubo4To9UqeHVaMEZkFENYptfWIXupblQYa/CHQrpY26B0DdFTWo7uEPwtuq0nTaCGrwzkbSoGcN9JtKhoIBm2KrAnUHwsmGEbEqP0056N1LsQGXpk3tWNU5dVrHqmnTtqxds2atTzi3PReno/n55vb8eenJnbNm/uQHu2bOop9r3X6FvnnpVgaDJm2C8/t37Jw5ezY/Db445s516bh8gpSRapIifSQTQl0HU5kIvBpR+VrGAQo2hsvXqD4CNWiUK9e6lHJirzVqwP/KVeNB8C03vIVZr8FbH7hbA1far9SzfVZ08OpSr2wEHX1efUivPkTt8g4JwpwtYr8D+Buif1dYCsFhjP0ejL8z8LHKpyufjilezQcuCi6bzsAVPIil9XCavCx5iwLh2OAh+VlMxzvxFPjtgJPMNNR4sEbzZRyRaJpZJQoHxA0TAqzhR28Hn+d6l+nIxpRi88fieQOEUslGqoDvj2xEx6+JVdmUMePH7d1JezO7f2K+TiOTqvY3rHjr3Kp97xx84snXHp04a0eH+erx5atXp+rrU9NaUvV0xerWOV889NKGf9u78XiPuXPphuv/Yl7Y1bPgyd75kyc9R9cvF2YseX7a6PSUyYnEsFrMKZTeEHcJF1hOqeIZxUonlCWwfC7BtJnPGTesVMH/Pm4eEHfC3ztgLmUE+HuqO5kZZbCYrBp2sJSQNGxwJCYNF7+NSlNEU2mM0Dg9cMgcR197zZwoNAoB+oTZkbuVu2mupa38/kPh/rvy9yf5+ytndJJkj6BJ6ymGCH5h3T9F/Hh3zUeH9tID1Hz0ID1I5W5zc+7t3GVzB10i2EEuvD9ZLSyVJisBiAcaoAgJ71+UMFQODRplSMbVYdlvc9G4f3U5ba89UUvXlpqrb3bp3//Ju1L60ELaYS5deKjM7Gml88ytrXQSv+8WqkgpaQdxkb8nABh0W8qgEGflZIZQjLPE6ajNUIJvqYgh153QnWdAVVkHjxJSEnIlXnbY4JNOB751Eket4eFja4hqKS0ajGoxbQtdtYmuMldsEto309Xm8s1mG10JuttvXhR9gEAUMoRYoIVZ1pbQBYaJSsGyqDoLf6DqfI2psCLS/VNi59XR7eZFOuFK8RXzDLNFOT0p6sIy5itwPxQIf9BVDAIRDWCQ7a6vNESDtFzYQE/u3g1/+8adS4JJhxGJ1BH4PI7FAzGUv1BdZsETbuCVaq0XQ2H3qR5RqVbSN2jCPNm+y8yibk8RIr7PfPbj4BMYT8QU8z2dpthgZB4eRv36zZ+x8EDqdKFOJyqkwD6ERVSGmEqoIN7Nyin401PC4kxuLUYyhrfIBohdaYhdTsgUE0jGhhELkiV7lBFGwUuZq7vAD10s4KNLGmXw6neBRgUIAmGI1obMArJfjSZ9mloNE96vsgk/UlP5TActXX3HrL26ZMlPHp24fsPESZMmblg/8VHhgnDDbDPX57z09UP0K+bhZ9asXU8fog3PrV3zNPezSzDQm6ALJ/kcoFNEaZRNEldCl86wOeFmytBrIDw5SeIYMYgzcQzVE59zYi2qRwbN6LTXqztV3dFLdEcdNaiDRzQCcBEkseHwaQp8bUSjUkQv0bbNur126gZpDa291SSu33AmMWEZG892wI3D5OOgsW9y2xjFoLEi1JjT0phyxvAr1zJ+BV3aXwLerfjxrQLeDfMZ9YfDS1T9JovDk3QK0V3oNcKuPj3US7qoEAqzQJzhb/g4ncWar0txe/wANcCcDdQKpLYqWxyCbhiirmCjwWhwO519LD1m3IQFO7bNO/iHI19etPSqeVXQt9EV5+fMb1s8fgLtWLr3iSd/tNg0b5qn7bu4nleBL1SAXDVkPslUo1wApzIhlEuTr2Ud9uqQB0A2ihhP6PIZIwpO4ak8oxklIKunBAX02GH6DkHAL1ZzfGTXdJrWHT5jUEU6rWua4S+B15APshAHSpWaGo01pJL5nJAXBXJ6UPLDS7WyqucInWOuWr26U3900iJ996yeWyeWLG5u2Ujn046nzVt/Hr2nlUap8PyWFfNHjV62YvMXWnevnTk7ogwzTx5fsoRS5utjwG7z5IPgRz6yhmQc6Eno51nicggerDMMAvELiwx/QnecAcRo2FlQz9hZbLIrYEiHnUUsy5ABbsgGx38MyxtSRkMCdvfqvl7wLR+zosuXz592B+hFhWkj4PwpQq9rALcDkAyuVx0F74sptjHClgOnT+tmEf0vj2NoPZ38oni2f/gucz+dvIvOzZgLHwN77WX26gY//CfCsQbYq4uIEcAVELMyLrScFyyn2SIuDzMic06wXJDPYRz6uF/eepNFEBe4oBMAhleGoRfB0J1FMPQup8tbVEj+QRmmutuDqd9GIfXLjiBL/ZYdZbCeHwK2WDBhXNm7/iydZu6e+r2ZjUImdz0+74mTq1Z2tN/5X6P3ttJRkB1L0oK+y/xsYPFTR699u82y1VaQLQW+GCZxsoBkgihdWT4u2UAmz+Ag2CzrgbiDwXUIi1LFYC1nUi9WjUoIUBoIieC9EqcNWDiICB0cUMbq0BhchtDF5YTxGzYPmEK24lc4CBNKEFNMBhvDj8RCLwXYslVomz/xY5+78Kbd3Xrq8MKFdNnSX543ze7maatWPjZ54sR/WjGjRVgkzvS/EKHmm+av9vzj1391efUqOr1n81cXzpjZuWHK1OZpOOfWgU+OBhsqiE3kvEcaCprKlsDMBY6iwOhE5iiQb2J0nbg3d/p1ISWru9bfOi+rkCrINtBXPcTxENwngXEygBqLgMawlDWG4f2GMx2FQUcSTtoYvAmz0sdQ4e1QPAcY1KiHE0Njmi9rFyJRL+iMGMMimu/HxK0K0TgLPX61mtU23MqyxCxdBRgvynRUk2AwLwRAj+lL2UZLrtOvLc7uX7TYvEUb2r71q3P/laGB9ilNbZsHmYn6xJqrdPyEBfPb6BIKCf58ZyvA6x1Xvt15LQu6Pdl9Y8KEr81c0+T9R2HwrDHpifP3zRvR8MQ9flIMUesJknHm8xeWNMZg8JNguRMrmKDlJ3GmAyjnsO7A6tzH5jiGLCNCLOfWo1qXs0gKMtmDWIt40sbgcvAiO/H7uAYs6SF2VcXB+ZM+f2wgzkUtgOBbv770xIW2lbmV8ydOnMO85TeHvvoV/bGJbSunt3SublsnXrz8z6v27DVP9u/ybYvQUlq/Z+nXTq6bNrV5+twtF/S7/Iw0D6xsJ43kLjWj2xNIOTCSxoG5EAAjlmPIxgDI4oyN4WQQg7EuI5JqFb1qwn+MdRHfX2O+Bfffar4vXIf7K4DkGgik1azDuisANtuZrJPdqEtw2uy1CKmGSwyhfQhSuSh7wNYJVUe9jcsa4DHv08B/hk+a70qX8UkMM5ILgBmPwbMWEIbSyBkMo3Yei8oiP2u7Jx9K7j5d7O25fDV/nsB5Bc6Ldrzm1eVe0o0oR5KVfO2SvXvE0iYLsEEHDW4RX8g1CMeFznn0cKe5x9zTyTHQFtojpcRrjHMqyaM+hrFw1tgTeRYNZx/8wG36vyi+QHs2b6ZbN20iH5BrPpcLEMCHhFJg8KTXEDx9gEUKQnl1EeCaYAd5vYYE1+4j04/5cd1AqRobHBQE2yL8IjdSfOFCJ22hLZ3mmHlMpt13LksxmBdlpBLnBQsqJSBVeSJbYRk3mtAHnclWcuMWVQ4C43oVkgTnqVSNENhXgXlRBa9enAElab1S0/2YuTOugJNVfyUVEEIVbxkc6IIGyR6UNLIxn7y9AKZjDSNGNo6lVtj0gRPuPnHh3PIVDSPWL32kc/aiVc1Nk9v3Hj1kygta6efn7Fw9/dNPzHhipq966fPNcxfOmzUqPfO2D30VZaq40yTtg1jZQMaRP3CeMlvDKDc9mcgO4++0hO5OZR/iB9GkPiaRjbADqo9nAHwo43f0oaoRBDw/kks8UjVGwVEFr0sqVCMGR3b2SeMRK09e63+Rmyut6qN7jTJnn17aK8FR16j0aH+t0FVaNmo0B22lZaPzGXPUSAidUqRmWFLD9FOhGUVeUFfMl3EnhjMtwhWfPhwzk55IG2MewlBbFPTGhlqhtnEk5KSQyIkMHmQaePQRlXIaSCU1VYhVCRrH20ElVhmvwdP+xpp4lVKxexetfH/jZjpuwqJVJVLTtq9PmtQ6Z/vq5SFh8twLr14yV7a9m9m97afmuT27aaZtlbeoITlztjCTrnnr6k+Pmvr19jXZ7OPzMieXtyXM1sgwRadtNExHA2bPmMf27pm6uvmNX9Il/fShXIC+ynwvCjltr3wAZpOX7OcIGcpOG/KqVgWTVewEEZcjhZkOKkasSDEwYw1tUw3JqnVVrvqHj799hxc5HMTbVN3b23N49NvXuUEkFYELTCOYQoDwu2Sn5EdGqguc0F/bZcffeN6B50UANl4w0stUkBXAdd6B1KUh2MEY7jQvlmJiVPRHxZq4YovSy4fpld5nzeBzR+nK1fFwoFQ+cGsiPWKOFhbQ3csen/E5gnm4HWRfBD5aBJm4knzJqg9UyEhYsxiVkJHCIUI9VnEVZVJj+g0ndZXXV8gDlWEyzs+/MhXyktOBvhJS2fD0sGY4YA7qlZxThyq5EmcdImYtoMSqo5XaiKEQrCARxSERRdvpfqp+a/m2djrFvGDuBdkazQPmb2nZ9z82mT6/24RSc0bLT1fu9jsbzUtHL22nPnNbY2Pbsi9hbFsJOXYby7FjLCSG8ogojx2FiDAhEDqUIFxRgzBGPwL/DFF8GBvEPLgi4Mk2BqDu8daVdC596PzOqds2nW1b+fWlf2jv3fzv5i9e2ilcoDPo5pZtU7d3mu+al57fPGrH6J8eZT6Gel7OakKNPGTlfVceHzKg6xtYt3qtcObHAWoubaDaNNWmROMIX6tj7RBEx/1I7+4x//WpViFg+tvl7gOHTN3c8MqhTuFRIUVBH+fg2TF4tot8zLKvI29fCewr25l9WfJws0E4EHIlMw5GhThcDkzPnPSwmA7OcvCfc2JT7qvC47nnhWfl7p3mwzty7+/kOeY9eO4YxhONt2ZV4Zl2mT2TmcN5n2eKDotlseijuw98T/x4bhE+Dh6W69+Z28yftQRsPglsHiH/yPlMwzPA5lnNFxLzFUXJQEUXgaIDUA1aTLsGTyyFU0WgckO0p5EuhymPruwJaVgDGj6kc4krzSpF5T7OApEN/FiLNUQ1JQ7esoQ+SssPfW/y5m8fOk2fnv3lP9JdRy+YtzZuAHdppc+07JhuHjPfzmXLaXZnLjWF/vznIA/6yyRms3EWn2JLMfXpciorOpn2xLsWQ2mEJAqESVxi5F7BVqA8DXmCqNb+ivDxV17JvSx357YI8281CXtyLQXOQrzGnvdJ/rwsZRw6lCcZWeSNPDy0JdkjBWawjEMoeIiSzAis6BSw0oQRWE9vqNaqAYTImhy8ROPmOdEO07hmeUDaEli+PHB7fmA5e37HneviKXi+F6qBjCdfy9tETv4hOnHw+AqFuocX6jYs1FkpF4ZaHCRkoL5jx4YdP+lZu+ads/FdY2jnc+L/7vechTKNc1QsH7vJYl5NG8SeKmiV6p58XEBVunlfUlFIPYjtgPiG+RXe49zEIP+LL//HHR7OHRjOdbuq26AItTkhVrPfFlfjsIohtEMjEv0xatNO9SyjR07m/iKUnjLHfhfMUb1bSOVW9R8Vep7K7YexAoBgtTJAAWvOitacpbrCxgn5JiOy2SLK4LW2u8YOXntFgFhz64bFkyyCe82Ce/nJCyTjxXlIbJ5CdkPJAwxp+Dma8DMnsvokCDpQ2kNL3n2CpTRvHRbbhmjrQ96gZ+w3332AnZcZ3W+4VTjv6RVJlyi5WR1OX0Yk6PbwqrzQMSF5VsELb1xcP374h3yWPwZKivmC2qK/vK/c6v+e125e2Wq+ZffJ3bdnSLtvNYlLl1HvbagqzPee7t9MrPkykeWxL/LoqhNLPhvIpzKNFYFli1TkMJkzaVyynzX9voVJ4AQJXCCZxiSDtCu6kE8QRKcrP+oiwtIZVzRNCeh1fKTtp4UJinff2dwBNsoptHypWHmrSeoxr6/tv8px+3SIUcuh5nVBrp1g5QBvPgcEcTKHCx5oNVYwBxQjNeC2uMugF6OPYnGXVjaoliweE1Br5XQhRIV/7uh4+g7JXT9CP7Wvs3n6LvNHwkXhncNHza3m5sNHKBXezWVAx7W0/rvr2Nh0K944iA/Hdjda+zBaO+9Ga38hWjuT4PksgEowygBOTZ+T9cF4ptICUjQWoay4VKMxnW4UBPOP5s3X9hye0WLuOyZ3m9PP38wdFc5OnvQCDVs6MucwHamklPw9yRShjvx5HZXgAMrYADQYgFaA/TAWxguEIDZnBI8dk7iigVsR3pqzp/US7QNqk1mTU4ndR3fm5ZZDy96ZWR2/nwJz7+7Ornpm7++VDyhRID2gww0shgbIN0jGziKMzZpnRgApSY9dyFOSwULgdrPArXJF6nYMNTD5amDyhbiLHnvsd79hLmpHNpjhSaWXQHlGDaVACgc8A3WvyjiFUPtY2dfSHvpFwW5epGvPmzuu7Nzz0otdL4L+P29eehyy6azcTuHWqvVrv8njxVrw03GQS2OIB6vysUcteOnghO7hvEyYBUljENi/Gl7DOARnWpe1rOhQg6VYQAzyZXz+MlY4iFU8cAe1LurxD8Krqk/35ek4LLrwX8OIwSmWSSuDyMkMooytkdaeOk5nf6zp1KkZM6lw8dJr44+8ZJ6fMOGX7/3LmqfvmGZ9puXG/IfSU5rmztux78jUnVNPzhs7btKMA88dXLiQcXSUQKUpzQX72MgoklEKHo4cqsgXaiisR5aRGQ0ui0iDy3kafEBVjQ2eeaJpfu4V2bdz5613ZB+7/wrQ2zR5P8SgBI+ziKl4erEXgpCIBC1bBWI4eRDCm0IcAbdkL1A2SSt6APFW23pWtL1nlgt2cV//LHMFXS3u7J9i9nesodxOvG5BTPktK+Y5Uqwfl6E2SGwp1nGAR1LsyfFH2gvNh57Dk9/+Wb5IcYJTUaxGeh7OvN3FsxpzMpm7nIikHguGisNZqD1Ifrb7UxS5M6xAoj+l8WG10Yfp4KNm+BW5u//z617bckD8Hu/fUJglRDrOOGDTWsHi87MVLDhug2o46tKErrIZnqd8e7f9JWU1jbB4wuaIQYv6cO1QSVFfz5hf/OnT7HIELhf3GnZ/H4y55/X2d5K8l+KH84FewwXnnb094775l0tcRI+KMaQogClLNXyBvp7eZe+PhWsu0EaXQKH6ysDvu81oMt4pSLi8xFMUKL7bZ6bjVULzF3z+gLUy4APrTGCOkhKI3kqIhaGUPwQl0MhG9mZkKfZxWeUmxoQ9M3xBX2ntWmN9ukgZPWnPKwd314YrqrYdBKDw+Po/HI/v2CxIub+cmDdLKBKeBxg3cUP77q/lDoJ+G0C/m1kMumhFcbvDlc/1GVFWmF9wBIeuSLBwc3GflK1gOhDseLgFRq793XdQZz3HPvO7DHszcvPvNjNNEbWLEtmP88iuC3AgOPy191yWCpdFOBDteJnfzwWBr8vmUqDodeLvDPwe0Pq3pUkXlWzM42jhnUUnAZLi/8eQVjpizjxKP0GnvmbOpMdOmd83nxP6hZ7cSSGRm9JvCstzq+/OmT2gHztZwruHbH6C90lMMQ62yAY7hk4u+NEfXnrRcj1Jt/fKBg31IdPX89DwS7M4SybXyYh8qGA3BCe4kgjTJSPIdsbtMR5s4EojHDNFMH6cfp2uOGZGYJLkyoXL/asgEybuiVOOPBbHBgJD4YbACyasinB0I7LnDTY6ATyc9hpKEJ5vw+lK2XSlgmIb0E9toFHkBKPBeWKkv1883X9VHLZeatu1/vbKXYTSbeYBcS+Lj/WkUKohvWjxitYSgozMUKdsY3WhFRapVaDRbYJq7qIzzQPKrU236jd/qDeMqwJ1wULd5J7e8JG6D/aGKe8Nix/uDUPIiZ3KCIvZIhcYexTGXp8fOyPTcWmVLYHR3VoSiL6doSy0Uxy7mB+7DAOHYi1KozDuXbjcbp/8xqY+Bce+UKiWZsuHiEIeya+l4G0O5hyj/3NxQf1iryGHISb14poFuY5DR06B5mldDJAOupDunkcv7TCfNV8XqsVt/XOFizlwS3rnhnlAOn8HV4uVE11MZAnjAa2XvKLgPjZQtSq9fTu4/7tsDcAO6ZxYq0RB9iEAChKFBj6zGBLgrvyiRtaZwaKJNqRC4WCshu44P6Nl2UuKO9i9tHQN8hSQwwRpNikmg8nTJKPhDMFyGtcRPibVZlwC7/ZkhWjI5WGLBdhKq+qBfYoKyrTL8XZW4wSmljBq8k0LuyON1GJGCbkQqjH+hRjRUuxw+ZGCMRSBwzaXpjt4A6cRl0Plm61aLB7z0hi2cBBfjqE2xaa0U/P4e5sz447uv/j4vFXV9qbdK3buf/Xnm6fP2HH4082g/Cmq7bHrzR2tM1p6c+qW2VN/uDXTPH39F2z2hhTit+0g+0QlAHXSIJiDPHoW5dvlVMJYKvC2HtUrmLwBViti4YQSBlQklBixhO28gB8bjgquNUL0aS9CDFRWrPmyCqB5mffEWdmaslozAhKmNuxEsSZzlbK9225/8vTxry5+8+dvLHZX10+avImq5jtb25WA+Z3Wb+/ctMW8ab5nnnxxjRC/8rlWuotuf5XHOey1gueSIHJgvjwfIgnEQp+hPPo0wugYHh8rx3SHBrVhEY5Y4pSTReciGmO0BifA9q5fT21659gNy8y19PHOH7S/bprPrBUqaHjThtHb0+YXzAVjO8esX88xPdT2UoLptRJ7o27Uq4pDCuFSM9SriOOquEswol65NnV70qJqsm5enroTjGQsCaB2RS+O1Y1EDDEqQqBboshej8VE+0CtqRpWpMVjSpwt8kCKsZFBzcqON39+Yonb3b2h1L74DVDyq9S35dEJEijZvCHEqJsmOldGabbv+obddNMWajfnzJhxdOiV2a2Uy7Ua5JoMOvbDbJlLuEjI6TFpwjBHAg4VWafAXdIR66YAq5uCuPaXU5BG0IFsE1JKNs3weNFPXEicetEguietB3y8WaESdJRyGvUxUzCJogAcV1Pv73/zrbb+Ww76qaM/3PP6exs2HhLGmDfM60I5ddLG9o7zi8yOKZ1T6Kbn6bdoPfeRbZBnZioVJIw4Hyd5RoORZwO8F0GSYAKLBcoIcAE1b0NRihN6CJdFYVdeV5OZYAhjatAPcDkUxLchhMsR9Cu3xisCmzWNG6qtVoANF4EoIAkD09vomJkzTq1oG/rknOXDanG9VLd46CvR1sMtLbF15TRVv3h+R/848RBhnPU8MyDNA70PIUmSJr8hmWoCw67li5mLUIQ0J6u0ZMZjHWIgrR9U7QFz1INlGorxbbbBil6jcKGXkcrjoaHwJqUyUhvDZ5ItHceFtvgupRqNnDTsGhZotNdiX9oYDWdSQ1mNrpcxWrDR111U7Kmorm3AOmeYBnUOMeprwWljZCg67SANP1zsMySojvQG9kdpn+FrRHQYHtGITROsh3B5YjgatFmt/bgSDIymGAOxk4st7EpW4NX4IRI2jJDm3Whd3dKQoqePzBhLv/HTCXTBkwcaK+b+4JW9s2fljv/2qUV7aRFdM2fzgTc/e/miObbnN6MSTyz6VGzG9HndRwKLSmes2DG7VWmcOn3qlHVm+7S/e37fxRljqHDm8ps3KPpMJ64lgrmskb+zeElnisdGm8DpjDyTrXEeDQC2y6p1sFmgEVYzQFw3ZBs6uhfzgSSnrWCIsbAyQmOaGoOXzm67c/4f6Orud8wTEPKSz+42F+ZSwmEqmU/ljuIcPALjSSlewEoq+dq9zKU9mZGFu8ylmsi6ZeJDc2sM/sLsg0Gjv9oc4LqCLc9ewm8JsY3aNVxweWuzHt5C9lmr9RltJVFrCZZFcGpykIxIBgNK7AidYf6ZHqatufOnHxm6PCDWBpf3PxZYLg+98lR6FOsFmAGxRcHVjUEyh2SKCAd2uoa+RzAm4rDtfOax9za2GgAUi5OTiRBixaqLhxMIjn42Rt2fyPhdbA0XrmsK8+KS9/fZKPnCYxhpoH3V9qXjJpizhJmLFv57Zxu9edo8GU+P/oKUDi6//Uh2TiuNKe9euYI2Pws6XsPWY36XZFyM1XCmBlg93wzzcot7+R4HO99zAfWjE+eRiw/QlcD2PKrT6pX96t0zb/JqzKXq7l5rwZvhcCONir9ZV7LgJcSwuQo8R0oTUwVK9WxWldrpmt+ZPsF52mxZqQRyI82LW2iHWZ1bT99vNmeiLAdAllqQxUGaP+wtUsFbWFfi/+4jrDtxP184AE7wHjrB8oB0M/iNW8sZzQ3PmwXPXwyxK0a+ne+1laIuQY0ZBYOsK4WJUA8lGc8C+C3Gwg4u+kWMEVOxKM6W8lhUyljCrMqOGAUTExjdDEHIkBSIK6U+w2Fn69gYG1YBeuwSoVLNo48wwx4cgISRe4WIA4EZABbMwCp4ndVW6py4eme9MnXtynSa7igtHTMjHv/BiuYmqWnj7u7uWTPP44zc0JimzdOO5nbg5Ox8ByanFStAVhWZPGLxEwVJEZCwqcgbivkdMqqKpRcjaHHCqZY8Ti4PIBX0BFFK3x3+gHCxobQQLnB09wQLgSyGfD0DxuOBeZfnX9V8vg7cRUXox+DEPot/DeMCdy8bBjEC2NtUrLWjkI0JEjYWsqjEn8XUe/UcDXes+c/zHWsO0EaoTc2fm8eFOLXThHnsDjFvbtlKX9hOBXMW3Uk7EXdCPpvIcEQF4ghPAXIWVFXG6jDcoYPj87NZn1eYn6NODLBRXOUKCstIRaqFOhVPAXVKziJV5Mgob/c85gwFI/Qu6rRtB0S08FQedrot1LmlXTADysiNuwuoc2XUrJX8FvDUWTzuAFkSTJZKXJVZgHkYJwowDybXB5AeVtslSQaPHGphiwZHes4BSM+GcKiA9DxeeSDSa+SLYe+P9E4uspdu6Ha7PwLp7d7Y9wt6eujKDyM9Su3YPwWZfPn+KbeMveDEnBP3FZwYyXDDJ7A4xT0WSkJW6VAN0NDw+igzgAWEsL1s06h9Y8g+pWX6qqXL6pd96aUZM6jUdGxJQ2rYrmGzZmZyOjz3uFWbRVGzlQVetuC9VQndfcYIgQ5DnMwpB5+IIS2O3QMH8rI/Fu1FaiCCkKTcl9F8JZyYrcxvDeqiDl+5RczmNwZVNo5gvGwckFslG28wEAqHWP8+phw//CPqo3OMa2NG04WLaMfeh/e3X/9S9o2PT7p29mb9rpYdjS3jWz4+eW771KlNmyavTn9q3JQpk7+y+YcWh7kGZZIXgr/8jwEIWrYSoIVD7QyH4j5CyhazUsnBISnrXPnuNo99+cX5uieZ8bF2pA/bkeBTIt/lJyYY8hZ9Vj8lj7Pt6FgMoPp5rznAuv1xiCprqOuTj9Nus6l3zjMdi83N4qHZ9bTCPN+RW3U4+HSU0hnCCiZLJ8gyTGqCvP6ZgVWObE1liH55bGSRwLjO/0PFDaIku8hH5ebuTnEVK9YFFlOc4v1OVtRUdnZf37EBahjngt+by+gK4URujNm//7Qw6nY31C04rmbw32UwLhfq2JXHbOjCxO6w+MA80ffT+LVPF6hWwaJaI4yFcUX6ekafsy7b63RnHe4IdOD2HiekfEcfMQQb9vsIFdgevHu5T+oqsMX+EHh/KbIhzQduTFcV+2f/9KrZelVqyn3t0twGqgrfvd1N6J1+GPdJGHeEJvl64YzPX8y4YnQPaneo2uBwChv62LNnXcrJf370Q6MvYaOPlPT1jF337gpr9LgSzwiV9sl6cW/Poa+8+ww7j0RxsNdwlsF5R2/P2Myf4+y8Wqf76jA1aWyZtGoU2ft0We2yyUhmWn/uwl2NgaAfzlgPcunFale4GPc0wSfvEpsZOIcv8OGB3LJDkG1OtotpALPsB23KqM4i8FQ/39J4/32MyC9HECa50VFEruVGf+FVjLko/i/tmBP3KdHY6kNttcVKecW87ZcOr5qoPNL+Khjg0tnM4ZeECbmDB/Zc2i1U3O4WptMmk8efVrDHAvQjQH73csvCB7llnG4P4+S1oB++FwsddTxSVNbp4iE/wRoTlgum/vm3DkYx//Irv42wN9aZj+KaB16+D9dcuJznmmHOscu2D112Fi7DzZ1487+RgG6l282lb9AqGnvDXEK//yvzF+YxISWEzXl0a+5a7gTNmlNYjGiG/IhzMUz+jWS8xOpu3jMZixNYO7PJeObq9wruHEby2cfJ59H/69pc3tpATw7BFT4Ne3FnrC1kRxWE7V1hfJeB4wFelgUMazkYHe+wpuoAj+OO5PdyPogC7NLS+RYPcyOqsDIU1xCPHEebD1Cl2aYEJsEMrp7U8pnvz24a84nWBbWjwJeeOv4PC3pgLsczf9+irXc3z7XW6nSDHwVABw7yaQuD23jtzsK+YNGdd1nu5MP/c8Y9LHf538Zydwsbc2vF2twy4XsrxIkdz/Wf7OBrXcwDbK1LKfkCySjWAn09nECgYq2mZW3myBlkMX0YoCGbRFg2CfOlLhGWaSIUSoByLAEIzGdDi7AMb3iLEKnkJ6K/obJBU6uDCmb5gC0YCmrY1gwOjtARl2gz7d7Q0EivXXuoYYPZRK+/8Cr9JK1QNkmx6mYzezLujp80f9xcHZM2K7SCTn0Vxi+UmgFBhxpGJNWEVWEMG0r57Vpxvl1rwBZByBVC6SYzYCfvo/yXQf7rIH8E5feKHMXoEcaVQ0JFj2SrpMQzuiPJ+rxqMhNmW5TDSPKIYbbqJMLSLIZegMWsPguD3H7AnFDY6x4oPFRGZWCyGtHYUBPXRtTEGiS/FpCDlUFNlS+vXfzWNfrUM7Sb0mZzn/nxfVOn0U8wmemUaVM3KeYls+sAfeFVM2NesvYGbhGapJQ4E3JsirC1Tyk0Xpdqc9s55e9IYpLlC+dUN2OfDNFm0d7+hpFhLHTy5Fm8asucTfOeWzl5wbI5m+etXz1xgdC040k6rpEu4y93uVS2t6ONrydk68o4/sOtHX5v0OZhExnKti570GavZSTZ3aUcQbbjMhvgNRwglQDjyQIa58mMQJANlBhev4bAi61FdDMMb2P8mYhkEaPBrd3ZSMdWoxi2YKxh8F6a6diep2O3/OtyvcOcKlyl7zTt3Smkt6fNOeYCOubF0eLPfzUR5FkK869FPkbK8owJW2lNkxl3fuuUrBC3p1YPpLIyB2FYjpYzj7Al2a4VfzJTzDyiuAyL4eIQ+kUx8wsk/waBUMUiW4ZNDE1hG4cQzXhZlTwy3hBrSOFm6EYOgIMIuYIBWzS49Bj92c+eXPDyoe9NWLfyIl1mtn9XuL61/u3THXTirnlz6bRnJ980z3WcOvqJXcw2U0GWFeDLIXLMWts0oJ+XVTUvZct2syqXw5XM+kPsnJzK+vk5XNIWTujeM7i3woMrMJIZj5dtDrMWtnk9eORVcXt+EtfjsHVD2y7/24ewho9hjZCvryfdeLmZXRbrdLkOk59U3seWzcuqIZT3EYhm1Fo2H6q7Z6E87xGmgqgTZEchnMG/1NRe2kJnvma23TB/TevMX2fMU3SYeeot3j/MkY7tHeYtqsALRAYFfPYo+KyLFJM6qMRZtYtaQBSN7psN8x3zD8adooftsEeKtCzKjsqsGJxgX6Xh5tAZ/Bh8NVvNqYdqFasc68szjOFg72oAH3oYq4iXVTFUNqhi6ANsQ0r8QWzr2B5Is40qP/YHIu4KXCuul/kyVBnE9mP5VIKrcnAtU6VobcRU4zWVxD+CF0lISoTVRubxVTUKHU8raenOHTt2mlfMy2dWtv353bZVq9rMctNcfeFgW9uYBf+wfNwEenvOki8vOvLvdLWwl249fiw3+dhxKvzJPLV3z559Qsu+PeZu8+zJm2PbGmjLjI3mATpsVT29+d/cVyvdo/vBZBj5r4/WflUN03cVz39wBH5WBYHVqIwmk9nSYexqqWWNuvtYY7BljaQ+WMVNQdlyfiKK2KqSb9YfYKeEtaCo4qKfOWdU1at6vXqlqlf0Er2ijhoVVRblNtgy5xDNUMV02iiPwnEI7FmlMnv60Z41Gq7uHuYzAkOQbNIgI/91c2qpSjFg88dEtjaJbQaN/TVrXnuLTqIv/jHzxuzJe4bWfuaxv2LKXFhcYf7lpUkAwFrNTnp5bVN5Bf1Qf5QkcDf9gP6oXOiPGjInp5lFRzamwNXojlnN5598STpX2rYvuHsN+W/vuf7/9LdkPz0pBdjfhj/0t3JhYdN+cRb//J1b8PlTf/XzInxekc5ZYzsoHhLdbF/gA7xPjju9HNbOdq7l/M52pmWBaXmkPyXYYvRg+uvfn1B1Xjx7jirm9Uvkvvcjd+/3kTvlR/Kd8gfHDDnvbVguHjL/EnrDvIG81DW43yV2Pw9p4nfEtMAHqbshBXgHjBNjNHLYbv6UorujRgZKhFSGfAoqjUtQzV+ucTnoC/fKE8qL9dHj4MKxVOQdIB+ucALHxAoqPw5LWmwM2tK6C7f6sXEwyaP85RqXn7rv1UNeG6jf5fSK2Cy+Cxi8juBXH/HvISh8HYEzDyYdHEzCS+GLIio11oiqgXucHf/IE4u+IVwH+W6tnDDxO7w/N/XOZamN3GL703A9OfqPZId0zLcBGrIDYptwd8ve3W9rskpEa0+grSB8RMrvPAipycK/qeYL5ja+NTD/wzBBK8TfBRB/HyDPkcwQxDex/O5iFcANoUNcAAAGpayVFXplEvyAnQvlvxMJ8jzVaxHwGGXKtUwZgzpllQh1yhjUKctDHV1Osm9DKRPxW14eQDotNgRMVJPWiaZXpw1V4VyOK88wpeKNgH58BfADdQHk+YBSLgTC8MYn8y672LpREDZ2Dl2z9reHnvnU8qWrv9haTXVzgiDQleb6Jhpfs3LF982Jn6c3O+JLO6iybh2d9VzT3NZXOxRNiYwp93aYW+moHaMFJ/odEa5I29j6mAj5tbW6x+lOMR34UfOFL8FQQEi7NxAcHE6yKkBhkwK/Yui+yyKtr/rIRji2jbAVwbgxD7eiWbTM6zV/Yt9qoAdZtWq4KqCAc/b2jHnxnZfZeXed4XTZdVev1/BXwrUALqFy+REX0W6ny428x4DF4xE7S018o58P/V+DYIT70aHUKbW+EwFSjBgLa/RSpo3OfmXNpq42p3vr3OfcTrnpy1/OvSB8EX5O5t4SQrkEbWlanTsvVGfNdeg/8J80RZoC/ku0qBaVptzO4g/z7XrWP6oAvDkIovBLvB7QK1KMhtUrC6CSJHnP3JVgO8YUVY8gFTLIat/FEnqQtdCR/y4q1AM+UG2Q7UQJomoDfClNOGlUKdeyJbxvNhicrSKAXQjs61Rp+iBwOdXPKhzDNQguOEpwAU2ELaBBh2tsGDGw5c537rNuJcxjEYrD+sPPZ1u/mGgeMzMavXmzW5hzuiL6wGdfFg99YmLrQaN6LfxNw0Legafjrjw1qqz8NpGabneDX6E+Spk+2K5+po1wKlOMVamSYmQuauYDamFrPP82BWD3pcT6Bo9wXuyCwHx9kF78V0Wl9xHxq/eVrn+cEui7jvNlAsg1FOSqh3dZkhmOUSRem0plkmjV6lS2jgE4gwxNWpYuS+SFHMVILwu0PZrQh7PvkElwYAYfH55AAYejgAn2VUp6Kpmt5ZcHJ/VaDuTivKk3EeR+MAFyu0aBuWs1o2gkvA7x6WVpPa4ZxWHUxijcklkM5i+DDxaF03ldQIzhXQZcnst2uiKU5jEH/7HyIv+vMcVXHOSvBifMDYRj1aMbJ6djiYraYQ1jR8fro0N9dRVDqstLfarTTunCncdfOrFz54nicm+5Gg+V+rwup3j8kbHNTz46ZXA86HN6XVGnm7q87lV2t93tjoTr4hPn3+4Wj/c38J+2eYun2gXJ6Y74RiTGkA/q/lVL9+GC7uP30f2ohKVvfRDq3v//pvuaZKb2QbxcOxQugxmg0suG/4oZjHAx6D0IBhg0Ct5EmDtCoev3GcHQRxsB4xNoeYAZuJ/+bUZojK/aGXBIASlvhGee+ZtM0HddXisJeRO0fZT+/w9G5T/9AHjaY2BkYGAAYq9fegnx/DZfGeQ5GEDgpMXyazD6/4d/Iiy32RSBXA4GJpAoAFH6DKgAAAB42mNgZGBgz/0nw8DApvD/w/+PLLcZgCIooA0Am1UG+3jaRdGhS4NBGMfx594dQwz+AzJ0SQwGg5gsy2IQMRlM1iEiBjGIjDFEDBYZL0OWRAwmERmCgskXDAYxikFsBpMI83t3vynjw++523vPvfeeL+zWF2bZmVlIX7h3VKincJnmbI65T0xgknEDx9RX6Vn3yPgJR3hFB3tpnZ2jjUPkqY57tFOPP6cYQxVN7Cpf8IVNjUP/lvb7wLrml3ChvMYB1rCjnhlmVDPv8tTDhXHdF/1wvq56dfTeLZ01V68T3OuZZ/SwovkNrWONGyIfsK//Fun/Q66mOn5XzpGNkm86v2nPLSygrHsI2S2NmJXHzQaZDZu5Jnxid+QsuRzvsPLPuKP+N/VNEr8Z3HbYJ6wJffRu5udjPc2vZrVf96Gk0HjaY2BgMIHCKoYNjH1MMkxXmJcwH2H+wqLCEsAyiWUXyw2Wf6xGrC2sZ9gs2FawC7DXsX/iEOOYxMnCacKZxbmF8xqXHFcHdwz3LR4Xnj6eM7wcvHa8y3jv8cnxBfAt4zvDb8c/gf+egJJAg8ATwQDBBsEdQkJCh4SDhJcIPxDhEbETyRJZILJH5JFogugxMR6xCrEb4ibinySsJKZIvJEMkpwkxSEVIDVHmkk6R3qDjJRMg8wZWQ3ZD3KT5EXkQ+S3yF9RMFLIAcIrilaKx5TSlFqUfZRLcMBJyhuUzyk/U/6noqbipzJJ5Zoqi6oLGJ5TS1ErUvulnqahovEEALm5Tl4AAAEAAACJAEMABQAAAAAAAgABAAIAFgAAAQABTQAAAAB42oWQPU7DQBCFn0lA0FBSUKA5AIoIBRyACCoagug3EOxIkRdMIgQH4AScgI6bUHIgCr4dr6OIBlljvTc/782OpG3dq6eivyOpIlpc6ADW4g3t6i3jHvg9474G+sh4U4f6znhL+/rJ+Et1saeRZiqJBfGqqe5kRIAH0K2iHvSixrsqsqZP4lhHfCcomy7oiVTnTJvOwA0z6R9cNapmmxE8wpL+mEqtJ9ClV6OumC21RCPQ9wyb8PZUW/wzaX9mb2ANHa2vaYh32tVQXJKdu86QzOmacqfbqV7z1pn7dFsYWwXPlDjU7pLe115swo0MVvkNzlczYz26a8M3xTtda306XWnwCztSTVV42m3Ox05CYRCG4XeQIoiiooK993bOodtBwd5710RRN5pouAONsW29CXfWy1P0/Eu/ZPJkZjH5sPCX7zRp/stddgQLOVixYcdBLk5c5OEmnwI8FFJEMV5KKKUMH37KqaCSKqqpoZY66mmgkSaaaaGVNtrpoJMuuumhFw0dgwBBQoSJECVGH/0MMMgQw4wQJ8EoYyRJMc4Ek0wxzQyzzDHPAossscwKq6yxzgabbLHNDrvssc8Bh2LhmhueeZAc7nkSq9jELg7JFae4JE/cki8F4pFCKeKVNz754p0PbnmRYvFKCY9SKmXiE7+UOzLnZ5oW15Rjvxqapil1paEMKIPKkDKsjCijypgybqqrv7ruSp+dZC6Pjw6vTs2TkTINpazJzOXF75JUPVIJs0dWQxlQBn8A5AVUcgC4Af+FsAGNAEuwCFBYsQEBjlmxRgYrWCGwEFlLsBRSWCGwgFkdsAYrXFgAsAUgRbADK0QBsAYgRbADK0RZsBQr") format("woff");font-weight:normal;font-style:normal}
-html{height:100%}
-body{padding:0;margin:0;font:18px/1.4em "Minion Pro",Times,"Times New Roman",serif;font-size-adjust:none;font-style:normal;font-variant:normal;font-weight:normal}
-h1,h2,h3,h4,#header,#nav,#loader{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
-a{color:#369}
-#header{border-bottom:1px solid #ccc;}
-#header #logo{color:#333;font-size:18px;font-weight:bold;padding:10px 15px;line-height:1.2em;text-decoration:none}
-#nav{position:fixed;top:0;left:0;width:250px;height:100%;background:#f9f9f9;background:rgba(0,0,0,0.10);border-right:1px solid rgba(0,0,0,0.20);-webkit-box-shadow:rgba(0,0,0,0.10) -1px 0 3px 0 inset;-moz-box-shadow:rgba(0,0,0,0.10) -1px 0 3px 0 inset;box-shadow:rgba(0,0,0,0.10) -1px 0 3px 0 inset;text-shadow:rgba(255,255,255,0.70) 0 1px 0;overflow-x:hidden;overflow-y:auto;}
-#nav a{display:block;font-weight:bold;text-decoration:none}
-#nav #sections{margin-bottom:5px;border-bottom:1px solid #ccc;background:#f1f1f1;-webkit-box-shadow:rgba(0,0,0,0.15) 0 0 5px;-moz-box-shadow:rgba(0,0,0,0.15) 0 0 5px;box-shadow:rgba(0,0,0,0.15) 0 0 5px;}
-#nav #sections > li{border-bottom:1px solid rgba(0,0,0,0.05);border-top:1px solid rgba(255,255,255,0.50);}
-#nav #sections > li > a{padding:5px 15px;color:#555;font-size:14px;}
-#nav #sections > li > a:hover{background:#ddd;background:rgba(0,0,0,0.05)}
-#nav #sections > li:last-child{border-bottom:1px solid rgba(255,255,255,0.50)}
-#nav #sections ul{margin-bottom:6px;}
-#nav #sections ul li a{padding:1px 25px;font-size:13px;}
-#nav #sections ul li a:hover{background:#ddd;background:rgba(0,0,0,0.05)}
-#nav .extra{padding:5px 15px;min-height:1.4em;}
-#nav .extra a{color:#555;font-size:14px}
-#nav #travis img{margin-top:10px;display:block}
-#github-ribbon{position:absolute;top:0;right:0;}
-#github-ribbon img{border:0}
-#refresh{z-index:3;position:fixed;display:block;top:0;left:50%;width:320px;margin-left:-160px;font-family:"Helvetica Neue","Helvetica",arial,sans-serif;line-height:1.4em;padding:10px;color:#fff;text-shadow:rgba(0,0,0,0.30) 0 1px 1px;font-weight:bold;font-size:13px;text-decoration:none;text-align:center;background:#666;-moz-border-radius-bottomleft:5px;-webkit-border-bottom-left-radius:5px;border-bottom-left-radius:5px;-moz-border-radius-bottomright:5px;-webkit-border-bottom-right-radius:5px;border-bottom-right-radius:5px;}
-#content{margin:0 40px 0 290px;padding:30px 0 20px;min-height:100px;max-width:688px;}
-#content #loader{color:#888;width:300px;height:24px;line-height:24px;position:absolute;top:30px;left:30px;background:url("data:image/gif;base64,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") no-repeat center left;padding-left:32px;font-size:18px}
-#content p{padding:0 0 .8125em 0;color:#111;font-weight:300;zoom:1}
-#content p:before,#content p:after{content:"";display:table}
-#content p:after{clear:both}
-#content p img{float:left;margin:.5em .8125em .8125em 0;padding:0}
-#content img{max-width:100%}
-#content h1,#content h2,#content h3,#content h4,#content h5,#content h6{font-weight:normal;color:#333;line-height:1.2em}
-#content h1{font-size:2.125em;margin-bottom:.765em}
-#content h2{font-size:1.7em;margin:.855em 0}
-#content h3{font-size:1.3em;margin:.956em 0}
-#content h4{font-size:1.1em;margin:1.161em 0}
-#content h5,#content h6{font-size:1em;font-weight:bold;margin:1.238em 0}
-#content ul{list-style-position:outside}
-#content li ul,#content li ol{margin:0 1.625em}
-#content ul,#content ol{margin:0 0 1.625em 1em}
-#content dl{margin:0 0 1.625em 0}
-#content dl dt{font-weight:bold}
-#content dl dd{margin-left:1.625em}
-#content a{text-decoration:none}
-#content a:hover{text-decoration:underline}
-#content table{margin-bottom:1.625em;border-collapse:collapse}
-#content th{font-weight:bold}
-#content tr,#content th,#content td{margin:0;padding:0 1.625em 0 1em;height:26px}
-#content tfoot{font-style:italic}
-#content caption{text-align:center;font-family:Georgia,serif}
-#content abbr,#content acronym{border-bottom:1px dotted #000}
-#content address{margin-top:1.625em;font-style:italic}
-#content del{color:#000}
-#content blockquote{padding:1em 1em 1.625em 1em;font-family:georgia,serif;font-style:italic}
-#content blockquote:before{content:"\201C";font-size:3em;margin-left:-.625em;font-family:georgia,serif;color:#aaa;line-height:0}
-#content blockquote > p{padding:0;margin:0}
-#content strong{font-weight:bold}
-#content em,#content dfn{font-style:italic}
-#content dfn{font-weight:bold}
-#content pre,#content code{margin:0 0 1.625em;white-space:pre}
-#content pre,#content code,#content tt{font:.8em "Droid Sans Mono",Monaco,monospace;line-height:1.5}
-#content code{background:#f8f8ff;padding:1px 2px;border:1px solid #ddd;word-wrap:break-word}
-#content pre code{padding:10px 12px;word-wrap:normal}
-#content tt{display:block;margin:1.625em 0}
-#content hr{margin-bottom:1.625em}
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5), only screen and (max-width : 480px){#nav{position:static;width:100%;height:auto;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;border-bottom:1px solid #aaa}
-#content{margin:0;padding:30px;position:relative}
-#github-ribbon img{width:100px}
-}
-      </style>
-    
+    <link rel="stylesheet" type="text/css" href="http://documentup.com/stylesheets/screen.css">
     
     
 
-    
-      <!-- Google Analytics -->
-      <script type="text/javascript">
-
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-5201171-14']);
-        _gaq.push(['_trackPageview']);
-
-        (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-
-      </script>
     
   </head>
   <body><div id="nav">
@@ -152,7 +38,7 @@ a{color:#369}
               </li>
             
               <li>
-                <a href="#usage/browsers-ie-chrome-safari-firefox">Browsers (IE/Chrome/Safari/Firefox)</a>
+                <a href="#usage/browsers">Browsers</a>
               </li>
             
               <li>
@@ -169,7 +55,15 @@ a{color:#369}
           <ul>
             
               <li>
-                <a href="#methods/cloberprototype">+ cloberPrototype()</a>
+                <a href="#methods/camelize">- camelize()</a>
+              </li>
+            
+              <li>
+                <a href="#methods/capitalize">- capitalize()</a>
+              </li>
+            
+              <li>
+                <a href="#methods/clobberprototype">+ clobberPrototype()</a>
               </li>
             
               <li>
@@ -177,11 +71,19 @@ a{color:#369}
               </li>
             
               <li>
-                <a href="#methods/contains-substring-aliases-include-includes">- contains(substring) Aliases: include/includes</a>
+                <a href="#methods/contains-ss">- contains(ss)</a>
               </li>
             
               <li>
-                <a href="#methods/endswith-substring">- endsWith(substring)</a>
+                <a href="#methods/dasherize">- dasherize()</a>
+              </li>
+            
+              <li>
+                <a href="#methods/endswith-ss">- endsWith(ss)</a>
+              </li>
+            
+              <li>
+                <a href="#methods/include-ss">- include(ss)</a>
               </li>
             
               <li>
@@ -197,7 +99,15 @@ a{color:#369}
               </li>
             
               <li>
+                <a href="#methods/islower">- isLower()</a>
+              </li>
+            
+              <li>
                 <a href="#methods/isnumeric">- isNumeric()</a>
+              </li>
+            
+              <li>
+                <a href="#methods/isupper">- isUpper()</a>
               </li>
             
               <li>
@@ -205,11 +115,15 @@ a{color:#369}
               </li>
             
               <li>
-                <a href="#methods/left-n">- left(N)</a>
+                <a href="#methods/left-n">- left(n)</a>
               </li>
             
               <li>
-                <a href="#methods/replaceall-substring-replacement">- replaceAll(substring, replacement)</a>
+                <a href="#methods/repeat-n">- repeat(n)</a>
+              </li>
+            
+              <li>
+                <a href="#methods/replaceall-ss-newstr">- replaceAll(ss, newstr)</a>
               </li>
             
               <li>
@@ -217,7 +131,15 @@ a{color:#369}
               </li>
             
               <li>
-                <a href="#methods/right-n">- right(N)</a>
+                <a href="#methods/right-n">- right(n)</a>
+              </li>
+            
+              <li>
+                <a href="#methods/rtrim">- rtrim()</a>
+              </li>
+            
+              <li>
+                <a href="#methods/s">- s</a>
               </li>
             
               <li>
@@ -225,7 +147,19 @@ a{color:#369}
               </li>
             
               <li>
+                <a href="#methods/times-n">- times(n)</a>
+              </li>
+            
+              <li>
                 <a href="#methods/trim">- trim()</a>
+              </li>
+            
+              <li>
+                <a href="#methods/tostring">- toString()</a>
+              </li>
+            
+              <li>
+                <a href="#methods/underscore">- underscore()</a>
               </li>
             
           </ul>
@@ -273,33 +207,38 @@ a{color:#369}
     <a href="http://github.com/jprichardson/string.js" id="github-ribbon"><img src="https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
   
   <h1><a href="http://stringjs.com">string.js</a></h1>
-<p><code>string.js</code>, simply <code>S</code> is a lightweight (&lt; 2k Gzipped) JavaScript library for the browser or for Node.js that provides extra String methods. Originally, it would modify your String prototype. But I quickly learned that in JavaScript this is considered bad practice.
+<p><code>string.js</code>, or simply <code>S</code> is a lightweight (&lt; 2k Gzipped) JavaScript library for the browser or for Node.js that provides extra String methods. Originally, it modified the String prototype. But I quickly learned that in JavaScript, this is considered poor practice.
 
 
 
 </p>
 <h2 id='motivation'>Motivation</h2 id='motivation'>
-<p>Personally, I prefer the cleanliness of the way code looks when you modify native Javascript prototypes. However, if any app dependency required <code>string.js</code> then the app&apos;s string prototype would modified as well. This could be troublesome.
+<p>Personally, I prefer the cleanliness of the way code looks when it appears to be native methods. i.e. when you modify native Javascript prototypes. However, if any app dependency required <code>string.js</code>, then the app&apos;s string prototype in every module would be modified as well. This could be troublesome. So I settled on creating a wrapper a la jQuery style. For those of you prototype hatin&apos; fools, such as myself, there is the method <code>clobberPrototype()</code>.
 
 </p>
 <p>Here&apos;s a list of alternative frameworks:
 
 </p>
-<ul><li><a href="http://prototypejs.org/api/string">Prototype Framework&apos;s String library</a></li><li><a href="http://www.uize.com/reference/Uize.String.html">Uize.String</a></li><li><a href="http://closure-library.googlecode.com/svn/docs/namespace_goog_string.html">Google Closure&apos;s String</a></li><li><a href="http://epeli.github.com/underscore.string/">Underscore.string</a> </li></ul>
-<p>Why wasn&apos;t I happy with any of them? They are all static methods that don&apos;t seem to support chaining in a clean way. 
+<ul><li><a href="http://prototypejs.org/api/string">Prototype Framework&apos;s String library</a></li><li><a href="http://www.uize.com/reference/Uize.String.html">Uize.String</a></li><li><a href="http://closure-library.googlecode.com/svn/docs/namespace_goog_string.html">Google Closure&apos;s String</a></li><li><a href="http://epeli.github.com/underscore.string/">Underscore.string</a></li><li><a href="http://sugarjs.com">Sugar.js</a> </li></ul>
+<p>Why wasn&apos;t I happy with any of them? They are all static methods that don&apos;t seem to support chaining in a clean way &apos;OR&apos; they have an odd dependency. Sugar is the notable exception.
 
 
 
 </p>
 <h2 id='installation'>Installation</h2 id='installation'>
-<pre><code>npm <span class="keyword">install</span> --production <span class="keyword">string</span></code></pre>
+<p>  npm install --production string
+
+
+
+
+</p>
 <h2 id='usage'>Usage </h2 id='usage'>
 <h3 id='usage/node-js'>Node.js</h3 id='usage/node-js'>
 <pre><code class="javascript"><span class="keyword">var</span> S = require(<span class="string">'string'</span>);</code></pre>
 <p>Originally, I was using <code>$s</code> but glancing over the code, it was easy to confuse <code>$s</code> for string.js with <code>$</code> for jQuery. Feel free to use the most convenient variable for you.
 
 </p>
-<h3 id='usage/browsers-ie-chrome-safari-firefox'>Browsers (IE/Chrome/Safari/Firefox)</h3 id='usage/browsers-ie-chrome-safari-firefox'>
+<h3 id='usage/browsers'>Browsers</h3 id='usage/browsers'>
 <pre><code class="html"><span class="comment">&lt;!-- HTML5 --></span>
 <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://raw.github.com/jprichardson/string.js/master/lib/string.min.js"</span>></span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>></span>
 
@@ -323,10 +262,10 @@ type anyway --></span>
 
 </p>
 <pre><code class="javascript"><span class="keyword">var</span> name = S(<span class="string">'Your name is JP'</span>).right(<span class="number">2</span>).toString(); <span class="comment">//'JP'</span></code></pre>
-<p>Still like the clean look of calling these methods directly on native Strings? No problem. Call <code>cloberPrototype()</code>. Make sure to not call this at the module level, at it&apos;ll effect the entire application lifecycle. You should really only use this at the method level. The one exception being if your application will not be a dependency of another application.
+<p>Still like the clean look of calling these methods directly on native Strings? No problem. Call <code>clobberPrototype()</code>. Make sure to not call this at the module level, at it&apos;ll effect the entire application lifecycle. You should really only use this at the method level. The one exception being if your application will not be a dependency of another application.
 
 </p>
-<pre><code class="javascript">S.cloberPrototype();
+<pre><code class="javascript">S.clobberPrototype();
 <span class="keyword">var</span> name = <span class="string">'Your name is JP'</span>.right(<span class="number">2</span>); <span class="comment">//'JP'</span>
 S.restorePrototype(); <span class="comment">//be a good citizen and clean up</span></code></pre>
 <h2 id='methods'>Methods</h2 id='methods'>
@@ -337,14 +276,35 @@ S.restorePrototype(); <span class="comment">//be a good citizen and clean up</sp
 
 
 </p>
-<h3 id='methods/cloberprototype'>+ cloberPrototype()</h3 id='methods/cloberprototype'>
+<h3 id='methods/camelize'>- camelize()</h3 id='methods/camelize'>
+<p>Remove any underscores or dashes and convert a string into camel casing.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'data_rate'</span>).camelize().s; <span class="comment">//'dataRate'</span>
+S(<span class="string">'background-color'</span>).camelize().s; <span class="comment">//'backgroundColor'</span>
+S(<span class="string">'-moz-something'</span>).camelize().s; <span class="comment">//'mozSomething'</span>
+S(<span class="string">'_car_speed_'</span>).camelize().s; <span class="comment">//'carSpeed'</span>
+S(<span class="string">'yes_we_can'</span>).camelize().s; <span class="comment">//'yesWeCan'</span></code></pre>
+<h3 id='methods/capitalize'>- capitalize()</h3 id='methods/capitalize'>
+<p>Capitalizes the first character of a string.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'jon'</span>).capitalize().s; <span class="comment">//'Jon'</span>
+S(<span class="string">'JP'</span>).capitalize().s; <span class="comment">//'Jp'</span></code></pre>
+<h3 id='methods/clobberprototype'>+ clobberPrototype()</h3 id='methods/clobberprototype'>
 <p>Modifies <code>String.prototype</code> to have all of the methods found in string.js.
 
 </p>
 <p>Example:
 
 </p>
-<pre><code class="javascript">S.cloberPrototype();</code></pre>
+<pre><code class="javascript">S.clobberPrototype();</code></pre>
 <h3 id='methods/collapsewhitespace'>- collapseWhitespace()</h3 id='methods/collapsewhitespace'>
 <p>Converts all adjacent whitespace characters to a single space.
 
@@ -353,22 +313,47 @@ S.restorePrototype(); <span class="comment">//be a good citizen and clean up</sp
 
 </p>
 <pre><code class="javascript"><span class="keyword">var</span> str = S(<span class="string">'  String   \t libraries are   \n\n\t fun\n!  '</span>).collapseWhitespace().s; <span class="comment">//'String libraries are fun !'</span></code></pre>
-<h3 id='methods/contains-substring-aliases-include-includes'>- contains(substring) Aliases: include/includes</h3 id='methods/contains-substring-aliases-include-includes'>
-<p>Returns true if the string contains the substring.
+<h3 id='methods/contains-ss'>- contains(ss)</h3 id='methods/contains-ss'>
+<p>Returns true if the string contains <code>ss</code>.
+
+</p>
+<p>Alias: <code>include()</code>
 
 </p>
 <p>Example:
 
 </p>
 <pre><code class="javascript">S(<span class="string">'JavaScript is one of the best languages!'</span>).contains(<span class="string">'one'</span>); <span class="comment">//true</span></code></pre>
-<h3 id='methods/endswith-substring'>- endsWith(substring)</h3 id='methods/endswith-substring'>
-<p>Returns true if the string ends with the substring.
+<h3 id='methods/dasherize'>- dasherize()</h3 id='methods/dasherize'>
+<p>Returns a converted camel cased string into a string delimited by dashes.
+
+</p>
+<p>Examples:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'dataRate'</span>).dasherize().s; <span class="comment">//'data-rate'</span>
+S(<span class="string">'CarSpeed'</span>).dasherize().s; <span class="comment">//'-car-speed'</span>
+S(<span class="string">'yesWeCan'</span>).dasherize().s; <span class="comment">//'yes-we-can'</span>
+S(<span class="string">'backgroundColor'</span>).dasherize().s; <span class="comment">//'background-color'</span></code></pre>
+<h3 id='methods/endswith-ss'>- endsWith(ss)</h3 id='methods/endswith-ss'>
+<p>Returns true if the string ends with <code>ss</code>.
 
 </p>
 <p>Example:
 
 </p>
 <pre><code class="javascript">S(<span class="string">"hello jon"</span>).endsWith(<span class="string">'jon'</span>); <span class="comment">//true</span></code></pre>
+<h3 id='methods/include-ss'>- include(ss)</h3 id='methods/include-ss'>
+<p>Returns true if the string contains the <code>ss</code>.
+
+</p>
+<p>Alias: <code>contains()</code>
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'JavaScript is one of the best languages!'</span>).include(<span class="string">'one'</span>); <span class="comment">//true</span></code></pre>
 <h3 id='methods/isalpha'>- isAlpha()</h3 id='methods/isalpha'>
 <p>Return true if the string contains only letters.
 
@@ -404,6 +389,19 @@ S(<span class="string">"aaff.."</span>).isAlphaNumeric(); <span class="comment">
 <pre><code class="javascript">S(<span class="string">' '</span>).isEmpty(); <span class="comment">//true</span>
 S(<span class="string">'\t\t\t    '</span>).isEmpty(); <span class="comment">//true</span>
 S(<span class="string">'\n\n '</span>).isEmpty(); <span class="comment">//true</span></code></pre>
+<h3 id='methods/islower'>- isLower()</h3 id='methods/islower'>
+<p>Return true if the character or string is lowercase
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'a'</span>).isLower(); <span class="comment">//true</span>
+S(<span class="string">'z'</span>).isLower(); <span class="comment">//true</span>
+S(<span class="string">'B'</span>).isLower(); <span class="comment">//false</span>
+S(<span class="string">'hijp'</span>).isLower(); <span class="comment">//true</span>
+S(<span class="string">'hi jp'</span>).isLower(); <span class="comment">//false</span>
+S(<span class="string">'HelLO'</span>).isLower(); <span class="comment">//false</span></code></pre>
 <h3 id='methods/isnumeric'>- isNumeric()</h3 id='methods/isnumeric'>
 <p>Return true if the string only contains digits
 
@@ -419,17 +417,30 @@ S(<span class="string">"Infinity"</span>).isNumeric(); <span class="comment">//f
 S(<span class="string">"-Infinity"</span>).isNumeric(); <span class="comment">//false</span>
 S(<span class="string">"JP"</span>).isNumeric(); <span class="comment">//false</span>
 S(<span class="string">"-5"</span>).isNumeric(); <span class="comment">//false</span>
-S(<span class="string">"000992424242"</span>).isNumeric(); <span class="comment">//false</span></code></pre>
+S(<span class="string">"000992424242"</span>).isNumeric(); <span class="comment">//true</span></code></pre>
+<h3 id='methods/isupper'>- isUpper()</h3 id='methods/isupper'>
+<p>Returns true if the character or string is uppercase
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'a'</span>).isUpper() <span class="comment">//false</span>
+S(<span class="string">'z'</span>).isUpper()  <span class="comment">//false</span>
+S(<span class="string">'B'</span>).isUpper() <span class="comment">//true</span>
+S(<span class="string">'HIJP'</span>).isUpper() <span class="comment">//true</span>
+S(<span class="string">'HI JP'</span>).isUpper() <span class="comment">//false</span>
+S(<span class="string">'HelLO'</span>).isUpper() <span class="comment">//true</span></code></pre>
 <h3 id='methods/ltrim'>- ltrim()</h3 id='methods/ltrim'>
-<p>Return the string with leading and trailing whitespace removed
+<p>Return the string with leading and whitespace removed
 
 </p>
 <p>Example:
 
 </p>
 <pre><code class="javascript">S(<span class="string">'  How are you?'</span>).ltrim().s; <span class="comment">//'How are you?';</span></code></pre>
-<h3 id='methods/left-n'>- left(N)</h3 id='methods/left-n'>
-<p>Return the substring denoted by N positive left-most characters.
+<h3 id='methods/left-n'>- left(n)</h3 id='methods/left-n'>
+<p>Return the substring denoted by <code>n</code> positive left-most characters.
 
 </p>
 <p>Example:
@@ -438,8 +449,20 @@ S(<span class="string">"000992424242"</span>).isNumeric(); <span class="comment"
 <pre><code class="javascript">S(<span class="string">'My name is JP'</span>).left(<span class="number">2</span>).s; <span class="comment">//'My'</span>
 S(<span class="string">'Hi'</span>).left(<span class="number">0</span>).s; <span class="comment">//''</span>
 S(<span class="string">'My name is JP'</span>).left(-<span class="number">2</span>).s; <span class="comment">//'JP', same as right(2)</span></code></pre>
-<h3 id='methods/replaceall-substring-replacement'>- replaceAll(substring, replacement)</h3 id='methods/replaceall-substring-replacement'>
-<p>Return the new string with all occurrences of substring replaced with the replacement string
+<h3 id='methods/repeat-n'>- repeat(n)</h3 id='methods/repeat-n'>
+<p>Returns a string repeated <code>n</code> times.
+
+</p>
+<p>Alias: <code>times()</code>
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">' '</span>).repeat(<span class="number">5</span>).s; <span class="comment">//'     '</span>
+S(<span class="string">'*'</span>).repeat(<span class="number">3</span>).s; <span class="comment">//'***'</span></code></pre>
+<h3 id='methods/replaceall-ss-newstr'>- replaceAll(ss, newstr)</h3 id='methods/replaceall-ss-newstr'>
+<p>Return the new string with all occurrences of <code>ss</code> replaced with <code>newstr</code>.
 
 </p>
 <p>Example:
@@ -448,15 +471,15 @@ S(<span class="string">'My name is JP'</span>).left(-<span class="number">2</spa
 <pre><code class="javascript">S(<span class="string">' does IT work? '</span>).replaceAll(<span class="string">' '</span>, <span class="string">'_'</span>).s; <span class="comment">//'_does_IT_work?_'</span>
 S(<span class="string">'Yes it does!'</span>).replaceAll(<span class="string">' '</span>, <span class="string">''</span>).s; <span class="comment">//'Yesitdoes!'</span></code></pre>
 <h3 id='methods/restoreprototype'>+ restorePrototype()</h3 id='methods/restoreprototype'>
-<p>Restore the original String prototype.
+<p>Restore the original String prototype. Typically used in conjunction with <code>clobberPrototype()</code>.
 
 </p>
 <p>Example:
 
 </p>
 <pre><code class="javascript">S.restorePrototype();</code></pre>
-<h3 id='methods/right-n'>- right(N)</h3 id='methods/right-n'>
-<p>Return the substring denoted by N positive right-most characters
+<h3 id='methods/right-n'>- right(n)</h3 id='methods/right-n'>
+<p>Return the substring denoted by <code>n</code> positive right-most characters.
 
 </p>
 <p>Example:
@@ -466,8 +489,29 @@ S(<span class="string">'Yes it does!'</span>).replaceAll(<span class="string">' 
 S(<span class="string">'Does it work?  '</span>).right(<span class="number">4</span>).s; <span class="comment">//'k?  '</span>
 S(<span class="string">'Hi'</span>).right(<span class="number">0</span>).s; <span class="comment">//''</span>
 S(<span class="string">'My name is JP'</span>).right(-<span class="number">2</span>).s; <span class="comment">//'My', same as left(2)</span></code></pre>
+<h3 id='methods/rtrim'>- rtrim()</h3 id='methods/rtrim'>
+<p>Return the string with trailing whitespace removed.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'How are you?   '</span>).rtrim().s; <span class="comment">//'How are you?';</span></code></pre>
+<h3 id='methods/s'>- s</h3 id='methods/s'>
+<p>Alias: <code>toString()</code>
+
+</p>
+<p>The encapsulated native string representation of an <code>S</code> object. 
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'my name is JP.'</span>).capitalize().s; <span class="comment">//My name is JP.</span>
+<span class="keyword">var</span> a = <span class="string">"Hello "</span> + S(<span class="string">'joe!'</span>); <span class="comment">//a = "Hello joe!"</span>
+S(<span class="string">"Hello"</span>).toString() === S(<span class="string">"Hello"</span>).s; <span class="comment">//true</span></code></pre>
 <h3 id='methods/startswith-prefix'>- startsWith(prefix)</h3 id='methods/startswith-prefix'>
-<p>Return true if the string starts with the input string
+<p>Return true if the string starts with <code>prefix</code>.
 
 </p>
 <p>Example:
@@ -475,6 +519,18 @@ S(<span class="string">'My name is JP'</span>).right(-<span class="number">2</sp
 </p>
 <pre><code class="javascript">S(<span class="string">"JP is a software engineer"</span>).startsWith(<span class="string">"JP"</span>); <span class="comment">//true</span>
 S(<span class="string">'wants to change the world'</span>).startsWith(<span class="string">"politicians"</span>); <span class="comment">//false</span></code></pre>
+<h3 id='methods/times-n'>- times(n)</h3 id='methods/times-n'>
+<p>Returns a string repeated <code>n</code> times.
+
+</p>
+<p>Alias: <code>repeat()</code>
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">' '</span>).times(<span class="number">5</span>).s <span class="comment">//'     '</span>
+S(<span class="string">'*'</span>).times(<span class="number">3</span>).s <span class="comment">//'***'</span></code></pre>
 <h3 id='methods/trim'>- trim()</h3 id='methods/trim'>
 <p>Return the string with leading and trailing whitespace removed. Reverts to native <code>trim()</code> if it exists.
 
@@ -487,6 +543,29 @@ S(<span class="string">' hello '</span>).trim().s; <span class="comment">//'hell
 S(<span class="string">'\nhello'</span>).trim().s; <span class="comment">//'hello'</span>
 S(<span class="string">'\nhello\r\n'</span>).trim().s; <span class="comment">//'hello'</span>
 S(<span class="string">'\thello\t'</span>).trim().s; <span class="comment">//'hello'</span></code></pre>
+<h3 id='methods/tostring'>- toString()</h3 id='methods/tostring'>
+<p>Alias: <code>s</code>
+
+</p>
+<p>Return the string representation of an <code>S</code> object. Not really necessary to use. However, JS engines will look at an object and display its <code>toString()</code> result.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'my name is JP.'</span>).capitalize().toString(); <span class="comment">//My name is JP.</span>
+<span class="keyword">var</span> a = <span class="string">"Hello "</span> + S(<span class="string">'joe!'</span>); <span class="comment">//a = "Hello joe!"</span>
+S(<span class="string">"Hello"</span>).toString() === S(<span class="string">"Hello"</span>).s; <span class="comment">//true</span></code></pre>
+<h3 id='methods/underscore'>- underscore()</h3 id='methods/underscore'>
+<p>Returns converted camel cased string into a string delimited by underscores.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'dataRate'</span>).underscore().s; <span class="comment">//'data_rate'</span>
+S(<span class="string">'CarSpeed'</span>).underscore().s; <span class="comment">//'_car_speed'</span>
+S(<span class="string">'yesWeCan'</span>).underscore().s; <span class="comment">//'yes_we_can'</span></code></pre>
 <p>I will definitely add more methods, I&apos;ll be adding them on as-needed basis.
 
 
@@ -507,7 +586,7 @@ S(<span class="string">'\thello\t'</span>).trim().s; <span class="comment">//'he
 </p>
 <pre><code><span class="variable">$ </span><span class="identifier">cake</span> <span class="identifier"><span class="keymethods">test</span></span></code></pre>
 <h3 id='testing/browser'>Browser</h3 id='testing/browser'>
-<p><a href="browser.test.html">Click Here</a>
+<p><a href="http://stringjs.com/browser.test.html">Click Here</a>
 
 
 
