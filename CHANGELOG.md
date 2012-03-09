@@ -1,3 +1,8 @@
+0.2.1 / 2012-03-09
+==================
+* Updated README to include Quirks/Credits.
+* Added method `decodeHtmlEntities()`.
+
 0.2.0 / 2012-03-02
 ==================
 * Fixed method type `cloberPrototype()` to `clobberPrototype()`.

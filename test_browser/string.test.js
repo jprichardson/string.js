@@ -57,10 +57,13 @@
         return T(S('backgroundColor').dasherize().s === 'background-color');
       });
     });
+    describe('- decodeHtmlEntities', function() {
+      return it('should decode HTML entities into their proper string representation', function() {
+        return console.log(S('Ken Thompson &amp; Dennis Ritchie').decodeHtmlEntities().s);
+      });
+    });
     describe('- endsWith(suffix)', function() {
       return it("should return true if the string ends with the input string", function() {
-        console.log('SE: ' + S);
-        console.log('T: ' + T);
         T(S("hello jon").endsWith('jon'));
         F(S('ffffaaa').endsWith('jon'));
         T(S("").endsWith(''));

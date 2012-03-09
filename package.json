@@ -1,6 +1,6 @@
 {
     "name": "string",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "string contains methods that aren't included in the vanilla JavaScript string.",
     "homepage": [ 
           "http://stringjs.com"
@@ -9,7 +9,7 @@
          "type": "git", 
          "url": "https://github.com/jprichardson/string.js"
     },
-    "keywords": ["string","strings", "string.js", "S", "s"], 
+    "keywords": ["string","strings", "string.js", "stringjs", "S", "s"], 
     "author": "JP Richardson <jprichardson@gmail.com>",
     "licenses":[{
         "type" : "MIT,Apache v2,LGPL"

@@ -17,6 +17,7 @@ Here's a list of alternative frameworks:
 * [Google Closure's String](http://closure-library.googlecode.com/svn/docs/namespace_goog_string.html)
 * [Underscore.string](http://epeli.github.com/underscore.string/)
 * [Sugar.js](http://sugarjs.com)
+* [php.js](http://phpjs.org/pages/home)
 
 Why wasn't I happy with any of them? They are all static methods that don't seem to support chaining in a clean way 'OR' they have an odd dependency. Sugar is the notable exception.
 
@@ -166,6 +167,16 @@ S('dataRate').dasherize().s; //'data-rate'
 S('CarSpeed').dasherize().s; //'-car-speed'
 S('yesWeCan').dasherize().s; //'yes-we-can'
 S('backgroundColor').dasherize().s; //'background-color'
+```
+
+
+### - decodeHtmlEntities ###
+
+Decodes HTML entities into their string representation.
+
+```javascript
+S('Ken Thompson &amp; Dennis Ritchie').decodeHtmlEntities().s; //'Ken Thompson & Dennis Ritchie'
+S('3 &lt; 4').decodeHtmlEntities().s; //'3 < 4'
 ```
 
 
@@ -463,6 +474,13 @@ I will definitely add more methods, I'll be adding them on as-needed basis.
 
 
 
+Quirks
+------
+
+`decodeHtmlEntities()` converts `&nbsp;` to **0x0a** (160) and not **0x20** (20). Most browsers consider 0xa to be whitespace characters, Internet Explorer does not despite it being part of the ECMA standard. Google Closure does a good job of normalizing this behavior. This may need to fixed in `string.js` at some point in time.
+
+
+
 Testing
 -------
 
@@ -488,13 +506,18 @@ Run test package:
 
 
 
+Credits
+-------
+
+I have looked at the code by the creators in the libraries mentioned in **Motivation**. As noted in the source code, I've specifically used code from Google Closure (Google Inc), Underscore String [Esa-Matti Suuronen](http://esa-matti.suuronen.org/), and php.js (http://phpjs.org/authors/index).  
+
+
 
 License
 -------
 
 Triple licensed under MIT/X11, Apache v2, and LGPL. If you use this, pick which one works for you and your software. Attribution is always nice.
 
-As noted, some of these methods were plucked from Google.
 
 Copyright (c) 2012 JP Richardson
 
