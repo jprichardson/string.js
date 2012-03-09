@@ -57,9 +57,10 @@
         return T(S('backgroundColor').dasherize().s === 'background-color');
       });
     });
-    describe('- decodeHtmlEntities', function() {
+    describe('- decodeHtmlEntities()', function() {
       return it('should decode HTML entities into their proper string representation', function() {
-        return console.log(S('Ken Thompson &amp; Dennis Ritchie').decodeHtmlEntities().s);
+        T(S('Ken Thompson &amp; Dennis Ritchie').decodeHtmlEntities().s === 'Ken Thompson & Dennis Ritchie');
+        return T(S('3 &lt; 4').decodeHtmlEntities().s === '3 < 4');
       });
     });
     describe('- endsWith(suffix)', function() {

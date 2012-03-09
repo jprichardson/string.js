@@ -1,4 +1,5 @@
 
+
 class S
   constructor: (@s) ->
     @s = @ unless @s?
