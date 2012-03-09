@@ -1,6 +1,6 @@
 {
     "name": "string",
-    "version": "0.2.1",
+    "version": "0.2.1-1",
     "description": "string contains methods that aren't included in the vanilla JavaScript string.",
     "homepage": [ 
           "http://stringjs.com"

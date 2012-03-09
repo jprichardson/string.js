@@ -43,7 +43,7 @@ describe 'string.js', ->
       T S('yesWeCan').dasherize().s is 'yes-we-can'
       T S('backgroundColor').dasherize().s is 'background-color'
 
-  describe '- decodeHtmlEntities', ->
+  describe '- decodeHtmlEntities()', ->
     it 'should decode HTML entities into their proper string representation', ->
       T S('Ken Thompson &amp; Dennis Ritchie').decodeHtmlEntities().s is 'Ken Thompson & Dennis Ritchie'
       T S('3 &lt; 4').decodeHtmlEntities().s is '3 < 4'

@@ -33,7 +33,6 @@ class S
     delete (hash_map["&"])
 
     hash_map["&"] = "&amp;"
-    console.log tmp_str
     for symbol of hash_map
       entity = hash_map[symbol]
       tmp_str = tmp_str.split(entity).join(symbol)

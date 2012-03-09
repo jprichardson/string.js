@@ -170,7 +170,7 @@ S('backgroundColor').dasherize().s; //'background-color'
 ```
 
 
-### - decodeHtmlEntities ###
+### - decodeHtmlEntities() ###
 
 Decodes HTML entities into their string representation.
 
