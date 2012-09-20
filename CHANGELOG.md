@@ -1,3 +1,7 @@
+0.2.2 / 2012-09-20
+==================
+* Fixed bug in `left()` closes #6
+
 0.2.1 / 2012-03-09
 ==================
 * Updated README to include Quirks/Credits.

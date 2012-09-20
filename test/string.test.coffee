@@ -125,6 +125,7 @@ describe 'string.js', ->
     it 'should return the substring denoted by N positive left-most characters', ->
       T S('My name is JP').left(2).s is 'My'
       T S('Hi').left(0).s is ''
+      T S('Hello').left(1).s is 'H'
 
     it 'should return the substring denoted by N negative left-most characters, equivalent to calling right(-N)', ->
       T S('My name is JP').left(-2).s is 'JP' #same as right(-(-2))

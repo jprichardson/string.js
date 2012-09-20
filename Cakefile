@@ -32,7 +32,7 @@ task 'test', 'test project', (options) ->
       if d.indexOf('compiled') > 0
         #invoke 'test'
         
-        fsw = fs.createWriteStream(browserTestFile, flags: 'w', encoding: 'utf8', mode: 0666)
+        fsw = fs.createWriteStream(browserTestFile, flags: 'w', encoding: 'utf8', mode: 0o666)
         coffee_test = spawn 'coffee', ['-c', '-p', 'test/string.test.coffee']
         coffee_test.stdout.pipe(fsw, end: false)
 

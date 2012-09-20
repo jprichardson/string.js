@@ -63,7 +63,7 @@ class S
     !/[^A-Z]/.test(@s)
 
   left: (N) ->
-    if N >= 2
+    if N >= 0
       s = @s.substr(0,N)
       new S(s)
     else
