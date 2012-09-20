@@ -1,6 +1,7 @@
 0.2.2 / 2012-09-20
 ==================
 * Fixed bug in `left()` closes #6
+* Upgraded to CoffeeScript 1.3.*. Last CoffeeScript release of `string.js`.
 
 0.2.1 / 2012-03-09
 ==================
