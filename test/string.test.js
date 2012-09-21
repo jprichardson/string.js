@@ -178,13 +178,6 @@
       })
     })
 
-    describe('- ltrim()', function() {
-      it('should return the string with leading whitespace removed', function() {
-        T (S('  How are you?').ltrim().s === 'How are you?');
-        T (S(' JP ').ltrim().s === 'JP ');
-      })
-    })
-
     describe('- left(N)', function() {
       it('should return the substring denoted by N positive left-most characters', function() {
         T (S('My name is JP').left(2).s === 'My');
@@ -230,13 +223,6 @@
         T (S('My name is JP').right(-2).s === 'My');
       })
     })
-
-    describe('- rtrim()', function() {
-      it('should return the string with trailing whitespace removed', function() {
-        T (S('How are you?  ').rtrim().s === 'How are you?');
-        T (S(' JP ').rtrim().s === ' JP');
-      })
-    })
     
     describe('- s', function() {
       it('should return the native string', function() {
@@ -276,6 +262,20 @@
         T (S('\nhello').trim().s === 'hello');
         T (S('\nhello\r\n').trim().s === 'hello');
         T (S('\thello\t').trim().s === 'hello');
+      })
+    })
+
+    describe('- trimLeft()', function() {
+      it('should return the string with leading whitespace removed', function() {
+        T (S('  How are you?').trimLeft().s === 'How are you?');
+        T (S(' JP ').trimLeft().s === 'JP ');
+      })
+    })
+
+    describe('- trimRight()', function() {
+      it('should return the string with trailing whitespace removed', function() {
+        T (S('How are you?  ').trimRight().s === 'How are you?');
+        T (S(' JP ').trimRight().s === ' JP');
       })
     })
 
