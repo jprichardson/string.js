@@ -4,6 +4,8 @@ path = require('path')
 testutil = require('testutil')
 growl = require('growl')
 
+option '-g', '--grep [PATTERN]', 'only run tests matching <pattern>'
+
 task 'build', 'build lib/ from src/', ->
   coffee = spawn 'coffee', ['-c', '-o', 'lib', 'src']
   coffee.stderr.on 'data', (data) -> process.stderr.write data.toString()
@@ -18,6 +20,11 @@ task 'test', 'test project', (options) ->
   process.env['NODE_ENV'] = 'testing'
   testutil.fetchTestFiles './test', (files) ->
     files.unshift '--colors'
+
+    if options.grep?
+      files.unshift options.grep
+      files.unshift '--grep'
+
     mocha = spawn 'mocha', files#, customFds: [0..2]
     mocha.stdout.pipe(process.stdout, end: false);
     mocha.stderr.pipe(process.stderr, end: false);
