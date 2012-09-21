@@ -1,25 +1,32 @@
 {
-    "name": "string",
-    "version": "0.2.2",
-    "description": "string contains methods that aren't included in the vanilla JavaScript string.",
-    "homepage": [ 
-          "http://stringjs.com"
-     ], 
-     "repository": {
-         "type": "git", 
-         "url": "https://github.com/jprichardson/string.js"
-    },
-    "keywords": ["string","strings", "string.js", "stringjs", "S", "s"], 
-    "author": "JP Richardson <jprichardson@gmail.com>",
-    "licenses":[{
-        "type" : "MIT,Apache v2,LGPL"
-    }],
-    "dependencies": {},
-    "devDependencies": {
-        "coffee-script" : "1.3.x", 
-        "mocha": "*",
-        "uglify-js": "1.2.x",
-        "growl": "1.5.x"
-    }, 
-    "main": "lib/string.js"
+  "name": "string",
+  "version": "0.2.2",
+  "description": "string contains methods that aren't included in the vanilla JavaScript string.",
+  "homepage": [
+    "http://stringjs.com"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jprichardson/string.js"
+  },
+  "keywords": [
+    "string",
+    "strings",
+    "string.js",
+    "stringjs",
+    "S",
+    "s"
+  ],
+  "author": "JP Richardson <jprichardson@gmail.com>",
+  "licenses": [
+    {
+      "type": "MIT,Apache v2,LGPL"
+    }
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "*",
+    "uglify-js": "1.3.x"
+  },
+  "main": "lib/string"
 }
