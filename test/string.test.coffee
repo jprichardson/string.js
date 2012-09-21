@@ -6,6 +6,8 @@ if window?
 else
   S = require('../lib/string')
 
+return;
+
 
 describe 'string.js', ->
   describe '- camelize()', ->
