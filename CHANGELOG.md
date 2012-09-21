@@ -1,3 +1,9 @@
+0.3.0 / 2012-09-21
+------------------
+* Translated from CoffeeScript to JavaScript.
+* Added native JavaScript string functions such as `substr()`, `substring()`, `match()`, `indexOf()`, etc.
+* Added `length` property.
+
 0.2.2 / 2012-09-20
 ------------------
 * Fixed bug in `left()` closes #6

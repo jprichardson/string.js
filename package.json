@@ -1,6 +1,6 @@
 {
   "name": "string",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "string contains methods that aren't included in the vanilla JavaScript string.",
   "homepage": [
     "http://stringjs.com"
@@ -28,5 +28,8 @@
     "mocha": "*",
     "uglify-js": "1.3.x"
   },
-  "main": "lib/string"
+  "main": "lib/string",
+  "scripts": {
+    "test": "mocha test"
+  }
 }

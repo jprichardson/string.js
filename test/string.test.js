@@ -172,6 +172,12 @@
       })
     })
 
+    describe('- length', function() {
+      it('should return the length of the string', function() {
+        T (S('hello').length === 5);
+      })
+    })
+
     describe('- ltrim()', function() {
       it('should return the string with leading whitespace removed', function() {
         T (S('  How are you?').ltrim().s === 'How are you?');
@@ -273,12 +279,18 @@
       })
     })
 
-   describe('- underscore()', function() {
+    describe('- underscore()', function() {
       it('should convert a camel cased string into a string separated by underscores', function() {
         T (S('dataRate').underscore().s === 'data_rate');
         T (S('CarSpeed').underscore().s === '_car_speed');
         T (S('yesWeCan').underscore().s === 'yes_we_can');
       })
+    })
+
+    it('should import native JavaScript string methods', function() {
+      T (S('hi    ').charAt(0).trimRight().startsWith('h'));
+      T (S('hello ').concat('jp').indexOf('jp') === 6);
+      T (S('this is so cool').substr(0, 4).s === 'this');
     })
 
   })
