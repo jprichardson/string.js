@@ -4,6 +4,7 @@
 * Added native JavaScript string functions such as `substr()`, `substring()`, `match()`, `indexOf()`, etc.
 * Added `length` property.
 * Renamed `ltrim()` to `trimLeft()` and `rtrim()` to `trimRight()`.
+* Added `valueOf()` method.
 
 0.2.2 / 2012-09-20
 ------------------

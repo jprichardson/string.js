@@ -287,6 +287,12 @@
       })
     })
 
+    describe('- valueOf()', function() {
+      it('should return the primitive value of the string, wraps native valueOf()', function() {
+        T (S('hi').valueOf() === 'hi')
+      })
+    })
+
     it('should import native JavaScript string methods', function() {
       T (S('hi    ').charAt(0).trimRight().startsWith('h'));
       T (S('hello ').concat('jp').indexOf('jp') === 6);
