@@ -3,26 +3,16 @@
   'use strict';
 
   var S = null;
-  var isBrowser = false;
 
   if (module && module.exports)
     S = require('../lib/string');
   else {
     S = window.S;
-    isBrowser = true;
   }
 
   function T(v) { if (!v) { throw new Error('Should be true.'); } };
   function F(v) { if (v) { throw new Error('Should be false.'); } };
-  
-  function EQ(v1, v2) { 
-    if (isBrowser) {
-      if (v1 !== v2) { throw new Error('Should be equal'); }
-    } else {
-      var assert = require('assert');
-      assert.equal(v1, v2);
-    }
-  }
+
 
     
 
@@ -338,6 +328,12 @@
     describe('- valueOf()', function() {
       it('should return the primitive value of the string, wraps native valueOf()', function() {
         T (S('hi').valueOf() === 'hi')
+      })
+    })
+
+    describe('+ VERSION', function() {
+      it('should exist', function() {
+        T (S.VERSION)
       })
     })
 

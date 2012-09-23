@@ -7,7 +7,8 @@
 * Added `valueOf()` method.
 * Added `toInt()`\`toInteger()` and `toFloat()` methods.
 * Modified behavior of `isEmpty()` to return true on `undefined` or `null`.
-* Constructor will now cast the parameter to a string via its `toString()` method. 
+* Constructor will now cast the parameter to a string via its `toString()` method.
+* Added `VERSION` value. Useful for browser dependency checking. 
 
 0.2.2 / 2012-09-20
 ------------------
