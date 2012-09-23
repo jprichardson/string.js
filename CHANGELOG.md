@@ -6,6 +6,8 @@
 * Renamed `ltrim()` to `trimLeft()` and `rtrim()` to `trimRight()`.
 * Added `valueOf()` method.
 * Added `toInt()`\`toInteger()` and `toFloat()` methods.
+* Modified behavior of `isEmpty()` to return true on `undefined` or `null`.
+* Constructor will now cast the parameter to a string via its `toString()` method. 
 
 0.2.2 / 2012-09-20
 ------------------

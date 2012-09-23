@@ -41,24 +41,8 @@
         T (S(new Date(2012, 1, 1)).s.indexOf('2012') != -1)
         T (S(new RegExp()).s.substr(0,1) === '/') 
         T (S({}).s === '[object Object]')
-      })
-
-      it('should throw an exception on null', function(done) {
-        try {
-          S(null)
-        } catch (e) {
-          T (e)
-          done()
-        }
-      })
-
-      it('should throw an exception on undefined', function(done) {
-        try {
-          S(undefined)
-        } catch (e) {
-          T (e)
-          done()
-        }
+        T (S(null).s === null)
+        T (S(undefined).s === undefined)
       })
     })
 
@@ -74,6 +58,13 @@
     
     describe('- capitalize()', function() {
       it('should capitalize the string', function() {
+        T (S('jon').capitalize().s === 'Jon');
+        T (S('JP').capitalize().s === 'Jp');
+      })
+    })
+
+    describe('- chars()', function() {
+      it('should return an array of chars', function() {
         T (S('jon').capitalize().s === 'Jon');
         T (S('JP').capitalize().s === 'Jp');
       })
@@ -157,10 +148,13 @@
     })
 
     describe('- isEmpty()', function() {
-     it('should return true if the string is solely composed of whitespace', function() {
+     it('should return true if the string is solely composed of whitespace or is null', function() {
         T (S(' ').isEmpty());
         T (S('\t\t\t    ').isEmpty());
         T (S('\n\n ').isEmpty());
+        F (S('hey').isEmpty())
+        T (S(null).isEmpty())
+        T (S(null).isEmpty())
       })
     })
 
@@ -203,6 +197,9 @@
     describe('- length', function() {
       it('should return the length of the string', function() {
         T (S('hello').length === 5);
+        T (S('').length === 0);
+        T (S(null).length === -1);
+        T (S(undefined).length === -1);
       })
     })
 

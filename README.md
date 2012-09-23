@@ -237,7 +237,7 @@ S("aaff..").isAlphaNumeric(); //false
 
 ### - isEmpty() ###
 
-Return true if the string is solely composed of whitespace
+Return true if the string is solely composed of whitespace or is `null`/`undefined`.
 
 Example:
 
@@ -245,6 +245,9 @@ Example:
 S(' ').isEmpty(); //true
 S('\t\t\t    ').isEmpty(); //true
 S('\n\n ').isEmpty(); //true
+S('helo').isEmpty(); //false
+S(null).isEmpty(); //true
+S(undefined).isEmpty(); //true
 ```
 
 
