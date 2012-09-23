@@ -1,6 +1,6 @@
 {
   "name": "string",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "string contains methods that aren't included in the vanilla JavaScript string.",
   "homepage": [
     "http://stringjs.com"
@@ -20,7 +20,7 @@
   "author": "JP Richardson <jprichardson@gmail.com>",
   "licenses": [
     {
-      "type": "MIT,Apache v2,LGPL"
+      "type": "MIT"
     }
   ],
   "dependencies": {},

@@ -204,6 +204,14 @@
       })
     })
 
+    describe('- lines()', function() {
+      it('should return an array of string object representing lines with whitespace trimmed', function() {
+        var lines = S('1 Infinite Loop\r\nCupertino, CA').lines();
+        T (lines[0].s === '1 Infinite Loop')
+        T (lines[1].s === 'Cupertino, CA')
+      })
+    })
+
     describe('- repeat(n)', function() {
       it('should return a string with that is concatenated n times', function() {
         T (S(' ').repeat(5).s === '     ');
@@ -245,6 +253,12 @@
         T (S('hi').toString() === S('hi').s);
       })
     })
+
+    describe('- slugify', function() {
+      it('should conver the text to url slug', function() {
+        T (S('Global Thermonuclear Warfare').slugify().s === 'global-thermonuclear-warfare')
+      })
+    })
     
     describe('- startsWith(prefix)', function() {
       it("should return true if the string starts with the input string", function() {
@@ -262,6 +276,7 @@
         T (S('*').times(3).s === '***');
       })
     })
+
 
     describe('- toString()', function() {
       it('should return the native string', function() {
@@ -282,7 +297,7 @@
       })
     })
 
-    describe('- toFloat()', function() {
+    describe('- toFloat([precision])', function() {
       it('should return the float value, wraps parseFloat', function() {
         T (S('5').toFloat() === 5);
         T (S('5.3').toFloat() === 5.3);
@@ -290,6 +305,7 @@
         T (S('-10').toFloat() === -10);
         T (S('55.3 adfafaf').toFloat() === 55.3)
         T (S('afff 44').toFloat().toString() === 'NaN')
+        T (S(3.45522222333232).toFloat(2) === 3.46)
       })
     })
 

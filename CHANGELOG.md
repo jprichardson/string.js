@@ -1,4 +1,4 @@
-0.3.0 / 2012-09-21
+1.0.0 / 2012-09-21
 ------------------
 * Translated from CoffeeScript to JavaScript.
 * Added native JavaScript string functions such as `substr()`, `substring()`, `match()`, `indexOf()`, etc.
@@ -8,7 +8,9 @@
 * Added `toInt()`\`toInteger()` and `toFloat()` methods.
 * Modified behavior of `isEmpty()` to return true on `undefined` or `null`.
 * Constructor will now cast the parameter to a string via its `toString()` method.
-* Added `VERSION` value. Useful for browser dependency checking. 
+* Added `VERSION` value. Useful for browser dependency checking.
+* Added `lines()` method.
+* Added `slugify()` method. 
 
 0.2.2 / 2012-09-20
 ------------------
