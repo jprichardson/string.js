@@ -5,6 +5,7 @@
 * Added `length` property.
 * Renamed `ltrim()` to `trimLeft()` and `rtrim()` to `trimRight()`.
 * Added `valueOf()` method.
+* Added `toInt()`\`toInteger()` and `toFloat()` methods.
 
 0.2.2 / 2012-09-20
 ------------------

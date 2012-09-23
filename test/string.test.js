@@ -34,6 +34,34 @@
 
   describe('string.js', function() {
     
+    describe('- constructor', function() {
+      it('should should set the internal "s" property', function() {
+        T (S('helo').s === 'helo')
+        T (S(5).s === '5')
+        T (S(new Date(2012, 1, 1)).s.indexOf('2012') != -1)
+        T (S(new RegExp()).s.substr(0,1) === '/') 
+        T (S({}).s === '[object Object]')
+      })
+
+      it('should throw an exception on null', function(done) {
+        try {
+          S(null)
+        } catch (e) {
+          T (e)
+          done()
+        }
+      })
+
+      it('should throw an exception on undefined', function(done) {
+        try {
+          S(undefined)
+        } catch (e) {
+          T (e)
+          done()
+        }
+      })
+    })
+
     describe('- camelize()', function() {
       it('should remove any underscores or dashes and convert a string into camel casing', function() {
         T (S('data_rate').camelize().s === 'dataRate');
@@ -252,6 +280,28 @@
       it('should return the native string', function() {
         T (S('hi').toString() === 'hi');
         T (S('hi').toString() === S('hi').s);
+      })
+    })
+
+    describe('- toInt()', function() {
+      it('should return the integer value, wraps parseInt', function() {
+        T (S('5').toInt() === 5);
+        T (S('5.3').toInt() === 5);
+        T (S(5.3).toInt() === 5);
+        T (S('-10').toInt() === -10);
+        T (S('55 adfafaf').toInt() === 55)
+        T (S('afff 44').toInt().toString() === 'NaN')
+      })
+    })
+
+    describe('- toFloat()', function() {
+      it('should return the float value, wraps parseFloat', function() {
+        T (S('5').toFloat() === 5);
+        T (S('5.3').toFloat() === 5.3);
+        T (S(5.3).toFloat() === 5.3);
+        T (S('-10').toFloat() === -10);
+        T (S('55.3 adfafaf').toFloat() === 55.3)
+        T (S('afff 44').toFloat().toString() === 'NaN')
       })
     })
 
