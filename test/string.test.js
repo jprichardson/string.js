@@ -291,6 +291,7 @@
         T (S('-10').toInt() === -10);
         T (S('55 adfafaf').toInt() === 55)
         T (S('afff 44').toInt().toString() === 'NaN')
+        T (S('0xff').toInt() == 255)
       })
     })
 
