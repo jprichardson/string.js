@@ -11,6 +11,7 @@
 * Added `VERSION` value. Useful for browser dependency checking.
 * Added `lines()` method.
 * Added `slugify()` method. 
+* Added 'escapeHTML()' and 'unescapeHTML()' methods.
 
 0.2.2 / 2012-09-20
 ------------------

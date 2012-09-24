@@ -106,6 +106,14 @@
       })
     })
 
+    describe('- escapeHTML()', function() {
+      it('should escape the html', function() {
+        T (S('<div>Blah & "blah" & \'blah\'</div>').escapeHTML().s ===
+             '&lt;div&gt;Blah &amp; &quot;blah&quot; &amp; &apos;blah&apos;&lt;/div&gt;');
+        T (S('&lt;').escapeHTML().s === '&amp;lt;');
+      })
+    })
+
     describe('- include(substring)', function() {
       it('should return true if the string contains the specified input string', function() {
         T (S('JavaScript is one of the best languages!').include('one'));
@@ -269,6 +277,13 @@
       })
     })
 
+    describe('- stripTags([tags,]', function() {
+      it('should strip all of the html tags or tags specified by the parameters', function() {
+        T (S('<p>just <b>some</b> text</p>').stripTags().s === 'just some text')
+        T (S('<p>just <b>some</b> text</p>').stripTags('p').s === 'just <b>some</b> text')
+      })
+    })
+
     describe('- times(n)', function() {
       it('should return a string with that is concatenated n times', function() {
         T (S(' ').times(5).s === '     ');
@@ -337,6 +352,14 @@
         T (S('dataRate').underscore().s === 'data_rate');
         T (S('CarSpeed').underscore().s === '_car_speed');
         T (S('yesWeCan').underscore().s === 'yes_we_can');
+      })
+    })
+
+    describe('- unescapeHTML', function() {
+      it('should unescape the HTML', function() {
+        T (S('&lt;div&gt;Blah &amp; &quot;blah&quot; &amp; &apos;blah&apos;&lt;/div&gt;').unescapeHTML().s ===
+             '<div>Blah & "blah" & \'blah\'</div>');
+        T (S('&amp;lt;').unescapeHTML().s === '&lt;');
       })
     })
 
