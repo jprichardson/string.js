@@ -13,7 +13,11 @@
   function T(v) { if (!v) { throw new Error('Should be true.'); } };
   function F(v) { if (v) { throw new Error('Should be false.'); } };
 
-
+  function ARY_EQ(a1, a2) {
+    T (a1.length === a2.length)
+    for (var i = 0; i < a1.length; ++i)
+      T (a1[i] === a2[i])
+  }
     
 
   /*if (typeof window !== "undefined" && window !== null) {
@@ -216,6 +220,20 @@
         var lines = S('1 Infinite Loop\r\nCupertino, CA').lines();
         T (lines[0].s === '1 Infinite Loop')
         T (lines[1].s === 'Cupertino, CA')
+      })
+    })
+
+    describe('- parseCSV()', function() {
+      it('should parse a CSV line into an array', function() {
+        ARY_EQ (S("'a','b','c'").parseCSV(',', "'"), ['a', 'b', 'c'])
+        ARY_EQ (S('"a","b","c"').parseCSV(), ['a', 'b', 'c'])
+        ARY_EQ (S('a,b,c').parseCSV(',', null), ['a', 'b', 'c']) 
+        ARY_EQ (S("'a,','b','c'").parseCSV(',', "'"), ['a,', 'b', 'c'])
+        ARY_EQ (S('"a","b",4,"c"').parseCSV(',', null), ['"a"', '"b"', '4', '"c"'])
+        ARY_EQ (S('"a","b","4","c"').parseCSV(), ['a', 'b', '4', 'c'])
+        ARY_EQ (S('"a","b",       "4","c"').parseCSV(), ['a', 'b', '4', 'c'])
+        ARY_EQ (S('"a","b",       4,"c"').parseCSV(",", null), [ '"a"', '"b"', '       4', '"c"' ])
+        ARY_EQ (S('"a","b\\"","d","c"').parseCSV(), ['a', 'b"', 'd', 'c'])
       })
     })
 
