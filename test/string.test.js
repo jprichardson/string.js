@@ -349,12 +349,12 @@
 
     describe('- truncate(length, [chars])', function() {
       it('should truncate the string, accounting for word placement and chars count', function() {
-        T (S('this is some long text').truncate(3) === '...')
-        T (S('this is some long text').truncate(7) === 'this is...')
-        T (S('this is some long text').truncate(11) === 'this is...')
-        T (S('this is some long text').truncate(12) === 'this is some...')
-        T (S('this is some long text').truncate(11) === 'this is...')
-        T (S('this is some long text').truncate(14, ' read more') === 'this is some read more')
+        T (S('this is some long text').truncate(3).s === '...')
+        T (S('this is some long text').truncate(7).s === 'this is...')
+        T (S('this is some long text').truncate(11).s === 'this is...')
+        T (S('this is some long text').truncate(12).s === 'this is some...')
+        T (S('this is some long text').truncate(11).s === 'this is...')
+        T (S('this is some long text').truncate(14, ' read more').s === 'this is some read more')
       })
     })
 
