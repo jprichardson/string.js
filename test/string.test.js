@@ -53,10 +53,9 @@
       })
     })
 
-    describe('- chars()', function() {
-      it('should return an array of chars', function() {
-        T (S('jon').capitalize().s === 'Jon');
-        T (S('JP').capitalize().s === 'Jp');
+    describe('- charAt(index)', function() {
+      it('should return a native JavaScript string with the character at the specified position', function() {
+        T (S('hi').charAt(1) === 'i')
       })
     })
 
@@ -354,7 +353,7 @@
     })
 
     it('should import native JavaScript string methods', function() {
-      T (S('hi    ').charAt(0).trimRight().startsWith('h'));
+      T (S('hi    ').substr(0,1).trimRight().startsWith('h'));
       T (S('hello ').concat('jp').indexOf('jp') === 6);
       T (S('this is so cool').substr(0, 4).s === 'this');
     })
