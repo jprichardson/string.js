@@ -230,6 +230,10 @@
       it('should return the new string with all occurrences of substring replaced with the replacment string', function() {
         T (S(' does IT work? ').replaceAll(' ', '_').s === '_does_IT_work?_');
         T (S('Yes it does!').replaceAll(' ', '').s === 'Yesitdoes!');
+
+        var e = '\\', q = '"';
+        var r = e + q;
+        T (S('a').replaceAll(q, r).s === 'a');
       })
     })
 
@@ -291,6 +295,17 @@
       })
     })
 
+    describe('- toCSV(options)', function() {
+      it('should convert the array to csv', function() {
+        T (S(['a', 'b', 'c']).toCSV().s === '"a","b","c"');
+        T (S(['a', 'b', 'c']).toCSV(':').s === '"a":"b":"c"');
+        T (S(['a', 'b', 'c']).toCSV(':', null).s === 'a:b:c');
+        T (S(['a', 'b', 'c']).toCSV('*', "'").s === "'a'*'b'*'c'");
+        T (S(['a"', 'b', 4, 'c']).toCSV({delimiter: ',', qualifier: '"', escape: '\\',  encloseNumbers: false}).s === '"a\\"","b",4,"c"');
+        T (S({firstName: 'JP', lastName: 'Richardson'}).toCSV({keys: true}).s === '"firstName","lastName"');
+        T (S({firstName: 'JP', lastName: 'Richardson'}).toCSV().s === '"JP","Richardson"');
+      })
+    })
 
     describe('- toString()', function() {
       it('should return the native string', function() {
