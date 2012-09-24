@@ -480,7 +480,7 @@ I will definitely add more methods, I'll be adding them on as-needed basis.
 Quirks
 ------
 
-`decodeHtmlEntities()` converts `&nbsp;` to **0x0a** (160) and not **0x20** (20). Most browsers consider 0xa to be whitespace characters, Internet Explorer does not despite it being part of the ECMA standard. Google Closure does a good job of normalizing this behavior. This may need to fixed in `string.js` at some point in time.
+`decodeHtmlEntities()` converts `&nbsp;` to **0xa0** (160) and not **0x10** (20). Most browsers consider 0xa0 to be whitespace characters, Internet Explorer does not despite it being part of the ECMA standard. Google Closure does a good job of normalizing this behavior. This may need to fixed in `string.js` at some point in time.
 
 
 
@@ -491,7 +491,7 @@ Testing
 
 Install the dev dependencies:
 
-    $ npm install string
+    $ npm install string --development
 
 Then navigate to the installed directory:
 
@@ -499,7 +499,7 @@ Then navigate to the installed directory:
 
 Run test package:
 
-    $ cake test
+    $ mocha test
 
 
 

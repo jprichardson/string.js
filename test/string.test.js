@@ -347,6 +347,17 @@
       })
     })
 
+    describe('- truncate(length, [chars])', function() {
+      it('should truncate the string, accounting for word placement and chars count', function() {
+        T (S('this is some long text').truncate(3) === '...')
+        T (S('this is some long text').truncate(7) === 'this is...')
+        T (S('this is some long text').truncate(11) === 'this is...')
+        T (S('this is some long text').truncate(12) === 'this is some...')
+        T (S('this is some long text').truncate(11) === 'this is...')
+        T (S('this is some long text').truncate(14, ' read more') === 'this is some read more')
+      })
+    })
+
     describe('- underscore()', function() {
       it('should convert a camel cased string into a string separated by underscores', function() {
         T (S('dataRate').underscore().s === 'data_rate');

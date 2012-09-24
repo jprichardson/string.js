@@ -12,6 +12,7 @@
 * Added `lines()` method.
 * Added `slugify()` method. 
 * Added 'escapeHTML()' and 'unescapeHTML()' methods.
+* Added 'truncate()' method.
 
 0.2.2 / 2012-09-20
 ------------------
