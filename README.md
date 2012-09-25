@@ -554,43 +554,6 @@ S({firstName: 'JP', lastName: 'Richardson'}).toCSV().s //'"JP","Richardson"'
 ```
 
 
-### - trim() ###
-
-Return the string with leading and trailing whitespace removed. Reverts to native `trim()` if it exists.
-
-Example:
-
-```javascript
-S('hello ').trim().s; //'hello'
-S(' hello ').trim().s; //'hello'
-S('\nhello').trim().s; //'hello'
-S('\nhello\r\n').trim().s; //'hello'
-S('\thello\t').trim().s; //'hello'
-```
-
-
-### - trimLeft() ###
-
-Return the string with leading and whitespace removed
-
-Example:
-
-```javascript
-S('  How are you?').trimLeft().s; //'How are you?'; 
-```
-
-
-### - trimRight() ###
-
-Return the string with trailing whitespace removed.
-
-Example:
-
-```javascript
-S('How are you?   ').trimRight().s; //'How are you?'; 
-```
-
-
 ### - toInt() ###
 
 Return the number value in integer form. Wrapper for `parseInt()`. Can also parse hex values.
@@ -637,6 +600,44 @@ Example:
 S('my name is JP.').capitalize().toString(); //My name is JP.
 var a = "Hello " + S('joe!'); //a = "Hello joe!"
 S("Hello").toString() === S("Hello").s; //true
+```
+
+
+
+### - trim() ###
+
+Return the string with leading and trailing whitespace removed. Reverts to native `trim()` if it exists.
+
+Example:
+
+```javascript
+S('hello ').trim().s; //'hello'
+S(' hello ').trim().s; //'hello'
+S('\nhello').trim().s; //'hello'
+S('\nhello\r\n').trim().s; //'hello'
+S('\thello\t').trim().s; //'hello'
+```
+
+
+### - trimLeft() ###
+
+Return the string with leading and whitespace removed
+
+Example:
+
+```javascript
+S('  How are you?').trimLeft().s; //'How are you?'; 
+```
+
+
+### - trimRight() ###
+
+Return the string with trailing whitespace removed.
+
+Example:
+
+```javascript
+S('How are you?   ').trimRight().s; //'How are you?'; 
 ```
 
 
