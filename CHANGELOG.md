@@ -1,4 +1,4 @@
-1.0.0 / 2012-09-21
+1.0.0 / 2012-09-25
 ------------------
 * Translated from CoffeeScript to JavaScript.
 * Added native JavaScript string functions such as `substr()`, `substring()`, `match()`, `indexOf()`, etc.
@@ -13,6 +13,7 @@
 * Added `slugify()` method. 
 * Added `escapeHTML()` and `unescapeHTML()` methods.
 * Added `truncate()` method.
+* Added `stripTags()` method.
 * Added `toCSV()` and `parseCSV()` methods.
 
 0.2.2 / 2012-09-20

@@ -1,14 +1,14 @@
 [string.js](http://stringjs.com)
 =========
 
-`string.js`, or simply `S` is a lightweight (< 2k Gzipped) JavaScript library for the browser or for Node.js that provides extra String methods. Originally, it modified the String prototype. But I quickly learned that in JavaScript, this is considered poor practice.
+`string.js`, or simply `S` is a lightweight (< 4k minified and gzipped) JavaScript library for the browser or for Node.js that provides extra String methods. Originally, it modified the String prototype. But I quickly learned that in JavaScript, this is considered poor practice.
 
 
 
-Motivation
-----------
+Why?
+----
 
-Personally, I prefer the cleanliness of the way code looks when it appears to be native methods. i.e. when you modify native Javascript prototypes. However, if any app dependency required `string.js`, then the app's string prototype in every module would be modified as well. This could be troublesome. So I settled on creating a wrapper a la jQuery style. For those of you prototype hatin' fools, such as myself, there is the method `clobberPrototype()`.
+Personally, I prefer the cleanliness of the way code looks when it appears to be native methods. i.e. when you modify native JavaScript prototypes. However, if any app dependency required `string.js`, then the app's string prototype would be modified in every module. This could be troublesome. So I settled on creating a wrapper a la jQuery style. For those of you prototype hatin' fools, there is the method `clobberPrototype()`.
 
 Here's a list of alternative frameworks:
 
@@ -26,7 +26,7 @@ Why wasn't I happy with any of them? They are all static methods that don't seem
 Installation
 ------------
 
-  npm install --production string
+  npm install string
 
 
 
@@ -86,12 +86,48 @@ S.restorePrototype(); //be a good citizen and clean up
 ```
 
 
+### Browser Compatiblity
+
+`string.js` has been designed to be compatible with Node.js and with IE6+, Firefox 3+, Safari 2+, Chrome 3+. Please [click here][browsertest] to run the tests in your browser. Report any browser issues here: https://github.com/jprichardson/string.js/issues
+
+
+Native JavaScript Methods
+-------------------------
+
+`string.js` imports all of the native JavaScript methods. This is for convenience. The only difference is that the imported methods return `string.js` objects instead of native JavaScript strings. The one exception to this is the method `charAt(index)`. This is because `charAt()` only returns a string of length one. This is typically done for comparisons and a `string.js` object will have little to no value here.
+
+All of the native methods support chaining with the `string.js` methods.
+
+**Example:**
+
+```javascript
+var S = require('string');
+
+var phrase = S('JavaScript is the best scripting language ever!');
+var sub = 'best scripting';
+var pos = phrase.indexOf(sub);
+console.log(phrase.substr(pos, sub.length).truncate(8)); //best...
+```
+
+
 Methods
 -------
 
-See [test file][1] for more details. 
+See [test file][testfile] for more details. 
 
 I use the same nomenclature as Objective-C regarding methods. **+** means `static` or `class` method. **-** means `non-static` or `instance` method. 
+
+### - constructor(nativeJavaScriptStringOrObject) ###
+
+This creates a new `string.js` object. The parameter can be anything. The `toString()` method will be called on any objects. Some native objects are used in some functions such as `toCSV()`.
+
+Example:
+
+```javascript
+S('hello').s //'hello'
+S(['a,b']).s //"['a','b']"
+S({hi: 'jp'}).s //[object Object]
+```
 
 
 ### - camelize()
@@ -188,6 +224,17 @@ Example:
 
 ```javascript
 S("hello jon").endsWith('jon'); //true
+```
+
+
+### - escapeHTML() ###
+
+Escapes the html.
+
+Example:
+
+```javascript
+S('<div>hi</div>').escapeHTML().s; //&lt;div&gt;hi&lt;/div&gt;
 ```
 
 
@@ -302,17 +349,6 @@ S('HelLO').isUpper() //true
 ```
 
 
-### - ltrim() ###
-
-Return the string with leading and whitespace removed
-
-Example:
-
-```javascript
-S('  How are you?').ltrim().s; //'How are you?'; 
-```
-
-
 ### - left(n) ###
 
 Return the substring denoted by `n` positive left-most characters.
@@ -325,6 +361,52 @@ S('Hi').left(0).s; //''
 S('My name is JP').left(-2).s; //'JP', same as right(2)
 ```
 
+
+### - length ###
+
+Property to return the length of the string object.
+
+Example:
+
+```javascript
+S('hi').length; //2
+```
+
+
+### - lines()
+
+Returns an array of native strings representing lines with whitespace trimmed.
+
+Example:
+
+```javsacript
+var lines = S('1 Infinite Loop\r\nCupertino, CA').lines();
+lines[0] // '1 Infinite Loop'
+lines[1] // 'Cupertino, CA'
+```
+
+
+### '- parseCSV()' ###
+
+Parses a CSV line into an array.
+
+**Arguments:**
+- `delimiter`: The character that is separates or delimits fields. Default: `,`
+- `qualifier`: The character that encloses fields. Default: `"`
+
+Example:
+
+```javascript
+S("'a','b','c'").parseCSV(',', "'") //['a', 'b', 'c'])
+S('"a","b","c"').parseCSV() // ['a', 'b', 'c'])
+S('a,b,c').parseCSV(',', null)  //['a', 'b', 'c']) 
+S("'a,','b','c'").parseCSV(',', "'") //['a,', 'b', 'c'])
+S('"a","b",4,"c"').parseCSV(',', null) //['"a"', '"b"', '4', '"c"'])
+S('"a","b","4","c"').parseCSV() //['a', 'b', '4', 'c'])
+S('"a","b",       "4","c"').parseCSV() //['a', 'b', '4', 'c'])
+S('"a","b",       4,"c"').parseCSV(",", null) //[ '"a"', '"b"', '       4', '"c"' ])
+S('"a","b\\"","d","c"').parseCSV() //['a', 'b"', 'd', 'c'])
+```
 
 ### - repeat(n) ###
 
@@ -377,17 +459,6 @@ S('My name is JP').right(-2).s; //'My', same as left(2)
 ```
 
 
-### - rtrim() ###
-
-Return the string with trailing whitespace removed.
-
-Example:
-
-```javascript
-S('How are you?   ').rtrim().s; //'How are you?'; 
-```
-
-
 ### - s ###
 
 Alias: `toString()`
@@ -403,6 +474,15 @@ S("Hello").toString() === S("Hello").s; //true
 ```
 
 
+ ### - slugify ###
+
+Converts the text into a valid url slug
+
+```javascript
+S('Global Thermonuclear Warfare').slugify().s // 'global-thermonuclear-warfare'
+```
+
+
 ### - startsWith(prefix)   ###
 
 Return true if the string starts with `prefix`.
@@ -412,6 +492,18 @@ Example:
 ```javascript
 S("JP is a software engineer").startsWith("JP"); //true
 S('wants to change the world').startsWith("politicians"); //false
+```
+
+
+### - stripTags([tag1],[tag2],...) ###
+
+Strip all of the HTML tags or tags specified by the parameters.
+
+Example:
+
+```javascript
+S('<p>just <b>some</b> text</p>').stripTags().s //'just some text'
+S('<p>just <b>some</b> text</p>').stripTags('p').s //'just <b>some</b> text'
 ```
 
 
@@ -426,6 +518,37 @@ Example:
 ```javascript
 S(' ').times(5).s //'     '
 S('*').times(3).s //'***'
+```
+
+
+### - toCSV(options) ###
+
+Converts an array or object to a CSV line.
+
+You can either optionally pass in two string arguments or pass in a configuration object.
+
+**String Arguments:**
+- `delimiter`: The character that is separates or delimits fields. Default: `,`
+- `qualifier`: The character that encloses fields. Default: `"`
+
+
+**Object Configuration:**
+- `delimiter`: The character that is separates or delimits fields. Default: `,`
+- `qualifier`: The character that encloses fields. Default: `"`
+- `escape`: The character that escapes any incline `qualifier` characters. Default: `\`, in JS this is `\\`
+- `encloseNumbers`: Enclose number objects with the `qualifier` chracter. Default: `true`
+- `keys`: If the input isn't an array, but an object, then if this is set to true, the keys will be output to the CSV line, otherwise it's the object's values. Default: `false`.
+
+Example:
+
+```javascript
+S(['a', 'b', 'c']).toCSV().s //'"a","b","c"'
+S(['a', 'b', 'c']).toCSV(':').s //'"a":"b":"c"'
+S(['a', 'b', 'c']).toCSV(':', null).s //'a:b:c')
+S(['a', 'b', 'c']).toCSV('*', "'").s //"'a'*'b'*'c'"
+S(['a"', 'b', 4, 'c']).toCSV({delimiter: ',', qualifier: '"', escape: '\\',  encloseNumbers: false}).s //'"a\\"","b",4,"c"'
+S({firstName: 'JP', lastName: 'Richardson'}).toCSV({keys: true}).s //'"firstName","lastName"'
+S({firstName: 'JP', lastName: 'Richardson'}).toCSV().s //'"JP","Richardson"'
 ```
 
 
@@ -444,6 +567,62 @@ S('\thello\t').trim().s; //'hello'
 ```
 
 
+### - trimLeft() ###
+
+Return the string with leading and whitespace removed
+
+Example:
+
+```javascript
+S('  How are you?').trimLeft().s; //'How are you?'; 
+```
+
+
+### - trimRight() ###
+
+Return the string with trailing whitespace removed.
+
+Example:
+
+```javascript
+S('How are you?   ').trimRight().s; //'How are you?'; 
+```
+
+
+### - toInt() ###
+
+Return the number value in integer form. Wrapper for `parseInt()`. Can also parse hex values.
+
+Example:
+
+```javascript
+S('5').toInt(); //5
+S('5.3').toInt(); //5;
+S(5.3).toInt(); //5;
+S('-10').toInt(); //-10
+S('55 adfafaf').toInt(); //55
+S('afff 44').toInt(); //NaN
+S('0xff').toInt() //255
+```
+
+
+### - toFloat([precision]) ###
+ 
+Return the float value, wraps parseFloat.
+
+Example:
+
+```javascript
+S('5').toFloat() // 5
+S('5.3').toFloat()  //5.3
+S(5.3).toFloat()  //5.3
+S('-10').toFloat()  //-10
+S('55.3 adfafaf').toFloat() // 55.3
+S('afff 44').toFloat()  //NaN
+S(3.45522222333232).toFloat(2) // 3.46
+```
+
+
 ### - toString() ###
 
 Alias: `s`
@@ -459,6 +638,23 @@ S("Hello").toString() === S("Hello").s; //true
 ```
 
 
+### - truncate(length, [chars]) ###
+
+Truncates the string, accounting for word placement and character count.
+
+Example:
+
+```javascript
+S('this is some long text').truncate(3).s //'...'
+S('this is some long text').truncate(7).s //'this is...'
+S('this is some long text').truncate(11).s //'this is...'
+S('this is some long text').truncate(12).s //'this is some...'
+S('this is some long text').truncate(11).s //'this is...'
+S('this is some long text').truncate(14, ' read more').s //'this is some read more'
+```
+
+
+
 ### - underscore()
 
 Returns converted camel cased string into a string delimited by underscores.
@@ -472,9 +668,27 @@ S('yesWeCan').underscore().s; //'yes_we_can'
 ```
 
 
+### - unescapeHTML() ###
 
-I will definitely add more methods, I'll be adding them on as-needed basis.
+Unescapes the html.
 
+Example:
+
+```javascript
+S('&lt;div&gt;hi&lt;/div&gt;').unescapeHTML().s; //<div>hi</div>
+```
+
+
+
+### + VERSION ###
+
+Returns native JavaScript string containing the version of `string.js`.
+
+Example:
+
+```javascript
+S.VERSION; //1.0.0
+```
 
 
 Quirks
@@ -505,7 +719,7 @@ Run test package:
 
 ### Browser ###
 
-[Click here to run the tests in your web browser.](http://stringjs.com/browser.test.html)
+[Click here to run the tests in your web browser.][browsertest]
 
 
 
@@ -532,6 +746,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
 
-[1]: https://github.com/jprichardson/string.js/blob/master/test/string.test.coffee
-
+[testfile]: https://github.com/jprichardson/string.js/blob/master/test/string.test.js
+[browsertest]: http://stringjs.com/browser.test.html
 

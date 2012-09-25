@@ -216,14 +216,14 @@
     })
 
     describe('- lines()', function() {
-      it('should return an array of string object representing lines with whitespace trimmed', function() {
+      it('should return an array of native strings representing lines with whitespace trimmed', function() {
         var lines = S('1 Infinite Loop\r\nCupertino, CA').lines();
-        T (lines[0].s === '1 Infinite Loop')
-        T (lines[1].s === 'Cupertino, CA')
+        T (lines[0] === '1 Infinite Loop')
+        T (lines[1] === 'Cupertino, CA')
       })
     })
 
-    describe('- parseCSV()', function() {
+    describe('- parseCSV([delim],[qualifier])', function() {
       it('should parse a CSV line into an array', function() {
         ARY_EQ (S("'a','b','c'").parseCSV(',', "'"), ['a', 'b', 'c'])
         ARY_EQ (S('"a","b","c"').parseCSV(), ['a', 'b', 'c'])
@@ -284,7 +284,7 @@
     })
 
     describe('- slugify', function() {
-      it('should conver the text to url slug', function() {
+      it('should convert the text to url slug', function() {
         T (S('Global Thermonuclear Warfare').slugify().s === 'global-thermonuclear-warfare')
       })
     })
@@ -299,7 +299,7 @@
       })
     })
 
-    describe('- stripTags([tags,]', function() {
+    describe('- stripTags([tag1],[tag2],...)', function() {
       it('should strip all of the html tags or tags specified by the parameters', function() {
         T (S('<p>just <b>some</b> text</p>').stripTags().s === 'just some text')
         T (S('<p>just <b>some</b> text</p>').stripTags('p').s === 'just <b>some</b> text')
