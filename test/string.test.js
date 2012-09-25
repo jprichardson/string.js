@@ -4,7 +4,7 @@
 
   var S = null;
 
-  if (module && module.exports)
+  if (typeof module !== 'undefined'  && typeof module.exports !== 'undefined')
     S = require('../lib/string');
   else {
     S = window.S;
