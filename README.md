@@ -379,14 +379,14 @@ Returns an array of native strings representing lines with whitespace trimmed.
 
 Example:
 
-```javsacript
+```javacript
 var lines = S('1 Infinite Loop\r\nCupertino, CA').lines();
 lines[0] // '1 Infinite Loop'
 lines[1] // 'Cupertino, CA'
 ```
 
 
-### '- parseCSV()' ###
+### - parseCSV() ###
 
 Parses a CSV line into an array.
 
@@ -474,7 +474,7 @@ S("Hello").toString() === S("Hello").s; //true
 ```
 
 
- ### - slugify ###
+### - slugify ###
 
 Converts the text into a valid url slug
 
