@@ -15,7 +15,11 @@
     "string.js",
     "stringjs",
     "S",
-    "s"
+    "s",
+    "csv",
+    "html",
+    "entities",
+    "parse"
   ],
   "author": "JP Richardson <jprichardson@gmail.com>",
   "licenses": [
