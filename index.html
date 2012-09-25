@@ -11,236 +11,328 @@
     
 
     
+
+    <!-- Typekit -->
+    
+      <script type="text/javascript">
+        (function() {
+          var config = {
+            kitId: 'hjp0pft',
+            scriptTimeout: 3000
+          };
+          var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/( |^)wf-loading( |$)/g,"");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script");tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(a&&a!="complete"&&a!="loaded")return;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+        })();
+      </script>
+    
   </head>
-  <body><div id="nav">
-  <div id="header">
-    <a href="#" id="logo">string.js</a>
-  </div>
-  <ul id="sections">
+  <body><div id="container">
+  <div id="nav">
     
-      <li>
-        <a href="#motivation">Motivation</a>
-        
-      </li>
-    
-      <li>
-        <a href="#installation">Installation</a>
-        
-      </li>
-    
-      <li>
-        <a href="#usage">Usage </a>
-        
-          <ul>
-            
-              <li>
-                <a href="#usage/node-js">Node.js</a>
-              </li>
-            
-              <li>
-                <a href="#usage/browsers">Browsers</a>
-              </li>
-            
-              <li>
-                <a href="#usage/both">Both</a>
-              </li>
-            
-          </ul>
-        
-      </li>
-    
-      <li>
-        <a href="#methods">Methods</a>
-        
-          <ul>
-            
-              <li>
-                <a href="#methods/camelize">- camelize()</a>
-              </li>
-            
-              <li>
-                <a href="#methods/capitalize">- capitalize()</a>
-              </li>
-            
-              <li>
-                <a href="#methods/clobberprototype">+ clobberPrototype()</a>
-              </li>
-            
-              <li>
-                <a href="#methods/collapsewhitespace">- collapseWhitespace()</a>
-              </li>
-            
-              <li>
-                <a href="#methods/contains-ss">- contains(ss)</a>
-              </li>
-            
-              <li>
-                <a href="#methods/dasherize">- dasherize()</a>
-              </li>
-            
-              <li>
-                <a href="#methods/decodehtmlentities">- decodeHtmlEntities</a>
-              </li>
-            
-              <li>
-                <a href="#methods/endswith-ss">- endsWith(ss)</a>
-              </li>
-            
-              <li>
-                <a href="#methods/include-ss">- include(ss)</a>
-              </li>
-            
-              <li>
-                <a href="#methods/isalpha">- isAlpha()</a>
-              </li>
-            
-              <li>
-                <a href="#methods/isalphanumeric">- isAlphaNumeric()</a>
-              </li>
-            
-              <li>
-                <a href="#methods/isempty">- isEmpty()</a>
-              </li>
-            
-              <li>
-                <a href="#methods/islower">- isLower()</a>
-              </li>
-            
-              <li>
-                <a href="#methods/isnumeric">- isNumeric()</a>
-              </li>
-            
-              <li>
-                <a href="#methods/isupper">- isUpper()</a>
-              </li>
-            
-              <li>
-                <a href="#methods/ltrim">- ltrim()</a>
-              </li>
-            
-              <li>
-                <a href="#methods/left-n">- left(n)</a>
-              </li>
-            
-              <li>
-                <a href="#methods/repeat-n">- repeat(n)</a>
-              </li>
-            
-              <li>
-                <a href="#methods/replaceall-ss-newstr">- replaceAll(ss, newstr)</a>
-              </li>
-            
-              <li>
-                <a href="#methods/restoreprototype">+ restorePrototype()</a>
-              </li>
-            
-              <li>
-                <a href="#methods/right-n">- right(n)</a>
-              </li>
-            
-              <li>
-                <a href="#methods/rtrim">- rtrim()</a>
-              </li>
-            
-              <li>
-                <a href="#methods/s">- s</a>
-              </li>
-            
-              <li>
-                <a href="#methods/startswith-prefix">- startsWith(prefix)</a>
-              </li>
-            
-              <li>
-                <a href="#methods/times-n">- times(n)</a>
-              </li>
-            
-              <li>
-                <a href="#methods/trim">- trim()</a>
-              </li>
-            
-              <li>
-                <a href="#methods/tostring">- toString()</a>
-              </li>
-            
-              <li>
-                <a href="#methods/underscore">- underscore()</a>
-              </li>
-            
-          </ul>
-        
-      </li>
-    
-      <li>
-        <a href="#quirks">Quirks</a>
-        
-      </li>
-    
-      <li>
-        <a href="#testing">Testing</a>
-        
-          <ul>
-            
-              <li>
-                <a href="#testing/node-js">Node.js</a>
-              </li>
-            
-              <li>
-                <a href="#testing/browser">Browser</a>
-              </li>
-            
-          </ul>
-        
-      </li>
-    
-      <li>
-        <a href="#credits">Credits</a>
-        
-      </li>
-    
-      <li>
-        <a href="#license">License</a>
-        
-      </li>
-    
-  </ul>
-  
-    <div class="extra" id="github">
-      <a href="https://github.com/jprichardson/string.js">Source on Github</a>
-    </div>
-    
-      <div class="extra" id="github-issues">
-        <a href="https://github.com/jprichardson/string.js/issues">Issues</a>
+      <div id="header">
+        <a href="#" id="logo">string.js</a>
       </div>
     
+    <ul id="sections">
+      
+        <li>
+          <a href="#why">Why?</a>
+          
+        </li>
+      
+        <li>
+          <a href="#installation">Installation</a>
+          
+        </li>
+      
+        <li>
+          <a href="#usage">Usage </a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#usage/node-js">Node.js</a>
+                </li>
+              
+                <li>
+                  <a href="#usage/browsers">Browsers</a>
+                </li>
+              
+                <li>
+                  <a href="#usage/both">Both</a>
+                </li>
+              
+                <li>
+                  <a href="#usage/browser-compatiblity">Browser Compatiblity</a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#native-javascript-methods">Native JavaScript Methods</a>
+          
+        </li>
+      
+        <li>
+          <a href="#methods">Methods</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#methods/constructor-nativejsstring">- constructor(nativeJsString)</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/camelize">- camelize()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/capitalize">- capitalize()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/clobberprototype">+ clobberPrototype()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/collapsewhitespace">- collapseWhitespace()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/contains-ss">- contains(ss)</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/dasherize">- dasherize()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/decodehtmlentities">- decodeHtmlEntities()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/endswith-ss">- endsWith(ss)</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/escapehtml">- escapeHTML()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/include-ss">- include(ss)</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/isalpha">- isAlpha()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/isalphanumeric">- isAlphaNumeric()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/isempty">- isEmpty()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/islower">- isLower()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/isnumeric">- isNumeric()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/isupper">- isUpper()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/left-n">- left(n)</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/length">- length</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/lines">- lines()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/parsecsv">- parseCSV()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/repeat-n">- repeat(n)</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/replaceall-ss-newstr">- replaceAll(ss, newstr)</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/restoreprototype">+ restorePrototype()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/right-n">- right(n)</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/s">- s</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/slugify">- slugify()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/startswith-prefix">- startsWith(prefix)</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/striptags-tag1-tag2">- stripTags([tag1],[tag2],...)</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/times-n">- times(n)</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/tocsv-options">- toCSV(options)</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/toint">- toInt()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/tofloat-precision">- toFloat([precision])</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/tostring">- toString()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/trim">- trim()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/trimleft">- trimLeft()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/trimright">- trimRight()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/truncate-length-chars">- truncate(length, [chars])</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/underscore">- underscore()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/unescapehtml">- unescapeHTML()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/version">+ VERSION</a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#quirks">Quirks</a>
+          
+        </li>
+      
+        <li>
+          <a href="#testing">Testing</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#testing/node-js">Node.js</a>
+                </li>
+              
+                <li>
+                  <a href="#testing/browser">Browser</a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#credits">Credits</a>
+          
+        </li>
+      
+        <li>
+          <a href="#author">Author</a>
+          
+        </li>
+      
+        <li>
+          <a href="#license">License</a>
+          
+        </li>
+      
+    </ul>
     
-  
-  
-</div>
-<div id="content">
-  
-    <a href="http://github.com/jprichardson/string.js" id="github-ribbon"><img src="https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
-  
-  <h1><a href="http://stringjs.com">string.js</a></h1>
-<p><code>string.js</code>, or simply <code>S</code> is a lightweight (&lt; 2k Gzipped) JavaScript library for the browser or for Node.js that provides extra String methods. Originally, it modified the String prototype. But I quickly learned that in JavaScript, this is considered poor practice.
+      <div class="extra" id="github">
+        <a href="https://github.com/jprichardson/string.js">Source on Github</a>
+      </div>
+      
+        <div class="extra" id="github-issues">
+          <a href="https://github.com/jprichardson/string.js/issues">Issues</a>
+        </div>
+      
+      
+    
+    
+  </div>
+  <div id="content">
+    
+      <a href="https://github.com/jprichardson/string.js" id="github-ribbon"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    
+    <h1><a href="http://stringjs.com">string.js</a></h1>
+<p><a href="http://travis-ci.org/jprichardson/string.js"><img src="https://secure.travis-ci.org/jprichardson/string.js.png" alt="build status"></a>
+
+</p>
+<p><code>string.js</code>, or simply <code>S</code> is a lightweight (&lt; 4k minified and gzipped) JavaScript library for the browser or for Node.js that provides extra String methods. Originally, it modified the String prototype. But I quickly learned that in JavaScript, this is considered poor practice.
 
 
 
 </p>
-<h2 id='motivation'>Motivation</h2 id='motivation'>
-<p>Personally, I prefer the cleanliness of the way code looks when it appears to be native methods. i.e. when you modify native Javascript prototypes. However, if any app dependency required <code>string.js</code>, then the app&apos;s string prototype in every module would be modified as well. This could be troublesome. So I settled on creating a wrapper a la jQuery style. For those of you prototype hatin&apos; fools, such as myself, there is the method <code>clobberPrototype()</code>.
+<h2 id='why'>Why?</h2 id='why'>
+<p>Personally, I prefer the cleanliness of the way code looks when it appears to be native methods. i.e. when you modify native JavaScript prototypes. However, if any app dependency required <code>string.js</code>, then the app&#39;s string prototype would be modified in every module. This could be troublesome. So I settled on creating a wrapper a la jQuery style. For those of you prototype hatin&#39; fools, there is the method <code>clobberPrototype()</code>.
 
 </p>
-<p>Here&apos;s a list of alternative frameworks:
+<p>Here&#39;s a list of alternative frameworks:
 
 </p>
-<ul><li><a href="http://prototypejs.org/api/string">Prototype Framework&apos;s String library</a></li><li><a href="http://www.uize.com/reference/Uize.String.html">Uize.String</a></li><li><a href="http://closure-library.googlecode.com/svn/docs/namespace_goog_string.html">Google Closure&apos;s String</a></li><li><a href="http://epeli.github.com/underscore.string/">Underscore.string</a></li><li><a href="http://sugarjs.com">Sugar.js</a></li><li><a href="http://phpjs.org/pages/home">php.js</a> </li></ul>
-<p>Why wasn&apos;t I happy with any of them? They are all static methods that don&apos;t seem to support chaining in a clean way &apos;OR&apos; they have an odd dependency. Sugar is the notable exception.
+<ul>
+<li><a href="http://prototypejs.org/api/string">Prototype Framework&#39;s String library</a></li>
+<li><a href="http://www.uize.com/reference/Uize.String.html">Uize.String</a></li>
+<li><a href="http://closure-library.googlecode.com/svn/docs/namespace_goog_string.html">Google Closure&#39;s String</a></li>
+<li><a href="http://epeli.github.com/underscore.string/">Underscore.string</a></li>
+<li><a href="http://sugarjs.com">Sugar.js</a></li>
+<li><a href="http://phpjs.org/pages/home">php.js</a></li>
+</ul>
+<p>Why wasn&#39;t I happy with any of them? They are all static methods that don&#39;t seem to support chaining in a clean way &#39;OR&#39; they have an odd dependency. Sugar is the notable exception.
 
 
 
 </p>
 <h2 id='installation'>Installation</h2 id='installation'>
-<p>  npm install --production string
+<p>  npm install string
 
 
 
@@ -276,20 +368,50 @@ type anyway --></span>
 
 </p>
 <pre><code class="javascript"><span class="keyword">var</span> name = S(<span class="string">'Your name is JP'</span>).right(<span class="number">2</span>).toString(); <span class="comment">//'JP'</span></code></pre>
-<p>Still like the clean look of calling these methods directly on native Strings? No problem. Call <code>clobberPrototype()</code>. Make sure to not call this at the module level, at it&apos;ll effect the entire application lifecycle. You should really only use this at the method level. The one exception being if your application will not be a dependency of another application.
+<p>Still like the clean look of calling these methods directly on native Strings? No problem. Call <code>clobberPrototype()</code>. Make sure to not call this at the module level, at it&#39;ll effect the entire application lifecycle. You should really only use this at the method level. The one exception being if your application will not be a dependency of another application.
 
 </p>
 <pre><code class="javascript">S.clobberPrototype();
 <span class="keyword">var</span> name = <span class="string">'Your name is JP'</span>.right(<span class="number">2</span>); <span class="comment">//'JP'</span>
 S.restorePrototype(); <span class="comment">//be a good citizen and clean up</span></code></pre>
+<h3 id='usage/browser-compatiblity'>Browser Compatiblity</h3 id='usage/browser-compatiblity'>
+<p><code>string.js</code> has been designed to be compatible with Node.js and with IE6+, Firefox 3+, Safari 2+, Chrome 3+. Please <a href="http://stringjs.com/browser.test.html">click here</a> to run the tests in your browser. Report any browser issues here: <a href="https://github.com/jprichardson/string.js/issues">https://github.com/jprichardson/string.js/issues</a>
+
+
+</p>
+<h2 id='native-javascript-methods'>Native JavaScript Methods</h2 id='native-javascript-methods'>
+<p><code>string.js</code> imports all of the native JavaScript methods. This is for convenience. The only difference is that the imported methods return <code>string.js</code> objects instead of native JavaScript strings. The one exception to this is the method <code>charAt(index)</code>. This is because <code>charAt()</code> only returns a string of length one. This is typically done for comparisons and a <code>string.js</code> object will have little to no value here.
+
+</p>
+<p>All of the native methods support chaining with the <code>string.js</code> methods.
+
+</p>
+<p><strong>Example:</strong>
+
+</p>
+<pre><code class="javascript"><span class="keyword">var</span> S = require(<span class="string">'string'</span>);
+
+<span class="keyword">var</span> phrase = S(<span class="string">'JavaScript is the best scripting language ever!'</span>);
+<span class="keyword">var</span> sub = <span class="string">'best scripting'</span>;
+<span class="keyword">var</span> pos = phrase.indexOf(sub);
+console.log(phrase.substr(pos, sub.length).truncate(<span class="number">8</span>)); <span class="comment">//best...</span></code></pre>
 <h2 id='methods'>Methods</h2 id='methods'>
-<p>See <a href="https://github.com/jprichardson/string.js/blob/master/test/string.test.coffee">test file</a> for more details. 
+<p>See <a href="https://github.com/jprichardson/string.js/blob/master/test/string.test.js">test file</a> for more details. 
 
 </p>
 <p>I use the same nomenclature as Objective-C regarding methods. <strong>+</strong> means <code>static</code> or <code>class</code> method. <strong>-</strong> means <code>non-static</code> or <code>instance</code> method. 
 
+</p>
+<h3 id='methods/constructor-nativejsstring'>- constructor(nativeJsString)</h3 id='methods/constructor-nativejsstring'>
+<p>This creates a new <code>string.js</code> object. The parameter can be anything. The <code>toString()</code> method will be called on any objects. Some native objects are used in some functions such as <code>toCSV()</code>.
 
 </p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'hello'</span>).s <span class="comment">//'hello'</span>
+S([<span class="string">'a,b'</span>]).s <span class="comment">//"['a','b']"</span>
+S({hi: <span class="string">'jp'</span>}).s <span class="comment">//[object Object]</span></code></pre>
 <h3 id='methods/camelize'>- camelize()</h3 id='methods/camelize'>
 <p>Remove any underscores or dashes and convert a string into camel casing.
 
@@ -349,7 +471,7 @@ S(<span class="string">'JP'</span>).capitalize().s; <span class="comment">//'Jp'
 S(<span class="string">'CarSpeed'</span>).dasherize().s; <span class="comment">//'-car-speed'</span>
 S(<span class="string">'yesWeCan'</span>).dasherize().s; <span class="comment">//'yes-we-can'</span>
 S(<span class="string">'backgroundColor'</span>).dasherize().s; <span class="comment">//'background-color'</span></code></pre>
-<h3 id='methods/decodehtmlentities'>- decodeHtmlEntities</h3 id='methods/decodehtmlentities'>
+<h3 id='methods/decodehtmlentities'>- decodeHtmlEntities()</h3 id='methods/decodehtmlentities'>
 <p>Decodes HTML entities into their string representation.
 
 </p>
@@ -363,6 +485,14 @@ S(<span class="string">'3 &amp;lt; 4'</span>).decodeHtmlEntities().s; <span clas
 
 </p>
 <pre><code class="javascript">S(<span class="string">"hello jon"</span>).endsWith(<span class="string">'jon'</span>); <span class="comment">//true</span></code></pre>
+<h3 id='methods/escapehtml'>- escapeHTML()</h3 id='methods/escapehtml'>
+<p>Escapes the html.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'&lt;div>hi&lt;/div>'</span>).escapeHTML().s; <span class="comment">//&amp;lt;div&amp;gt;hi&amp;lt;/div&amp;gt;</span></code></pre>
 <h3 id='methods/include-ss'>- include(ss)</h3 id='methods/include-ss'>
 <p>Returns true if the string contains the <code>ss</code>.
 
@@ -400,7 +530,7 @@ S(<span class="string">"-Infinity"</span>).isAlphaNumeric(); <span class="commen
 S(<span class="string">"-33"</span>).isAlphaNumeric(); <span class="comment">//false</span>
 S(<span class="string">"aaff.."</span>).isAlphaNumeric(); <span class="comment">//false</span></code></pre>
 <h3 id='methods/isempty'>- isEmpty()</h3 id='methods/isempty'>
-<p>Return true if the string is solely composed of whitespace
+<p>Return true if the string is solely composed of whitespace or is <code>null</code>/<code>undefined</code>.
 
 </p>
 <p>Example:
@@ -408,7 +538,10 @@ S(<span class="string">"aaff.."</span>).isAlphaNumeric(); <span class="comment">
 </p>
 <pre><code class="javascript">S(<span class="string">' '</span>).isEmpty(); <span class="comment">//true</span>
 S(<span class="string">'\t\t\t    '</span>).isEmpty(); <span class="comment">//true</span>
-S(<span class="string">'\n\n '</span>).isEmpty(); <span class="comment">//true</span></code></pre>
+S(<span class="string">'\n\n '</span>).isEmpty(); <span class="comment">//true</span>
+S(<span class="string">'helo'</span>).isEmpty(); <span class="comment">//false</span>
+S(<span class="literal">null</span>).isEmpty(); <span class="comment">//true</span>
+S(<span class="literal">undefined</span>).isEmpty(); <span class="comment">//true</span></code></pre>
 <h3 id='methods/islower'>- isLower()</h3 id='methods/islower'>
 <p>Return true if the character or string is lowercase
 
@@ -451,14 +584,6 @@ S(<span class="string">'B'</span>).isUpper() <span class="comment">//true</span>
 S(<span class="string">'HIJP'</span>).isUpper() <span class="comment">//true</span>
 S(<span class="string">'HI JP'</span>).isUpper() <span class="comment">//false</span>
 S(<span class="string">'HelLO'</span>).isUpper() <span class="comment">//true</span></code></pre>
-<h3 id='methods/ltrim'>- ltrim()</h3 id='methods/ltrim'>
-<p>Return the string with leading and whitespace removed
-
-</p>
-<p>Example:
-
-</p>
-<pre><code class="javascript">S(<span class="string">'  How are you?'</span>).ltrim().s; <span class="comment">//'How are you?';</span></code></pre>
 <h3 id='methods/left-n'>- left(n)</h3 id='methods/left-n'>
 <p>Return the substring denoted by <code>n</code> positive left-most characters.
 
@@ -469,6 +594,45 @@ S(<span class="string">'HelLO'</span>).isUpper() <span class="comment">//true</s
 <pre><code class="javascript">S(<span class="string">'My name is JP'</span>).left(<span class="number">2</span>).s; <span class="comment">//'My'</span>
 S(<span class="string">'Hi'</span>).left(<span class="number">0</span>).s; <span class="comment">//''</span>
 S(<span class="string">'My name is JP'</span>).left(-<span class="number">2</span>).s; <span class="comment">//'JP', same as right(2)</span></code></pre>
+<h3 id='methods/length'>- length</h3 id='methods/length'>
+<p>Property to return the length of the string object.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'hi'</span>).length; <span class="comment">//2</span></code></pre>
+<h3 id='methods/lines'>- lines()</h3 id='methods/lines'>
+<p>Returns an array of native strings representing lines with whitespace trimmed.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javacript"><span class="title">var</span> lines = <span class="type">S</span>('<span class="number">1</span> <span class="type">Infinite</span> <span class="type">Loop</span>\r\nCupertino, <span class="type">CA'</span>).lines();
+<span class="title">lines</span>[<span class="number">0</span>] //<span class="string"> '1 Infinite Loop'</span>
+<span class="title">lines</span>[<span class="number">1</span>] //<span class="string"> 'Cupertino, CA'</span></code></pre>
+<h3 id='methods/parsecsv'>- parseCSV()</h3 id='methods/parsecsv'>
+<p>Parses a CSV line into an array.
+
+</p>
+<p><strong>Arguments:</strong>
+- <code>delimiter</code>: The character that is separates or delimits fields. Default: <code>,</code>
+- <code>qualifier</code>: The character that encloses fields. Default: <code>&quot;</code>
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">"'a','b','c'"</span>).parseCSV(<span class="string">','</span>, <span class="string">"'"</span>) <span class="comment">//['a', 'b', 'c'])</span>
+S(<span class="string">'"a","b","c"'</span>).parseCSV() <span class="comment">// ['a', 'b', 'c'])</span>
+S(<span class="string">'a,b,c'</span>).parseCSV(<span class="string">','</span>, <span class="literal">null</span>)  <span class="comment">//['a', 'b', 'c']) </span>
+S(<span class="string">"'a,','b','c'"</span>).parseCSV(<span class="string">','</span>, <span class="string">"'"</span>) <span class="comment">//['a,', 'b', 'c'])</span>
+S(<span class="string">'"a","b",4,"c"'</span>).parseCSV(<span class="string">','</span>, <span class="literal">null</span>) <span class="comment">//['"a"', '"b"', '4', '"c"'])</span>
+S(<span class="string">'"a","b","4","c"'</span>).parseCSV() <span class="comment">//['a', 'b', '4', 'c'])</span>
+S(<span class="string">'"a","b",       "4","c"'</span>).parseCSV() <span class="comment">//['a', 'b', '4', 'c'])</span>
+S(<span class="string">'"a","b",       4,"c"'</span>).parseCSV(<span class="string">","</span>, <span class="literal">null</span>) <span class="comment">//[ '"a"', '"b"', '       4', '"c"' ])</span>
+S(<span class="string">'"a","b\\"","d","c"'</span>).parseCSV() <span class="comment">//['a', 'b"', 'd', 'c'])</span></code></pre>
 <h3 id='methods/repeat-n'>- repeat(n)</h3 id='methods/repeat-n'>
 <p>Returns a string repeated <code>n</code> times.
 
@@ -509,14 +673,6 @@ S(<span class="string">'Yes it does!'</span>).replaceAll(<span class="string">' 
 S(<span class="string">'Does it work?  '</span>).right(<span class="number">4</span>).s; <span class="comment">//'k?  '</span>
 S(<span class="string">'Hi'</span>).right(<span class="number">0</span>).s; <span class="comment">//''</span>
 S(<span class="string">'My name is JP'</span>).right(-<span class="number">2</span>).s; <span class="comment">//'My', same as left(2)</span></code></pre>
-<h3 id='methods/rtrim'>- rtrim()</h3 id='methods/rtrim'>
-<p>Return the string with trailing whitespace removed.
-
-</p>
-<p>Example:
-
-</p>
-<pre><code class="javascript">S(<span class="string">'How are you?   '</span>).rtrim().s; <span class="comment">//'How are you?';</span></code></pre>
 <h3 id='methods/s'>- s</h3 id='methods/s'>
 <p>Alias: <code>toString()</code>
 
@@ -530,6 +686,11 @@ S(<span class="string">'My name is JP'</span>).right(-<span class="number">2</sp
 <pre><code class="javascript">S(<span class="string">'my name is JP.'</span>).capitalize().s; <span class="comment">//My name is JP.</span>
 <span class="keyword">var</span> a = <span class="string">"Hello "</span> + S(<span class="string">'joe!'</span>); <span class="comment">//a = "Hello joe!"</span>
 S(<span class="string">"Hello"</span>).toString() === S(<span class="string">"Hello"</span>).s; <span class="comment">//true</span></code></pre>
+<h3 id='methods/slugify'>- slugify()</h3 id='methods/slugify'>
+<p>Converts the text into a valid url slug
+
+</p>
+<pre><code class="javascript">S(<span class="string">'Global Thermonuclear Warfare'</span>).slugify().s <span class="comment">// 'global-thermonuclear-warfare'</span></code></pre>
 <h3 id='methods/startswith-prefix'>- startsWith(prefix)</h3 id='methods/startswith-prefix'>
 <p>Return true if the string starts with <code>prefix</code>.
 
@@ -539,6 +700,15 @@ S(<span class="string">"Hello"</span>).toString() === S(<span class="string">"He
 </p>
 <pre><code class="javascript">S(<span class="string">"JP is a software engineer"</span>).startsWith(<span class="string">"JP"</span>); <span class="comment">//true</span>
 S(<span class="string">'wants to change the world'</span>).startsWith(<span class="string">"politicians"</span>); <span class="comment">//false</span></code></pre>
+<h3 id='methods/striptags-tag1-tag2'>- stripTags([tag1],[tag2],...)</h3 id='methods/striptags-tag1-tag2'>
+<p>Strip all of the HTML tags or tags specified by the parameters.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'&lt;p>just &lt;b>some&lt;/b> text&lt;/p>'</span>).stripTags().s <span class="comment">//'just some text'</span>
+S(<span class="string">'&lt;p>just &lt;b>some&lt;/b> text&lt;/p>'</span>).stripTags(<span class="string">'p'</span>).s <span class="comment">//'just &lt;b>some&lt;/b> text'</span></code></pre>
 <h3 id='methods/times-n'>- times(n)</h3 id='methods/times-n'>
 <p>Returns a string repeated <code>n</code> times.
 
@@ -551,18 +721,65 @@ S(<span class="string">'wants to change the world'</span>).startsWith(<span clas
 </p>
 <pre><code class="javascript">S(<span class="string">' '</span>).times(<span class="number">5</span>).s <span class="comment">//'     '</span>
 S(<span class="string">'*'</span>).times(<span class="number">3</span>).s <span class="comment">//'***'</span></code></pre>
-<h3 id='methods/trim'>- trim()</h3 id='methods/trim'>
-<p>Return the string with leading and trailing whitespace removed. Reverts to native <code>trim()</code> if it exists.
+<h3 id='methods/tocsv-options'>- toCSV(options)</h3 id='methods/tocsv-options'>
+<p>Converts an array or object to a CSV line.
+
+</p>
+<p>You can either optionally pass in two string arguments or pass in a configuration object.
+
+</p>
+<p><strong>String Arguments:</strong>
+- <code>delimiter</code>: The character that is separates or delimits fields. Default: <code>,</code>
+- <code>qualifier</code>: The character that encloses fields. Default: <code>&quot;</code>
+
+
+</p>
+<p><strong>Object Configuration:</strong>
+- <code>delimiter</code>: The character that is separates or delimits fields. Default: <code>,</code>
+- <code>qualifier</code>: The character that encloses fields. Default: <code>&quot;</code>
+- <code>escape</code>: The character that escapes any incline <code>qualifier</code> characters. Default: <code>\</code>, in JS this is <code>\\</code>
+- <code>encloseNumbers</code>: Enclose number objects with the <code>qualifier</code> chracter. Default: <code>true</code>
+- <code>keys</code>: If the input isn&#39;t an array, but an object, then if this is set to true, the keys will be output to the CSV line, otherwise it&#39;s the object&#39;s values. Default: <code>false</code>.
 
 </p>
 <p>Example:
 
 </p>
-<pre><code class="javascript">S(<span class="string">'hello '</span>).trim().s; <span class="comment">//'hello'</span>
-S(<span class="string">' hello '</span>).trim().s; <span class="comment">//'hello'</span>
-S(<span class="string">'\nhello'</span>).trim().s; <span class="comment">//'hello'</span>
-S(<span class="string">'\nhello\r\n'</span>).trim().s; <span class="comment">//'hello'</span>
-S(<span class="string">'\thello\t'</span>).trim().s; <span class="comment">//'hello'</span></code></pre>
+<pre><code class="javascript">S([<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]).toCSV().s <span class="comment">//'"a","b","c"'</span>
+S([<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]).toCSV(<span class="string">':'</span>).s <span class="comment">//'"a":"b":"c"'</span>
+S([<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]).toCSV(<span class="string">':'</span>, <span class="literal">null</span>).s <span class="comment">//'a:b:c')</span>
+S([<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]).toCSV(<span class="string">'*'</span>, <span class="string">"'"</span>).s <span class="comment">//"'a'*'b'*'c'"</span>
+S([<span class="string">'a"'</span>, <span class="string">'b'</span>, <span class="number">4</span>, <span class="string">'c'</span>]).toCSV({delimiter: <span class="string">','</span>, qualifier: <span class="string">'"'</span>, escape: <span class="string">'\\'</span>,  encloseNumbers: <span class="literal">false</span>}).s <span class="comment">//'"a\\"","b",4,"c"'</span>
+S({firstName: <span class="string">'JP'</span>, lastName: <span class="string">'Richardson'</span>}).toCSV({keys: <span class="literal">true</span>}).s <span class="comment">//'"firstName","lastName"'</span>
+S({firstName: <span class="string">'JP'</span>, lastName: <span class="string">'Richardson'</span>}).toCSV().s <span class="comment">//'"JP","Richardson"'</span></code></pre>
+<h3 id='methods/toint'>- toInt()</h3 id='methods/toint'>
+<p>Return the number value in integer form. Wrapper for <code>parseInt()</code>. Can also parse hex values.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'5'</span>).toInt(); <span class="comment">//5</span>
+S(<span class="string">'5.3'</span>).toInt(); <span class="comment">//5;</span>
+S(<span class="number">5.3</span>).toInt(); <span class="comment">//5;</span>
+S(<span class="string">'-10'</span>).toInt(); <span class="comment">//-10</span>
+S(<span class="string">'55 adfafaf'</span>).toInt(); <span class="comment">//55</span>
+S(<span class="string">'afff 44'</span>).toInt(); <span class="comment">//NaN</span>
+S(<span class="string">'0xff'</span>).toInt() <span class="comment">//255</span></code></pre>
+<h3 id='methods/tofloat-precision'>- toFloat([precision])</h3 id='methods/tofloat-precision'>
+<p>Return the float value, wraps parseFloat.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'5'</span>).toFloat() <span class="comment">// 5</span>
+S(<span class="string">'5.3'</span>).toFloat()  <span class="comment">//5.3</span>
+S(<span class="number">5.3</span>).toFloat()  <span class="comment">//5.3</span>
+S(<span class="string">'-10'</span>).toFloat()  <span class="comment">//-10</span>
+S(<span class="string">'55.3 adfafaf'</span>).toFloat() <span class="comment">// 55.3</span>
+S(<span class="string">'afff 44'</span>).toFloat()  <span class="comment">//NaN</span>
+S(<span class="number">3.45522222333232</span>).toFloat(<span class="number">2</span>) <span class="comment">// 3.46</span></code></pre>
 <h3 id='methods/tostring'>- toString()</h3 id='methods/tostring'>
 <p>Alias: <code>s</code>
 
@@ -576,6 +793,47 @@ S(<span class="string">'\thello\t'</span>).trim().s; <span class="comment">//'he
 <pre><code class="javascript">S(<span class="string">'my name is JP.'</span>).capitalize().toString(); <span class="comment">//My name is JP.</span>
 <span class="keyword">var</span> a = <span class="string">"Hello "</span> + S(<span class="string">'joe!'</span>); <span class="comment">//a = "Hello joe!"</span>
 S(<span class="string">"Hello"</span>).toString() === S(<span class="string">"Hello"</span>).s; <span class="comment">//true</span></code></pre>
+<h3 id='methods/trim'>- trim()</h3 id='methods/trim'>
+<p>Return the string with leading and trailing whitespace removed. Reverts to native <code>trim()</code> if it exists.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'hello '</span>).trim().s; <span class="comment">//'hello'</span>
+S(<span class="string">' hello '</span>).trim().s; <span class="comment">//'hello'</span>
+S(<span class="string">'\nhello'</span>).trim().s; <span class="comment">//'hello'</span>
+S(<span class="string">'\nhello\r\n'</span>).trim().s; <span class="comment">//'hello'</span>
+S(<span class="string">'\thello\t'</span>).trim().s; <span class="comment">//'hello'</span></code></pre>
+<h3 id='methods/trimleft'>- trimLeft()</h3 id='methods/trimleft'>
+<p>Return the string with leading and whitespace removed
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'  How are you?'</span>).trimLeft().s; <span class="comment">//'How are you?';</span></code></pre>
+<h3 id='methods/trimright'>- trimRight()</h3 id='methods/trimright'>
+<p>Return the string with trailing whitespace removed.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'How are you?   '</span>).trimRight().s; <span class="comment">//'How are you?';</span></code></pre>
+<h3 id='methods/truncate-length-chars'>- truncate(length, [chars])</h3 id='methods/truncate-length-chars'>
+<p>Truncates the string, accounting for word placement and character count.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'this is some long text'</span>).truncate(<span class="number">3</span>).s <span class="comment">//'...'</span>
+S(<span class="string">'this is some long text'</span>).truncate(<span class="number">7</span>).s <span class="comment">//'this is...'</span>
+S(<span class="string">'this is some long text'</span>).truncate(<span class="number">11</span>).s <span class="comment">//'this is...'</span>
+S(<span class="string">'this is some long text'</span>).truncate(<span class="number">12</span>).s <span class="comment">//'this is some...'</span>
+S(<span class="string">'this is some long text'</span>).truncate(<span class="number">11</span>).s <span class="comment">//'this is...'</span>
+S(<span class="string">'this is some long text'</span>).truncate(<span class="number">14</span>, <span class="string">' read more'</span>).s <span class="comment">//'this is some read more'</span></code></pre>
 <h3 id='methods/underscore'>- underscore()</h3 id='methods/underscore'>
 <p>Returns converted camel cased string into a string delimited by underscores.
 
@@ -586,13 +844,24 @@ S(<span class="string">"Hello"</span>).toString() === S(<span class="string">"He
 <pre><code class="javascript">S(<span class="string">'dataRate'</span>).underscore().s; <span class="comment">//'data_rate'</span>
 S(<span class="string">'CarSpeed'</span>).underscore().s; <span class="comment">//'_car_speed'</span>
 S(<span class="string">'yesWeCan'</span>).underscore().s; <span class="comment">//'yes_we_can'</span></code></pre>
-<p>I will definitely add more methods, I&apos;ll be adding them on as-needed basis.
-
-
+<h3 id='methods/unescapehtml'>- unescapeHTML()</h3 id='methods/unescapehtml'>
+<p>Unescapes the html.
 
 </p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'&amp;lt;div&amp;gt;hi&amp;lt;/div&amp;gt;'</span>).unescapeHTML().s; <span class="comment">//&lt;div>hi&lt;/div></span></code></pre>
+<h3 id='methods/version'>+ VERSION</h3 id='methods/version'>
+<p>Returns native JavaScript string containing the version of <code>string.js</code>.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S.VERSION; <span class="comment">//1.0.0</span></code></pre>
 <h2 id='quirks'>Quirks</h2 id='quirks'>
-<p><code>decodeHtmlEntities()</code> converts <code>&amp;nbsp;</code> to <strong>0x0a</strong> (160) and not <strong>0x20</strong> (20). Most browsers consider 0xa to be whitespace characters, Internet Explorer does not despite it being part of the ECMA standard. Google Closure does a good job of normalizing this behavior. This may need to fixed in <code>string.js</code> at some point in time.
+<p><code>decodeHtmlEntities()</code> converts <code>&amp;nbsp;</code> to <strong>0xa0</strong> (160) and not <strong>0x10</strong> (20). Most browsers consider 0xa0 to be whitespace characters, Internet Explorer does not despite it being part of the ECMA standard. Google Closure does a good job of normalizing this behavior. This may need to fixed in <code>string.js</code> at some point in time.
 
 
 
@@ -602,34 +871,53 @@ S(<span class="string">'yesWeCan'</span>).underscore().s; <span class="comment">
 <p>Install the dev dependencies:
 
 </p>
-<pre><code>$ npm <span class="keyword">install</span> <span class="keyword">string</span></code></pre>
+<pre><code>$ npm <span class="keyword">install</span> <span class="keyword">string</span> --development</code></pre>
 <p>Then navigate to the installed directory:
 
 </p>
-<pre><code>$ cd node_modules/<span class="built_in">string</span>/</code></pre>
+<pre><code>$ cd node_modules/<span class="keyword">string</span>/</code></pre>
 <p>Run test package:
 
 </p>
-<pre><code><span class="variable">$ </span><span class="identifier">cake</span> <span class="identifier"><span class="keymethods">test</span></span></code></pre>
+<pre><code><span class="variable">$ </span><span class="identifier">mocha</span> <span class="identifier"><span class="keymethods">test</span></span></code></pre>
 <h3 id='testing/browser'>Browser</h3 id='testing/browser'>
-<p><a href="http://stringjs.com/browser.test.html">Click Here</a>
+<p><a href="http://stringjs.com/browser.test.html">Click here to run the tests in your web browser.</a>
 
 
 
 </p>
 <h2 id='credits'>Credits</h2 id='credits'>
-<p>I have looked at the code by the creators in the libraries mentioned in <strong>Motivation</strong>. As noted in the source code, I&apos;ve specifically used code from Google Closure (Google Inc), Underscore String <a href="http://esa-matti.suuronen.org/">Esa-Matti Suuronen</a>, and php.js (<a href="http://phpjs.org/authors/index">http://phpjs.org/authors/index</a>).  
+<p>I have looked at the code by the creators in the libraries mentioned in <strong>Motivation</strong>. As noted in the source code, I&#39;ve specifically used code from Google Closure (Google Inc), Underscore String <a href="http://esa-matti.suuronen.org/">Esa-Matti Suuronen</a>, and php.js (<a href="http://phpjs.org/authors/index">http://phpjs.org/authors/index</a>).  
+
+
+
+</p>
+<h2 id='author'>Author</h2 id='author'>
+<p><code>string.js</code> was written by <a href="http://about.me/jprichardson">JP Richardson</a>. You should follow him on Twitter <a href="http://twitter.com/jprichardson">@jprichardson</a>. Also read his coding blog <a href="http://procbits.com">Procbits</a>. If you write software with others, you should checkout <a href="http://gitpilot.com">Gitpilot</a> to make collaboration with Git simple.
 
 
 
 </p>
 <h2 id='license'>License</h2 id='license'>
-<p>Triple licensed under MIT/X11, Apache v2, and LGPL. If you use this, pick which one works for you and your software. Attribution is always nice.
+<p>Licensed under MIT.
+
+</p>
+<p>Copyright (C) 2012 JP Richardson <a href="&#109;&#x61;&#x69;&#108;&#x74;&#x6f;&#x3a;&#106;&#x70;&#x72;&#105;&#x63;&#104;&#x61;&#114;&#x64;&#115;&#111;&#110;&#64;&#x67;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;">&#106;&#x70;&#x72;&#105;&#x63;&#104;&#x61;&#114;&#x64;&#115;&#111;&#110;&#64;&#x67;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;</a>
+
+</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
 
 
 </p>
-<p>Copyright (c) 2012 JP Richardson
 
-</p>
+  </div>
 </div></body>
 </html>
