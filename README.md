@@ -119,7 +119,7 @@ See [test file][testfile] for more details.
 
 I use the same nomenclature as Objective-C regarding methods. **+** means `static` or `class` method. **-** means `non-static` or `instance` method. 
 
-### - constructor(nativeJavaScriptStringOrObject) ###
+### - constructor(nativeJsString) ###
 
 This creates a new `string.js` object. The parameter can be anything. The `toString()` method will be called on any objects. Some native objects are used in some functions such as `toCSV()`.
 
@@ -476,7 +476,7 @@ S("Hello").toString() === S("Hello").s; //true
 ```
 
 
-### - slugify ###
+### - slugify() ###
 
 Converts the text into a valid url slug
 
@@ -601,7 +601,6 @@ S('my name is JP.').capitalize().toString(); //My name is JP.
 var a = "Hello " + S('joe!'); //a = "Hello joe!"
 S("Hello").toString() === S("Hello").s; //true
 ```
-
 
 
 ### - trim() ###
