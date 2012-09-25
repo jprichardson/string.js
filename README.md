@@ -732,6 +732,13 @@ I have looked at the code by the creators in the libraries mentioned in **Motiva
 
 
 
+Author
+------
+
+`node-batchflow` was written by [JP Richardson][aboutjp]. You should follow him on Twitter [@jprichardson][twitter]. Also read his coding blog [Procbits][procbits]. If you write software with others, you should checkout [Gitpilot][gitpilot] to make collaboration with Git simple.
+
+
+
 License
 -------
 
@@ -750,4 +757,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 [testfile]: https://github.com/jprichardson/string.js/blob/master/test/string.test.js
 [browsertest]: http://stringjs.com/browser.test.html
+
+[aboutjp]: http://about.me/jprichardson
+[twitter]: http://twitter.com/jprichardson
+[procbits]: http://procbits.com
+[gitpilot]: http://gitpilot.com
+
 
