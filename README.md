@@ -32,6 +32,12 @@ Installation
 
 
 
+Experiment with String.js Now
+-----------------------------
+
+Assuming you're on http://stringjs.com, just simply open up the Webkit inspector in either Chrome or Safari, or the web console in Firefox and you'll notice that `string.js` is included in this page so that you can start experimenting with it right away. 
+
+
 
 Usage 
 -----
