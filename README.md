@@ -28,7 +28,7 @@ Why wasn't I happy with any of them? They are all static methods that don't seem
 Installation
 ------------
 
-  npm install string
+    npm install string
 
 
 
