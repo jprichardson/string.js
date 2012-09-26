@@ -127,7 +127,7 @@ Example:
 
 ```javascript
 S('hello').s //'hello'
-S(['a,b']).s //"['a','b']"
+S(['a,b']).s //"'a','b'"
 S({hi: 'jp'}).s //[object Object]
 ```
 
