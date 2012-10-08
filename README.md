@@ -529,6 +529,39 @@ S('*').times(3).s //'***'
 ```
 
 
+### - toBoolean() / toBool()
+
+Converts a a logical truth string to boolean. That is: `true`, `1`, `'true'`, `'on'`, or `'yes'`. 
+
+JavaScript Note: You can easily convert truthy values to `booleans` by prefixing them with `!!`. e.g.
+`!!'hi' === true` or `!!'' === false` or `!!{} === true`.
+
+Example:
+
+```javascript
+S('true').toBoolean()); //true
+S('false').toBoolean()); //false
+S('hello').toBoolean()); //false
+S(true).toBoolean()); //true
+S('on').toBoolean()); //true
+S('yes').toBoolean()); //true
+S('TRUE').toBoolean()); //true
+S('TrUe').toBoolean()); //true
+S('YES').toBoolean()); //true
+S('ON').toBoolean()); //true
+S('').toBoolean()); //false
+S(undefined).toBoolean()) //false
+S('undefined').toBoolean()) //false
+S(null).toBoolean()) //false
+S(false).toBoolean()) //false
+S({}).toBoolean()) //false
+S(1).toBoolean()) //true
+S(-1).toBoolean()) //false
+S(0).toBoolean()) //false
+```
+
+
+
 ### - toCSV(options) ###
 
 Converts an array or object to a CSV line.
@@ -560,6 +593,23 @@ S({firstName: 'JP', lastName: 'Richardson'}).toCSV().s //'"JP","Richardson"'
 ```
 
 
+### - toFloat([precision]) ###
+ 
+Return the float value, wraps parseFloat.
+
+Example:
+
+```javascript
+S('5').toFloat() // 5
+S('5.3').toFloat()  //5.3
+S(5.3).toFloat()  //5.3
+S('-10').toFloat()  //-10
+S('55.3 adfafaf').toFloat() // 55.3
+S('afff 44').toFloat()  //NaN
+S(3.45522222333232).toFloat(2) // 3.46
+```
+
+
 ### - toInt() ###
 
 Return the number value in integer form. Wrapper for `parseInt()`. Can also parse hex values.
@@ -576,22 +626,6 @@ S('afff 44').toInt(); //NaN
 S('0xff').toInt() //255
 ```
 
-
-### - toFloat([precision]) ###
- 
-Return the float value, wraps parseFloat.
-
-Example:
-
-```javascript
-S('5').toFloat() // 5
-S('5.3').toFloat()  //5.3
-S(5.3).toFloat()  //5.3
-S('-10').toFloat()  //-10
-S('55.3 adfafaf').toFloat() // 55.3
-S('afff 44').toFloat()  //NaN
-S(3.45522222333232).toFloat(2) // 3.46
-```
 
 
 ### - toString() ###

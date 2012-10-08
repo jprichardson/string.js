@@ -313,6 +313,42 @@
       })
     })
 
+    describe('- toFloat([precision])', function() {
+      it('should return the float value, wraps parseFloat', function() {
+        T (S('5').toFloat() === 5);
+        T (S('5.3').toFloat() === 5.3);
+        T (S(5.3).toFloat() === 5.3);
+        T (S('-10').toFloat() === -10);
+        T (S('55.3 adfafaf').toFloat() === 55.3)
+        T (S('afff 44').toFloat().toString() === 'NaN')
+        T (S(3.45522222333232).toFloat(2) === 3.46)
+      })
+    })
+
+    describe('- toBoolean', function() {
+      it('should convert a logical truth string to boolean', function() {
+        T (S('true').toBoolean());
+        F (S('false').toBoolean());
+        F (S('hello').toBoolean());
+        T (S(true).toBoolean());
+        T (S('on').toBoolean());
+        T (S('yes').toBoolean());
+        T (S('TRUE').toBoolean());
+        T (S('TrUe').toBoolean());
+        T (S('YES').toBoolean());
+        T (S('ON').toBoolean());
+        F (S('').toBoolean());
+        F (S(undefined).toBoolean())
+        F (S('undefined').toBoolean())
+        F (S(null).toBoolean())
+        F (S(false).toBoolean())
+        F (S({}).toBoolean())
+        T (S(1).toBoolean())
+        F (S(-1).toBoolean())
+        F (S(0).toBoolean())
+      })
+    })
+
     describe('- toCSV(options)', function() {
       it('should convert the array to csv', function() {
         T (S(['a', 'b', 'c']).toCSV().s === '"a","b","c"');
@@ -322,13 +358,6 @@
         T (S(['a"', 'b', 4, 'c']).toCSV({delimiter: ',', qualifier: '"', escape: '\\',  encloseNumbers: false}).s === '"a\\"","b",4,"c"');
         T (S({firstName: 'JP', lastName: 'Richardson'}).toCSV({keys: true}).s === '"firstName","lastName"');
         T (S({firstName: 'JP', lastName: 'Richardson'}).toCSV().s === '"JP","Richardson"');
-      })
-    })
-
-    describe('- toString()', function() {
-      it('should return the native string', function() {
-        T (S('hi').toString() === 'hi');
-        T (S('hi').toString() === S('hi').s);
       })
     })
 
@@ -344,15 +373,10 @@
       })
     })
 
-    describe('- toFloat([precision])', function() {
-      it('should return the float value, wraps parseFloat', function() {
-        T (S('5').toFloat() === 5);
-        T (S('5.3').toFloat() === 5.3);
-        T (S(5.3).toFloat() === 5.3);
-        T (S('-10').toFloat() === -10);
-        T (S('55.3 adfafaf').toFloat() === 55.3)
-        T (S('afff 44').toFloat().toString() === 'NaN')
-        T (S(3.45522222333232).toFloat(2) === 3.46)
+    describe('- toString()', function() {
+      it('should return the native string', function() {
+        T (S('hi').toString() === 'hi');
+        T (S('hi').toString() === S('hi').s);
       })
     })
 
@@ -404,14 +428,6 @@
         T (S('&lt;div&gt;Blah &amp; &quot;blah&quot; &amp; &apos;blah&apos;&lt;/div&gt;').unescapeHTML().s ===
              '<div>Blah & "blah" & \'blah\'</div>');
         T (S('&amp;lt;').unescapeHTML().s === '&lt;');
-      })
-    })
-
-    describe('- toBoolean', function() {
-      it('should convert a string to boolean', function() {
-        T (S('true').toBoolean() === true);
-        T (S('false').toBoolean() === false);
-        T (S('hello').toBoolean() === false);
       })
     })
 
