@@ -407,6 +407,14 @@
       })
     })
 
+    describe('- toBoolean', function() {
+      it('should convert a string to boolean', function() {
+        T (S('true').toBoolean() === true);
+        T (S('false').toBoolean() === false);
+        T (S('hello').toBoolean() === false);
+      })
+    })
+
     describe('- valueOf()', function() {
       it('should return the primitive value of the string, wraps native valueOf()', function() {
         T (S('hi').valueOf() === 'hi')
