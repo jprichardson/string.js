@@ -394,6 +394,52 @@ lines[1] // 'Cupertino, CA'
 ```
 
 
+### - pad(len, [char])
+
+Pads the string in the center with specified character
+
+Example:
+
+```javsacript
+S('hello').pad(5).s //'hello'
+S('hello').pad(10).s //'   hello  '
+S('hey').pad(7).s //'  hey  '
+S('hey').pad(5).s //' hey '
+S('hey').pad(4).s //' hey'
+S('hey').pad(7, '-').s//'--hey--'
+```
+
+
+### - padLeft(len, [char])
+
+Left pads the string.
+
+Example:
+
+```javascript
+S('hello').padLeft(5).s //'hello'
+S('hello').padLeft(10).s //'     hello'
+S('hello').padLeft(7).s //'  hello'
+S('hello').padLeft(6).s //' hello'
+S('hello').padLeft(10, '.').s //'.....hello'
+```
+
+
+### - padRight(len, [char])
+
+Right pads the string.
+
+Example:
+
+```javascript
+S('hello').padRight(5).s //'hello'
+S('hello').padRight(10).s //'hello     '
+S('hello').padRight(7).s //'hello  '
+S('hello').padRight(6).s //'hello '
+S('hello').padRight(10, '.').s //'hello.....'
+```
+
+
 ### - parseCSV() ###
 
 Parses a CSV line into an array.
@@ -484,7 +530,7 @@ S("Hello").toString() === S("Hello").s; //true
 
 ### - slugify() ###
 
-Converts the text into a valid url slug
+Converts the text into a valid url slug.
 
 ```javascript
 S('Global Thermonuclear Warfare').slugify().s // 'global-thermonuclear-warfare'
@@ -501,6 +547,18 @@ Example:
 S("JP is a software engineer").startsWith("JP"); //true
 S('wants to change the world').startsWith("politicians"); //false
 ```
+
+
+### - stripPunctuation()
+
+Strip all of the punctuation.        
+
+Example:
+
+```javascript
+S('My, st[ring] *full* of %punct)').stripPunctuation().s; //My string full of punct 
+```
+
 
 
 ### - stripTags([tag1],[tag2],...) ###
@@ -768,7 +826,7 @@ Run test package:
 Credits
 -------
 
-I have looked at the code by the creators in the libraries mentioned in **Motivation**. As noted in the source code, I've specifically used code from Google Closure (Google Inc), Underscore String [Esa-Matti Suuronen](http://esa-matti.suuronen.org/), and php.js (http://phpjs.org/authors/index).  
+I have looked at the code by the creators in the libraries mentioned in **Motivation**. As noted in the source code, I've specifically used code from Google Closure (Google Inc), Underscore String [Esa-Matti Suuronen](http://esa-matti.suuronen.org/), and php.js (http://phpjs.org/authors/index), and [TJ Holowaychuk](https://github.com/component/pad).  
 
 
 

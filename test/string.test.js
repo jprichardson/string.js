@@ -223,6 +223,37 @@
       })
     })
 
+    describe('- pad(len, [char])', function() {
+      it('should pad the string in the center with specified character', function() {
+        T (S('hello').pad(5).s === 'hello');
+        T (S('hello').pad(10).s === '   hello  ');
+        T (S('hey').pad(7).s === '  hey  ');
+        T (S('hey').pad(5).s === ' hey ');
+        T (S('hey').pad(4).s === ' hey');
+        T (S('hey').pad(7, '-').s === '--hey--');
+      })
+    })
+
+    describe('- padLeft(len, [char])', function() {
+      it('should left pad the string', function() {
+        T (S('hello').padLeft(5).s === 'hello');
+        T (S('hello').padLeft(10).s === '     hello');
+        T (S('hello').padLeft(7).s === '  hello');
+        T (S('hello').padLeft(6).s === ' hello');
+        T (S('hello').padLeft(10, '.').s === '.....hello');
+      })
+    })
+
+    describe('- padRight(len, [char])', function() {
+      it('should right pad the string', function() {
+        T (S('hello').padRight(5).s === 'hello');
+        T (S('hello').padRight(10).s === 'hello     ');
+        T (S('hello').padRight(7).s === 'hello  ');
+        T (S('hello').padRight(6).s === 'hello ');
+        T (S('hello').padRight(10, '.').s === 'hello.....');
+      })
+    })
+
     describe('- parseCSV([delim],[qualifier])', function() {
       it('should parse a CSV line into an array', function() {
         ARY_EQ (S("'a','b','c'").parseCSV(',', "'"), ['a', 'b', 'c'])
@@ -296,6 +327,12 @@
         T (S("").startsWith(""));
         T (S("Hi").startsWith(""));
         T (S("JP").startsWith("JP"));
+      })
+    })
+
+    describe('- stripPunctuation()', function() {
+      it('should strip all of the punctuation', function() {
+        T (S('My, st[ring] *full* of %punct)').stripPunctuation().s === 'My string full of punct')
       })
     })
 
