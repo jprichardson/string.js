@@ -63,14 +63,6 @@
       })
     })
 
-    describe('+ clobberPrototype()', function() {
-      it('should extend the String prototype with the extra methods', function() {
-        S.clobberPrototype();
-        T (" hello!".endsWith('!'));
-        S.restorePrototype();
-      })
-    })
-
     describe('- collapseWhitespace()', function() {
       it('should convert all adjacent whitespace characters to a single space and trim the ends', function() {
         T (S('  Strings   \t are   \n\n\t fun\n!  ').collapseWhitespace().s === 'Strings are fun !');
@@ -115,6 +107,14 @@
         T (S('<div>Blah & "blah" & \'blah\'</div>').escapeHTML().s ===
              '&lt;div&gt;Blah &amp; &quot;blah&quot; &amp; &apos;blah&apos;&lt;/div&gt;');
         T (S('&lt;').escapeHTML().s === '&amp;lt;');
+      })
+    })
+
+     describe('+ extendPrototype()', function() {
+      it('should extend the String prototype with the extra methods', function() {
+        S.extendPrototype();
+        T (" hello!".endsWith('!'));
+        S.restorePrototype();
       })
     })
 
@@ -258,7 +258,7 @@
     describe('+ restorePrototype()', function() {
       it('should restore the original String prototype', function() {
         T (typeof ' hi'.endsWith === 'undefined');
-        S.clobberPrototype();
+        S.extendPrototype();
         T (' hi'.endsWith('hi'));
         S.restorePrototype();
         T (typeof ' hi'.endsWith === 'undefined');

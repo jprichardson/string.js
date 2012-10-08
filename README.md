@@ -10,7 +10,7 @@
 Why?
 ----
 
-Personally, I prefer the cleanliness of the way code looks when it appears to be native methods. i.e. when you modify native JavaScript prototypes. However, if any app dependency required `string.js`, then the app's string prototype would be modified in every module. This could be troublesome. So I settled on creating a wrapper a la jQuery style. For those of you prototype hatin' fools, there is the method `clobberPrototype()`.
+Personally, I prefer the cleanliness of the way code looks when it appears to be native methods. i.e. when you modify native JavaScript prototypes. However, if any app dependency required `string.js`, then the app's string prototype would be modified in every module. This could be troublesome. So I settled on creating a wrapper a la jQuery style. For those of you prototype hatin' fools, there is the method `extendPrototype()`.
 
 Here's a list of alternative frameworks:
 
@@ -85,10 +85,10 @@ is the same as…
 var name = S('Your name is JP').right(2).toString(); //'JP'
 ```
 
-Still like the clean look of calling these methods directly on native Strings? No problem. Call `clobberPrototype()`. Make sure to not call this at the module level, at it'll effect the entire application lifecycle. You should really only use this at the method level. The one exception being if your application will not be a dependency of another application.
+Still like the clean look of calling these methods directly on native Strings? No problem. Call `extendPrototype()`. Make sure to not call this at the module level, at it'll effect the entire application lifecycle. You should really only use this at the method level. The one exception being if your application will not be a dependency of another application.
 
 ```javascript
-S.clobberPrototype();
+S.extendPrototype();
 var name = 'Your name is JP'.right(2); //'JP'
 S.restorePrototype(); //be a good citizen and clean up
 ```
@@ -165,17 +165,6 @@ S('JP').capitalize().s; //'Jp'
 ```
 
 
-### + clobberPrototype() ###
-
-Modifies `String.prototype` to have all of the methods found in string.js.
-
-Example:
-
-```javascript
-S.clobberPrototype();
-```
-
-
 ### - collapseWhitespace() ###
 
 Converts all adjacent whitespace characters to a single space.
@@ -243,6 +232,17 @@ Example:
 
 ```javascript
 S('<div>hi</div>').escapeHTML().s; //&lt;div&gt;hi&lt;/div&gt;
+```
+
+
+### + extendPrototype() ###
+
+Modifies `String.prototype` to have all of the methods found in string.js.
+
+Example:
+
+```javascript
+S.extendPrototype();
 ```
 
 
@@ -444,7 +444,7 @@ S('Yes it does!').replaceAll(' ', '').s; //'Yesitdoes!'
 
 ### + restorePrototype() ###
 
-Restore the original String prototype. Typically used in conjunction with `clobberPrototype()`.
+Restore the original String prototype. Typically used in conjunction with `extendPrototype()`.
 
 Example:
 
