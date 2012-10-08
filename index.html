@@ -7,7 +7,7 @@
     <title>string.js</title>
     
     <link rel="stylesheet" type="text/css" href="http://documentup.com/stylesheets/screen.css">
-    
+    <script type="text/javascript" src="https://raw.github.com/jprichardson/string.js/master/lib/string.min.js"></script>
     
     <script type="text/javascript">
 
@@ -22,8 +22,6 @@
   })();
 
 </script>
-
-<script type="text/javascript" src="https://raw.github.com/jprichardson/string.js/master/lib/string.min.js"></script>
     
 
     <!-- Typekit -->
@@ -111,10 +109,6 @@
                 </li>
               
                 <li>
-                  <a href="#methods/clobberprototype">+ clobberPrototype()</a>
-                </li>
-              
-                <li>
                   <a href="#methods/collapsewhitespace">- collapseWhitespace()</a>
                 </li>
               
@@ -136,6 +130,10 @@
               
                 <li>
                   <a href="#methods/escapehtml">- escapeHTML()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/extendprototype">+ extendPrototype()</a>
                 </li>
               
                 <li>
@@ -179,6 +177,18 @@
                 </li>
               
                 <li>
+                  <a href="#methods/pad-len-char">- pad(len, [char])</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/padleft-len-char">- padLeft(len, [char])</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/padright-len-char">- padRight(len, [char])</a>
+                </li>
+              
+                <li>
                   <a href="#methods/parsecsv">- parseCSV()</a>
                 </li>
               
@@ -211,6 +221,10 @@
                 </li>
               
                 <li>
+                  <a href="#methods/strippunctuation">- stripPunctuation()</a>
+                </li>
+              
+                <li>
                   <a href="#methods/striptags-tag1-tag2">- stripTags([tag1],[tag2],...)</a>
                 </li>
               
@@ -219,15 +233,19 @@
                 </li>
               
                 <li>
+                  <a href="#methods/toboolean-tobool">- toBoolean() / toBool()</a>
+                </li>
+              
+                <li>
                   <a href="#methods/tocsv-options">- toCSV(options)</a>
                 </li>
               
                 <li>
-                  <a href="#methods/toint">- toInt()</a>
+                  <a href="#methods/tofloat-precision">- toFloat([precision])</a>
                 </li>
               
                 <li>
-                  <a href="#methods/tofloat-precision">- toFloat([precision])</a>
+                  <a href="#methods/toint">- toInt()</a>
                 </li>
               
                 <li>
@@ -325,13 +343,13 @@
 <p><a href="http://travis-ci.org/jprichardson/string.js"><img src="https://secure.travis-ci.org/jprichardson/string.js.png" alt="build status"></a>
 
 </p>
-<p><code>string.js</code>, or simply <code>S</code> is a lightweight (&lt; 4k minified and gzipped) JavaScript library for the browser or for Node.js that provides extra String methods. Originally, it modified the String prototype. But I quickly learned that in JavaScript, this is considered poor practice.
+<p><code>string.js</code>, or simply <code>S</code> is a lightweight (<strong>&lt; 4 kb</strong> minified and gzipped) JavaScript library for the browser or for Node.js that provides extra String methods. Originally, it modified the String prototype. But I quickly learned that in JavaScript, this is considered poor practice.
 
 
 
 </p>
 <h2 id='why'>Why?</h2 id='why'>
-<p>Personally, I prefer the cleanliness of the way code looks when it appears to be native methods. i.e. when you modify native JavaScript prototypes. However, if any app dependency required <code>string.js</code>, then the app&#39;s string prototype would be modified in every module. This could be troublesome. So I settled on creating a wrapper a la jQuery style. For those of you prototype hatin&#39; fools, there is the method <code>clobberPrototype()</code>.
+<p>Personally, I prefer the cleanliness of the way code looks when it appears to be native methods. i.e. when you modify native JavaScript prototypes. However, if any app dependency required <code>string.js</code>, then the app&#39;s string prototype would be modified in every module. This could be troublesome. So I settled on creating a wrapper a la jQuery style. For those of you prototype hatin&#39; fools, there is the method <code>extendPrototype()</code>.
 
 </p>
 <p>Here&#39;s a list of alternative frameworks:
@@ -388,10 +406,10 @@ type anyway --></span>
 
 </p>
 <pre><code class="javascript"><span class="keyword">var</span> name = S(<span class="string">'Your name is JP'</span>).right(<span class="number">2</span>).toString(); <span class="comment">//'JP'</span></code></pre>
-<p>Still like the clean look of calling these methods directly on native Strings? No problem. Call <code>clobberPrototype()</code>. Make sure to not call this at the module level, at it&#39;ll effect the entire application lifecycle. You should really only use this at the method level. The one exception being if your application will not be a dependency of another application.
+<p>Still like the clean look of calling these methods directly on native Strings? No problem. Call <code>extendPrototype()</code>. Make sure to not call this at the module level, at it&#39;ll effect the entire application lifecycle. You should really only use this at the method level. The one exception being if your application will not be a dependency of another application.
 
 </p>
-<pre><code class="javascript">S.clobberPrototype();
+<pre><code class="javascript">S.extendPrototype();
 <span class="keyword">var</span> name = <span class="string">'Your name is JP'</span>.right(<span class="number">2</span>); <span class="comment">//'JP'</span>
 S.restorePrototype(); <span class="comment">//be a good citizen and clean up</span></code></pre>
 <h3 id='usage/browser-compatiblity'>Browser Compatiblity</h3 id='usage/browser-compatiblity'>
@@ -453,14 +471,6 @@ S(<span class="string">'yes_we_can'</span>).camelize().s; <span class="comment">
 </p>
 <pre><code class="javascript">S(<span class="string">'jon'</span>).capitalize().s; <span class="comment">//'Jon'</span>
 S(<span class="string">'JP'</span>).capitalize().s; <span class="comment">//'Jp'</span></code></pre>
-<h3 id='methods/clobberprototype'>+ clobberPrototype()</h3 id='methods/clobberprototype'>
-<p>Modifies <code>String.prototype</code> to have all of the methods found in string.js.
-
-</p>
-<p>Example:
-
-</p>
-<pre><code class="javascript">S.clobberPrototype();</code></pre>
 <h3 id='methods/collapsewhitespace'>- collapseWhitespace()</h3 id='methods/collapsewhitespace'>
 <p>Converts all adjacent whitespace characters to a single space.
 
@@ -513,6 +523,14 @@ S(<span class="string">'3 &amp;lt; 4'</span>).decodeHtmlEntities().s; <span clas
 
 </p>
 <pre><code class="javascript">S(<span class="string">'&lt;div>hi&lt;/div>'</span>).escapeHTML().s; <span class="comment">//&amp;lt;div&amp;gt;hi&amp;lt;/div&amp;gt;</span></code></pre>
+<h3 id='methods/extendprototype'>+ extendPrototype()</h3 id='methods/extendprototype'>
+<p>Modifies <code>String.prototype</code> to have all of the methods found in string.js.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S.extendPrototype();</code></pre>
 <h3 id='methods/include-ss'>- include(ss)</h3 id='methods/include-ss'>
 <p>Returns true if the string contains the <code>ss</code>.
 
@@ -632,6 +650,43 @@ S(<span class="string">'My name is JP'</span>).left(-<span class="number">2</spa
 <pre><code class="javacript"><span class="title">var</span> lines = <span class="type">S</span>('<span class="number">1</span> <span class="type">Infinite</span> <span class="type">Loop</span>\r\nCupertino, <span class="type">CA'</span>).lines();
 <span class="title">lines</span>[<span class="number">0</span>] //<span class="string"> '1 Infinite Loop'</span>
 <span class="title">lines</span>[<span class="number">1</span>] //<span class="string"> 'Cupertino, CA'</span></code></pre>
+<h3 id='methods/pad-len-char'>- pad(len, [char])</h3 id='methods/pad-len-char'>
+<p>Pads the string in the center with specified character
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'hello'</span>).pad(<span class="number">5</span>).s <span class="comment">//'hello'</span>
+S(<span class="string">'hello'</span>).pad(<span class="number">10</span>).s <span class="comment">//'   hello  '</span>
+S(<span class="string">'hey'</span>).pad(<span class="number">7</span>).s <span class="comment">//'  hey  '</span>
+S(<span class="string">'hey'</span>).pad(<span class="number">5</span>).s <span class="comment">//' hey '</span>
+S(<span class="string">'hey'</span>).pad(<span class="number">4</span>).s <span class="comment">//' hey'</span>
+S(<span class="string">'hey'</span>).pad(<span class="number">7</span>, <span class="string">'-'</span>).s<span class="comment">//'--hey--'</span></code></pre>
+<h3 id='methods/padleft-len-char'>- padLeft(len, [char])</h3 id='methods/padleft-len-char'>
+<p>Left pads the string.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'hello'</span>).padLeft(<span class="number">5</span>).s <span class="comment">//'hello'</span>
+S(<span class="string">'hello'</span>).padLeft(<span class="number">10</span>).s <span class="comment">//'     hello'</span>
+S(<span class="string">'hello'</span>).padLeft(<span class="number">7</span>).s <span class="comment">//'  hello'</span>
+S(<span class="string">'hello'</span>).padLeft(<span class="number">6</span>).s <span class="comment">//' hello'</span>
+S(<span class="string">'hello'</span>).padLeft(<span class="number">10</span>, <span class="string">'.'</span>).s <span class="comment">//'.....hello'</span></code></pre>
+<h3 id='methods/padright-len-char'>- padRight(len, [char])</h3 id='methods/padright-len-char'>
+<p>Right pads the string.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'hello'</span>).padRight(<span class="number">5</span>).s <span class="comment">//'hello'</span>
+S(<span class="string">'hello'</span>).padRight(<span class="number">10</span>).s <span class="comment">//'hello     '</span>
+S(<span class="string">'hello'</span>).padRight(<span class="number">7</span>).s <span class="comment">//'hello  '</span>
+S(<span class="string">'hello'</span>).padRight(<span class="number">6</span>).s <span class="comment">//'hello '</span>
+S(<span class="string">'hello'</span>).padRight(<span class="number">10</span>, <span class="string">'.'</span>).s <span class="comment">//'hello.....'</span></code></pre>
 <h3 id='methods/parsecsv'>- parseCSV()</h3 id='methods/parsecsv'>
 <p>Parses a CSV line into an array.
 
@@ -675,7 +730,7 @@ S(<span class="string">'*'</span>).repeat(<span class="number">3</span>).s; <spa
 <pre><code class="javascript">S(<span class="string">' does IT work? '</span>).replaceAll(<span class="string">' '</span>, <span class="string">'_'</span>).s; <span class="comment">//'_does_IT_work?_'</span>
 S(<span class="string">'Yes it does!'</span>).replaceAll(<span class="string">' '</span>, <span class="string">''</span>).s; <span class="comment">//'Yesitdoes!'</span></code></pre>
 <h3 id='methods/restoreprototype'>+ restorePrototype()</h3 id='methods/restoreprototype'>
-<p>Restore the original String prototype. Typically used in conjunction with <code>clobberPrototype()</code>.
+<p>Restore the original String prototype. Typically used in conjunction with <code>extendPrototype()</code>.
 
 </p>
 <p>Example:
@@ -707,7 +762,7 @@ S(<span class="string">'My name is JP'</span>).right(-<span class="number">2</sp
 <span class="keyword">var</span> a = <span class="string">"Hello "</span> + S(<span class="string">'joe!'</span>); <span class="comment">//a = "Hello joe!"</span>
 S(<span class="string">"Hello"</span>).toString() === S(<span class="string">"Hello"</span>).s; <span class="comment">//true</span></code></pre>
 <h3 id='methods/slugify'>- slugify()</h3 id='methods/slugify'>
-<p>Converts the text into a valid url slug
+<p>Converts the text into a valid url slug.
 
 </p>
 <pre><code class="javascript">S(<span class="string">'Global Thermonuclear Warfare'</span>).slugify().s <span class="comment">// 'global-thermonuclear-warfare'</span></code></pre>
@@ -720,6 +775,14 @@ S(<span class="string">"Hello"</span>).toString() === S(<span class="string">"He
 </p>
 <pre><code class="javascript">S(<span class="string">"JP is a software engineer"</span>).startsWith(<span class="string">"JP"</span>); <span class="comment">//true</span>
 S(<span class="string">'wants to change the world'</span>).startsWith(<span class="string">"politicians"</span>); <span class="comment">//false</span></code></pre>
+<h3 id='methods/strippunctuation'>- stripPunctuation()</h3 id='methods/strippunctuation'>
+<p>Strip all of the punctuation.        
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'My, st[ring] *full* of %punct)'</span>).stripPunctuation().s; <span class="comment">//My string full of punct</span></code></pre>
 <h3 id='methods/striptags-tag1-tag2'>- stripTags([tag1],[tag2],...)</h3 id='methods/striptags-tag1-tag2'>
 <p>Strip all of the HTML tags or tags specified by the parameters.
 
@@ -741,6 +804,36 @@ S(<span class="string">'&lt;p>just &lt;b>some&lt;/b> text&lt;/p>'</span>).stripT
 </p>
 <pre><code class="javascript">S(<span class="string">' '</span>).times(<span class="number">5</span>).s <span class="comment">//'     '</span>
 S(<span class="string">'*'</span>).times(<span class="number">3</span>).s <span class="comment">//'***'</span></code></pre>
+<h3 id='methods/toboolean-tobool'>- toBoolean() / toBool()</h3 id='methods/toboolean-tobool'>
+<p>Converts a a logical truth string to boolean. That is: <code>true</code>, <code>1</code>, <code>&#39;true&#39;</code>, <code>&#39;on&#39;</code>, or <code>&#39;yes&#39;</code>. 
+
+</p>
+<p>JavaScript Note: You can easily convert truthy values to <code>booleans</code> by prefixing them with <code>!!</code>. e.g.
+<code>!!&#39;hi&#39; === true</code> or <code>!!&#39;&#39; === false</code> or <code>!!{} === true</code>.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'true'</span>).toBoolean() <span class="comment">//true</span>
+S(<span class="string">'false'</span>).toBoolean() <span class="comment">//false</span>
+S(<span class="string">'hello'</span>).toBoolean() <span class="comment">//false</span>
+S(<span class="literal">true</span>).toBoolean() <span class="comment">//true</span>
+S(<span class="string">'on'</span>).toBoolean() <span class="comment">//true</span>
+S(<span class="string">'yes'</span>).toBoolean() <span class="comment">//true</span>
+S(<span class="string">'TRUE'</span>).toBoolean() <span class="comment">//true</span>
+S(<span class="string">'TrUe'</span>).toBoolean() <span class="comment">//true</span>
+S(<span class="string">'YES'</span>).toBoolean() <span class="comment">//true</span>
+S(<span class="string">'ON'</span>).toBoolean() <span class="comment">//true</span>
+S(<span class="string">''</span>).toBoolean() <span class="comment">//false</span>
+S(<span class="literal">undefined</span>).toBoolean() <span class="comment">//false</span>
+S(<span class="string">'undefined'</span>).toBoolean() <span class="comment">//false</span>
+S(<span class="literal">null</span>).toBoolean() <span class="comment">//false</span>
+S(<span class="literal">false</span>).toBoolean() <span class="comment">//false</span>
+S({}).toBoolean() <span class="comment">//false</span>
+S(<span class="number">1</span>).toBoolean() <span class="comment">//true</span>
+S(-<span class="number">1</span>).toBoolean() <span class="comment">//false</span>
+S(<span class="number">0</span>).toBoolean() <span class="comment">//false</span></code></pre>
 <h3 id='methods/tocsv-options'>- toCSV(options)</h3 id='methods/tocsv-options'>
 <p>Converts an array or object to a CSV line.
 
@@ -772,20 +865,6 @@ S([<span class="string">'a'</span>, <span class="string">'b'</span>, <span class
 S([<span class="string">'a"'</span>, <span class="string">'b'</span>, <span class="number">4</span>, <span class="string">'c'</span>]).toCSV({delimiter: <span class="string">','</span>, qualifier: <span class="string">'"'</span>, escape: <span class="string">'\\'</span>,  encloseNumbers: <span class="literal">false</span>}).s <span class="comment">//'"a\\"","b",4,"c"'</span>
 S({firstName: <span class="string">'JP'</span>, lastName: <span class="string">'Richardson'</span>}).toCSV({keys: <span class="literal">true</span>}).s <span class="comment">//'"firstName","lastName"'</span>
 S({firstName: <span class="string">'JP'</span>, lastName: <span class="string">'Richardson'</span>}).toCSV().s <span class="comment">//'"JP","Richardson"'</span></code></pre>
-<h3 id='methods/toint'>- toInt()</h3 id='methods/toint'>
-<p>Return the number value in integer form. Wrapper for <code>parseInt()</code>. Can also parse hex values.
-
-</p>
-<p>Example:
-
-</p>
-<pre><code class="javascript">S(<span class="string">'5'</span>).toInt(); <span class="comment">//5</span>
-S(<span class="string">'5.3'</span>).toInt(); <span class="comment">//5;</span>
-S(<span class="number">5.3</span>).toInt(); <span class="comment">//5;</span>
-S(<span class="string">'-10'</span>).toInt(); <span class="comment">//-10</span>
-S(<span class="string">'55 adfafaf'</span>).toInt(); <span class="comment">//55</span>
-S(<span class="string">'afff 44'</span>).toInt(); <span class="comment">//NaN</span>
-S(<span class="string">'0xff'</span>).toInt() <span class="comment">//255</span></code></pre>
 <h3 id='methods/tofloat-precision'>- toFloat([precision])</h3 id='methods/tofloat-precision'>
 <p>Return the float value, wraps parseFloat.
 
@@ -800,6 +879,20 @@ S(<span class="string">'-10'</span>).toFloat()  <span class="comment">//-10</spa
 S(<span class="string">'55.3 adfafaf'</span>).toFloat() <span class="comment">// 55.3</span>
 S(<span class="string">'afff 44'</span>).toFloat()  <span class="comment">//NaN</span>
 S(<span class="number">3.45522222333232</span>).toFloat(<span class="number">2</span>) <span class="comment">// 3.46</span></code></pre>
+<h3 id='methods/toint'>- toInt()</h3 id='methods/toint'>
+<p>Return the number value in integer form. Wrapper for <code>parseInt()</code>. Can also parse hex values.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'5'</span>).toInt(); <span class="comment">//5</span>
+S(<span class="string">'5.3'</span>).toInt(); <span class="comment">//5;</span>
+S(<span class="number">5.3</span>).toInt(); <span class="comment">//5;</span>
+S(<span class="string">'-10'</span>).toInt(); <span class="comment">//-10</span>
+S(<span class="string">'55 adfafaf'</span>).toInt(); <span class="comment">//55</span>
+S(<span class="string">'afff 44'</span>).toInt(); <span class="comment">//NaN</span>
+S(<span class="string">'0xff'</span>).toInt() <span class="comment">//255</span></code></pre>
 <h3 id='methods/tostring'>- toString()</h3 id='methods/tostring'>
 <p>Alias: <code>s</code>
 
@@ -907,7 +1000,7 @@ S(<span class="string">'yesWeCan'</span>).underscore().s; <span class="comment">
 
 </p>
 <h2 id='credits'>Credits</h2 id='credits'>
-<p>I have looked at the code by the creators in the libraries mentioned in <strong>Motivation</strong>. As noted in the source code, I&#39;ve specifically used code from Google Closure (Google Inc), Underscore String <a href="http://esa-matti.suuronen.org/">Esa-Matti Suuronen</a>, and php.js (<a href="http://phpjs.org/authors/index">http://phpjs.org/authors/index</a>).  
+<p>I have looked at the code by the creators in the libraries mentioned in <strong>Motivation</strong>. As noted in the source code, I&#39;ve specifically used code from Google Closure (Google Inc), Underscore String <a href="http://esa-matti.suuronen.org/">Esa-Matti Suuronen</a>, and php.js (<a href="http://phpjs.org/authors/index">http://phpjs.org/authors/index</a>), and <a href="https://github.com/component/pad">TJ Holowaychuk</a>.  
 
 
 
@@ -922,7 +1015,7 @@ S(<span class="string">'yesWeCan'</span>).underscore().s; <span class="comment">
 <p>Licensed under MIT.
 
 </p>
-<p>Copyright (C) 2012 JP Richardson <a href="&#x6d;&#x61;&#x69;&#108;&#116;&#111;&#x3a;&#x6a;&#112;&#114;&#x69;&#99;&#104;&#97;&#x72;&#x64;&#115;&#111;&#x6e;&#x40;&#103;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#x6d;">&#x6a;&#112;&#114;&#x69;&#99;&#104;&#97;&#x72;&#x64;&#115;&#111;&#x6e;&#x40;&#103;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#x6d;</a>
+<p>Copyright (C) 2012 JP Richardson <a href="&#109;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x6a;&#112;&#114;&#x69;&#x63;&#104;&#97;&#x72;&#100;&#x73;&#111;&#x6e;&#64;&#x67;&#109;&#97;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;">&#x6a;&#112;&#114;&#x69;&#x63;&#104;&#97;&#x72;&#100;&#x73;&#111;&#x6e;&#64;&#x67;&#109;&#97;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;</a>
 
 </p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
