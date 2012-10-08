@@ -238,7 +238,7 @@
     })
 
     describe('- repeat(n)', function() {
-      it('should return a string with that is concatenated n times', function() {
+      it('should return the string concatenated with itself n times', function() {
         T (S(' ').repeat(5).s === '     ');
         T (S('*').repeat(3).s === '***');
       })
@@ -307,7 +307,7 @@
     })
 
     describe('- times(n)', function() {
-      it('should return a string with that is concatenated n times', function() {
+      it('should return the string concatenated with itself n times', function() {
         T (S(' ').times(5).s === '     ');
         T (S('*').times(3).s === '***');
       })
