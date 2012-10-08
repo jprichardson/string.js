@@ -400,7 +400,7 @@ Pads the string in the center with specified character
 
 Example:
 
-```javsacript
+```javsascript
 S('hello').pad(5).s //'hello'
 S('hello').pad(10).s //'   hello  '
 S('hey').pad(7).s //'  hey  '
