@@ -1,3 +1,11 @@
+1.1.0 / 2012-10-08
+------------------
+* Added `toBoolean()` and `toBool()` method.
+* Added `stripPunctuation()` method.
+* Renamed `clobberPrototype()` to `extendPrototype()`.
+* Added `padLeft()`, `padRight()`, and `pad()`.
+
+
 1.0.0 / 2012-09-25
 ------------------
 * Translated from CoffeeScript to JavaScript.
