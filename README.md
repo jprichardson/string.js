@@ -400,7 +400,7 @@ Pads the string in the center with specified character
 
 Example:
 
-```javsascript
+```javascript
 S('hello').pad(5).s //'hello'
 S('hello').pad(10).s //'   hello  '
 S('hey').pad(7).s //'  hey  '
@@ -597,25 +597,25 @@ JavaScript Note: You can easily convert truthy values to `booleans` by prefixing
 Example:
 
 ```javascript
-S('true').toBoolean()); //true
-S('false').toBoolean()); //false
-S('hello').toBoolean()); //false
-S(true).toBoolean()); //true
-S('on').toBoolean()); //true
-S('yes').toBoolean()); //true
-S('TRUE').toBoolean()); //true
-S('TrUe').toBoolean()); //true
-S('YES').toBoolean()); //true
-S('ON').toBoolean()); //true
-S('').toBoolean()); //false
-S(undefined).toBoolean()) //false
-S('undefined').toBoolean()) //false
-S(null).toBoolean()) //false
-S(false).toBoolean()) //false
-S({}).toBoolean()) //false
-S(1).toBoolean()) //true
-S(-1).toBoolean()) //false
-S(0).toBoolean()) //false
+S('true').toBoolean() //true
+S('false').toBoolean() //false
+S('hello').toBoolean() //false
+S(true).toBoolean() //true
+S('on').toBoolean() //true
+S('yes').toBoolean() //true
+S('TRUE').toBoolean() //true
+S('TrUe').toBoolean() //true
+S('YES').toBoolean() //true
+S('ON').toBoolean() //true
+S('').toBoolean() //false
+S(undefined).toBoolean() //false
+S('undefined').toBoolean() //false
+S(null).toBoolean() //false
+S(false).toBoolean() //false
+S({}).toBoolean() //false
+S(1).toBoolean() //true
+S(-1).toBoolean() //false
+S(0).toBoolean() //false
 ```
 
 
