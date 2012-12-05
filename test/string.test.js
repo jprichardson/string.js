@@ -129,9 +129,11 @@
       it("should return true if the string contains only letters", function() {
         T (S("afaf").isAlpha());
         T (S("FJslfjkasfs").isAlpha());
+        T (S("áéúóúÁÉÍÓÚãõÃÕàèìòùÀÈÌÒÙâêîôûÂÊÎÔÛäëïöüÄËÏÖÜçÇ").isAlpha());
         F (S("adflj43faljsdf").isAlpha());
         F (S("33").isAlpha());
         F (S("TT....TTTafafetstYY").isAlpha());
+        F (S("-áéúóúÁÉÍÓÚãõÃÕàèìòùÀÈÌÒÙâêîôûÂÊÎÔÛäëïöüÄËÏÖÜçÇ").isAlpha());
       })
     })
 
@@ -142,9 +144,11 @@
         T (S("99").isAlphaNumeric());
         T (S("afff").isAlphaNumeric());
         T (S("Infinity").isAlphaNumeric());
+        T (S("áéúóúÁÉÍÓÚãõÃÕàèìòùÀÈÌÒÙâêîôûÂÊÎÔÛäëïöüÄËÏÖÜçÇ1234567890").isAlphaNumeric());
         F (S("-Infinity").isAlphaNumeric());
         F (S("-33").isAlphaNumeric());
         F (S("aaff..").isAlphaNumeric());
+        F (S(".áéúóúÁÉÍÓÚãõÃÕàèìòùÀÈÌÒÙâêîôûÂÊÎÔÛäëïöüÄËÏÖÜçÇ1234567890").isAlphaNumeric());
       })
     })
 
@@ -165,8 +169,13 @@
         T (S('z').isLower());
         F (S('B').isLower());
         T (S('hijp').isLower());
+        T (S('áéúóúãõàèìòùâêîôûäëïöüç').isLower());
+        T (S('áéúóúãõàèìòùâêîôûäëïöüça').isLower());
         F (S('hi jp').isLower());
         F (S('HelLO').isLower());
+        F (S('ÁÉÍÓÚÃÕÀÈÌÒÙÂÊÎÔÛÄËÏÖÜÇ').isLower());
+        F (S('áéúóúãõàèìòùâêîôûäëïöüçÁ').isLower());
+        F (S('áéúóúãõàèìòùâêîôû äëïöüç').isLower());
       })
     })
 
@@ -190,8 +199,12 @@
         F (S('z').isUpper());
         T (S('B').isUpper());
         T (S('HIJP').isUpper());
+        T (S('ÁÉÍÓÚÃÕÀÈÌÒÙÂÊÎÔÛÄËÏÖÜÇ').isUpper());
         F (S('HI JP').isUpper());
         F (S('HelLO').isUpper());
+        F (S('áéúóúãõàèìòùâêîôûäëïöüç').isUpper());
+        F (S('áéúóúãõàèìòùâêîôûäëïöüçÁ').isUpper());
+        F (S('ÁÉÍÓÚÃÕÀÈÌÒÙÂÊÎÔÛÄËÏÖÜÇá').isUpper());
       })
     })
 
