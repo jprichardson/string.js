@@ -67,6 +67,12 @@ type anyway -->
 
 A global variable `window.S` or simply `S` is created.
 
+
+### AMD Support
+
+It now [has AMD support](https://github.com/jprichardson/string.js/pull/20). See [require.js](http://requirejs.org/) on how to use with AMD modules.
+
+
 ### Both
 
 ```javascript
