@@ -317,6 +317,7 @@
     describe('- slugify', function() {
       it('should convert the text to url slug', function() {
         T (S('Global Thermonuclear Warfare').slugify().s === 'global-thermonuclear-warfare')
+        T (S('Fast JSON Parsing').slugify().s === 'fast-json-parsing')
       })
     })
     
