@@ -291,7 +291,8 @@
     describe('- replaceAll(substring, replacement)', function() {
       it('should return the new string with all occurrences of substring replaced with the replacment string', function() {
         T (S(' does IT work? ').replaceAll(' ', '_').s === '_does_IT_work?_');
-        T (S('Yes it does!').replaceAll(' ', '').s === 'Yesitdoes!');
+        T (S('Yes it does!').replaceAll(' ', '').s === 'Yesitdoes!')
+        T (S('lalala.blabla').replaceAll('.', '_').s === 'lalala_blabla')
 
         var e = '\\', q = '"';
         var r = e + q;
