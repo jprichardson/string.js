@@ -203,13 +203,13 @@ S('backgroundColor').dasherize().s; //'background-color'
 ```
 
 
-### - decodeHtmlEntities() ###
+### - decodeHTMLEntities() ###
 
 Decodes HTML entities into their string representation.
 
 ```javascript
-S('Ken Thompson &amp; Dennis Ritchie').decodeHtmlEntities().s; //'Ken Thompson & Dennis Ritchie'
-S('3 &lt; 4').decodeHtmlEntities().s; //'3 < 4'
+S('Ken Thompson &amp; Dennis Ritchie').decodeHTMLEntities().s; //'Ken Thompson & Dennis Ritchie'
+S('3 &lt; 4').decodeHTMLEntities().s; //'3 < 4'
 ```
 
 

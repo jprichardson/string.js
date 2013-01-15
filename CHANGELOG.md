@@ -1,3 +1,11 @@
+1.2.0 / 2013-01-15
+------------------
+* Added AMD support.
+* Fixed replaceAll bug. #21
+* Changed `slugify` behavior. #17
+* Renamed `decodeHtmlEntities` to `decodeHTMLEntities` for consistency. `decodeHtmlEntities` is deprecated. #23
+ 
+
 1.1.0 / 2012-10-08
 ------------------
 * Added `toBoolean()` and `toBool()` method.
