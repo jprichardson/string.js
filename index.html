@@ -7,7 +7,7 @@
     <title>string.js</title>
     
     <link rel="stylesheet" type="text/css" href="http://documentup.com/stylesheets/screen.css">
-    <script type="text/javascript" src="https://raw.github.com/jprichardson/string.js/master/lib/string.min.js"></script>
+        <script type="text/javascript" src="https://raw.github.com/jprichardson/string.js/master/lib/string.min.js"></script>
     
     <script type="text/javascript">
 
@@ -22,6 +22,8 @@
   })();
 
 </script>
+    
+
     
 
     <!-- Typekit -->
@@ -75,6 +77,10 @@
                 </li>
               
                 <li>
+                  <a href="#usage/amd-support">AMD Support</a>
+                </li>
+              
+                <li>
                   <a href="#usage/both">Both</a>
                 </li>
               
@@ -121,7 +127,7 @@
                 </li>
               
                 <li>
-                  <a href="#methods/decodehtmlentities">- decodeHtmlEntities()</a>
+                  <a href="#methods/decodehtmlentities">- decodeHTMLEntities()</a>
                 </li>
               
                 <li>
@@ -395,6 +401,12 @@ type anyway --></span>
 <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"https://raw.github.com/jprichardson/lib/string.js/master/string.min.js"</span>></span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>></span></code></pre>
 <p>A global variable <code>window.S</code> or simply <code>S</code> is created.
 
+
+</p>
+<h3 id='usage/amd-support'>AMD Support</h3 id='usage/amd-support'>
+<p>It now <a href="https://github.com/jprichardson/string.js/pull/20">has AMD support</a>. See <a href="http://requirejs.org/">require.js</a> on how to use with AMD modules.
+
+
 </p>
 <h3 id='usage/both'>Both</h3 id='usage/both'>
 <pre><code class="javascript"><span class="keyword">var</span> doesIt = S(<span class="string">'my cool string'</span>).left(<span class="number">2</span>).endsWith(<span class="string">'y'</span>); <span class="comment">//true</span></code></pre>
@@ -501,12 +513,12 @@ S(<span class="string">'JP'</span>).capitalize().s; <span class="comment">//'Jp'
 S(<span class="string">'CarSpeed'</span>).dasherize().s; <span class="comment">//'-car-speed'</span>
 S(<span class="string">'yesWeCan'</span>).dasherize().s; <span class="comment">//'yes-we-can'</span>
 S(<span class="string">'backgroundColor'</span>).dasherize().s; <span class="comment">//'background-color'</span></code></pre>
-<h3 id='methods/decodehtmlentities'>- decodeHtmlEntities()</h3 id='methods/decodehtmlentities'>
+<h3 id='methods/decodehtmlentities'>- decodeHTMLEntities()</h3 id='methods/decodehtmlentities'>
 <p>Decodes HTML entities into their string representation.
 
 </p>
-<pre><code class="javascript">S(<span class="string">'Ken Thompson &amp;amp; Dennis Ritchie'</span>).decodeHtmlEntities().s; <span class="comment">//'Ken Thompson &amp; Dennis Ritchie'</span>
-S(<span class="string">'3 &amp;lt; 4'</span>).decodeHtmlEntities().s; <span class="comment">//'3 &lt; 4'</span></code></pre>
+<pre><code class="javascript">S(<span class="string">'Ken Thompson &amp;amp; Dennis Ritchie'</span>).decodeHTMLEntities().s; <span class="comment">//'Ken Thompson &amp; Dennis Ritchie'</span>
+S(<span class="string">'3 &amp;lt; 4'</span>).decodeHTMLEntities().s; <span class="comment">//'3 &lt; 4'</span></code></pre>
 <h3 id='methods/endswith-ss'>- endsWith(ss)</h3 id='methods/endswith-ss'>
 <p>Returns true if the string ends with <code>ss</code>.
 
@@ -1015,7 +1027,7 @@ S(<span class="string">'yesWeCan'</span>).underscore().s; <span class="comment">
 <p>Licensed under MIT.
 
 </p>
-<p>Copyright (C) 2012 JP Richardson <a href="&#109;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x6a;&#112;&#114;&#x69;&#x63;&#104;&#97;&#x72;&#100;&#x73;&#111;&#x6e;&#64;&#x67;&#109;&#97;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;">&#x6a;&#112;&#114;&#x69;&#x63;&#104;&#97;&#x72;&#100;&#x73;&#111;&#x6e;&#64;&#x67;&#109;&#97;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;</a>
+<p>Copyright (C) 2012 JP Richardson <a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#x6a;&#112;&#x72;&#105;&#99;&#x68;&#97;&#114;&#100;&#x73;&#111;&#x6e;&#64;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;">&#x6a;&#112;&#x72;&#105;&#99;&#x68;&#97;&#114;&#100;&#x73;&#111;&#x6e;&#64;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;</a>
 
 </p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
