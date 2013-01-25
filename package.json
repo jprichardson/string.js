@@ -42,6 +42,6 @@
   },
   "main": "lib/string",
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha test/string.test.js"
   }
 }
