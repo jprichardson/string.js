@@ -14,8 +14,19 @@
   <script src="string.test.js"></script>
   <script>
     $(function () {
-      mocha
-        .run()
+      window.testsPassed = null;
+      function handleResults(runner) {
+        if (runner.stats.end)
+          window.testsPassed = runner.stats.failures === 0;
+        runner.on('fail', function(test, err){
+          window.testsPassed = false;
+        });
+        runner.on('end', function(){
+          window.testsPassed = window.testsPassed == null;
+        });
+        return runner;
+      }
+      handleResults(mocha.run())
         .globals(['S']) // acceptable globals
     })
   </script>
