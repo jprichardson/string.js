@@ -12,6 +12,12 @@
 
   function T(v) { if (!v) { throw new Error('Should be true.'); } };
   function F(v) { if (v) { throw new Error('Should be false.'); } };
+  function EQ(v1, v2) {
+    if (require && process) //node
+      require('assert').equal(v1, v2)
+    else
+      T (v1 === v2)
+  }
 
   function ARY_EQ(a1, a2) {
     T (a1.length === a2.length)
@@ -464,6 +470,7 @@
         T (S('this is some long text').truncate(12).s === 'this is some...')
         T (S('this is some long text').truncate(11).s === 'this is...')
         T (S('this is some long text').truncate(14, ' read more').s === 'this is some read more')
+        EQ (S('some string').truncate(200).s, 'some string')
       })
     })
 
