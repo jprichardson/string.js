@@ -364,6 +364,22 @@
       })
     })
 
+    describe('- template(values, [opening], [closing])', function() {
+      it('should return the string replaced with template values', function() {
+        var str = "Hello {{name}}! How are you doing during the year of {{date-year}}?"
+        var values = {name: 'JP', 'date-year': 2013}
+        EQ (S(str).template(values).s, 'Hello JP! How are you doing during the year of 2013?')
+
+        str = "Hello #{name}! How are you doing during the year of #{date-year}?"
+        EQ (S(str).template(values, '#{', '}').s, 'Hello JP! How are you doing during the year of 2013?')
+      
+        S.TMPL_OPENING = '{'
+        S.TMPL_CLOSING = '}'
+        str = "Hello {name}! How are you doing during the year of {date-year}?"
+        EQ (S(str).template(values).s, 'Hello JP! How are you doing during the year of 2013?')
+      })
+    })
+
     describe('- times(n)', function() {
       it('should return the string concatenated with itself n times', function() {
         T (S(' ').times(5).s === '     ');
