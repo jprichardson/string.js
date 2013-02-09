@@ -13,7 +13,7 @@
   function T(v) { if (!v) { throw new Error('Should be true.'); } };
   function F(v) { if (v) { throw new Error('Should be false.'); } };
   function EQ(v1, v2) {
-    if (require && process) //node
+    if (typeof require != 'undefined' && typeof process != 'undefined') //node
       require('assert').equal(v1, v2)
     else
       T (v1 === v2)
