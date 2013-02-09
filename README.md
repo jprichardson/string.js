@@ -579,6 +579,27 @@ S('<p>just <b>some</b> text</p>').stripTags('p').s //'just <b>some</b> text'
 ```
 
 
+### - template(values, [open], [close])
+
+Takes a string and interpolates the values. Defaults to `{{` and `}}` for Mustache compatible templates. However, you can change this default by modifying `S.TMPL_OPEN` and `S.TMPL_CLOSE`.
+
+Example:
+
+```js
+var str = "Hello {{name}}! How are you doing during the year of {{date-year}}?"
+var values = {name: 'JP', 'date-year': 2013}
+console.log(S(str).template(values).s) //'Hello JP! How are you doing during the year of 2013?'
+
+str = "Hello #{name}! How are you doing during the year of #{date-year}?"
+console.log(S(str).template(values, '#{', '}').s) //'Hello JP! How are you doing during the year of 2013?'
+      
+S.TMPL_OPEN = '{'
+S.TMPL_CLOSE = '}'
+str = "Hello {name}! How are you doing during the year of {date-year}?"
+console.log(S(str).template(values).s) //'Hello JP! How are you doing during the year of 2013?'
+```
+
+
 ### - times(n) ###
 
 Returns a string repeated `n` times.

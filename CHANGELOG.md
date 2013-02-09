@@ -1,3 +1,8 @@
+1.2.1 / 2013-02-09
+------------------
+* Fixed truncate bug. #27
+* Added `template()`.
+
 1.2.0 / 2013-01-15
 ------------------
 * Added AMD support.
