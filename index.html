@@ -7,7 +7,7 @@
     <title>string.js</title>
     
     <link rel="stylesheet" type="text/css" href="http://documentup.com/stylesheets/screen.css">
-        <script type="text/javascript" src="https://raw.github.com/jprichardson/string.js/master/lib/string.min.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/jprichardson/string.js/master/lib/string.min.js"></script>
     
     <script type="text/javascript">
 
@@ -235,6 +235,10 @@
                 </li>
               
                 <li>
+                  <a href="#methods/template-values-open-close">- template(values, [open], [close])</a>
+                </li>
+              
+                <li>
                   <a href="#methods/times-n">- times(n)</a>
                 </li>
               
@@ -349,7 +353,7 @@
 <p><a href="http://travis-ci.org/jprichardson/string.js"><img src="https://secure.travis-ci.org/jprichardson/string.js.png" alt="build status"></a>
 
 </p>
-<p><code>string.js</code>, or simply <code>S</code> is a lightweight (<strong>&lt; 4 kb</strong> minified and gzipped) JavaScript library for the browser or for Node.js that provides extra String methods. Originally, it modified the String prototype. But I quickly learned that in JavaScript, this is considered poor practice.
+<p><code>string.js</code>, or simply <code>S</code> is a lightweight (<strong>&lt; 5 kb</strong> minified and gzipped) JavaScript library for the browser or for Node.js that provides extra String methods. Originally, it modified the String prototype. But I quickly learned that in JavaScript, this is considered poor practice.
 
 
 
@@ -804,6 +808,24 @@ S(<span class="string">'wants to change the world'</span>).startsWith(<span clas
 </p>
 <pre><code class="javascript">S(<span class="string">'&lt;p>just &lt;b>some&lt;/b> text&lt;/p>'</span>).stripTags().s <span class="comment">//'just some text'</span>
 S(<span class="string">'&lt;p>just &lt;b>some&lt;/b> text&lt;/p>'</span>).stripTags(<span class="string">'p'</span>).s <span class="comment">//'just &lt;b>some&lt;/b> text'</span></code></pre>
+<h3 id='methods/template-values-open-close'>- template(values, [open], [close])</h3 id='methods/template-values-open-close'>
+<p>Takes a string and interpolates the values. Defaults to <code>{{</code> and <code>}}</code> for Mustache compatible templates. However, you can change this default by modifying <code>S.TMPL_OPEN</code> and <code>S.TMPL_CLOSE</code>.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="js">var <span class="keyword">str</span> = <span class="string">"Hello {{name}}! How are you doing during the year of {{date-year}}?"</span>
+var values = {name: <span class="string">'JP'</span>, <span class="string">'date-year'</span>: <span class="number">2013</span>}
+console.<span class="keyword">log</span>(S(<span class="keyword">str</span>).template(values).s) <span class="comment">//'Hello JP! How are you doing during the year of 2013?'</span>
+
+<span class="keyword">str</span> = <span class="string">"Hello #{name}! How are you doing during the year of #{date-year}?"</span>
+console.<span class="keyword">log</span>(S(<span class="keyword">str</span>).template(values, <span class="string">'#{'</span>, <span class="string">'}'</span>).s) <span class="comment">//'Hello JP! How are you doing during the year of 2013?'</span>
+
+S.TMPL_OPEN = <span class="string">'{'</span>
+S.TMPL_CLOSE = <span class="string">'}'</span>
+<span class="keyword">str</span> = <span class="string">"Hello {name}! How are you doing during the year of {date-year}?"</span>
+console.<span class="keyword">log</span>(S(<span class="keyword">str</span>).template(values).s) <span class="comment">//'Hello JP! How are you doing during the year of 2013?'</span></code></pre>
 <h3 id='methods/times-n'>- times(n)</h3 id='methods/times-n'>
 <p>Returns a string repeated <code>n</code> times.
 
@@ -1027,7 +1049,7 @@ S(<span class="string">'yesWeCan'</span>).underscore().s; <span class="comment">
 <p>Licensed under MIT.
 
 </p>
-<p>Copyright (C) 2012 JP Richardson <a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#x6a;&#112;&#x72;&#105;&#99;&#x68;&#97;&#114;&#100;&#x73;&#111;&#x6e;&#64;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;">&#x6a;&#112;&#x72;&#105;&#99;&#x68;&#97;&#114;&#100;&#x73;&#111;&#x6e;&#64;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;</a>
+<p>Copyright (C) 2012 JP Richardson <a href="&#x6d;&#x61;&#x69;&#108;&#116;&#111;&#x3a;&#x6a;&#x70;&#x72;&#x69;&#99;&#104;&#97;&#114;&#x64;&#x73;&#x6f;&#x6e;&#64;&#103;&#109;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;">&#x6a;&#x70;&#x72;&#x69;&#99;&#104;&#97;&#114;&#x64;&#x73;&#x6f;&#x6e;&#64;&#103;&#109;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;</a>
 
 </p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
