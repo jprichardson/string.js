@@ -193,7 +193,7 @@ S('foobar').chompLeft('bar').s; //'foobar'
 ```
 
 
-## - chompRight(suffix)
+### - chompRight(suffix)
 
 Removes `suffix` from end of string.
 
