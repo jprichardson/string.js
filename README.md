@@ -35,11 +35,11 @@ Installation
 Experiment with String.js Now
 -----------------------------
 
-Assuming you're on http://stringjs.com, just simply open up the Webkit inspector in either Chrome or Safari, or the web console in Firefox and you'll notice that `string.js` is included in this page so that you can start experimenting with it right away. 
+Assuming you're on http://stringjs.com, just simply open up the Webkit inspector in either Chrome or Safari, or the web console in Firefox and you'll notice that `string.js` is included in this page so that you can start experimenting with it right away.
 
 
 
-Usage 
+Usage
 -----
 
 ### Node.js
@@ -57,7 +57,7 @@ Originally, I was using `$s` but glancing over the code, it was easy to confuse 
 <script src="https://raw.github.com/jprichardson/string.js/master/lib/string.min.js"></script>
 
 <!-- Note that in the mime type for Javascript is now officially 'application/javascript'. If you
-set the type to application/javascript in IE browsers, your Javscript will fail. Just don't set a 
+set the type to application/javascript in IE browsers, your Javscript will fail. Just don't set a
 type via the script tag and set the mime type from your server. Most browsers look at the server mime
 type anyway -->
 
@@ -127,9 +127,9 @@ console.log(phrase.substr(pos, sub.length).truncate(8)); //best...
 Methods
 -------
 
-See [test file][testfile] for more details. 
+See [test file][testfile] for more details.
 
-I use the same nomenclature as Objective-C regarding methods. **+** means `static` or `class` method. **-** means `non-static` or `instance` method. 
+I use the same nomenclature as Objective-C regarding methods. **+** means `static` or `class` method. **-** means `non-static` or `instance` method.
 
 ### - constructor(nativeJsString) ###
 
@@ -143,6 +143,16 @@ S(['a,b']).s //"'a','b'"
 S({hi: 'jp'}).s //[object Object]
 ```
 
+
+### - between(left, right)
+
+Extracts a string between `left` and `right` strings.
+
+Example:
+
+```javascript
+S('<a>foobar</a>').between('<a>', '</a>').s; // 'foobar'
+```
 
 ### - camelize()
 
@@ -168,6 +178,30 @@ Example:
 ```javascript
 S('jon').capitalize().s; //'Jon'
 S('JP').capitalize().s; //'Jp'
+```
+
+
+### - chompLeft(prefix)
+
+Removes `prefix` from start of string.
+
+Example:
+
+```javascript
+S('foobar').chompLeft('foo').s; //'bar'
+S('foobar').chompLeft('bar').s; //'foobar'
+```
+
+
+## - chompRight(suffix)
+
+Removes `suffix` from end of string.
+
+Example:
+
+```javascript
+S('foobar').chompRight('bar').s; //'foo'
+S('foobar').chompRight('foo').s; //'foobar'
 ```
 
 
@@ -252,6 +286,33 @@ S.extendPrototype();
 ```
 
 
+
+### - ensureLeft(prefix)
+
+Ensures string starts with `prefix`.
+
+Example:
+
+```javascript
+S('subdir').ensureLeft('/').s; //'/subdir'
+S('/subdir').ensureLeft('/').s; //'/subdir'
+```
+
+
+### - ensureRight(suffix)
+
+Ensures string ends with `suffix`.
+
+Example:
+
+```javascript
+S('dir').ensureRight('/').s; //'dir/'
+S('dir/').ensureRight('/').s; //'dir/'
+```
+
+
+
+
 ### - include(ss) ###
 
 Returns true if the string contains the `ss`.
@@ -318,7 +379,7 @@ Return true if the character or string is lowercase
 
 Example:
 
-```javascript      
+```javascript
 S('a').isLower(); //true
 S('z').isLower(); //true
 S('B').isLower(); //false
@@ -459,7 +520,7 @@ Example:
 ```javascript
 S("'a','b','c'").parseCSV(',', "'") //['a', 'b', 'c'])
 S('"a","b","c"').parseCSV() // ['a', 'b', 'c'])
-S('a,b,c').parseCSV(',', null)  //['a', 'b', 'c']) 
+S('a,b,c').parseCSV(',', null)  //['a', 'b', 'c'])
 S("'a,','b','c'").parseCSV(',', "'") //['a,', 'b', 'c'])
 S('"a","b",4,"c"').parseCSV(',', null) //['"a"', '"b"', '4', '"c"'])
 S('"a","b","4","c"').parseCSV() //['a', 'b', '4', 'c'])
@@ -523,7 +584,7 @@ S('My name is JP').right(-2).s; //'My', same as left(2)
 
 Alias: `toString()`
 
-The encapsulated native string representation of an `S` object. 
+The encapsulated native string representation of an `S` object.
 
 Example:
 
@@ -557,12 +618,12 @@ S('wants to change the world').startsWith("politicians"); //false
 
 ### - stripPunctuation()
 
-Strip all of the punctuation.        
+Strip all of the punctuation.
 
 Example:
 
 ```javascript
-S('My, st[ring] *full* of %punct)').stripPunctuation().s; //My string full of punct 
+S('My, st[ring] *full* of %punct)').stripPunctuation().s; //My string full of punct
 ```
 
 
@@ -592,7 +653,7 @@ console.log(S(str).template(values).s) //'Hello JP! How are you doing during the
 
 str = "Hello #{name}! How are you doing during the year of #{date-year}?"
 console.log(S(str).template(values, '#{', '}').s) //'Hello JP! How are you doing during the year of 2013?'
-      
+
 S.TMPL_OPEN = '{'
 S.TMPL_CLOSE = '}'
 str = "Hello {name}! How are you doing during the year of {date-year}?"
@@ -616,7 +677,7 @@ S('*').times(3).s //'***'
 
 ### - toBoolean() / toBool()
 
-Converts a a logical truth string to boolean. That is: `true`, `1`, `'true'`, `'on'`, or `'yes'`. 
+Converts a a logical truth string to boolean. That is: `true`, `1`, `'true'`, `'on'`, or `'yes'`.
 
 JavaScript Note: You can easily convert truthy values to `booleans` by prefixing them with `!!`. e.g.
 `!!'hi' === true` or `!!'' === false` or `!!{} === true`.
@@ -679,7 +740,7 @@ S({firstName: 'JP', lastName: 'Richardson'}).toCSV().s //'"JP","Richardson"'
 
 
 ### - toFloat([precision]) ###
- 
+
 Return the float value, wraps parseFloat.
 
 Example:
@@ -750,7 +811,7 @@ Return the string with leading and whitespace removed
 Example:
 
 ```javascript
-S('  How are you?').trimLeft().s; //'How are you?'; 
+S('  How are you?').trimLeft().s; //'How are you?';
 ```
 
 
@@ -761,7 +822,7 @@ Return the string with trailing whitespace removed.
 Example:
 
 ```javascript
-S('How are you?   ').trimRight().s; //'How are you?'; 
+S('How are you?   ').trimRight().s; //'How are you?';
 ```
 
 
@@ -853,7 +914,7 @@ Run test package:
 Credits
 -------
 
-I have looked at the code by the creators in the libraries mentioned in **Motivation**. As noted in the source code, I've specifically used code from Google Closure (Google Inc), Underscore String [Esa-Matti Suuronen](http://esa-matti.suuronen.org/), and php.js (http://phpjs.org/authors/index), and [TJ Holowaychuk](https://github.com/component/pad).  
+I have looked at the code by the creators in the libraries mentioned in **Motivation**. As noted in the source code, I've specifically used code from Google Closure (Google Inc), Underscore String [Esa-Matti Suuronen](http://esa-matti.suuronen.org/), and php.js (http://phpjs.org/authors/index), and [TJ Holowaychuk](https://github.com/component/pad).
 
 
 
