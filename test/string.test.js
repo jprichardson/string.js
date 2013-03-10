@@ -277,6 +277,8 @@
       it('should parse a CSV line into an array', function() {
         ARY_EQ (S("'a','b','c'").parseCSV(',', "'"), ['a', 'b', 'c'])
         ARY_EQ (S('"a","b","c"').parseCSV(), ['a', 'b', 'c'])
+        ARY_EQ (S('"a","","c"').parseCSV(), ['a', '', 'c'])
+        ARY_EQ (S('"","b","c"').parseCSV(), ['', 'b', 'c'])
         ARY_EQ (S('a,b,c').parseCSV(',', null), ['a', 'b', 'c']) 
         ARY_EQ (S("'a,','b','c'").parseCSV(',', "'"), ['a,', 'b', 'c'])
         ARY_EQ (S('"a","b",4,"c"').parseCSV(',', null), ['"a"', '"b"', '4', '"c"'])
@@ -426,6 +428,7 @@
     describe('- toCSV(options)', function() {
       it('should convert the array to csv', function() {
         EQ (S(['a', 'b', 'c']).toCSV().s, '"a","b","c"');
+        EQ (S(['a', null, 'c']).toCSV().s, '"a","","c"');
         T (S(['a', 'b', 'c']).toCSV(':').s === '"a":"b":"c"');
         EQ (S(['a', 'b', 'c']).toCSV(':', null).s, 'a:b:c');
         T (S(['a', 'b', 'c']).toCSV('*', "'").s === "'a'*'b'*'c'");
