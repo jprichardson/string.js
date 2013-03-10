@@ -15,14 +15,14 @@
   function EQ(v1, v2) {
     if (typeof require != 'undefined' && typeof process != 'undefined') //node
       require('assert').equal(v1, v2)
-    else
-      T (v1 === v2)
+    else if (v1 !== v2)
+    	throw new Error('[' + v1 + '] does not equal [' + v2 + ']');
   }
 
   function ARY_EQ(a1, a2) {
-    T (a1.length === a2.length)
+    EQ (a1.length, a2.length)
     for (var i = 0; i < a1.length; ++i)
-      T (a1[i] === a2[i])
+      EQ (a1[i], a2[i])
   }
     
 
@@ -277,13 +277,15 @@
       it('should parse a CSV line into an array', function() {
         ARY_EQ (S("'a','b','c'").parseCSV(',', "'"), ['a', 'b', 'c'])
         ARY_EQ (S('"a","b","c"').parseCSV(), ['a', 'b', 'c'])
+        ARY_EQ (S('"a","","c"').parseCSV(), ['a', '', 'c'])
+        ARY_EQ (S('"","b","c"').parseCSV(), ['', 'b', 'c'])
         ARY_EQ (S('a,b,c').parseCSV(',', null), ['a', 'b', 'c']) 
         ARY_EQ (S("'a,','b','c'").parseCSV(',', "'"), ['a,', 'b', 'c'])
         ARY_EQ (S('"a","b",4,"c"').parseCSV(',', null), ['"a"', '"b"', '4', '"c"'])
         ARY_EQ (S('"a","b","4","c"').parseCSV(), ['a', 'b', '4', 'c'])
         ARY_EQ (S('"a","b",       "4","c"').parseCSV(), ['a', 'b', '4', 'c'])
         ARY_EQ (S('"a","b",       4,"c"').parseCSV(",", null), [ '"a"', '"b"', '       4', '"c"' ])
-        ARY_EQ (S('"a","b\\"","d","c"').parseCSV(), ['a', 'b"', 'd', 'c'])
+        ARY_EQ (S('"a","b\\"","d","c"').parseCSV(",", "\"", "\\"), ['a', 'b"', 'd', 'c'])
       })
     })
 
@@ -425,12 +427,13 @@
 
     describe('- toCSV(options)', function() {
       it('should convert the array to csv', function() {
-        T (S(['a', 'b', 'c']).toCSV().s === '"a","b","c"');
+        EQ (S(['a', 'b', 'c']).toCSV().s, '"a","b","c"');
+        EQ (S(['a', null, 'c']).toCSV().s, '"a","","c"');
         T (S(['a', 'b', 'c']).toCSV(':').s === '"a":"b":"c"');
-        T (S(['a', 'b', 'c']).toCSV(':', null).s === 'a:b:c');
+        EQ (S(['a', 'b', 'c']).toCSV(':', null).s, 'a:b:c');
         T (S(['a', 'b', 'c']).toCSV('*', "'").s === "'a'*'b'*'c'");
-        T (S(['a"', 'b', 4, 'c']).toCSV({delimiter: ',', qualifier: '"', escape: '\\',  encloseNumbers: false}).s === '"a\\"","b",4,"c"');
-        T (S({firstName: 'JP', lastName: 'Richardson'}).toCSV({keys: true}).s === '"firstName","lastName"');
+        EQ (S(['a"', 'b', 4, 'c']).toCSV({delimiter: ',', qualifier: '"', escape: '\\',  encloseNumbers: false}).s, '"a\\"","b",4,"c"');
+        EQ (S({firstName: 'JP', lastName: 'Richardson'}).toCSV({keys: true}).s, '"firstName","lastName"');
         T (S({firstName: 'JP', lastName: 'Richardson'}).toCSV().s === '"JP","Richardson"');
       })
     })
