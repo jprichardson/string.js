@@ -4,6 +4,7 @@
 * Removed support for Node v0.6. Added support for v0.10
 * Modified `parseCSV` to allow for escape input. (seanodell #32)
 * Allow `toCSV()` to have `null`.
+* Fix `decodeHTMLEntities()` bug. #30
 
 1.2.1 / 2013-02-09
 ------------------

@@ -120,8 +120,9 @@
 
     describe('- decodeHTMLEntities()', function() {
       it('should decode HTML entities into their proper string representation', function() {
-        T (S('Ken Thompson &amp; Dennis Ritchie').decodeHTMLEntities().s === 'Ken Thompson & Dennis Ritchie');
-        T (S('3 &lt; 4').decodeHTMLEntities().s === '3 < 4');
+        EQ (S('Ken Thompson &amp; Dennis Ritchie').decodeHTMLEntities().s, 'Ken Thompson & Dennis Ritchie');
+        EQ (S('3 &lt; 4').decodeHTMLEntities().s, '3 < 4');
+        EQ (S('http:&#47;&#47;').decodeHTMLEntities().s, 'http://')
       })
     })
 
