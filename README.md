@@ -28,7 +28,7 @@ Why wasn't I happy with any of them? They are all static methods that don't seem
 Installation
 ------------
 
-    npm install string
+    npm install --save string
 
 
 
@@ -867,6 +867,7 @@ If you contribute to this library. Please add your name and Github url to this l
 - [Jordan Scales](https://github.com/prezjordan)
 - [Eduardo de Matos](https://github.com/eduardo-matos)
 - [Christian Maughan Tegnér](https://github.com/CMTegner)
+- [Mario Gutierrez](https://github.com/mgutz)
 - `<your name here>`
 
 
@@ -875,7 +876,7 @@ License
 
 Licensed under MIT.
 
-Copyright (C) 2012 JP Richardson <jprichardson@gmail.com>
+Copyright (C) 2012-2013 JP Richardson <jprichardson@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -892,6 +893,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 [aboutjp]: http://about.me/jprichardson
 [twitter]: http://twitter.com/jprichardson
 [procbits]: http://procbits.com
-[gitpilot]: http://gitpilot.com
+
 
 
