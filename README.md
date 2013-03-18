@@ -857,11 +857,17 @@ I have looked at the code by the creators in the libraries mentioned in **Motiva
 
 
 
-Author
-------
+Contributors
+------------
 
-`string.js` was written by [JP Richardson][aboutjp]. You should follow him on Twitter [@jprichardson][twitter]. Also read his coding blog [Procbits][procbits]. If you write software with others, you should checkout [Gitpilot][gitpilot] to make collaboration with Git simple.
+If you contribute to this library. Please add your name and Github url to this list:
 
+- [JP Richardson](https://github.com/jprichardson)
+- [Leonardo Otero](https://github.com/oteroleonardo)
+- [Jordan Scales](https://github.com/prezjordan)
+- [Eduardo de Matos](https://github.com/eduardo-matos)
+- [Christian Maughan Tegnér](https://github.com/CMTegner)
+- `<your name here>`
 
 
 License
