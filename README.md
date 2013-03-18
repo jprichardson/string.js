@@ -915,7 +915,7 @@ Run test package:
 Credits
 -------
 
-I have looked at the code by the creators in the libraries mentioned in **Motivation**. As noted in the source code, I've specifically used code from Google Closure (Google Inc), Underscore String [Esa-Matti Suuronen](http://esa-matti.suuronen.org/), and php.js (http://phpjs.org/authors/index), and [TJ Holowaychuk](https://github.com/component/pad).
+I have looked at the code by the creators in the libraries mentioned in **Motivation**. As noted in the source code, I've specifically used code from Google Closure (Google Inc), Underscore String [Esa-Matti Suuronen](http://esa-matti.suuronen.org/), and php.js (http://phpjs.org/authors/index), [Substack](https://github.com/substack/node-ent) and [TJ Holowaychuk](https://github.com/component/pad).
 
 
 
