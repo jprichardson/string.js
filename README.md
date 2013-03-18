@@ -514,6 +514,7 @@ Parses a CSV line into an array.
 **Arguments:**
 - `delimiter`: The character that is separates or delimits fields. Default: `,`
 - `qualifier`: The character that encloses fields. Default: `"`
+- `escape`: The character that represents the escape character. Default: `\`
 
 Example:
 
