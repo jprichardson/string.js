@@ -1,3 +1,10 @@
+1.3.0 / 2013-03-18
+------------------
+* Added methods `between()`, `chompLeft()`, `chompRight()`, `ensureLeft()`, `ensureRight()`. (mgutz / #31)
+* Removed support for Node v0.6. Added support for v0.10
+* Modified `parseCSV` to allow for escape input. (seanodell #32)
+* Allow `toCSV()` to have `null`.
+
 1.2.1 / 2013-02-09
 ------------------
 * Fixed truncate bug. #27
