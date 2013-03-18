@@ -24,7 +24,7 @@
     for (var i = 0; i < a1.length; ++i)
       T (a1[i] === a2[i])
   }
-    
+
 
   /*if (typeof window !== "undefined" && window !== null) {
     S = window.S;
@@ -33,16 +33,25 @@
   }*/
 
   describe('string.js', function() {
-    
+
     describe('- constructor', function() {
       it('should should set the internal "s" property', function() {
         T (S('helo').s === 'helo')
         T (S(5).s === '5')
         T (S(new Date(2012, 1, 1)).s.indexOf('2012') != -1)
-        T (S(new RegExp()).s.substr(0,1) === '/') 
+        T (S(new RegExp()).s.substr(0,1) === '/')
         T (S({}).s === '[object Object]')
         T (S(null).s === null)
         T (S(undefined).s === undefined)
+      })
+    })
+
+    describe('- between(left, right)', function() {
+      it('should extract string between `left` and `right`', function() {
+        T (S('<a>foo</a>').between('<a>', '</a>').s === 'foo')
+        T (S('<a>foo</a></a>').between('<a>', '</a>').s === 'foo')
+        T (S('<a><a>foo</a></a>').between('<a>', '</a>').s === '<a>foo')
+        T (S('<a>foo').between('<a>', '</a>').s === '')
       })
     })
 
@@ -55,7 +64,7 @@
         T (S('yes_we_can').camelize().s === 'yesWeCan');
       })
     })
-    
+
     describe('- capitalize()', function() {
       it('should capitalize the string', function() {
         T (S('jon').capitalize().s === 'Jon');
@@ -66,6 +75,24 @@
     describe('- charAt(index)', function() {
       it('should return a native JavaScript string with the character at the specified position', function() {
         T (S('hi').charAt(1) === 'i')
+      })
+    })
+
+    describe('- chompLeft(prefix)', function() {
+      it('should remove `prefix` from start of string', function() {
+        T (S('foobar').chompLeft('foo').s === 'bar')
+        T (S('foobar').chompLeft('bar').s === 'foobar')
+        T (S('').chompLeft('foo').s === '')
+        T (S('').chompLeft('').s === '')
+      })
+    })
+
+    describe('- chompRight(suffix)', function() {
+      it('should remove `suffix` from end of string', function() {
+        T (S('foobar').chompRight('foo').s === 'foobar')
+        T (S('foobar').chompRight('bar').s === 'foo')
+        T (S('').chompRight('foo').s === '')
+        T (S('').chompRight('').s === '')
       })
     })
 
@@ -105,6 +132,24 @@
         T (S("").endsWith(''));
         T (S("hi").endsWith(''));
         T (S("hi").endsWith('hi'));
+      })
+    })
+
+    describe('- ensureLeft(prefix)', function() {
+      it('should prepend `prefix` if string does not start with prefix', function() {
+        T (S('foobar').ensureLeft('foo').s === 'foobar')
+        T (S('bar').ensureLeft('foo').s === 'foobar')
+        T (S('').ensureLeft('foo').s === 'foo')
+        T (S('').ensureLeft('').s === '')
+      })
+    })
+
+    describe('- ensureRight(suffix)', function() {
+      it('should append `suffix` if string does not end with suffix', function() {
+        T (S('foobar').ensureRight('bar').s === 'foobar')
+        T (S('foo').ensureRight('bar').s === 'foobar')
+        T (S('').ensureRight('foo').s === 'foo')
+        T (S('').ensureRight('').s === '')
       })
     })
 
@@ -277,7 +322,7 @@
       it('should parse a CSV line into an array', function() {
         ARY_EQ (S("'a','b','c'").parseCSV(',', "'"), ['a', 'b', 'c'])
         ARY_EQ (S('"a","b","c"').parseCSV(), ['a', 'b', 'c'])
-        ARY_EQ (S('a,b,c').parseCSV(',', null), ['a', 'b', 'c']) 
+        ARY_EQ (S('a,b,c').parseCSV(',', null), ['a', 'b', 'c'])
         ARY_EQ (S("'a,','b','c'").parseCSV(',', "'"), ['a,', 'b', 'c'])
         ARY_EQ (S('"a","b",4,"c"').parseCSV(',', null), ['"a"', '"b"', '4', '"c"'])
         ARY_EQ (S('"a","b","4","c"').parseCSV(), ['a', 'b', '4', 'c'])
@@ -326,7 +371,7 @@
         T (S('My name is JP').right(-2).s === 'My');
       })
     })
-    
+
     describe('- s', function() {
       it('should return the native string', function() {
         T (S('hi').s === 'hi');
@@ -340,7 +385,7 @@
         T (S('Fast JSON Parsing').slugify().s === 'fast-json-parsing')
       })
     })
-    
+
     describe('- startsWith(prefix)', function() {
       it("should return true if the string starts with the input string", function() {
         T (S("JP is a software engineer").startsWith("JP"));
@@ -372,7 +417,7 @@
 
         str = "Hello #{name}! How are you doing during the year of #{date-year}?"
         EQ (S(str).template(values, '#{', '}').s, 'Hello JP! How are you doing during the year of 2013?')
-      
+
         S.TMPL_OPEN = '{'
         S.TMPL_CLOSE = '}'
         str = "Hello {name}! How are you doing during the year of {date-year}?"
