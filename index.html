@@ -7,7 +7,7 @@
     <title>string.js</title>
     
     <link rel="stylesheet" type="text/css" href="http://documentup.com/stylesheets/screen.css">
-    <script type="text/javascript" src="https://raw.github.com/jprichardson/string.js/master/lib/string.min.js"></script>
+       <script type="text/javascript" src="https://raw.github.com/jprichardson/string.js/master/lib/string.min.js"></script>
     
     <script type="text/javascript">
 
@@ -21,7 +21,7 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-</script>
+</script> 
     
 
     
@@ -64,7 +64,7 @@
         </li>
       
         <li>
-          <a href="#usage">Usage </a>
+          <a href="#usage">Usage</a>
           
             <ul>
               
@@ -107,11 +107,23 @@
                 </li>
               
                 <li>
+                  <a href="#methods/between-left-right">- between(left, right)</a>
+                </li>
+              
+                <li>
                   <a href="#methods/camelize">- camelize()</a>
                 </li>
               
                 <li>
                   <a href="#methods/capitalize">- capitalize()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/chompleft-prefix">- chompLeft(prefix)</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/chompright-suffix">- chompRight(suffix)</a>
                 </li>
               
                 <li>
@@ -140,6 +152,14 @@
               
                 <li>
                   <a href="#methods/extendprototype">+ extendPrototype()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/ensureleft-prefix">- ensureLeft(prefix)</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/ensureright-suffix">- ensureRight(suffix)</a>
                 </li>
               
                 <li>
@@ -322,7 +342,7 @@
         </li>
       
         <li>
-          <a href="#author">Author</a>
+          <a href="#contributors">Contributors</a>
           
         </li>
       
@@ -379,14 +399,14 @@
 
 </p>
 <h2 id='installation'>Installation</h2 id='installation'>
-<pre><code>npm <span class="keyword">install</span> <span class="keyword">string</span></code></pre>
+<pre><code><span class="title">npm</span> install <span class="comment">--save string</span></code></pre>
 <h2 id='experiment-with-string-js-now'>Experiment with String.js Now</h2 id='experiment-with-string-js-now'>
-<p>Assuming you&#39;re on <a href="http://stringjs.com">http://stringjs.com</a>, just simply open up the Webkit inspector in either Chrome or Safari, or the web console in Firefox and you&#39;ll notice that <code>string.js</code> is included in this page so that you can start experimenting with it right away. 
+<p>Assuming you&#39;re on <a href="http://stringjs.com">http://stringjs.com</a>, just simply open up the Webkit inspector in either Chrome or Safari, or the web console in Firefox and you&#39;ll notice that <code>string.js</code> is included in this page so that you can start experimenting with it right away.
 
 
 
 </p>
-<h2 id='usage'>Usage </h2 id='usage'>
+<h2 id='usage'>Usage</h2 id='usage'>
 <h3 id='usage/node-js'>Node.js</h3 id='usage/node-js'>
 <pre><code class="javascript"><span class="keyword">var</span> S = require(<span class="string">'string'</span>);</code></pre>
 <p>Originally, I was using <code>$s</code> but glancing over the code, it was easy to confuse <code>$s</code> for string.js with <code>$</code> for jQuery. Feel free to use the most convenient variable for you.
@@ -397,7 +417,7 @@
 <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://raw.github.com/jprichardson/string.js/master/lib/string.min.js"</span>></span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>></span>
 
 <span class="comment">&lt;!-- Note that in the mime type for Javascript is now officially 'application/javascript'. If you
-set the type to application/javascript in IE browsers, your Javscript will fail. Just don't set a 
+set the type to application/javascript in IE browsers, your Javscript will fail. Just don't set a
 type via the script tag and set the mime type from your server. Most browsers look at the server mime
 type anyway --></span>
 
@@ -450,10 +470,10 @@ S.restorePrototype(); <span class="comment">//be a good citizen and clean up</sp
 <span class="keyword">var</span> pos = phrase.indexOf(sub);
 console.log(phrase.substr(pos, sub.length).truncate(<span class="number">8</span>)); <span class="comment">//best...</span></code></pre>
 <h2 id='methods'>Methods</h2 id='methods'>
-<p>See <a href="https://github.com/jprichardson/string.js/blob/master/test/string.test.js">test file</a> for more details. 
+<p>See <a href="https://github.com/jprichardson/string.js/blob/master/test/string.test.js">test file</a> for more details.
 
 </p>
-<p>I use the same nomenclature as Objective-C regarding methods. <strong>+</strong> means <code>static</code> or <code>class</code> method. <strong>-</strong> means <code>non-static</code> or <code>instance</code> method. 
+<p>I use the same nomenclature as Objective-C regarding methods. <strong>+</strong> means <code>static</code> or <code>class</code> method. <strong>-</strong> means <code>non-static</code> or <code>instance</code> method.
 
 </p>
 <h3 id='methods/constructor-nativejsstring'>- constructor(nativeJsString)</h3 id='methods/constructor-nativejsstring'>
@@ -466,6 +486,14 @@ console.log(phrase.substr(pos, sub.length).truncate(<span class="number">8</span
 <pre><code class="javascript">S(<span class="string">'hello'</span>).s <span class="comment">//'hello'</span>
 S([<span class="string">'a,b'</span>]).s <span class="comment">//"'a','b'"</span>
 S({hi: <span class="string">'jp'</span>}).s <span class="comment">//[object Object]</span></code></pre>
+<h3 id='methods/between-left-right'>- between(left, right)</h3 id='methods/between-left-right'>
+<p>Extracts a string between <code>left</code> and <code>right</code> strings.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'&lt;a>foobar&lt;/a>'</span>).between(<span class="string">'&lt;a>'</span>, <span class="string">'&lt;/a>'</span>).s; <span class="comment">// 'foobar'</span></code></pre>
 <h3 id='methods/camelize'>- camelize()</h3 id='methods/camelize'>
 <p>Remove any underscores or dashes and convert a string into camel casing.
 
@@ -487,6 +515,24 @@ S(<span class="string">'yes_we_can'</span>).camelize().s; <span class="comment">
 </p>
 <pre><code class="javascript">S(<span class="string">'jon'</span>).capitalize().s; <span class="comment">//'Jon'</span>
 S(<span class="string">'JP'</span>).capitalize().s; <span class="comment">//'Jp'</span></code></pre>
+<h3 id='methods/chompleft-prefix'>- chompLeft(prefix)</h3 id='methods/chompleft-prefix'>
+<p>Removes <code>prefix</code> from start of string.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'foobar'</span>).chompLeft(<span class="string">'foo'</span>).s; <span class="comment">//'bar'</span>
+S(<span class="string">'foobar'</span>).chompLeft(<span class="string">'bar'</span>).s; <span class="comment">//'foobar'</span></code></pre>
+<h3 id='methods/chompright-suffix'>- chompRight(suffix)</h3 id='methods/chompright-suffix'>
+<p>Removes <code>suffix</code> from end of string.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'foobar'</span>).chompRight(<span class="string">'bar'</span>).s; <span class="comment">//'foo'</span>
+S(<span class="string">'foobar'</span>).chompRight(<span class="string">'foo'</span>).s; <span class="comment">//'foobar'</span></code></pre>
 <h3 id='methods/collapsewhitespace'>- collapseWhitespace()</h3 id='methods/collapsewhitespace'>
 <p>Converts all adjacent whitespace characters to a single space.
 
@@ -547,6 +593,24 @@ S(<span class="string">'3 &amp;lt; 4'</span>).decodeHTMLEntities().s; <span clas
 
 </p>
 <pre><code class="javascript">S.extendPrototype();</code></pre>
+<h3 id='methods/ensureleft-prefix'>- ensureLeft(prefix)</h3 id='methods/ensureleft-prefix'>
+<p>Ensures string starts with <code>prefix</code>.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'subdir'</span>).ensureLeft(<span class="string">'/'</span>).s; <span class="comment">//'/subdir'</span>
+S(<span class="string">'/subdir'</span>).ensureLeft(<span class="string">'/'</span>).s; <span class="comment">//'/subdir'</span></code></pre>
+<h3 id='methods/ensureright-suffix'>- ensureRight(suffix)</h3 id='methods/ensureright-suffix'>
+<p>Ensures string ends with <code>suffix</code>.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'dir'</span>).ensureRight(<span class="string">'/'</span>).s; <span class="comment">//'dir/'</span>
+S(<span class="string">'dir/'</span>).ensureRight(<span class="string">'/'</span>).s; <span class="comment">//'dir/'</span></code></pre>
 <h3 id='methods/include-ss'>- include(ss)</h3 id='methods/include-ss'>
 <p>Returns true if the string contains the <code>ss</code>.
 
@@ -710,6 +774,7 @@ S(<span class="string">'hello'</span>).padRight(<span class="number">10</span>, 
 <p><strong>Arguments:</strong>
 - <code>delimiter</code>: The character that is separates or delimits fields. Default: <code>,</code>
 - <code>qualifier</code>: The character that encloses fields. Default: <code>&quot;</code>
+- <code>escape</code>: The character that represents the escape character. Default: <code>\</code>
 
 </p>
 <p>Example:
@@ -717,7 +782,7 @@ S(<span class="string">'hello'</span>).padRight(<span class="number">10</span>, 
 </p>
 <pre><code class="javascript">S(<span class="string">"'a','b','c'"</span>).parseCSV(<span class="string">','</span>, <span class="string">"'"</span>) <span class="comment">//['a', 'b', 'c'])</span>
 S(<span class="string">'"a","b","c"'</span>).parseCSV() <span class="comment">// ['a', 'b', 'c'])</span>
-S(<span class="string">'a,b,c'</span>).parseCSV(<span class="string">','</span>, <span class="literal">null</span>)  <span class="comment">//['a', 'b', 'c']) </span>
+S(<span class="string">'a,b,c'</span>).parseCSV(<span class="string">','</span>, <span class="literal">null</span>)  <span class="comment">//['a', 'b', 'c'])</span>
 S(<span class="string">"'a,','b','c'"</span>).parseCSV(<span class="string">','</span>, <span class="string">"'"</span>) <span class="comment">//['a,', 'b', 'c'])</span>
 S(<span class="string">'"a","b",4,"c"'</span>).parseCSV(<span class="string">','</span>, <span class="literal">null</span>) <span class="comment">//['"a"', '"b"', '4', '"c"'])</span>
 S(<span class="string">'"a","b","4","c"'</span>).parseCSV() <span class="comment">//['a', 'b', '4', 'c'])</span>
@@ -768,7 +833,7 @@ S(<span class="string">'My name is JP'</span>).right(-<span class="number">2</sp
 <p>Alias: <code>toString()</code>
 
 </p>
-<p>The encapsulated native string representation of an <code>S</code> object. 
+<p>The encapsulated native string representation of an <code>S</code> object.
 
 </p>
 <p>Example:
@@ -792,7 +857,7 @@ S(<span class="string">"Hello"</span>).toString() === S(<span class="string">"He
 <pre><code class="javascript">S(<span class="string">"JP is a software engineer"</span>).startsWith(<span class="string">"JP"</span>); <span class="comment">//true</span>
 S(<span class="string">'wants to change the world'</span>).startsWith(<span class="string">"politicians"</span>); <span class="comment">//false</span></code></pre>
 <h3 id='methods/strippunctuation'>- stripPunctuation()</h3 id='methods/strippunctuation'>
-<p>Strip all of the punctuation.        
+<p>Strip all of the punctuation.
 
 </p>
 <p>Example:
@@ -839,7 +904,7 @@ console.<span class="keyword">log</span>(S(<span class="keyword">str</span>).tem
 <pre><code class="javascript">S(<span class="string">' '</span>).times(<span class="number">5</span>).s <span class="comment">//'     '</span>
 S(<span class="string">'*'</span>).times(<span class="number">3</span>).s <span class="comment">//'***'</span></code></pre>
 <h3 id='methods/toboolean-tobool'>- toBoolean() / toBool()</h3 id='methods/toboolean-tobool'>
-<p>Converts a a logical truth string to boolean. That is: <code>true</code>, <code>1</code>, <code>&#39;true&#39;</code>, <code>&#39;on&#39;</code>, or <code>&#39;yes&#39;</code>. 
+<p>Converts a a logical truth string to boolean. That is: <code>true</code>, <code>1</code>, <code>&#39;true&#39;</code>, <code>&#39;on&#39;</code>, or <code>&#39;yes&#39;</code>.
 
 </p>
 <p>JavaScript Note: You can easily convert truthy values to <code>booleans</code> by prefixing them with <code>!!</code>. e.g.
@@ -1034,22 +1099,30 @@ S(<span class="string">'yesWeCan'</span>).underscore().s; <span class="comment">
 
 </p>
 <h2 id='credits'>Credits</h2 id='credits'>
-<p>I have looked at the code by the creators in the libraries mentioned in <strong>Motivation</strong>. As noted in the source code, I&#39;ve specifically used code from Google Closure (Google Inc), Underscore String <a href="http://esa-matti.suuronen.org/">Esa-Matti Suuronen</a>, and php.js (<a href="http://phpjs.org/authors/index">http://phpjs.org/authors/index</a>), and <a href="https://github.com/component/pad">TJ Holowaychuk</a>.  
+<p>I have looked at the code by the creators in the libraries mentioned in <strong>Motivation</strong>. As noted in the source code, I&#39;ve specifically used code from Google Closure (Google Inc), Underscore String <a href="http://esa-matti.suuronen.org/">Esa-Matti Suuronen</a>, and php.js (<a href="http://phpjs.org/authors/index">http://phpjs.org/authors/index</a>), <a href="https://github.com/substack/node-ent">Substack</a> and <a href="https://github.com/component/pad">TJ Holowaychuk</a>.
 
 
 
 </p>
-<h2 id='author'>Author</h2 id='author'>
-<p><code>string.js</code> was written by <a href="http://about.me/jprichardson">JP Richardson</a>. You should follow him on Twitter <a href="http://twitter.com/jprichardson">@jprichardson</a>. Also read his coding blog <a href="http://procbits.com">Procbits</a>. If you write software with others, you should checkout <a href="http://gitpilot.com">Gitpilot</a> to make collaboration with Git simple.
-
-
+<h2 id='contributors'>Contributors</h2 id='contributors'>
+<p>If you contribute to this library. Please add your name and Github url to this list:
 
 </p>
+<ul>
+<li><a href="https://github.com/jprichardson">JP Richardson</a></li>
+<li><a href="https://github.com/oteroleonardo">Leonardo Otero</a></li>
+<li><a href="https://github.com/prezjordan">Jordan Scales</a></li>
+<li><a href="https://github.com/eduardo-matos">Eduardo de Matos</a></li>
+<li><a href="https://github.com/CMTegner">Christian Maughan Tegnér</a></li>
+<li><a href="https://github.com/mgutz">Mario Gutierrez</a></li>
+<li><a href="https://github.com/seanodell">Sean O&#39;Dell</a></li>
+<li><code>&lt;your name here&gt;</code></li>
+</ul>
 <h2 id='license'>License</h2 id='license'>
 <p>Licensed under MIT.
 
 </p>
-<p>Copyright (C) 2012 JP Richardson <a href="&#x6d;&#x61;&#x69;&#108;&#116;&#111;&#x3a;&#x6a;&#x70;&#x72;&#x69;&#99;&#104;&#97;&#114;&#x64;&#x73;&#x6f;&#x6e;&#64;&#103;&#109;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;">&#x6a;&#x70;&#x72;&#x69;&#99;&#104;&#97;&#114;&#x64;&#x73;&#x6f;&#x6e;&#64;&#103;&#109;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;</a>
+<p>Copyright (C) 2012-2013 JP Richardson <a href="&#x6d;&#97;&#105;&#108;&#116;&#111;&#58;&#106;&#112;&#114;&#105;&#99;&#104;&#97;&#x72;&#x64;&#115;&#x6f;&#110;&#64;&#x67;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#x6d;">&#106;&#112;&#114;&#105;&#99;&#104;&#97;&#x72;&#x64;&#115;&#x6f;&#110;&#64;&#x67;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#x6d;</a>
 
 </p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
