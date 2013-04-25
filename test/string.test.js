@@ -482,7 +482,7 @@
         EQ (S(['a"', 'b', 4, 'c']).toCSV({delimiter: ',', qualifier: '"', escape: '\\',  encloseNumbers: false}).s, '"a\\"","b",4,"c"');
         EQ (S({firstName: 'JP', lastName: 'Richardson'}).toCSV({keys: true}).s, '"firstName","lastName"');
         EQ (S({firstName: 'JP', lastName: 'Richardson'}).toCSV().s, '"JP","Richardson"');
-        EQ (S(['a', null, 'c']).toCSV().s, '"a","","c"');
+        EQ (S(['a', null, undefined, 'c']).toCSV().s, '"a","","","c"');
       })
     })
 
