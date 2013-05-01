@@ -515,6 +515,7 @@ Parses a CSV line into an array.
 - `delimiter`: The character that is separates or delimits fields. Default: `,`
 - `qualifier`: The character that encloses fields. Default: `"`
 - `escape`: The character that represents the escape character. Default: `\`
+- `lineDelimiter`: The character that represents the end of a line. When a lineDelimiter is passed the result will be a multidimensional array. Default: `undefined`
 
 Example:
 
@@ -528,6 +529,8 @@ S('"a","b","4","c"').parseCSV() //['a', 'b', '4', 'c'])
 S('"a","b",       "4","c"').parseCSV() //['a', 'b', '4', 'c'])
 S('"a","b",       4,"c"').parseCSV(",", null) //[ '"a"', '"b"', '       4', '"c"' ])
 S('"a","b\\"","d","c"').parseCSV() //['a', 'b"', 'd', 'c'])
+S('"a","b\\"","d","c"').parseCSV() //['a', 'b"', 'd', 'c'])
+S('"a\na","b","c"\n"a", """b\nb", "a"').parseCSV(',', '"', '"', '\n')) // [ [ 'a\na', 'b', 'c' ], [ 'a', '"b\nb', 'a' ] ]
 ```
 
 ### - repeat(n) ###
