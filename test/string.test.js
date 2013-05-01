@@ -1,4 +1,3 @@
-
 (function() {
   'use strict';
 
@@ -319,7 +318,7 @@
       })
     })
 
-    describe('- parseCSV([delim],[qualifier])', function() {
+    describe('- parseCSV([delim],[qualifier],[escape])', function() {
       it('should parse a CSV line into an array', function() {
         ARY_EQ (S("'a','b','c'").parseCSV(',', "'"), ['a', 'b', 'c'])
         ARY_EQ (S('"a","b","c"').parseCSV(), ['a', 'b', 'c'])
@@ -332,6 +331,7 @@
         ARY_EQ (S('"a","b\\"","d","c"').parseCSV(), ['a', 'b"', 'd', 'c'])
         ARY_EQ (S('"jp","really\tlikes to code"').parseCSV(), ['jp', 'really\tlikes to code'])
         ARY_EQ (S('"a","b+"","d","c"').parseCSV(",", "\"", "+"), ['a', 'b"', 'd', 'c'])
+        ARY_EQ (S('"a","b""","d","c"').parseCSV(",", "\"", "\""), ['a', 'b"', 'd', 'c'])
         ARY_EQ (S('"a","","c"').parseCSV(), ['a', '', 'c'])
         ARY_EQ (S('"","b","c"').parseCSV(), ['', 'b', 'c'])
       })
