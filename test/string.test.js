@@ -318,7 +318,7 @@
       })
     })
 
-    describe('- parseCSV([delim],[qualifier],[escape])', function() {
+    describe('- parseCSV([delim],[qualifier],[escape],[lineDelimiter])', function() {
       it('should parse a CSV line into an array', function() {
         ARY_EQ (S("'a','b','c'").parseCSV(',', "'"), ['a', 'b', 'c'])
         ARY_EQ (S('"a","b","c"').parseCSV(), ['a', 'b', 'c'])
@@ -334,6 +334,10 @@
         ARY_EQ (S('"a","b""","d","c"').parseCSV(",", "\"", "\""), ['a', 'b"', 'd', 'c'])
         ARY_EQ (S('"a","","c"').parseCSV(), ['a', '', 'c'])
         ARY_EQ (S('"","b","c"').parseCSV(), ['', 'b', 'c'])
+
+        var lines = (S('"a\na","b","c"\n"a", """b\nb", "a"').parseCSV(',', '"', '"', '\n'));
+        ARY_EQ(lines[0], [ 'a\na', 'b', 'c' ]);
+        ARY_EQ(lines[1], [ 'a', '"b\nb', 'a' ]);
       })
     })
 
