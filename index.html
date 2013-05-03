@@ -7,7 +7,7 @@
     <title>string.js</title>
     
     <link rel="stylesheet" type="text/css" href="http://documentup.com/stylesheets/screen.css">
-       <script type="text/javascript" src="https://raw.github.com/jprichardson/string.js/master/lib/string.min.js"></script>
+      <script type="text/javascript" src="https://raw.github.com/jprichardson/string.js/master/lib/string.min.js"></script>
     
     <script type="text/javascript">
 
@@ -342,7 +342,15 @@
         </li>
       
         <li>
-          <a href="#contributors">Contributors</a>
+          <a href="#contributions">Contributions</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#contributions/contributors">Contributors</a>
+                </li>
+              
+            </ul>
           
         </li>
       
@@ -775,6 +783,7 @@ S(<span class="string">'hello'</span>).padRight(<span class="number">10</span>, 
 - <code>delimiter</code>: The character that is separates or delimits fields. Default: <code>,</code>
 - <code>qualifier</code>: The character that encloses fields. Default: <code>&quot;</code>
 - <code>escape</code>: The character that represents the escape character. Default: <code>\</code>
+- <code>lineDelimiter</code>: The character that represents the end of a line. When a lineDelimiter is passed the result will be a multidimensional array. Default: <code>undefined</code>
 
 </p>
 <p>Example:
@@ -788,7 +797,9 @@ S(<span class="string">'"a","b",4,"c"'</span>).parseCSV(<span class="string">','
 S(<span class="string">'"a","b","4","c"'</span>).parseCSV() <span class="comment">//['a', 'b', '4', 'c'])</span>
 S(<span class="string">'"a","b",       "4","c"'</span>).parseCSV() <span class="comment">//['a', 'b', '4', 'c'])</span>
 S(<span class="string">'"a","b",       4,"c"'</span>).parseCSV(<span class="string">","</span>, <span class="literal">null</span>) <span class="comment">//[ '"a"', '"b"', '       4', '"c"' ])</span>
-S(<span class="string">'"a","b\\"","d","c"'</span>).parseCSV() <span class="comment">//['a', 'b"', 'd', 'c'])</span></code></pre>
+S(<span class="string">'"a","b\\"","d","c"'</span>).parseCSV() <span class="comment">//['a', 'b"', 'd', 'c'])</span>
+S(<span class="string">'"a","b\\"","d","c"'</span>).parseCSV() <span class="comment">//['a', 'b"', 'd', 'c'])</span>
+S(<span class="string">'"a\na","b","c"\n"a", """b\nb", "a"'</span>).parseCSV(<span class="string">','</span>, <span class="string">'"'</span>, <span class="string">'"'</span>, <span class="string">'\n'</span>)) <span class="comment">// [ [ 'a\na', 'b', 'c' ], [ 'a', '"b\nb', 'a' ] ]</span></code></pre>
 <h3 id='methods/repeat-n'>- repeat(n)</h3 id='methods/repeat-n'>
 <p>Returns a string repeated <code>n</code> times.
 
@@ -1104,8 +1115,13 @@ S(<span class="string">'yesWeCan'</span>).underscore().s; <span class="comment">
 
 
 </p>
-<h2 id='contributors'>Contributors</h2 id='contributors'>
-<p>If you contribute to this library. Please add your name and Github url to this list:
+<h2 id='contributions'>Contributions</h2 id='contributions'>
+<p>If you contribute to this library, just modify <code>string.js</code>, <code>string.test.js</code>, and update <code>README.md</code>. I&#39;ll update the website docs and generate the new <code>string.min.js</code>, changelog and version.
+
+
+</p>
+<h3 id='contributions/contributors'>Contributors</h3 id='contributions/contributors'>
+<p>(You can add your name, or I&#39;ll add it if you forget)
 
 </p>
 <ul>
@@ -1116,13 +1132,14 @@ S(<span class="string">'yesWeCan'</span>).underscore().s; <span class="comment">
 <li><a href="https://github.com/CMTegner">Christian Maughan Tegnér</a></li>
 <li><a href="https://github.com/mgutz">Mario Gutierrez</a></li>
 <li><a href="https://github.com/seanodell">Sean O&#39;Dell</a></li>
+<li><a href="https://github.com/Reggino">Tim de Koning</a></li>
 <li><code>&lt;your name here&gt;</code></li>
 </ul>
 <h2 id='license'>License</h2 id='license'>
 <p>Licensed under MIT.
 
 </p>
-<p>Copyright (C) 2012-2013 JP Richardson <a href="&#x6d;&#97;&#105;&#108;&#116;&#111;&#58;&#106;&#112;&#114;&#105;&#99;&#104;&#97;&#x72;&#x64;&#115;&#x6f;&#110;&#64;&#x67;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#x6d;">&#106;&#112;&#114;&#105;&#99;&#104;&#97;&#x72;&#x64;&#115;&#x6f;&#110;&#64;&#x67;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#x6d;</a>
+<p>Copyright (C) 2012-2013 JP Richardson <a href="&#109;&#97;&#x69;&#108;&#116;&#111;&#x3a;&#x6a;&#x70;&#114;&#105;&#x63;&#104;&#97;&#114;&#100;&#115;&#x6f;&#110;&#64;&#103;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;">&#x6a;&#x70;&#114;&#105;&#x63;&#104;&#97;&#114;&#100;&#115;&#x6f;&#110;&#64;&#103;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;</a>
 
 </p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
