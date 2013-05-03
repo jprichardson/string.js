@@ -1,3 +1,9 @@
+1.3.1 / 2013-04-03
+------------------
+* fixed CSV / undefined (Reggino / #37)
+* fixed CSV parsing bug with escape. See #32, #35, #37 (Reggino / #37)
+* added multi-line CSV parse (Reggino / #37)
+
 1.3.0 / 2013-03-18
 ------------------
 * Added methods `between()`, `chompLeft()`, `chompRight()`, `ensureLeft()`, `ensureRight()`. (mgutz / #31)
