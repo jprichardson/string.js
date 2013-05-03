@@ -922,10 +922,15 @@ I have looked at the code by the creators in the libraries mentioned in **Motiva
 
 
 
-Contributors
-------------
+Contributions
+-------------
 
-If you contribute to this library. Please add your name and Github url to this list:
+If you contribute to this library, just modify `string.js`, `string.test.js`, and update `README.md`. I'll update the website docs and generate the new `string.min.js`, changelog and version.
+
+
+### Contributors
+
+(You can add your name, or I'll add it if you forget)
 
 - [JP Richardson](https://github.com/jprichardson)
 - [Leonardo Otero](https://github.com/oteroleonardo)
