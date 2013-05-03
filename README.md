@@ -934,6 +934,7 @@ If you contribute to this library. Please add your name and Github url to this l
 - [Christian Maughan Tegnér](https://github.com/CMTegner)
 - [Mario Gutierrez](https://github.com/mgutz)
 - [Sean O'Dell](https://github.com/seanodell)
+- [Tim de Koning](https://github.com/Reggino)
 - `<your name here>`
 
 
