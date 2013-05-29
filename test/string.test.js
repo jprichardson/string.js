@@ -108,6 +108,16 @@
       })
     })
 
+    describe('- count(substring)', function() {
+      it('should return the count of all substrings', function() {
+        EQ (S('JP likes to program. JP does not play in the NBA.').count("JP"), 2)
+        EQ (S('Does not exist.').count("Flying Spaghetti Monster"), 0)
+        EQ (S('Does not exist.').count("Bigfoot"), 0)
+        EQ (S('JavaScript is fun, therefore Node.js is fun').count("fun"), 2)
+        EQ (S('funfunfun').count("fun"), 3)
+      })
+    })
+
     describe('- dasherize()', function() {
       it('should convert a camel cased string into a string delimited by dashes', function() {
         T (S('dataRate').dasherize().s === 'data-rate');

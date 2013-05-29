@@ -229,6 +229,21 @@ S('JavaScript is one of the best languages!').contains('one'); //true
 ```
 
 
+### - count(substring) ###
+
+Returns the count of the number of occurrences of the substring.
+
+Example:
+
+```javascript
+S('JP likes to program. JP does not play in the NBA.').count("JP")// 2
+S('Does not exist.').count("Flying Spaghetti Monster") //0
+S('Does not exist.').count("Bigfoot") //0
+S('JavaScript is fun, therefore Node.js is fun').count("fun") //2
+S('funfunfun').count("fun") //3
+```
+
+
 ### - dasherize() ###
 
 Returns a converted camel cased string into a string delimited by dashes.
