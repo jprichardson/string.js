@@ -1,3 +1,4 @@
+<a href="https://jepso-ci.com/jprichardson/string.js"><img src="https://jepso-ci.com/jprichardson/string.js.svg" alt="jepso-ci" style="max-width:100%;" align="right"></a>
 [string.js](http://stringjs.com)
 =========
 

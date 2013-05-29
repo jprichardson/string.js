@@ -362,11 +362,11 @@
 
     describe('+ restorePrototype()', function() {
       it('should restore the original String prototype', function() {
-        T (typeof ' hi'.endsWith === 'undefined');
+        T (typeof ' hi'.repeat === 'undefined');
         S.extendPrototype();
-        T (' hi'.endsWith('hi'));
+        T (' '.repeat(5).s === '     ');
         S.restorePrototype();
-        T (typeof ' hi'.endsWith === 'undefined');
+        T (typeof ' hi'.repeat === 'undefined');
       })
     })
 
