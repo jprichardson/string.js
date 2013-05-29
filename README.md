@@ -774,7 +774,7 @@ S(3.45522222333232).toFloat(2) // 3.46
 ```
 
 
-### - toInt() ###
+### - toInt() / toInteger() ###
 
 Return the number value in integer form. Wrapper for `parseInt()`. Can also parse hex values.
 
