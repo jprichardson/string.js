@@ -279,14 +279,6 @@
       })
     })
 
-    describe('- lines()', function() {
-      it('should return an array of native strings representing lines with whitespace trimmed', function() {
-        var lines = S('1 Infinite Loop\r\nCupertino, CA').lines();
-        T (lines[0] === '1 Infinite Loop')
-        T (lines[1] === 'Cupertino, CA')
-      })
-    })
-
     describe('- pad(len, [char])', function() {
       it('should pad the string in the center with specified character', function() {
         T (S('hello').pad(5).s === 'hello');
