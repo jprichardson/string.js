@@ -7,7 +7,7 @@
     <title>string.js</title>
     
     <link rel="stylesheet" type="text/css" href="http://documentup.com/stylesheets/screen.css">
-      <script type="text/javascript" src="https://raw.github.com/jprichardson/string.js/master/lib/string.min.js"></script>
+          <script type="text/javascript" src="https://rawgithub.com/jprichardson/string.js/master/lib/string.min.js"></script>
     
     <script type="text/javascript">
 
@@ -135,6 +135,10 @@
                 </li>
               
                 <li>
+                  <a href="#methods/count-substring">- count(substring)</a>
+                </li>
+              
+                <li>
                   <a href="#methods/dasherize">- dasherize()</a>
                 </li>
               
@@ -160,6 +164,10 @@
               
                 <li>
                   <a href="#methods/ensureright-suffix">- ensureRight(suffix)</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/humanize">- humanize()</a>
                 </li>
               
                 <li>
@@ -196,10 +204,6 @@
               
                 <li>
                   <a href="#methods/length">- length</a>
-                </li>
-              
-                <li>
-                  <a href="#methods/lines">- lines()</a>
                 </li>
               
                 <li>
@@ -275,7 +279,7 @@
                 </li>
               
                 <li>
-                  <a href="#methods/toint">- toInt()</a>
+                  <a href="#methods/toint-tointeger">- toInt() / toInteger()</a>
                 </li>
               
                 <li>
@@ -560,6 +564,18 @@ S(<span class="string">'foobar'</span>).chompRight(<span class="string">'foo'</s
 
 </p>
 <pre><code class="javascript">S(<span class="string">'JavaScript is one of the best languages!'</span>).contains(<span class="string">'one'</span>); <span class="comment">//true</span></code></pre>
+<h3 id='methods/count-substring'>- count(substring)</h3 id='methods/count-substring'>
+<p>Returns the count of the number of occurrences of the substring.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'JP likes to program. JP does not play in the NBA.'</span>).count(<span class="string">"JP"</span>)<span class="comment">// 2</span>
+S(<span class="string">'Does not exist.'</span>).count(<span class="string">"Flying Spaghetti Monster"</span>) <span class="comment">//0</span>
+S(<span class="string">'Does not exist.'</span>).count(<span class="string">"Bigfoot"</span>) <span class="comment">//0</span>
+S(<span class="string">'JavaScript is fun, therefore Node.js is fun'</span>).count(<span class="string">"fun"</span>) <span class="comment">//2</span>
+S(<span class="string">'funfunfun'</span>).count(<span class="string">"fun"</span>) <span class="comment">//3</span></code></pre>
 <h3 id='methods/dasherize'>- dasherize()</h3 id='methods/dasherize'>
 <p>Returns a converted camel cased string into a string delimited by dashes.
 
@@ -619,6 +635,19 @@ S(<span class="string">'/subdir'</span>).ensureLeft(<span class="string">'/'</sp
 </p>
 <pre><code class="javascript">S(<span class="string">'dir'</span>).ensureRight(<span class="string">'/'</span>).s; <span class="comment">//'dir/'</span>
 S(<span class="string">'dir/'</span>).ensureRight(<span class="string">'/'</span>).s; <span class="comment">//'dir/'</span></code></pre>
+<h3 id='methods/humanize'>- humanize()</h3 id='methods/humanize'>
+<p>Transforms the input into a human friendly form.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript">S(<span class="string">'the_humanize_string_method'</span>).humanize().s  <span class="comment">//'The humanize string method'</span>
+S(<span class="string">'ThehumanizeStringMethod'</span>).humanize().s <span class="comment">//'Thehumanize string method'</span>
+S(<span class="string">'the humanize string method'</span>).humanize().s  <span class="comment">//'The humanize string method'</span>
+S(<span class="string">'the humanize_id string method_id'</span>).humanize().s <span class="comment">//'The humanize id string method'</span>
+S(<span class="string">'the  humanize string method  '</span>).humanize().s <span class="comment">//'The humanize string method'</span>
+S(<span class="string">'   capitalize dash-CamelCase_underscore trim  '</span>).humanize().s <span class="comment">//'Capitalize dash camel case underscore trim'</span></code></pre>
 <h3 id='methods/include-ss'>- include(ss)</h3 id='methods/include-ss'>
 <p>Returns true if the string contains the <code>ss</code>.
 
@@ -728,16 +757,6 @@ S(<span class="string">'My name is JP'</span>).left(-<span class="number">2</spa
 
 </p>
 <pre><code class="javascript">S(<span class="string">'hi'</span>).length; <span class="comment">//2</span></code></pre>
-<h3 id='methods/lines'>- lines()</h3 id='methods/lines'>
-<p>Returns an array of native strings representing lines with whitespace trimmed.
-
-</p>
-<p>Example:
-
-</p>
-<pre><code class="javacript"><span class="title">var</span> lines = <span class="type">S</span>('<span class="number">1</span> <span class="type">Infinite</span> <span class="type">Loop</span>\r\nCupertino, <span class="type">CA'</span>).lines();
-<span class="title">lines</span>[<span class="number">0</span>] //<span class="string"> '1 Infinite Loop'</span>
-<span class="title">lines</span>[<span class="number">1</span>] //<span class="string"> 'Cupertino, CA'</span></code></pre>
 <h3 id='methods/pad-len-char'>- pad(len, [char])</h3 id='methods/pad-len-char'>
 <p>Pads the string in the center with specified character
 
@@ -989,7 +1008,7 @@ S(<span class="string">'-10'</span>).toFloat()  <span class="comment">//-10</spa
 S(<span class="string">'55.3 adfafaf'</span>).toFloat() <span class="comment">// 55.3</span>
 S(<span class="string">'afff 44'</span>).toFloat()  <span class="comment">//NaN</span>
 S(<span class="number">3.45522222333232</span>).toFloat(<span class="number">2</span>) <span class="comment">// 3.46</span></code></pre>
-<h3 id='methods/toint'>- toInt()</h3 id='methods/toint'>
+<h3 id='methods/toint-tointeger'>- toInt() / toInteger()</h3 id='methods/toint-tointeger'>
 <p>Return the number value in integer form. Wrapper for <code>parseInt()</code>. Can also parse hex values.
 
 </p>
@@ -1139,7 +1158,7 @@ S(<span class="string">'yesWeCan'</span>).underscore().s; <span class="comment">
 <p>Licensed under MIT.
 
 </p>
-<p>Copyright (C) 2012-2013 JP Richardson <a href="&#109;&#97;&#x69;&#108;&#116;&#111;&#x3a;&#x6a;&#x70;&#114;&#105;&#x63;&#104;&#97;&#114;&#100;&#115;&#x6f;&#110;&#64;&#103;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;">&#x6a;&#x70;&#114;&#105;&#x63;&#104;&#97;&#114;&#100;&#115;&#x6f;&#110;&#64;&#103;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;</a>
+<p>Copyright (C) 2012-2013 JP Richardson <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#x6f;&#58;&#x6a;&#x70;&#x72;&#x69;&#x63;&#104;&#x61;&#x72;&#x64;&#x73;&#x6f;&#110;&#64;&#x67;&#109;&#x61;&#105;&#x6c;&#46;&#x63;&#111;&#109;">&#x6a;&#x70;&#x72;&#x69;&#x63;&#104;&#x61;&#x72;&#x64;&#x73;&#x6f;&#110;&#64;&#x67;&#109;&#x61;&#105;&#x6c;&#46;&#x63;&#111;&#109;</a>
 
 </p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
