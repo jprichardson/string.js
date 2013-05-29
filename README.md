@@ -310,8 +310,20 @@ S('dir').ensureRight('/').s; //'dir/'
 S('dir/').ensureRight('/').s; //'dir/'
 ```
 
+### - humanize() ###
 
+Transforms the input into a human friendly form.
 
+Example:
+
+```javascript
+S('the_humanize_string_method').humanize().s  //'The humanize string method'
+S('ThehumanizeStringMethod').humanize().s //'Thehumanize string method'
+S('the humanize string method').humanize().s  //'The humanize string method'
+S('the humanize_id string method_id').humanize().s //'The humanize id string method'
+S('the  humanize string method  ').humanize().s //'The humanize string method'
+S('   capitalize dash-CamelCase_underscore trim  ').humanize().s //'Capitalize dash camel case underscore trim'
+```
 
 ### - include(ss) ###
 
