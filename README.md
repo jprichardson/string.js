@@ -448,19 +448,6 @@ S('hi').length; //2
 ```
 
 
-### - lines()
-
-Returns an array of native strings representing lines with whitespace trimmed.
-
-Example:
-
-```javacript
-var lines = S('1 Infinite Loop\r\nCupertino, CA').lines();
-lines[0] // '1 Infinite Loop'
-lines[1] // 'Cupertino, CA'
-```
-
-
 ### - pad(len, [char])
 
 Pads the string in the center with specified character
