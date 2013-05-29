@@ -1,7 +1,10 @@
 1.4.0 / 2013-
 ------------------
 * updated homepage in `package.json`
-
+* The configurable option "Escape character" is documented as "escape" but was implemented as "escapeChar" (Reggino #44)
+* removed `lines()`, better to not have it, then to do it incorrectly (#40)
+* added `humanize()` method, (#34)
+* added `count()` method, (#41) 
 
 1.3.1 / 2013-04-03
 ------------------
