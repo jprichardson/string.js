@@ -2,9 +2,7 @@
   "name": "string",
   "version": "1.3.1",
   "description": "string contains methods that aren't included in the vanilla JavaScript string such as escaping HTML, decoding HTML entities, stripping tags, etc.",
-  "homepage": [
-    "http://stringjs.com"
-  ],
+  "homepage": "http://stringjs.com",
   "repository": {
     "type": "git",
     "url": "https://github.com/jprichardson/string.js"

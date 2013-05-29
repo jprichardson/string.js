@@ -1,3 +1,8 @@
+1.4.0 / 2013-
+------------------
+* updated homepage in `package.json`
+
+
 1.3.1 / 2013-04-03
 ------------------
 * fixed CSV / undefined (Reggino / #37)
