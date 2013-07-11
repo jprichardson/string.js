@@ -474,6 +474,24 @@ Example:
 S('hi').length; //2
 ```
 
+### - lines() ####
+
+Returns an array with the lines. Cross-platform compatible.
+
+Example:
+
+```javascript
+var stuff = "My name is JP\nJavaScript is my fav language\r\nWhat is your fav language?"
+var lines = S(stuff).lines()
+
+console.dir(lines) 
+/*
+[ 'My name is JP',
+  'JavaScript is my fav language',
+  'What is your fav language?' ]
+*/
+```
+
 
 ### - pad(len, [char])
 
@@ -954,6 +972,7 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - [Mario Gutierrez](https://github.com/mgutz)
 - [Sean O'Dell](https://github.com/seanodell)
 - [Tim de Koning](https://github.com/Reggino)
+- [David Volm](https://github.com/daxxog)
 - `<your name here>`
 
 
