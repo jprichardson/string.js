@@ -976,6 +976,14 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - `<your name here>`
 
 
+Roadmap to v2.0
+---------------
+- I want to break up this module into smaller grouped modules and then allow you to select the functions that you need for your distribution. The Node.js version will always include all of the functions. https://github.com/jprichardson/string.js/issues/10
+- Possible promote a more functional style similar to Underscore and lowdash. This may introduce a `chain` function though. https://github.com/jprichardson/string.js/issues/49
+- Allow for multiple languages.
+
+
+
 License
 -------
 
