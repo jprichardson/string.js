@@ -1,3 +1,7 @@
+1.5.0 / 2013-07-11
+------------------
+* added correct `lines()` implementation. (daxxog/#47) Closes #52
+
 1.4.0 / 2013-
 ------------------
 * updated homepage in `package.json`
