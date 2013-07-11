@@ -7,7 +7,7 @@
     <title>string.js</title>
     
     <link rel="stylesheet" type="text/css" href="http://documentup.com/stylesheets/screen.css">
-          <script type="text/javascript" src="https://rawgithub.com/jprichardson/string.js/master/lib/string.min.js"></script>
+              <script type="text/javascript" src="string.js"></script>
     
     <script type="text/javascript">
 
@@ -207,6 +207,10 @@
                 </li>
               
                 <li>
+                  <a href="#methods/lines">- lines()</a>
+                </li>
+              
+                <li>
                   <a href="#methods/pad-len-char">- pad(len, [char])</a>
                 </li>
               
@@ -355,6 +359,11 @@
                 </li>
               
             </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#roadmap-to-v2-0">Roadmap to v2.0</a>
           
         </li>
       
@@ -757,6 +766,22 @@ S(<span class="string">'My name is JP'</span>).left(-<span class="number">2</spa
 
 </p>
 <pre><code class="javascript">S(<span class="string">'hi'</span>).length; <span class="comment">//2</span></code></pre>
+<h3 id='methods/lines'>- lines()</h3 id='methods/lines'>
+<p>Returns an array with the lines. Cross-platform compatible.
+
+</p>
+<p>Example:
+
+</p>
+<pre><code class="javascript"><span class="keyword">var</span> stuff = <span class="string">"My name is JP\nJavaScript is my fav language\r\nWhat is your fav language?"</span>
+<span class="keyword">var</span> lines = S(stuff).lines()
+
+console.dir(lines) 
+<span class="comment">/*
+[ 'My name is JP',
+  'JavaScript is my fav language',
+  'What is your fav language?' ]
+*/</span></code></pre>
 <h3 id='methods/pad-len-char'>- pad(len, [char])</h3 id='methods/pad-len-char'>
 <p>Pads the string in the center with specified character
 
@@ -1152,13 +1177,20 @@ S(<span class="string">'yesWeCan'</span>).underscore().s; <span class="comment">
 <li><a href="https://github.com/mgutz">Mario Gutierrez</a></li>
 <li><a href="https://github.com/seanodell">Sean O&#39;Dell</a></li>
 <li><a href="https://github.com/Reggino">Tim de Koning</a></li>
+<li><a href="https://github.com/daxxog">David Volm</a></li>
 <li><code>&lt;your name here&gt;</code></li>
+</ul>
+<h2 id='roadmap-to-v2-0'>Roadmap to v2.0</h2 id='roadmap-to-v2-0'>
+<ul>
+<li>I want to break up this module into smaller grouped modules and then allow you to select the functions that you need for your distribution. The Node.js version will always include all of the functions. <a href="https://github.com/jprichardson/string.js/issues/10">https://github.com/jprichardson/string.js/issues/10</a></li>
+<li>Possible promote a more functional style similar to Underscore and lowdash. This may introduce a <code>chain</code> function though. <a href="https://github.com/jprichardson/string.js/issues/49">https://github.com/jprichardson/string.js/issues/49</a></li>
+<li>Allow for multiple languages.</li>
 </ul>
 <h2 id='license'>License</h2 id='license'>
 <p>Licensed under MIT.
 
 </p>
-<p>Copyright (C) 2012-2013 JP Richardson <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#x6f;&#58;&#x6a;&#x70;&#x72;&#x69;&#x63;&#104;&#x61;&#x72;&#x64;&#x73;&#x6f;&#110;&#64;&#x67;&#109;&#x61;&#105;&#x6c;&#46;&#x63;&#111;&#109;">&#x6a;&#x70;&#x72;&#x69;&#x63;&#104;&#x61;&#x72;&#x64;&#x73;&#x6f;&#110;&#64;&#x67;&#109;&#x61;&#105;&#x6c;&#46;&#x63;&#111;&#109;</a>
+<p>Copyright (C) 2012-2013 JP Richardson <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#106;&#x70;&#114;&#105;&#x63;&#104;&#x61;&#114;&#100;&#x73;&#x6f;&#x6e;&#64;&#103;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#111;&#109;">&#106;&#x70;&#114;&#105;&#x63;&#104;&#x61;&#114;&#100;&#x73;&#x6f;&#x6e;&#64;&#103;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#111;&#109;</a>
 
 </p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
