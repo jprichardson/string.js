@@ -449,6 +449,16 @@
         str = "Hello {name}! How are you doing during the year of {date-year}?"
         EQ (S(str).template(values).s, 'Hello JP! How are you doing during the year of 2013?')
       })
+
+      describe('> when a key has an empty value', function() {
+        it('should still replace with the empty value', function() {
+          S.TMPL_OPEN = '{{'
+          S.TMPL_CLOSE = '}}'
+          var str = "Hello {{name}}"
+          var values = {name: ''}
+          EQ (S(str).template(values).s, "Hello ")
+        })
+      })
     })
 
     describe('- times(n)', function() {
