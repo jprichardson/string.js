@@ -1,3 +1,8 @@
+1.5.1 / 2013-08-20
+------------------
+* Fixes bug in `template()` for falsey values. Closes #29
+* added Makefile
+
 1.5.0 / 2013-07-11
 ------------------
 * added correct `lines()` implementation. (daxxog/#47) Closes #52
