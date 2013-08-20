@@ -8,3 +8,5 @@ size:
 
 clean:
 	rm -f lib/string.min.js
+
+.PHONY: min size clean
