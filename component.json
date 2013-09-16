@@ -2,7 +2,7 @@
   "name": "string.js",
   "repo": "jprichardson/string.js",
   "description": "string contains methods that aren't included in the vanilla JavaScript string such as escaping HTML, decoding HTML entities, stripping tags, etc.",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "keywords": [
     "string",
     "strings",

@@ -1,3 +1,8 @@
+1.6.0 / 2013-09-16
+------------------
+* modified string.js to make it more extensible (jeffgran / [#57][57])
+* fix browser tests, closes #45, #56
+
 1.5.1 / 2013-08-20
 ------------------
 * Fixes bug in `template()` for falsey values. Closes #29
@@ -117,3 +122,5 @@
 * Removed development dependency on CoffeeScript and Jasmine
 * Changed testing from Jasmine to Mocha
 * Added `includes` and `contains` methods
+
+[57]: https://github.com/jprichardson/string.js/pull/57
