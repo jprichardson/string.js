@@ -631,6 +631,16 @@ S("Hello").toString() === S("Hello").s; //true
 ```
 
 
+### - setValue(value) ###
+
+Sets the string to a `value`.
+
+```javascript
+var myString = S('War');
+myString.setValue('Peace').s; // 'Peace'
+```
+
+
 ### - slugify() ###
 
 Converts the text into a valid url slug.
@@ -973,6 +983,7 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - [Sean O'Dell](https://github.com/seanodell)
 - [Tim de Koning](https://github.com/Reggino)
 - [David Volm](https://github.com/daxxog)
+- [Jeff Grann](https://github.com/jeffgrann)
 - `<your name here>`
 
 
