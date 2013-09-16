@@ -105,6 +105,12 @@ S.restorePrototype(); //be a good citizen and clean up
 `string.js` has been designed to be compatible with Node.js and with IE6+, Firefox 3+, Safari 2+, Chrome 3+. Please [click here][browsertest] to run the tests in your browser. Report any browser issues here: https://github.com/jprichardson/string.js/issues
 
 
+### Extending string.js
+
+See: https://github.com/jprichardson/string.js/pull/57
+
+
+
 Native JavaScript Methods
 -------------------------
 
