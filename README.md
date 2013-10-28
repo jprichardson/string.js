@@ -980,16 +980,17 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 
 (You can add your name, or I'll add it if you forget)
 
-- [JP Richardson](https://github.com/jprichardson)
-- [Leonardo Otero](https://github.com/oteroleonardo)
-- [Jordan Scales](https://github.com/prezjordan)
-- [Eduardo de Matos](https://github.com/eduardo-matos)
-- [Christian Maughan Tegnér](https://github.com/CMTegner)
-- [Mario Gutierrez](https://github.com/mgutz)
-- [Sean O'Dell](https://github.com/seanodell)
-- [Tim de Koning](https://github.com/Reggino)
-- [David Volm](https://github.com/daxxog)
-- [Jeff Grann](https://github.com/jeffgrann)
+- [*] [JP Richardson](https://github.com/jprichardson)
+- [*] [Leonardo Otero](https://github.com/oteroleonardo)
+- [*] [Jordan Scales](https://github.com/prezjordan)
+- [*] [Eduardo de Matos](https://github.com/eduardo-matos)
+- [*] [Christian Maughan Tegnér](https://github.com/CMTegner)
+- [*] [Mario Gutierrez](https://github.com/mgutz)
+- [*] [Sean O'Dell](https://github.com/seanodell)
+- [*] [Tim de Koning](https://github.com/Reggino)
+- [*] [David Volm](https://github.com/daxxog)
+- [*] [Jeff Grann](https://github.com/jeffgrann)
+- [1] [Vlad GURDIGA](https://github.com/gurdiga)
 - `<your name here>`
 
 
