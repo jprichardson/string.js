@@ -460,8 +460,8 @@ console.log(phrase.substr(pos, sub.length).truncate(<span class="number">8</span
 <p>This creates a new <code>string.js</code> object. The parameter can be anything. The <code>toString()</code> method will be called on any objects. Some native objects are used in some functions such as <code>toCSV()</code>.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'hello'</span>).s <span class="comment">//'hello'</span>
-S([<span class="string">'a,b'</span>]).s <span class="comment">//"'a','b'"</span>
-S({hi: <span class="string">'jp'</span>}).s <span class="comment">//[object Object]</span></code></pre>
+S([<span class="string">'a','b'</span>]).s <span class="comment">//'a,b'</span>
+S({hi: <span class="string">'jp'</span>}).s <span class="comment">//'[object Object]'</span></code></pre>
 <h3 id='methods/between-left-right'>- between(left, right)</h3 id='methods/between-left-right'>
 <p>Extracts a string between <code>left</code> and <code>right</code> strings.</p>
 <p>Example:</p>
