@@ -1,3 +1,9 @@
+1.6.1 / 2013-11-07
+------------------
+* fixes to `template()` (jprincipe / #69)
+* added stringjs-rails to docs. Closes #48
+* added Bower support. Closes #61
+
 1.6.0 / 2013-09-16
 ------------------
 * modified string.js to make it more extensible (jeffgran / [#57][57])
