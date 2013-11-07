@@ -144,9 +144,9 @@ This creates a new `string.js` object. The parameter can be anything. The `toStr
 Example:
 
 ```javascript
-S('hello').s //'hello'
-S(['a,b']).s //"'a','b'"
-S({hi: 'jp'}).s //[object Object]
+S('hello').s //"hello"
+S(['a,b']).s //"a,b"
+S({hi: 'jp'}).s //"[object Object]""
 ```
 
 
@@ -991,7 +991,8 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - [*] [David Volm](https://github.com/daxxog)
 - [*] [Jeff Grann](https://github.com/jeffgrann)
 - [1] [Vlad GURDIGA](https://github.com/gurdiga)
-- [*] [Jon Principe](https://github.com/jprincipe)
+- [1] [Jon Principe](https://github.com/jprincipe)
+- [1] [James Manning]https://github.com/jamesmanning
 - `<your name here>`
 
 
