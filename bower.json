@@ -1,0 +1,34 @@
+{
+  "name": "string",
+  "description": "string contains methods that aren't included in the vanilla JavaScript string such as escaping HTML, decoding HTML entities, stripping tags, etc.",
+  "version": "1.6.0",
+  "keywords": [
+    "string",
+    "strings",
+    "string.js",
+    "stringjs",
+    "S",
+    "s",
+    "csv",
+    "html",
+    "entities",
+    "parse",
+    "html",
+    "tags",
+    "strip",
+    "trim",
+    "encode",
+    "decode",
+    "escape",
+    "unescape"
+  ],
+  "scripts": [
+    "./lib/string.min.js"
+  ],
+  ignore: [
+    "node_modules/",
+    "package.json",
+    "component.json"
+    "test/"
+  ]
+}
