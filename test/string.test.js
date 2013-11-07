@@ -450,6 +450,30 @@
         EQ (S(str).template(values).s, 'Hello JP! How are you doing during the year of 2013?')
       })
 
+      it('should return the string replaces with template values with regex chars () as Open/Close', function() {
+        S.TMPL_OPEN = "("
+        S.TMPL_CLOSE = ")"
+        var values = {name: 'JP', 'date-year': 2013}
+        var str = "Hello (name)! How are you doing during the year of (date-year)?"
+        EQ (S(str).template(values).s, 'Hello JP! How are you doing during the year of 2013?')
+      })
+
+      it('should return the string replaces with template values with regex chars [] as Open/Close', function() {
+        S.TMPL_OPEN = '['
+        S.TMPL_CLOSE = ']'
+        var values = {name: 'JP', 'date-year': 2013}
+        var str = "Hello [name]! How are you doing during the year of [date-year]?"
+        EQ (S(str).template(values).s, 'Hello JP! How are you doing during the year of 2013?')
+      })
+
+      it('should return the string replaces with template values with regex chars ** as Open/Close', function() {
+        S.TMPL_OPEN = '*'
+        S.TMPL_CLOSE = '*'
+        var values = {name: 'JP', 'date-year': 2013}
+        var str = "Hello *name*! How are you doing during the year of *date-year*?"
+        EQ (S(str).template(values).s, 'Hello JP! How are you doing during the year of 2013?')
+      })
+
       describe('> when a key has an empty value', function() {
         it('should still replace with the empty value', function() {
           S.TMPL_OPEN = '{{'

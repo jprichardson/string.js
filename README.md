@@ -991,6 +991,7 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - [*] [David Volm](https://github.com/daxxog)
 - [*] [Jeff Grann](https://github.com/jeffgrann)
 - [1] [Vlad GURDIGA](https://github.com/gurdiga)
+- [*] [Jon Principe](https://github.com/jprincipe)
 - `<your name here>`
 
 
