@@ -313,6 +313,11 @@
         T (S('hey').pad(4).s === ' hey');
         T (S('hey').pad(7, '-').s === '--hey--');
       })
+      it('should work on numbers', function() {
+        T (S(1234).pad(4, 0).s === '1234');
+        T (S(1234).pad(7, 0).s === '0012340');
+        T (S(1234).pad(7, 1).s === '1112341');     
+      })
     })
 
     describe('- padLeft(len, [char])', function() {
@@ -322,6 +327,11 @@
         T (S('hello').padLeft(7).s === '  hello');
         T (S('hello').padLeft(6).s === ' hello');
         T (S('hello').padLeft(10, '.').s === '.....hello');
+      })
+      it('should work on numbers', function() {
+        T (S(1234).padLeft(4, 0).s === '1234');
+        T (S(1234).padLeft(7, 0).s === '0001234');
+        T (S(1234).padLeft(7, 1).s === '1111234');     
       })
     })
 
@@ -333,7 +343,19 @@
         T (S('hello').padRight(6).s === 'hello ');
         T (S('hello').padRight(10, '.').s === 'hello.....');
       })
+      it('should work on numbers', function() {
+        T (S(1234).padRight(4, 0).s === '1234');
+        T (S(1234).padRight(7, 0).s === '1234000');
+        T (S(1234).padRight(7, 1).s === '1234111');    
+      })
     })
+    
+    describe('- pad(len, [number])', function() {
+
+    })
+
+
+
 
     describe('- parseCSV([delim],[qualifier],[escape],[lineDelimiter])', function() {
       it('should parse a CSV line into an array', function() {

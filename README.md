@@ -508,7 +508,7 @@ console.dir(lines)
 
 ### - pad(len, [char])
 
-Pads the string in the center with specified character
+Pads the string in the center with specified character. `char` may be a string or a number, defaults is `' '`.  
 
 Example:
 
