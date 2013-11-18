@@ -318,6 +318,10 @@
         T (S(1234).pad(7, 0).s === '0012340');
         T (S(1234).pad(7, 1).s === '1112341');     
       })
+      it('should use the default padding character when given null', function() {
+        T (S('hello').pad(5, null).s === 'hello');
+        T (S('hello').pad(10, null).s === '   hello  ');
+      })
     })
 
     describe('- padLeft(len, [char])', function() {
@@ -332,6 +336,10 @@
         T (S(1234).padLeft(4, 0).s === '1234');
         T (S(1234).padLeft(7, 0).s === '0001234');
         T (S(1234).padLeft(7, 1).s === '1111234');     
+      })
+      it('should use the default padding character when given null', function() {
+        T (S('hello').padLeft(5, null).s === 'hello');
+        T (S('hello').padLeft(10, null).s === '     hello');
       })
     })
 
@@ -348,14 +356,12 @@
         T (S(1234).padRight(7, 0).s === '1234000');
         T (S(1234).padRight(7, 1).s === '1234111');    
       })
+      it('should use the default padding character when given null', function() {
+        T (S('hello').padRight(5, null).s === 'hello');
+        T (S('hello').padRight(10, null).s === 'hello     ');
+      })
     })
     
-    describe('- pad(len, [number])', function() {
-
-    })
-
-
-
 
     describe('- parseCSV([delim],[qualifier],[escape],[lineDelimiter])', function() {
       it('should parse a CSV line into an array', function() {
