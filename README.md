@@ -508,7 +508,7 @@ console.dir(lines)
 
 ### - pad(len, [char])
 
-Pads the string in the center with specified character
+Pads the string in the center with specified character. `char` may be a string or a number, defaults is a space. 
 
 Example:
 
@@ -1000,6 +1000,7 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - [1] [Vlad GURDIGA](https://github.com/gurdiga)
 - [1] [Jon Principe](https://github.com/jprincipe)
 - [1] [James Manning]https://github.com/jamesmanning
+- [1] [Nathan Friedly](https://github.com/nfriedly)
 - `<your name here>`
 
 
