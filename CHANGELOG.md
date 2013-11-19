@@ -1,3 +1,7 @@
+1.7.0 / 2013-11-19
+------------------
+* `padLeft`, `padRight`, and `pad` support numbers as input now (nfriedly / #70)
+
 1.6.1 / 2013-11-07
 ------------------
 * fixes to `template()` (jprincipe / #69)
