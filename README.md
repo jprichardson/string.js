@@ -164,7 +164,13 @@ Extracts a string between `left` and `right` strings.
 Example:
 
 ```javascript
-S('<a>foobar</a>').between('<a>', '</a>').s; // 'foobar'
+S('<a>foo</a>').between('<a>', '</a>').s // => 'foo'
+S('<a>foo</a></a>').between('<a>', '</a>').s // => 'foo'
+S('<a><a>foo</a></a>').between('<a>', '</a>').s // => '<a>foo'
+S('<a>foo').between('<a>', '</a>').s // => ''
+S('Some strings } are very {weird}, dont you think?').between('{', '}').s // => 'weird'
+S('This is a test string').between('test').s // => ' string'
+S('This is a test string').between('', 'test').s // => 'This is a '
 ```
 
 ### - camelize()
