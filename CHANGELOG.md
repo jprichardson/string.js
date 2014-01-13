@@ -1,3 +1,7 @@
+1.8.0 / 2014-01-13
+------------------
+* Changed behavior of 'between()'. Closes #62
+
 1.7.0 / 2013-11-19
 ------------------
 * `padLeft`, `padRight`, and `pad` support numbers as input now (nfriedly / #70)
