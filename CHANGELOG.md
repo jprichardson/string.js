@@ -1,3 +1,7 @@
+1.8.1 / 2014-04-23
+------------------
+* bugfix: `toBoolean()`/`toBool()` treat `1` as `true`. (arowla / #78)
+
 1.8.0 / 2014-01-13
 ------------------
 * Changed behavior of 'between()'. Closes #62
