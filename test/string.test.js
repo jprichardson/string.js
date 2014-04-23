@@ -564,6 +564,8 @@
         T (S(1).toBoolean())
         F (S(-1).toBoolean())
         F (S(0).toBoolean())
+        T (S('1').toBoolean())
+        F (S('0').toBoolean())
       })
     })
 

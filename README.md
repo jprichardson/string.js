@@ -960,6 +960,10 @@ Install the dev dependencies:
 
     $ npm install string --development
 
+Install mocha globally:
+
+    $ npm install -g mocha
+
 Then navigate to the installed directory:
 
     $ cd node_modules/string/
