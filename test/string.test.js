@@ -466,6 +466,13 @@
       })
     })
 
+    describe('- allowTags([tag1],[tag2],...)', function() {
+      it('should strip all of the html tags or allow tags specified by the parameters', function() {
+        T (S('<p>just <b>some</b> text</p>').allowTags().s === 'just some text')
+        T (S('<p>just <b>some</b> text</p>').allowTags('<p>').s === '<p>just some text</p>')
+      })
+    })
+
     describe('- template(values, [open], [close])', function() {
       it('should return the string replaced with template values', function() {
         var str = "Hello {{name}}! How are you doing during the year of {{date-year}}?"
