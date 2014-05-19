@@ -1022,11 +1022,11 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - [*] [Tim de Koning](https://github.com/Reggino)
 - [*] [David Volm](https://github.com/daxxog)
 - [*] [Jeff Grann](https://github.com/jeffgrann)
-- [1] [Vlad GURDIGA](https://github.com/gurdiga)
-- [1] [Jon Principe](https://github.com/jprincipe)
-- [1] [James Manning]https://github.com/jamesmanning
-- [1] [Nathan Friedly](https://github.com/nfriedly)
-- [1] (Alison Rowland)(https://github.com/arowla)
+- [*] [Vlad GURDIGA](https://github.com/gurdiga)
+- [*] [Jon Principe](https://github.com/jprincipe)
+- [*] [James Manning](https://github.com/jamesmanning)
+- [*] [Nathan Friedly](https://github.com/nfriedly)
+- [*] [Alison Rowland](https://github.com/arowla)
 - [*] [Venkatraman.R](https://github.com/ramsunvtech)
 
 
