@@ -660,6 +660,20 @@
       })
     })
 
+    describe('- wrap()', function () {
+      it('should return the string with wrapped HTML Element and their attributes', function () {
+        T (S('Venkat').wrap(); === '<p>Venkat</p>')
+        T (S('Venkat').wrap('div'); === '<div>Venkat</div>')
+        T (S('Venkat').wrap('div', {
+          "class": "left bullet"
+        }); === '<div class="left bullet">Venkat</div>')
+        T (S('Venkat').wrap('div', {
+          "id": "content",
+          "class": "left bullet"
+        }); === '<div id="content" class="left bullet">Venkat</div>')
+      })
+    })
+
     describe('+ VERSION', function() {
       it('should exist', function() {
         T (S.VERSION)
