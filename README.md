@@ -931,7 +931,22 @@ Example:
 S('&lt;div&gt;hi&lt;/div&gt;').unescapeHTML().s; //<div>hi</div>
 ```
 
+### - wrap() ###
 
+Wrap the string with wrapped HTML Element and their attributes.
+
+Example:
+```javascript
+S('Venkat').wrap().s //<p>Venkat</p>
+S('Venkat').wrap('div').s //<div>Venkat</div>
+S('Venkat').wrap('div', {
+    "class": "left bullet"
+}).s //<div class="left bullet">Venkat</div>
+S('Venkat').wrap('div', {
+    "id": "content",
+    "class": "left bullet"
+}).s // <div id="content" class="left bullet">Venkat</div>
+```
 
 ### + VERSION ###
 
@@ -1012,7 +1027,7 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - [1] [James Manning]https://github.com/jamesmanning
 - [1] [Nathan Friedly](https://github.com/nfriedly)
 - [1] (Alison Rowland)(https://github.com/arowla)
-- `<your name here>`
+- [*] [Venkatraman.R](https://github.com/ramsunvtech)
 
 
 Roadmap to v2.0
