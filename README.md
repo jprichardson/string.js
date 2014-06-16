@@ -931,18 +931,19 @@ Example:
 S('&lt;div&gt;hi&lt;/div&gt;').unescapeHTML().s; //<div>hi</div>
 ```
 
-### - wrap() ###
+### - wrapHTML() ###
 
-Wrap the string with wrapped HTML Element and their attributes.
+wrapHTML helps to avoid concatenation of element with string. 
+the string will be wrapped with HTML Element and their attributes.
 
 Example:
 ```javascript
-S('Venkat').wrap().s //<p>Venkat</p>
-S('Venkat').wrap('div').s //<div>Venkat</div>
-S('Venkat').wrap('div', {
+S('Venkat').wrapHTML().s //<p>Venkat</p>
+S('Venkat').wrapHTML('div').s //<div>Venkat</div>
+S('Venkat').wrapHTML('div', {
     "class": "left bullet"
 }).s //<div class="left bullet">Venkat</div>
-S('Venkat').wrap('div', {
+S('Venkat').wrapHTML('div', {
     "id": "content",
     "class": "left bullet"
 }).s // <div id="content" class="left bullet">Venkat</div>
