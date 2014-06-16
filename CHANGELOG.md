@@ -1,3 +1,7 @@
+1.8.2 / 2014-06-15
+------------------
+* added `wrapHTML()` method, (#90) 
+
 1.8.1 / 2014-04-23
 ------------------
 * bugfix: `toBoolean()`/`toBool()` treat `1` as `true`. (arowla / #78)
