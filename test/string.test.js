@@ -660,14 +660,14 @@
       })
     })
 
-    describe('- wrap()', function () {
+    describe('- wrapHTML()', function () {
       it('should return the string with wrapped HTML Element and their attributes', function () {
-        T (S('Venkat').wrap(); === '<p>Venkat</p>')
-        T (S('Venkat').wrap('div'); === '<div>Venkat</div>')
-        T (S('Venkat').wrap('div', {
+        T (S('Venkat').wrapHTML(); === '<p>Venkat</p>')
+        T (S('Venkat').wrapHTML('div'); === '<div>Venkat</div>')
+        T (S('Venkat').wrapHTML('div', {
           "class": "left bullet"
         }); === '<div class="left bullet">Venkat</div>')
-        T (S('Venkat').wrap('div', {
+        T (S('Venkat').wrapHTML('div', {
           "id": "content",
           "class": "left bullet"
         }); === '<div id="content" class="left bullet">Venkat</div>')
