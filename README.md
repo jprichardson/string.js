@@ -938,7 +938,7 @@ the string will be wrapped with HTML Element and their attributes.
 
 Example:
 ```javascript
-S('Venkat').wrapHTML().s //<p>Venkat</p>
+S('Venkat').wrapHTML().s //<span>Venkat</span>
 S('Venkat').wrapHTML('div').s //<div>Venkat</div>
 S('Venkat').wrapHTML('div', {
     "class": "left bullet"
