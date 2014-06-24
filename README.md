@@ -931,7 +931,23 @@ Example:
 S('&lt;div&gt;hi&lt;/div&gt;').unescapeHTML().s; //<div>hi</div>
 ```
 
+### - wrapHTML() ###
 
+wrapHTML helps to avoid concatenation of element with string. 
+the string will be wrapped with HTML Element and their attributes.
+
+Example:
+```javascript
+S('Venkat').wrapHTML().s //<span>Venkat</span>
+S('Venkat').wrapHTML('div').s //<div>Venkat</div>
+S('Venkat').wrapHTML('div', {
+    "class": "left bullet"
+}).s //<div class="left bullet">Venkat</div>
+S('Venkat').wrapHTML('div', {
+    "id": "content",
+    "class": "left bullet"
+}).s // <div id="content" class="left bullet">Venkat</div>
+```
 
 ### + VERSION ###
 
@@ -1007,12 +1023,12 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - [*] [Tim de Koning](https://github.com/Reggino)
 - [*] [David Volm](https://github.com/daxxog)
 - [*] [Jeff Grann](https://github.com/jeffgrann)
-- [1] [Vlad GURDIGA](https://github.com/gurdiga)
-- [1] [Jon Principe](https://github.com/jprincipe)
-- [1] [James Manning]https://github.com/jamesmanning
-- [1] [Nathan Friedly](https://github.com/nfriedly)
-- [1] (Alison Rowland)(https://github.com/arowla)
-- `<your name here>`
+- [*] [Vlad GURDIGA](https://github.com/gurdiga)
+- [*] [Jon Principe](https://github.com/jprincipe)
+- [*] [James Manning](https://github.com/jamesmanning)
+- [*] [Nathan Friedly](https://github.com/nfriedly)
+- [*] [Alison Rowland](https://github.com/arowla)
+- [*] [Venkatraman.R](https://github.com/ramsunvtech)
 
 
 Roadmap to v2.0
