@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>string.js</title>
     
-    <link rel="stylesheet" type="text/css" href="http://documentup.com/stylesheets/screen.css">
+    <link rel="stylesheet" type="text/css" href="http://documentup.com/stylesheets/screen.css">    
     <script type="text/javascript" src="string.js"></script>
     
     <script type="text/javascript">
@@ -22,6 +22,7 @@
   })();
 
 </script> 
+    
     
 
     
@@ -73,6 +74,10 @@
                 </li>
               
                 <li>
+                  <a href="#usage/rails">Rails</a>
+                </li>
+              
+                <li>
                   <a href="#usage/browsers">Browsers</a>
                 </li>
               
@@ -86,6 +91,10 @@
               
                 <li>
                   <a href="#usage/browser-compatiblity">Browser Compatiblity</a>
+                </li>
+              
+                <li>
+                  <a href="#usage/extending-string-js">Extending string.js</a>
                 </li>
               
             </ul>
@@ -319,6 +328,10 @@
                 </li>
               
                 <li>
+                  <a href="#methods/wraphtml">- wrapHTML()</a>
+                </li>
+              
+                <li>
                   <a href="#methods/version">+ VERSION</a>
                 </li>
               
@@ -417,6 +430,8 @@
 <h3 id='usage/node-js'>Node.js</h3 id='usage/node-js'>
 <pre><code class="lang-javascript"><span class="keyword">var</span> S = require(<span class="string">'string'</span>);</code></pre>
 <p>Originally, I was using <code>$s</code> but glancing over the code, it was easy to confuse <code>$s</code> for string.js with <code>$</code> for jQuery. Feel free to use the most convenient variable for you.</p>
+<h3 id='usage/rails'>Rails</h3 id='usage/rails'>
+<p>Checkout this gem to easily use string.js on the asset pipeline: <a href="https://github.com/jesjos/stringjs-rails">https://github.com/jesjos/stringjs-rails</a></p>
 <h3 id='usage/browsers'>Browsers</h3 id='usage/browsers'>
 <pre><code class="lang-html"><span class="comment">&lt;!-- HTML5 --&gt;</span>
 <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://raw.github.com/jprichardson/string.js/master/lib/string.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
@@ -443,6 +458,8 @@ type anyway --&gt;</span>
 S.restorePrototype(); <span class="comment">//be a good citizen and clean up</span></code></pre>
 <h3 id='usage/browser-compatiblity'>Browser Compatiblity</h3 id='usage/browser-compatiblity'>
 <p><code>string.js</code> has been designed to be compatible with Node.js and with IE6+, Firefox 3+, Safari 2+, Chrome 3+. Please <a href="http://stringjs.com/browser.test.html">click here</a> to run the tests in your browser. Report any browser issues here: <a href="https://github.com/jprichardson/string.js/issues">https://github.com/jprichardson/string.js/issues</a></p>
+<h3 id='usage/extending-string-js'>Extending string.js</h3 id='usage/extending-string-js'>
+<p>See: <a href="https://github.com/jprichardson/string.js/pull/57">https://github.com/jprichardson/string.js/pull/57</a></p>
 <h2 id='native-javascript-methods'>Native JavaScript Methods</h2 id='native-javascript-methods'>
 <p><code>string.js</code> imports all of the native JavaScript methods. This is for convenience. The only difference is that the imported methods return <code>string.js</code> objects instead of native JavaScript strings. The one exception to this is the method <code>charAt(index)</code>. This is because <code>charAt()</code> only returns a string of length one. This is typically done for comparisons and a <code>string.js</code> object will have little to no value here.</p>
 <p>All of the native methods support chaining with the <code>string.js</code> methods.</p>
@@ -459,20 +476,26 @@ console.log(phrase.substr(pos, sub.length).truncate(<span class="number">8</span
 <h3 id='methods/constructor-nativejsstring'>- constructor(nativeJsString)</h3 id='methods/constructor-nativejsstring'>
 <p>This creates a new <code>string.js</code> object. The parameter can be anything. The <code>toString()</code> method will be called on any objects. Some native objects are used in some functions such as <code>toCSV()</code>.</p>
 <p>Example:</p>
-<pre><code class="lang-javascript">S(<span class="string">'hello'</span>).s <span class="comment">//'hello'</span>
-S([<span class="string">'a,b'</span>]).s <span class="comment">//"'a','b'"</span>
-S({hi: <span class="string">'jp'</span>}).s <span class="comment">//[object Object]</span></code></pre>
+<pre><code class="lang-javascript">S(<span class="string">'hello'</span>).s <span class="comment">//"hello"</span>
+S([<span class="string">'a,b'</span>]).s <span class="comment">//"a,b"</span>
+S({hi: <span class="string">'jp'</span>}).s <span class="comment">//"[object Object]""</span></code></pre>
 <h3 id='methods/between-left-right'>- between(left, right)</h3 id='methods/between-left-right'>
 <p>Extracts a string between <code>left</code> and <code>right</code> strings.</p>
 <p>Example:</p>
-<pre><code class="lang-javascript">S(<span class="string">'&lt;a&gt;foobar&lt;/a&gt;'</span>).between(<span class="string">'&lt;a&gt;'</span>, <span class="string">'&lt;/a&gt;'</span>).s; <span class="comment">// 'foobar'</span></code></pre>
+<pre><code class="lang-javascript">S(<span class="string">'&lt;a&gt;foo&lt;/a&gt;'</span>).between(<span class="string">'&lt;a&gt;'</span>, <span class="string">'&lt;/a&gt;'</span>).s <span class="comment">// =&gt; 'foo'</span>
+S(<span class="string">'&lt;a&gt;foo&lt;/a&gt;&lt;/a&gt;'</span>).between(<span class="string">'&lt;a&gt;'</span>, <span class="string">'&lt;/a&gt;'</span>).s <span class="comment">// =&gt; 'foo'</span>
+S(<span class="string">'&lt;a&gt;&lt;a&gt;foo&lt;/a&gt;&lt;/a&gt;'</span>).between(<span class="string">'&lt;a&gt;'</span>, <span class="string">'&lt;/a&gt;'</span>).s <span class="comment">// =&gt; '&lt;a&gt;foo'</span>
+S(<span class="string">'&lt;a&gt;foo'</span>).between(<span class="string">'&lt;a&gt;'</span>, <span class="string">'&lt;/a&gt;'</span>).s <span class="comment">// =&gt; ''</span>
+S(<span class="string">'Some strings } are very {weird}, dont you think?'</span>).between(<span class="string">'{'</span>, <span class="string">'}'</span>).s <span class="comment">// =&gt; 'weird'</span>
+S(<span class="string">'This is a test string'</span>).between(<span class="string">'test'</span>).s <span class="comment">// =&gt; ' string'</span>
+S(<span class="string">'This is a test string'</span>).between(<span class="string">''</span>, <span class="string">'test'</span>).s <span class="comment">// =&gt; 'This is a '</span></code></pre>
 <h3 id='methods/camelize'>- camelize()</h3 id='methods/camelize'>
 <p>Remove any underscores or dashes and convert a string into camel casing.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'data_rate'</span>).camelize().s; <span class="comment">//'dataRate'</span>
 S(<span class="string">'background-color'</span>).camelize().s; <span class="comment">//'backgroundColor'</span>
-S(<span class="string">'-moz-something'</span>).camelize().s; <span class="comment">//'mozSomething'</span>
-S(<span class="string">'_car_speed_'</span>).camelize().s; <span class="comment">//'carSpeed'</span>
+S(<span class="string">'-moz-something'</span>).camelize().s; <span class="comment">//'MozSomething'</span>
+S(<span class="string">'_car_speed_'</span>).camelize().s; <span class="comment">//'CarSpeed'</span>
 S(<span class="string">'yes_we_can'</span>).camelize().s; <span class="comment">//'yesWeCan'</span></code></pre>
 <h3 id='methods/capitalize'>- capitalize()</h3 id='methods/capitalize'>
 <p>Capitalizes the first character of a string.</p>
@@ -632,7 +655,7 @@ console.dir(lines)
   'What is your fav language?' ]
 */</span></code></pre>
 <h3 id='methods/pad-len-char'>- pad(len, [char])</h3 id='methods/pad-len-char'>
-<p>Pads the string in the center with specified character</p>
+<p>Pads the string in the center with specified character. <code>char</code> may be a string or a number, defaults is a space. </p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'hello'</span>).pad(<span class="number">5</span>).s <span class="comment">//'hello'</span>
 S(<span class="string">'hello'</span>).pad(<span class="number">10</span>).s <span class="comment">//'   hello  '</span>
@@ -851,6 +874,19 @@ S(<span class="string">'yesWeCan'</span>).underscore().s; <span class="comment">
 <p>Unescapes the html.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'&amp;lt;div&amp;gt;hi&amp;lt;/div&amp;gt;'</span>).unescapeHTML().s; <span class="comment">//&lt;div&gt;hi&lt;/div&gt;</span></code></pre>
+<h3 id='methods/wraphtml'>- wrapHTML()</h3 id='methods/wraphtml'>
+<p>wrapHTML helps to avoid concatenation of element with string. 
+the string will be wrapped with HTML Element and their attributes.</p>
+<p>Example:</p>
+<pre><code class="lang-javascript">S(<span class="string">'Venkat'</span>).wrapHTML().s <span class="comment">//&lt;span&gt;Venkat&lt;/span&gt;</span>
+S(<span class="string">'Venkat'</span>).wrapHTML(<span class="string">'div'</span>).s <span class="comment">//&lt;div&gt;Venkat&lt;/div&gt;</span>
+S(<span class="string">'Venkat'</span>).wrapHTML(<span class="string">'div'</span>, {
+    <span class="string">"class"</span>: <span class="string">"left bullet"</span>
+}).s <span class="comment">//&lt;div class="left bullet"&gt;Venkat&lt;/div&gt;</span>
+S(<span class="string">'Venkat'</span>).wrapHTML(<span class="string">'div'</span>, {
+    <span class="string">"id"</span>: <span class="string">"content"</span>,
+    <span class="string">"class"</span>: <span class="string">"left bullet"</span>
+}).s <span class="comment">// &lt;div id="content" class="left bullet"&gt;Venkat&lt;/div&gt;</span></code></pre>
 <h3 id='methods/version'>+ VERSION</h3 id='methods/version'>
 <p>Returns native JavaScript string containing the version of <code>string.js</code>.</p>
 <p>Example:</p>
@@ -861,6 +897,8 @@ S(<span class="string">'yesWeCan'</span>).underscore().s; <span class="comment">
 <h3 id='testing/node-js'>Node.js</h3 id='testing/node-js'>
 <p>Install the dev dependencies:</p>
 <pre><code><span class="comment">$</span> <span class="comment">npm</span> <span class="comment">install</span> <span class="comment">string</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">development</code></pre>
+<p>Install mocha globally:</p>
+<pre><code><span class="comment">$</span> <span class="comment">npm</span> <span class="comment">install</span> <span class="literal">-</span><span class="comment">g</span> <span class="comment">mocha</code></pre>
 <p>Then navigate to the installed directory:</p>
 <pre><code>$ cd node_modules/<span class="keyword">string</span>/</code></pre>
 <p>Run test package:</p>
@@ -874,17 +912,22 @@ S(<span class="string">'yesWeCan'</span>).underscore().s; <span class="comment">
 <h3 id='contributions/contributors'>Contributors</h3 id='contributions/contributors'>
 <p>(You can add your name, or I&#39;ll add it if you forget)</p>
 <ul>
-<li><a href="https://github.com/jprichardson">JP Richardson</a></li>
-<li><a href="https://github.com/oteroleonardo">Leonardo Otero</a></li>
-<li><a href="https://github.com/prezjordan">Jordan Scales</a></li>
-<li><a href="https://github.com/eduardo-matos">Eduardo de Matos</a></li>
-<li><a href="https://github.com/CMTegner">Christian Maughan Tegnér</a></li>
-<li><a href="https://github.com/mgutz">Mario Gutierrez</a></li>
-<li><a href="https://github.com/seanodell">Sean O&#39;Dell</a></li>
-<li><a href="https://github.com/Reggino">Tim de Koning</a></li>
-<li><a href="https://github.com/daxxog">David Volm</a></li>
-<li><a href="https://github.com/jeffgrann">Jeff Grann</a></li>
-<li><code>&lt;your name here&gt;</code></li>
+<li>[*] <a href="https://github.com/jprichardson">JP Richardson</a></li>
+<li>[*] <a href="https://github.com/oteroleonardo">Leonardo Otero</a></li>
+<li>[*] <a href="https://github.com/prezjordan">Jordan Scales</a></li>
+<li>[*] <a href="https://github.com/eduardo-matos">Eduardo de Matos</a></li>
+<li>[*] <a href="https://github.com/CMTegner">Christian Maughan Tegnér</a></li>
+<li>[*] <a href="https://github.com/mgutz">Mario Gutierrez</a></li>
+<li>[*] <a href="https://github.com/seanodell">Sean O&#39;Dell</a></li>
+<li>[*] <a href="https://github.com/Reggino">Tim de Koning</a></li>
+<li>[*] <a href="https://github.com/daxxog">David Volm</a></li>
+<li>[*] <a href="https://github.com/jeffgrann">Jeff Grann</a></li>
+<li>[*] <a href="https://github.com/gurdiga">Vlad GURDIGA</a></li>
+<li>[*] <a href="https://github.com/jprincipe">Jon Principe</a></li>
+<li>[*] <a href="https://github.com/jamesmanning">James Manning</a></li>
+<li>[*] <a href="https://github.com/nfriedly">Nathan Friedly</a></li>
+<li>[*] <a href="https://github.com/arowla">Alison Rowland</a></li>
+<li>[*] <a href="https://github.com/ramsunvtech">Venkatraman.R</a></li>
 </ul>
 <h2 id='roadmap-to-v2-0'>Roadmap to v2.0</h2 id='roadmap-to-v2-0'>
 <ul>
@@ -895,7 +938,7 @@ S(<span class="string">'yesWeCan'</span>).underscore().s; <span class="comment">
 </ul>
 <h2 id='license'>License</h2 id='license'>
 <p>Licensed under MIT.</p>
-<p>Copyright (C) 2012-2013 JP Richardson <a href="&#109;&#97;&#x69;&#x6c;&#116;&#111;&#x3a;&#x6a;&#x70;&#x72;&#x69;&#99;&#x68;&#97;&#114;&#x64;&#x73;&#x6f;&#110;&#x40;&#x67;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#x6d;">&#x6a;&#x70;&#x72;&#x69;&#99;&#x68;&#97;&#114;&#x64;&#x73;&#x6f;&#110;&#x40;&#x67;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+<p>Copyright (C) 2012-2014 JP Richardson <a href="&#109;&#x61;&#105;&#108;&#x74;&#x6f;&#x3a;&#106;&#112;&#x72;&#105;&#99;&#104;&#x61;&#114;&#100;&#115;&#x6f;&#x6e;&#x40;&#103;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;">&#106;&#112;&#x72;&#105;&#99;&#104;&#x61;&#114;&#100;&#115;&#x6f;&#x6e;&#x40;&#103;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;</a></p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
 <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 <p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
