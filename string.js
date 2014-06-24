@@ -1,11 +1,11 @@
 /*
-string.js - Copyright (C) 2012-2013, JP Richardson <jprichardson@gmail.com>
+string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
 */
 
 !(function() {
   "use strict";
 
-  var VERSION = '1.6.0';
+  var VERSION = '1.9.0';
 
   var ENTITIES = {};
 
@@ -62,9 +62,13 @@ string.js - Copyright (C) 2012-2013, JP Richardson <jprichardson@gmail.com>
     between: function(left, right) {
       var s = this.s;
       var startPos = s.indexOf(left);
-      var endPos = s.indexOf(right);
-      var start = startPos + left.length;
-      return new this.constructor(endPos > startPos ?  s.slice(start, endPos) : "");
+      var endPos = s.indexOf(right, startPos + left.length);
+      if (endPos == -1 && right != null) 
+        return new this.constructor('')
+      else if (endPos == -1 && right == null)
+        return new this.constructor(s.substring(startPos + left.length))
+      else 
+        return new this.constructor(s.slice(startPos + left.length, endPos));
     },
 
     //# modified slightly from https://github.com/epeli/underscore.string
@@ -229,7 +233,7 @@ string.js - Copyright (C) 2012-2013, JP Richardson <jprichardson@gmail.com>
     },
 
     pad: function(len, ch) { //https://github.com/component/pad
-      ch = ch || ' ';
+      if (ch == null) ch = ' ';
       if (this.s.length >= len) return new this.constructor(this.s);
       len = len - this.s.length;
       var left = Array(Math.ceil(len / 2) + 1).join(ch);
@@ -238,13 +242,13 @@ string.js - Copyright (C) 2012-2013, JP Richardson <jprichardson@gmail.com>
     },
 
     padLeft: function(len, ch) { //https://github.com/component/pad
-      ch = ch || ' ';
+      if (ch == null) ch = ' ';
       if (this.s.length >= len) return new this.constructor(this.s);
       return new this.constructor(Array(len - this.s.length + 1).join(ch) + this.s);
     },
 
     padRight: function(len, ch) { //https://github.com/component/pad
-      ch = ch || ' ';
+      if (ch == null) ch = ' ';
       if (this.s.length >= len) return new this.constructor(this.s);
       return new this.constructor(this.s + Array(len - this.s.length + 1).join(ch));
     },
@@ -360,7 +364,10 @@ string.js - Copyright (C) 2012-2013, JP Richardson <jprichardson@gmail.com>
       var s = this.s
       var opening = opening || Export.TMPL_OPEN
       var closing = closing || Export.TMPL_CLOSE
-      var r = new RegExp(opening + '(.+?)' + closing, 'g')
+
+      var open = opening.replace(/[-[\]()*\s]/g, "\\$&").replace(/\$/g, '\\$')
+      var close = closing.replace(/[-[\]()*\s]/g, "\\$&").replace(/\$/g, '\\$')
+      var r = new RegExp(open + '(.+?)' + close, 'g')
         //, r = /\{\{(.+?)\}\}/g
       var matches = s.match(r) || [];
 
@@ -379,7 +386,7 @@ string.js - Copyright (C) 2012-2013, JP Richardson <jprichardson@gmail.com>
     toBoolean: function() {
       if (typeof this.orig === 'string') {
         var s = this.s.toLowerCase();
-        return s === 'true' || s === 'yes' || s === 'on';
+        return s === 'true' || s === 'yes' || s === 'on' || s === '1';
       } else
         return this.orig === true || this.orig === 1;
     },
@@ -539,8 +546,15 @@ string.js - Copyright (C) 2012-2013, JP Richardson <jprichardson@gmail.com>
 
     valueOf: function() {
       return this.s.valueOf();
-    }
+    },
 
+    //#Added a New Function called wrapHTML.
+    wrapHTML: function (tagName, tagAttrs) {
+      var s = this.s, el = (tagName == null) ? 'span' : tagName, elAttr = '', wrapped = '';
+      if(typeof tagAttrs == 'object') for(var prop in tagAttrs) elAttr += ' ' + prop + '="' + tagAttrs[prop] + '"';
+      s = wrapped.concat('<', el, elAttr, '>', this, '</', el, '>');
+      return new this.constructor(s);
+    }
   }
 
   var methodsAdded = [];
