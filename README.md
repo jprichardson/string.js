@@ -1028,7 +1028,8 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - [*] [James Manning](https://github.com/jamesmanning)
 - [*] [Nathan Friedly](https://github.com/nfriedly)
 - [*] [Alison Rowland](https://github.com/arowla)
-- [*] [Venkatraman.R](https://github.com/ramsunvtech)
+- [1] [Venkatraman.R](https://github.com/ramsunvtech)
+- [1] [r3Fuze](https://github.com/r3Fuze)
 
 
 Roadmap to v2.0
