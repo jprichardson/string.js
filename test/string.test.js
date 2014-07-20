@@ -470,6 +470,7 @@
       it('should strip all of the html tags or allow tags specified by the parameters', function() {
         T (S('<p>just <b>some</b> text</p>').allowTags().s === 'just some text')
         T (S('<p>just <b>some</b> text</p>').allowTags('<p>').s === '<p>just some text</p>')
+        T (S('<p>just <b>some</b> text<span> this is a span</span></p>').allowTags('<p><span>').s === '<p>just some text<span> this is a span</span></p>')
       })
     })
 
