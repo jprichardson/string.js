@@ -668,6 +668,9 @@
           "class": "left bullet"
         }).s === '<div class="left bullet">Venkat</div>')
         T (S('Venkat').wrapHTML('div', {
+          "data-content": "my \"encoded\" content"
+        }).s === '<div data-content="my &quot;encoded&quot; content">Venkat</div>')
+        T (S('Venkat').wrapHTML('div', {
           "id": "content",
           "class": "left bullet"
         }).s === '<div id="content" class="left bullet">Venkat</div>')
