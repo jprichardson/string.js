@@ -1,3 +1,9 @@
+1.9.1  / 2014-08-05
+-------------------
+* bugfix `parseCSV()` [Sergio-Muriel / #97](https://github.com/jprichardson/string.js/pull/97)
+* bugfix `wrapHTML()` [Sergio-Muriel / #100](https://github.com/jprichardson/string.js/pull/100)
+* optimize `isAlpha()` and `isAlphaNumeric()` [Sergio-Muriel / #101](https://github.com/jprichardson/string.js/pull/101)
+
 1.9.0 / 2014-06-23
 ------------------
 * added `wrapHTML()` method, (#90) 
