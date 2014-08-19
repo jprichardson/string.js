@@ -603,8 +603,8 @@
     })
     
     describe('- toTitleCase()', function() {
-      it('should uppercase first character of all words', function() {
-        T (S('a simple CCTV test').toTitleCase().s === 'A Simple CCTV Test')
+      it('should change string to title case', function() {
+        T (S('jim-bob bought a CCTV from AT&t').toTitleCase().s === 'Jim-Bob bought a CCTV from AT&T')
       })
     })
  
