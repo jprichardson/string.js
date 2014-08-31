@@ -671,11 +671,11 @@ myString.setValue('Peace').s; // 'Peace'
 
 ### - slugify() ###
 
-Converts the text into a valid url slug. Deletes non-Latin characters.
+Converts the text into a valid url slug. Removes accents from Latin characters.
 
 ```javascript
 S('Global Thermonuclear Warfare').slugify().s // 'global-thermonuclear-warfare'
-S('Crème brûlée').slugify().s // 'crme-brle'
+S('Crème brûlée').slugify().s // 'creme-brulee'
 ```
 
 

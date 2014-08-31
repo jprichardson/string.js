@@ -448,7 +448,7 @@
       it('should convert the text to url slug', function() {
         T (S('Global Thermonuclear Warfare').slugify().s === 'global-thermonuclear-warfare')
         T (S('Fast JSON Parsing').slugify().s === 'fast-json-parsing')
-        T (S('Crème brûlée').slugify().s === 'crme-brle')
+        T (S('Crème brûlée').slugify().s === 'creme-brulee')
       })
     })
 
