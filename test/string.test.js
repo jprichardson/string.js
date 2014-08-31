@@ -287,6 +287,13 @@
       })
     })
 
+    describe('- latinise', function() {
+      it('should remove diacritics from Latin characters', function() {
+        T (S('crème brûlée').latinise().s === 'creme brulee')
+        T (S('CRÈME BRÛLÉE').latinise().s === 'CREME BRULEE')
+      })
+    })
+
     describe('- length', function() {
       it('should return the length of the string', function() {
         T (S('hello').length === 5);
