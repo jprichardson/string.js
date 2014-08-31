@@ -470,6 +470,15 @@ S('HelLO').isUpper() //true
 ```
 
 
+### - latinise() ###
+
+Removes accents from Latin characters.
+
+```javascript
+S('crème brûlée').latinise().s // 'creme brulee'
+```
+
+
 ### - left(n) ###
 
 Return the substring denoted by `n` positive left-most characters.
