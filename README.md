@@ -1041,7 +1041,9 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - [1] [Venkatraman.R](https://github.com/ramsunvtech)
 - [1] [r3Fuze](https://github.com/r3Fuze)
 - [3] [Sergio Muriel](https://github.com/Sergio-Muriel)
-
+- [1] [Matt Hickford](https://github.com/hickford)
+- [1] [Petr Brzek](https://github.com/petrbrzek)
+ 
 
 Roadmap to v2.0
 ---------------
