@@ -1,8 +1,7 @@
 {
-  "name": "string.js",
+  "name": "string",
   "version": "2.0.0",
   "description": "string contains methods that aren't included in the vanilla JavaScript string such as escaping HTML, decoding HTML entities, stripping tags, etc.",
-  "repo": "jprichardson/string.js",
   "keywords": [
     "string",
     "strings",
@@ -23,9 +22,11 @@
     "escape",
     "unescape"
   ],
-  "dependencies": {},
-  "development": {},
-  "scripts": [
-    "lib/string.min.js"
+  "main": "./lib/string.min.js",
+  "ignore": [
+    "node_modules/",
+    "package.json",
+    "component.json",
+    "test/"
   ]
 }
