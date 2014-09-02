@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>string.js</title>
     
-    <link rel="stylesheet" type="text/css" href="http://documentup.com/stylesheets/screen.css">    
-    <script type="text/javascript" src="string.js"></script>
+    <link rel="stylesheet" type="text/css" href="//documentup.com/stylesheets/screen.css">
+        <script type="text/javascript" src="string.js"></script>
     
     <script type="text/javascript">
 
@@ -22,7 +22,6 @@
   })();
 
 </script> 
-    
     
 
     
@@ -205,6 +204,10 @@
               
                 <li>
                   <a href="#methods/isupper">- isUpper()</a>
+                </li>
+              
+                <li>
+                  <a href="#methods/latinise">- latinise()</a>
                 </li>
               
                 <li>
@@ -407,10 +410,10 @@
     
       <a href="https://github.com/jprichardson/string.js" id="github-ribbon"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
     
-    <h1><a href="http://stringjs.com">string.js</a></h1>
+    <h1 id="-string-js-http-stringjs-com-"><a href="http://stringjs.com">string.js</a></h1>
 <p><a href="http://travis-ci.org/jprichardson/string.js"><img src="https://secure.travis-ci.org/jprichardson/string.js.png" alt="build status"></a></p>
 <p><code>string.js</code>, or simply <code>S</code> is a lightweight (<strong>&lt; 5 kb</strong> minified and gzipped) JavaScript library for the browser or for Node.js that provides extra String methods. Originally, it modified the String prototype. But I quickly learned that in JavaScript, this is considered poor practice.</p>
-<h2 id='why'>Why?</h2 id='why'>
+<h2 id='why' id="why-">Why?</h2 id='why'>
 <p>Personally, I prefer the cleanliness of the way code looks when it appears to be native methods. i.e. when you modify native JavaScript prototypes. However, if any app dependency required <code>string.js</code>, then the app&#39;s string prototype would be modified in every module. This could be troublesome. So I settled on creating a wrapper a la jQuery style. For those of you prototype hatin&#39; fools, there is the method <code>extendPrototype()</code>.</p>
 <p>Here&#39;s a list of alternative frameworks:</p>
 <ul>
@@ -422,17 +425,17 @@
 <li><a href="http://phpjs.org/pages/home">php.js</a></li>
 </ul>
 <p>Why wasn&#39;t I happy with any of them? They are all static methods that don&#39;t seem to support chaining in a clean way &#39;OR&#39; they have an odd dependency. Sugar is the notable exception.</p>
-<h2 id='installation'>Installation</h2 id='installation'>
+<h2 id='installation' id="installation">Installation</h2 id='installation'>
 <pre><code><span class="comment">npm</span> <span class="comment">install</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">save</span> <span class="comment">string</code></pre>
-<h2 id='experiment-with-string-js-now'>Experiment with String.js Now</h2 id='experiment-with-string-js-now'>
+<h2 id='experiment-with-string-js-now' id="experiment-with-string-js-now">Experiment with String.js Now</h2 id='experiment-with-string-js-now'>
 <p>Assuming you&#39;re on <a href="http://stringjs.com">http://stringjs.com</a>, just simply open up the Webkit inspector in either Chrome or Safari, or the web console in Firefox and you&#39;ll notice that <code>string.js</code> is included in this page so that you can start experimenting with it right away.</p>
-<h2 id='usage'>Usage</h2 id='usage'>
-<h3 id='usage/node-js'>Node.js</h3 id='usage/node-js'>
+<h2 id='usage' id="usage">Usage</h2 id='usage'>
+<h3 id='usage/node-js' id="node-js">Node.js</h3 id='usage/node-js'>
 <pre><code class="lang-javascript"><span class="keyword">var</span> S = require(<span class="string">'string'</span>);</code></pre>
 <p>Originally, I was using <code>$s</code> but glancing over the code, it was easy to confuse <code>$s</code> for string.js with <code>$</code> for jQuery. Feel free to use the most convenient variable for you.</p>
-<h3 id='usage/rails'>Rails</h3 id='usage/rails'>
+<h3 id='usage/rails' id="rails">Rails</h3 id='usage/rails'>
 <p>Checkout this gem to easily use string.js on the asset pipeline: <a href="https://github.com/jesjos/stringjs-rails">https://github.com/jesjos/stringjs-rails</a></p>
-<h3 id='usage/browsers'>Browsers</h3 id='usage/browsers'>
+<h3 id='usage/browsers' id="browsers">Browsers</h3 id='usage/browsers'>
 <pre><code class="lang-html"><span class="comment">&lt;!-- HTML5 --&gt;</span>
 <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://raw.github.com/jprichardson/string.js/master/lib/string.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
 
@@ -444,9 +447,9 @@ type anyway --&gt;</span>
 <span class="comment">&lt;!-- For HTML4/IE --&gt;</span>
 <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"https://raw.github.com/jprichardson/lib/string.js/master/string.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
 <p>A global variable <code>window.S</code> or simply <code>S</code> is created.</p>
-<h3 id='usage/amd-support'>AMD Support</h3 id='usage/amd-support'>
+<h3 id='usage/amd-support' id="amd-support">AMD Support</h3 id='usage/amd-support'>
 <p>It now <a href="https://github.com/jprichardson/string.js/pull/20">has AMD support</a>. See <a href="http://requirejs.org/">require.js</a> on how to use with AMD modules.</p>
-<h3 id='usage/both'>Both</h3 id='usage/both'>
+<h3 id='usage/both' id="both">Both</h3 id='usage/both'>
 <pre><code class="lang-javascript"><span class="keyword">var</span> doesIt = S(<span class="string">'my cool string'</span>).left(<span class="number">2</span>).endsWith(<span class="string">'y'</span>); <span class="comment">//true</span></code></pre>
 <p>Access the wrapped string using <code>s</code> variable or <code>toString()</code></p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> name = S(<span class="string">'Your name is JP'</span>).right(<span class="number">2</span>).s; <span class="comment">//'JP'</span></code></pre>
@@ -456,11 +459,11 @@ type anyway --&gt;</span>
 <pre><code class="lang-javascript">S.extendPrototype();
 <span class="keyword">var</span> name = <span class="string">'Your name is JP'</span>.right(<span class="number">2</span>); <span class="comment">//'JP'</span>
 S.restorePrototype(); <span class="comment">//be a good citizen and clean up</span></code></pre>
-<h3 id='usage/browser-compatiblity'>Browser Compatiblity</h3 id='usage/browser-compatiblity'>
+<h3 id='usage/browser-compatiblity' id="browser-compatiblity">Browser Compatiblity</h3 id='usage/browser-compatiblity'>
 <p><code>string.js</code> has been designed to be compatible with Node.js and with IE6+, Firefox 3+, Safari 2+, Chrome 3+. Please <a href="http://stringjs.com/browser.test.html">click here</a> to run the tests in your browser. Report any browser issues here: <a href="https://github.com/jprichardson/string.js/issues">https://github.com/jprichardson/string.js/issues</a></p>
-<h3 id='usage/extending-string-js'>Extending string.js</h3 id='usage/extending-string-js'>
+<h3 id='usage/extending-string-js' id="extending-string-js">Extending string.js</h3 id='usage/extending-string-js'>
 <p>See: <a href="https://github.com/jprichardson/string.js/pull/57">https://github.com/jprichardson/string.js/pull/57</a></p>
-<h2 id='native-javascript-methods'>Native JavaScript Methods</h2 id='native-javascript-methods'>
+<h2 id='native-javascript-methods' id="native-javascript-methods">Native JavaScript Methods</h2 id='native-javascript-methods'>
 <p><code>string.js</code> imports all of the native JavaScript methods. This is for convenience. The only difference is that the imported methods return <code>string.js</code> objects instead of native JavaScript strings. The one exception to this is the method <code>charAt(index)</code>. This is because <code>charAt()</code> only returns a string of length one. This is typically done for comparisons and a <code>string.js</code> object will have little to no value here.</p>
 <p>All of the native methods support chaining with the <code>string.js</code> methods.</p>
 <p><strong>Example:</strong></p>
@@ -470,16 +473,16 @@ S.restorePrototype(); <span class="comment">//be a good citizen and clean up</sp
 <span class="keyword">var</span> sub = <span class="string">'best scripting'</span>;
 <span class="keyword">var</span> pos = phrase.indexOf(sub);
 console.log(phrase.substr(pos, sub.length).truncate(<span class="number">8</span>)); <span class="comment">//best...</span></code></pre>
-<h2 id='methods'>Methods</h2 id='methods'>
+<h2 id='methods' id="methods">Methods</h2 id='methods'>
 <p>See <a href="https://github.com/jprichardson/string.js/blob/master/test/string.test.js">test file</a> for more details.</p>
 <p>I use the same nomenclature as Objective-C regarding methods. <strong>+</strong> means <code>static</code> or <code>class</code> method. <strong>-</strong> means <code>non-static</code> or <code>instance</code> method.</p>
-<h3 id='methods/constructor-nativejsstring'>- constructor(nativeJsString)</h3 id='methods/constructor-nativejsstring'>
+<h3 id='methods/constructor-nativejsstring' id="-constructor-nativejsstring-">- constructor(nativeJsString)</h3 id='methods/constructor-nativejsstring'>
 <p>This creates a new <code>string.js</code> object. The parameter can be anything. The <code>toString()</code> method will be called on any objects. Some native objects are used in some functions such as <code>toCSV()</code>.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'hello'</span>).s <span class="comment">//"hello"</span>
 S([<span class="string">'a,b'</span>]).s <span class="comment">//"a,b"</span>
 S({hi: <span class="string">'jp'</span>}).s <span class="comment">//"[object Object]""</span></code></pre>
-<h3 id='methods/between-left-right'>- between(left, right)</h3 id='methods/between-left-right'>
+<h3 id='methods/between-left-right' id="-between-left-right-">- between(left, right)</h3 id='methods/between-left-right'>
 <p>Extracts a string between <code>left</code> and <code>right</code> strings.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'&lt;a&gt;foo&lt;/a&gt;'</span>).between(<span class="string">'&lt;a&gt;'</span>, <span class="string">'&lt;/a&gt;'</span>).s <span class="comment">// =&gt; 'foo'</span>
@@ -489,7 +492,7 @@ S(<span class="string">'&lt;a&gt;foo'</span>).between(<span class="string">'&lt;
 S(<span class="string">'Some strings } are very {weird}, dont you think?'</span>).between(<span class="string">'{'</span>, <span class="string">'}'</span>).s <span class="comment">// =&gt; 'weird'</span>
 S(<span class="string">'This is a test string'</span>).between(<span class="string">'test'</span>).s <span class="comment">// =&gt; ' string'</span>
 S(<span class="string">'This is a test string'</span>).between(<span class="string">''</span>, <span class="string">'test'</span>).s <span class="comment">// =&gt; 'This is a '</span></code></pre>
-<h3 id='methods/camelize'>- camelize()</h3 id='methods/camelize'>
+<h3 id='methods/camelize' id="-camelize-">- camelize()</h3 id='methods/camelize'>
 <p>Remove any underscores or dashes and convert a string into camel casing.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'data_rate'</span>).camelize().s; <span class="comment">//'dataRate'</span>
@@ -497,31 +500,31 @@ S(<span class="string">'background-color'</span>).camelize().s; <span class="com
 S(<span class="string">'-moz-something'</span>).camelize().s; <span class="comment">//'MozSomething'</span>
 S(<span class="string">'_car_speed_'</span>).camelize().s; <span class="comment">//'CarSpeed'</span>
 S(<span class="string">'yes_we_can'</span>).camelize().s; <span class="comment">//'yesWeCan'</span></code></pre>
-<h3 id='methods/capitalize'>- capitalize()</h3 id='methods/capitalize'>
+<h3 id='methods/capitalize' id="-capitalize-">- capitalize()</h3 id='methods/capitalize'>
 <p>Capitalizes the first character of a string.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'jon'</span>).capitalize().s; <span class="comment">//'Jon'</span>
 S(<span class="string">'JP'</span>).capitalize().s; <span class="comment">//'Jp'</span></code></pre>
-<h3 id='methods/chompleft-prefix'>- chompLeft(prefix)</h3 id='methods/chompleft-prefix'>
+<h3 id='methods/chompleft-prefix' id="-chompleft-prefix-">- chompLeft(prefix)</h3 id='methods/chompleft-prefix'>
 <p>Removes <code>prefix</code> from start of string.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'foobar'</span>).chompLeft(<span class="string">'foo'</span>).s; <span class="comment">//'bar'</span>
 S(<span class="string">'foobar'</span>).chompLeft(<span class="string">'bar'</span>).s; <span class="comment">//'foobar'</span></code></pre>
-<h3 id='methods/chompright-suffix'>- chompRight(suffix)</h3 id='methods/chompright-suffix'>
+<h3 id='methods/chompright-suffix' id="-chompright-suffix-">- chompRight(suffix)</h3 id='methods/chompright-suffix'>
 <p>Removes <code>suffix</code> from end of string.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'foobar'</span>).chompRight(<span class="string">'bar'</span>).s; <span class="comment">//'foo'</span>
 S(<span class="string">'foobar'</span>).chompRight(<span class="string">'foo'</span>).s; <span class="comment">//'foobar'</span></code></pre>
-<h3 id='methods/collapsewhitespace'>- collapseWhitespace()</h3 id='methods/collapsewhitespace'>
+<h3 id='methods/collapsewhitespace' id="-collapsewhitespace-">- collapseWhitespace()</h3 id='methods/collapsewhitespace'>
 <p>Converts all adjacent whitespace characters to a single space.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> str = S(<span class="string">'  String   \t libraries are   \n\n\t fun\n!  '</span>).collapseWhitespace().s; <span class="comment">//'String libraries are fun !'</span></code></pre>
-<h3 id='methods/contains-ss'>- contains(ss)</h3 id='methods/contains-ss'>
+<h3 id='methods/contains-ss' id="-contains-ss-">- contains(ss)</h3 id='methods/contains-ss'>
 <p>Returns true if the string contains <code>ss</code>.</p>
 <p>Alias: <code>include()</code></p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'JavaScript is one of the best languages!'</span>).contains(<span class="string">'one'</span>); <span class="comment">//true</span></code></pre>
-<h3 id='methods/count-substring'>- count(substring)</h3 id='methods/count-substring'>
+<h3 id='methods/count-substring' id="-count-substring-">- count(substring)</h3 id='methods/count-substring'>
 <p>Returns the count of the number of occurrences of the substring.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'JP likes to program. JP does not play in the NBA.'</span>).count(<span class="string">"JP"</span>)<span class="comment">// 2</span>
@@ -529,40 +532,40 @@ S(<span class="string">'Does not exist.'</span>).count(<span class="string">"Fly
 S(<span class="string">'Does not exist.'</span>).count(<span class="string">"Bigfoot"</span>) <span class="comment">//0</span>
 S(<span class="string">'JavaScript is fun, therefore Node.js is fun'</span>).count(<span class="string">"fun"</span>) <span class="comment">//2</span>
 S(<span class="string">'funfunfun'</span>).count(<span class="string">"fun"</span>) <span class="comment">//3</span></code></pre>
-<h3 id='methods/dasherize'>- dasherize()</h3 id='methods/dasherize'>
+<h3 id='methods/dasherize' id="-dasherize-">- dasherize()</h3 id='methods/dasherize'>
 <p>Returns a converted camel cased string into a string delimited by dashes.</p>
 <p>Examples:</p>
 <pre><code class="lang-javascript">S(<span class="string">'dataRate'</span>).dasherize().s; <span class="comment">//'data-rate'</span>
 S(<span class="string">'CarSpeed'</span>).dasherize().s; <span class="comment">//'-car-speed'</span>
 S(<span class="string">'yesWeCan'</span>).dasherize().s; <span class="comment">//'yes-we-can'</span>
 S(<span class="string">'backgroundColor'</span>).dasherize().s; <span class="comment">//'background-color'</span></code></pre>
-<h3 id='methods/decodehtmlentities'>- decodeHTMLEntities()</h3 id='methods/decodehtmlentities'>
+<h3 id='methods/decodehtmlentities' id="-decodehtmlentities-">- decodeHTMLEntities()</h3 id='methods/decodehtmlentities'>
 <p>Decodes HTML entities into their string representation.</p>
 <pre><code class="lang-javascript">S(<span class="string">'Ken Thompson &amp;amp; Dennis Ritchie'</span>).decodeHTMLEntities().s; <span class="comment">//'Ken Thompson &amp; Dennis Ritchie'</span>
 S(<span class="string">'3 &amp;lt; 4'</span>).decodeHTMLEntities().s; <span class="comment">//'3 &lt; 4'</span></code></pre>
-<h3 id='methods/endswith-ss'>- endsWith(ss)</h3 id='methods/endswith-ss'>
+<h3 id='methods/endswith-ss' id="-endswith-ss-">- endsWith(ss)</h3 id='methods/endswith-ss'>
 <p>Returns true if the string ends with <code>ss</code>.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">"hello jon"</span>).endsWith(<span class="string">'jon'</span>); <span class="comment">//true</span></code></pre>
-<h3 id='methods/escapehtml'>- escapeHTML()</h3 id='methods/escapehtml'>
+<h3 id='methods/escapehtml' id="-escapehtml-">- escapeHTML()</h3 id='methods/escapehtml'>
 <p>Escapes the html.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'&lt;div&gt;hi&lt;/div&gt;'</span>).escapeHTML().s; <span class="comment">//&amp;lt;div&amp;gt;hi&amp;lt;/div&amp;gt;</span></code></pre>
-<h3 id='methods/extendprototype'>+ extendPrototype()</h3 id='methods/extendprototype'>
+<h3 id='methods/extendprototype' id="-extendprototype-">+ extendPrototype()</h3 id='methods/extendprototype'>
 <p>Modifies <code>String.prototype</code> to have all of the methods found in string.js.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S.extendPrototype();</code></pre>
-<h3 id='methods/ensureleft-prefix'>- ensureLeft(prefix)</h3 id='methods/ensureleft-prefix'>
+<h3 id='methods/ensureleft-prefix' id="-ensureleft-prefix-">- ensureLeft(prefix)</h3 id='methods/ensureleft-prefix'>
 <p>Ensures string starts with <code>prefix</code>.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'subdir'</span>).ensureLeft(<span class="string">'/'</span>).s; <span class="comment">//'/subdir'</span>
 S(<span class="string">'/subdir'</span>).ensureLeft(<span class="string">'/'</span>).s; <span class="comment">//'/subdir'</span></code></pre>
-<h3 id='methods/ensureright-suffix'>- ensureRight(suffix)</h3 id='methods/ensureright-suffix'>
+<h3 id='methods/ensureright-suffix' id="-ensureright-suffix-">- ensureRight(suffix)</h3 id='methods/ensureright-suffix'>
 <p>Ensures string ends with <code>suffix</code>.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'dir'</span>).ensureRight(<span class="string">'/'</span>).s; <span class="comment">//'dir/'</span>
 S(<span class="string">'dir/'</span>).ensureRight(<span class="string">'/'</span>).s; <span class="comment">//'dir/'</span></code></pre>
-<h3 id='methods/humanize'>- humanize()</h3 id='methods/humanize'>
+<h3 id='methods/humanize' id="-humanize-">- humanize()</h3 id='methods/humanize'>
 <p>Transforms the input into a human friendly form.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'the_humanize_string_method'</span>).humanize().s  <span class="comment">//'The humanize string method'</span>
@@ -571,18 +574,18 @@ S(<span class="string">'the humanize string method'</span>).humanize().s  <span 
 S(<span class="string">'the humanize_id string method_id'</span>).humanize().s <span class="comment">//'The humanize id string method'</span>
 S(<span class="string">'the  humanize string method  '</span>).humanize().s <span class="comment">//'The humanize string method'</span>
 S(<span class="string">'   capitalize dash-CamelCase_underscore trim  '</span>).humanize().s <span class="comment">//'Capitalize dash camel case underscore trim'</span></code></pre>
-<h3 id='methods/include-ss'>- include(ss)</h3 id='methods/include-ss'>
+<h3 id='methods/include-ss' id="-include-ss-">- include(ss)</h3 id='methods/include-ss'>
 <p>Returns true if the string contains the <code>ss</code>.</p>
 <p>Alias: <code>contains()</code></p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'JavaScript is one of the best languages!'</span>).include(<span class="string">'one'</span>); <span class="comment">//true</span></code></pre>
-<h3 id='methods/isalpha'>- isAlpha()</h3 id='methods/isalpha'>
+<h3 id='methods/isalpha' id="-isalpha-">- isAlpha()</h3 id='methods/isalpha'>
 <p>Return true if the string contains only letters.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">"afaf"</span>).isAlpha(); <span class="comment">//true</span>
 S(<span class="string">'fdafaf3'</span>).isAlpha(); <span class="comment">//false</span>
 S(<span class="string">'dfdf--dfd'</span>).isAlpha(); <span class="comment">//false</span></code></pre>
-<h3 id='methods/isalphanumeric'>- isAlphaNumeric()</h3 id='methods/isalphanumeric'>
+<h3 id='methods/isalphanumeric' id="-isalphanumeric-">- isAlphaNumeric()</h3 id='methods/isalphanumeric'>
 <p>Return true if the string contains only letters and numbers</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">"afaf35353afaf"</span>).isAlphaNumeric(); <span class="comment">//true</span>
@@ -593,7 +596,7 @@ S(<span class="string">"Infinity"</span>).isAlphaNumeric(); <span class="comment
 S(<span class="string">"-Infinity"</span>).isAlphaNumeric(); <span class="comment">//false</span>
 S(<span class="string">"-33"</span>).isAlphaNumeric(); <span class="comment">//false</span>
 S(<span class="string">"aaff.."</span>).isAlphaNumeric(); <span class="comment">//false</span></code></pre>
-<h3 id='methods/isempty'>- isEmpty()</h3 id='methods/isempty'>
+<h3 id='methods/isempty' id="-isempty-">- isEmpty()</h3 id='methods/isempty'>
 <p>Return true if the string is solely composed of whitespace or is <code>null</code>/<code>undefined</code>.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">' '</span>).isEmpty(); <span class="comment">//true</span>
@@ -602,7 +605,7 @@ S(<span class="string">'\n\n '</span>).isEmpty(); <span class="comment">//true</
 S(<span class="string">'helo'</span>).isEmpty(); <span class="comment">//false</span>
 S(<span class="literal">null</span>).isEmpty(); <span class="comment">//true</span>
 S(<span class="literal">undefined</span>).isEmpty(); <span class="comment">//true</span></code></pre>
-<h3 id='methods/islower'>- isLower()</h3 id='methods/islower'>
+<h3 id='methods/islower' id="-islower-">- isLower()</h3 id='methods/islower'>
 <p>Return true if the character or string is lowercase</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'a'</span>).isLower(); <span class="comment">//true</span>
@@ -611,7 +614,7 @@ S(<span class="string">'B'</span>).isLower(); <span class="comment">//false</spa
 S(<span class="string">'hijp'</span>).isLower(); <span class="comment">//true</span>
 S(<span class="string">'hi jp'</span>).isLower(); <span class="comment">//false</span>
 S(<span class="string">'HelLO'</span>).isLower(); <span class="comment">//false</span></code></pre>
-<h3 id='methods/isnumeric'>- isNumeric()</h3 id='methods/isnumeric'>
+<h3 id='methods/isnumeric' id="-isnumeric-">- isNumeric()</h3 id='methods/isnumeric'>
 <p>Return true if the string only contains digits</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">"3"</span>).isNumeric(); <span class="comment">//true</span>
@@ -623,7 +626,7 @@ S(<span class="string">"-Infinity"</span>).isNumeric(); <span class="comment">//
 S(<span class="string">"JP"</span>).isNumeric(); <span class="comment">//false</span>
 S(<span class="string">"-5"</span>).isNumeric(); <span class="comment">//false</span>
 S(<span class="string">"000992424242"</span>).isNumeric(); <span class="comment">//true</span></code></pre>
-<h3 id='methods/isupper'>- isUpper()</h3 id='methods/isupper'>
+<h3 id='methods/isupper' id="-isupper-">- isUpper()</h3 id='methods/isupper'>
 <p>Returns true if the character or string is uppercase</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'a'</span>).isUpper() <span class="comment">//false</span>
@@ -632,17 +635,20 @@ S(<span class="string">'B'</span>).isUpper() <span class="comment">//true</span>
 S(<span class="string">'HIJP'</span>).isUpper() <span class="comment">//true</span>
 S(<span class="string">'HI JP'</span>).isUpper() <span class="comment">//false</span>
 S(<span class="string">'HelLO'</span>).isUpper() <span class="comment">//true</span></code></pre>
-<h3 id='methods/left-n'>- left(n)</h3 id='methods/left-n'>
+<h3 id='methods/latinise' id="-latinise-">- latinise()</h3 id='methods/latinise'>
+<p>Removes accents from Latin characters.</p>
+<pre><code class="lang-javascript">S(<span class="string">'crème brûlée'</span>).latinise().s <span class="comment">// 'creme brulee'</span></code></pre>
+<h3 id='methods/left-n' id="-left-n-">- left(n)</h3 id='methods/left-n'>
 <p>Return the substring denoted by <code>n</code> positive left-most characters.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'My name is JP'</span>).left(<span class="number">2</span>).s; <span class="comment">//'My'</span>
 S(<span class="string">'Hi'</span>).left(<span class="number">0</span>).s; <span class="comment">//''</span>
 S(<span class="string">'My name is JP'</span>).left(-<span class="number">2</span>).s; <span class="comment">//'JP', same as right(2)</span></code></pre>
-<h3 id='methods/length'>- length</h3 id='methods/length'>
+<h3 id='methods/length' id="-length">- length</h3 id='methods/length'>
 <p>Property to return the length of the string object.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'hi'</span>).length; <span class="comment">//2</span></code></pre>
-<h3 id='methods/lines'>- lines()</h3 id='methods/lines'>
+<h3 id='methods/lines' id="-lines-">- lines()</h3 id='methods/lines'>
 <p>Returns an array with the lines. Cross-platform compatible.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> stuff = <span class="string">"My name is JP\nJavaScript is my fav language\r\nWhat is your fav language?"</span>
@@ -654,7 +660,7 @@ console.dir(lines)
   'JavaScript is my fav language',
   'What is your fav language?' ]
 */</span></code></pre>
-<h3 id='methods/pad-len-char'>- pad(len, [char])</h3 id='methods/pad-len-char'>
+<h3 id='methods/pad-len-char' id="-pad-len-char-">- pad(len, [char])</h3 id='methods/pad-len-char'>
 <p>Pads the string in the center with specified character. <code>char</code> may be a string or a number, defaults is a space. </p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'hello'</span>).pad(<span class="number">5</span>).s <span class="comment">//'hello'</span>
@@ -663,7 +669,7 @@ S(<span class="string">'hey'</span>).pad(<span class="number">7</span>).s <span 
 S(<span class="string">'hey'</span>).pad(<span class="number">5</span>).s <span class="comment">//' hey '</span>
 S(<span class="string">'hey'</span>).pad(<span class="number">4</span>).s <span class="comment">//' hey'</span>
 S(<span class="string">'hey'</span>).pad(<span class="number">7</span>, <span class="string">'-'</span>).s<span class="comment">//'--hey--'</span></code></pre>
-<h3 id='methods/padleft-len-char'>- padLeft(len, [char])</h3 id='methods/padleft-len-char'>
+<h3 id='methods/padleft-len-char' id="-padleft-len-char-">- padLeft(len, [char])</h3 id='methods/padleft-len-char'>
 <p>Left pads the string.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'hello'</span>).padLeft(<span class="number">5</span>).s <span class="comment">//'hello'</span>
@@ -671,7 +677,7 @@ S(<span class="string">'hello'</span>).padLeft(<span class="number">10</span>).s
 S(<span class="string">'hello'</span>).padLeft(<span class="number">7</span>).s <span class="comment">//'  hello'</span>
 S(<span class="string">'hello'</span>).padLeft(<span class="number">6</span>).s <span class="comment">//' hello'</span>
 S(<span class="string">'hello'</span>).padLeft(<span class="number">10</span>, <span class="string">'.'</span>).s <span class="comment">//'.....hello'</span></code></pre>
-<h3 id='methods/padright-len-char'>- padRight(len, [char])</h3 id='methods/padright-len-char'>
+<h3 id='methods/padright-len-char' id="-padright-len-char-">- padRight(len, [char])</h3 id='methods/padright-len-char'>
 <p>Right pads the string.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'hello'</span>).padRight(<span class="number">5</span>).s <span class="comment">//'hello'</span>
@@ -679,13 +685,15 @@ S(<span class="string">'hello'</span>).padRight(<span class="number">10</span>).
 S(<span class="string">'hello'</span>).padRight(<span class="number">7</span>).s <span class="comment">//'hello  '</span>
 S(<span class="string">'hello'</span>).padRight(<span class="number">6</span>).s <span class="comment">//'hello '</span>
 S(<span class="string">'hello'</span>).padRight(<span class="number">10</span>, <span class="string">'.'</span>).s <span class="comment">//'hello.....'</span></code></pre>
-<h3 id='methods/parsecsv'>- parseCSV()</h3 id='methods/parsecsv'>
+<h3 id='methods/parsecsv' id="-parsecsv-">- parseCSV()</h3 id='methods/parsecsv'>
 <p>Parses a CSV line into an array.</p>
-<p><strong>Arguments:</strong>
-- <code>delimiter</code>: The character that is separates or delimits fields. Default: <code>,</code>
-- <code>qualifier</code>: The character that encloses fields. Default: <code>&quot;</code>
-- <code>escape</code>: The character that represents the escape character. Default: <code>\</code>
-- <code>lineDelimiter</code>: The character that represents the end of a line. When a lineDelimiter is passed the result will be a multidimensional array. Default: <code>undefined</code></p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><code>delimiter</code>: The character that is separates or delimits fields. Default: <code>,</code></li>
+<li><code>qualifier</code>: The character that encloses fields. Default: <code>&quot;</code></li>
+<li><code>escape</code>: The character that represents the escape character. Default: <code>\</code></li>
+<li><code>lineDelimiter</code>: The character that represents the end of a line. When a lineDelimiter is passed the result will be a multidimensional array. Default: <code>undefined</code></li>
+</ul>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">"'a','b','c'"</span>).parseCSV(<span class="string">','</span>, <span class="string">"'"</span>) <span class="comment">//['a', 'b', 'c'])</span>
 S(<span class="string">'"a","b","c"'</span>).parseCSV() <span class="comment">// ['a', 'b', 'c'])</span>
@@ -698,57 +706,58 @@ S(<span class="string">'"a","b",       4,"c"'</span>).parseCSV(<span class="stri
 S(<span class="string">'"a","b\\"","d","c"'</span>).parseCSV() <span class="comment">//['a', 'b"', 'd', 'c'])</span>
 S(<span class="string">'"a","b\\"","d","c"'</span>).parseCSV() <span class="comment">//['a', 'b"', 'd', 'c'])</span>
 S(<span class="string">'"a\na","b","c"\n"a", """b\nb", "a"'</span>).parseCSV(<span class="string">','</span>, <span class="string">'"'</span>, <span class="string">'"'</span>, <span class="string">'\n'</span>)) <span class="comment">// [ [ 'a\na', 'b', 'c' ], [ 'a', '"b\nb', 'a' ] ]</span></code></pre>
-<h3 id='methods/repeat-n'>- repeat(n)</h3 id='methods/repeat-n'>
+<h3 id='methods/repeat-n' id="-repeat-n-">- repeat(n)</h3 id='methods/repeat-n'>
 <p>Returns a string repeated <code>n</code> times.</p>
 <p>Alias: <code>times()</code></p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">' '</span>).repeat(<span class="number">5</span>).s; <span class="comment">//'     '</span>
 S(<span class="string">'*'</span>).repeat(<span class="number">3</span>).s; <span class="comment">//'***'</span></code></pre>
-<h3 id='methods/replaceall-ss-newstr'>- replaceAll(ss, newstr)</h3 id='methods/replaceall-ss-newstr'>
+<h3 id='methods/replaceall-ss-newstr' id="-replaceall-ss-newstr-">- replaceAll(ss, newstr)</h3 id='methods/replaceall-ss-newstr'>
 <p>Return the new string with all occurrences of <code>ss</code> replaced with <code>newstr</code>.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">' does IT work? '</span>).replaceAll(<span class="string">' '</span>, <span class="string">'_'</span>).s; <span class="comment">//'_does_IT_work?_'</span>
 S(<span class="string">'Yes it does!'</span>).replaceAll(<span class="string">' '</span>, <span class="string">''</span>).s; <span class="comment">//'Yesitdoes!'</span></code></pre>
-<h3 id='methods/restoreprototype'>+ restorePrototype()</h3 id='methods/restoreprototype'>
+<h3 id='methods/restoreprototype' id="-restoreprototype-">+ restorePrototype()</h3 id='methods/restoreprototype'>
 <p>Restore the original String prototype. Typically used in conjunction with <code>extendPrototype()</code>.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S.restorePrototype();</code></pre>
-<h3 id='methods/right-n'>- right(n)</h3 id='methods/right-n'>
+<h3 id='methods/right-n' id="-right-n-">- right(n)</h3 id='methods/right-n'>
 <p>Return the substring denoted by <code>n</code> positive right-most characters.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'I AM CRAZY'</span>).right(<span class="number">2</span>).s; <span class="comment">//'ZY'</span>
 S(<span class="string">'Does it work?  '</span>).right(<span class="number">4</span>).s; <span class="comment">//'k?  '</span>
 S(<span class="string">'Hi'</span>).right(<span class="number">0</span>).s; <span class="comment">//''</span>
 S(<span class="string">'My name is JP'</span>).right(-<span class="number">2</span>).s; <span class="comment">//'My', same as left(2)</span></code></pre>
-<h3 id='methods/s'>- s</h3 id='methods/s'>
+<h3 id='methods/s' id="-s">- s</h3 id='methods/s'>
 <p>Alias: <code>toString()</code></p>
 <p>The encapsulated native string representation of an <code>S</code> object.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'my name is JP.'</span>).capitalize().s; <span class="comment">//My name is JP.</span>
 <span class="keyword">var</span> a = <span class="string">"Hello "</span> + S(<span class="string">'joe!'</span>); <span class="comment">//a = "Hello joe!"</span>
 S(<span class="string">"Hello"</span>).toString() === S(<span class="string">"Hello"</span>).s; <span class="comment">//true</span></code></pre>
-<h3 id='methods/setvalue-value'>- setValue(value)</h3 id='methods/setvalue-value'>
+<h3 id='methods/setvalue-value' id="-setvalue-value-">- setValue(value)</h3 id='methods/setvalue-value'>
 <p>Sets the string to a <code>value</code>.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> myString = S(<span class="string">'War'</span>);
 myString.setValue(<span class="string">'Peace'</span>).s; <span class="comment">// 'Peace'</span></code></pre>
-<h3 id='methods/slugify'>- slugify()</h3 id='methods/slugify'>
-<p>Converts the text into a valid url slug.</p>
-<pre><code class="lang-javascript">S(<span class="string">'Global Thermonuclear Warfare'</span>).slugify().s <span class="comment">// 'global-thermonuclear-warfare'</span></code></pre>
-<h3 id='methods/startswith-prefix'>- startsWith(prefix)</h3 id='methods/startswith-prefix'>
+<h3 id='methods/slugify' id="-slugify-">- slugify()</h3 id='methods/slugify'>
+<p>Converts the text into a valid url slug. Removes accents from Latin characters.</p>
+<pre><code class="lang-javascript">S(<span class="string">'Global Thermonuclear Warfare'</span>).slugify().s <span class="comment">// 'global-thermonuclear-warfare'</span>
+S(<span class="string">'Crème brûlée'</span>).slugify().s <span class="comment">// 'creme-brulee'</span></code></pre>
+<h3 id='methods/startswith-prefix' id="-startswith-prefix-">- startsWith(prefix)</h3 id='methods/startswith-prefix'>
 <p>Return true if the string starts with <code>prefix</code>.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">"JP is a software engineer"</span>).startsWith(<span class="string">"JP"</span>); <span class="comment">//true</span>
 S(<span class="string">'wants to change the world'</span>).startsWith(<span class="string">"politicians"</span>); <span class="comment">//false</span></code></pre>
-<h3 id='methods/strippunctuation'>- stripPunctuation()</h3 id='methods/strippunctuation'>
+<h3 id='methods/strippunctuation' id="-strippunctuation-">- stripPunctuation()</h3 id='methods/strippunctuation'>
 <p>Strip all of the punctuation.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'My, st[ring] *full* of %punct)'</span>).stripPunctuation().s; <span class="comment">//My string full of punct</span></code></pre>
-<h3 id='methods/striptags-tag1-tag2'>- stripTags([tag1],[tag2],...)</h3 id='methods/striptags-tag1-tag2'>
+<h3 id='methods/striptags-tag1-tag2' id="-striptags-tag1-tag2-">- stripTags([tag1],[tag2],...)</h3 id='methods/striptags-tag1-tag2'>
 <p>Strip all of the HTML tags or tags specified by the parameters.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'&lt;p&gt;just &lt;b&gt;some&lt;/b&gt; text&lt;/p&gt;'</span>).stripTags().s <span class="comment">//'just some text'</span>
 S(<span class="string">'&lt;p&gt;just &lt;b&gt;some&lt;/b&gt; text&lt;/p&gt;'</span>).stripTags(<span class="string">'p'</span>).s <span class="comment">//'just &lt;b&gt;some&lt;/b&gt; text'</span></code></pre>
-<h3 id='methods/template-values-open-close'>- template(values, [open], [close])</h3 id='methods/template-values-open-close'>
+<h3 id='methods/template-values-open-close' id="-template-values-open-close-">- template(values, [open], [close])</h3 id='methods/template-values-open-close'>
 <p>Takes a string and interpolates the values. Defaults to <code>{{</code> and <code>}}</code> for Mustache compatible templates. However, you can change this default by modifying <code>S.TMPL_OPEN</code> and <code>S.TMPL_CLOSE</code>.</p>
 <p>Example:</p>
 <pre><code class="lang-js">var str = <span class="string">"Hello {{name}}! How are you doing during the year of {{date-year}}?"</span>
@@ -762,13 +771,13 @@ S.TMPL_OPEN = '{'
 S.TMPL_CLOSE = '}'
 str = <span class="string">"Hello {name}! How are you doing during the year of {date-year}?"</span>
 console.<span class="command">log</span>(S(str).template(values).s) //'Hello JP! How are you doing during <span class="keyword">the</span> <span class="property">year</span> <span class="keyword">of</span> <span class="number">2013</span>?'</code></pre>
-<h3 id='methods/times-n'>- times(n)</h3 id='methods/times-n'>
+<h3 id='methods/times-n' id="-times-n-">- times(n)</h3 id='methods/times-n'>
 <p>Returns a string repeated <code>n</code> times.</p>
 <p>Alias: <code>repeat()</code></p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">' '</span>).times(<span class="number">5</span>).s <span class="comment">//'     '</span>
 S(<span class="string">'*'</span>).times(<span class="number">3</span>).s <span class="comment">//'***'</span></code></pre>
-<h3 id='methods/toboolean-tobool'>- toBoolean() / toBool()</h3 id='methods/toboolean-tobool'>
+<h3 id='methods/toboolean-tobool' id="-toboolean-tobool-">- toBoolean() / toBool()</h3 id='methods/toboolean-tobool'>
 <p>Converts a a logical truth string to boolean. That is: <code>true</code>, <code>1</code>, <code>&#39;true&#39;</code>, <code>&#39;on&#39;</code>, or <code>&#39;yes&#39;</code>.</p>
 <p>JavaScript Note: You can easily convert truthy values to <code>booleans</code> by prefixing them with <code>!!</code>. e.g.
 <code>!!&#39;hi&#39; === true</code> or <code>!!&#39;&#39; === false</code> or <code>!!{} === true</code>.</p>
@@ -792,18 +801,22 @@ S({}).toBoolean() <span class="comment">//false</span>
 S(<span class="number">1</span>).toBoolean() <span class="comment">//true</span>
 S(-<span class="number">1</span>).toBoolean() <span class="comment">//false</span>
 S(<span class="number">0</span>).toBoolean() <span class="comment">//false</span></code></pre>
-<h3 id='methods/tocsv-options'>- toCSV(options)</h3 id='methods/tocsv-options'>
+<h3 id='methods/tocsv-options' id="-tocsv-options-">- toCSV(options)</h3 id='methods/tocsv-options'>
 <p>Converts an array or object to a CSV line.</p>
 <p>You can either optionally pass in two string arguments or pass in a configuration object.</p>
-<p><strong>String Arguments:</strong>
-- <code>delimiter</code>: The character that is separates or delimits fields. Default: <code>,</code>
-- <code>qualifier</code>: The character that encloses fields. Default: <code>&quot;</code></p>
-<p><strong>Object Configuration:</strong>
-- <code>delimiter</code>: The character that is separates or delimits fields. Default: <code>,</code>
-- <code>qualifier</code>: The character that encloses fields. Default: <code>&quot;</code>
-- <code>escape</code>: The character that escapes any incline <code>qualifier</code> characters. Default: <code>\</code>, in JS this is <code>\\</code>
-- <code>encloseNumbers</code>: Enclose number objects with the <code>qualifier</code> chracter. Default: <code>true</code>
-- <code>keys</code>: If the input isn&#39;t an array, but an object, then if this is set to true, the keys will be output to the CSV line, otherwise it&#39;s the object&#39;s values. Default: <code>false</code>.</p>
+<p><strong>String Arguments:</strong></p>
+<ul>
+<li><code>delimiter</code>: The character that is separates or delimits fields. Default: <code>,</code></li>
+<li><code>qualifier</code>: The character that encloses fields. Default: <code>&quot;</code></li>
+</ul>
+<p><strong>Object Configuration:</strong></p>
+<ul>
+<li><code>delimiter</code>: The character that is separates or delimits fields. Default: <code>,</code></li>
+<li><code>qualifier</code>: The character that encloses fields. Default: <code>&quot;</code></li>
+<li><code>escape</code>: The character that escapes any incline <code>qualifier</code> characters. Default: <code>\</code>, in JS this is <code>\\</code></li>
+<li><code>encloseNumbers</code>: Enclose number objects with the <code>qualifier</code> chracter. Default: <code>true</code></li>
+<li><code>keys</code>: If the input isn&#39;t an array, but an object, then if this is set to true, the keys will be output to the CSV line, otherwise it&#39;s the object&#39;s values. Default: <code>false</code>.</li>
+</ul>
 <p>Example:</p>
 <pre><code class="lang-javascript">S([<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]).toCSV().s <span class="comment">//'"a","b","c"'</span>
 S([<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]).toCSV(<span class="string">':'</span>).s <span class="comment">//'"a":"b":"c"'</span>
@@ -812,7 +825,7 @@ S([<span class="string">'a'</span>, <span class="string">'b'</span>, <span class
 S([<span class="string">'a"'</span>, <span class="string">'b'</span>, <span class="number">4</span>, <span class="string">'c'</span>]).toCSV({delimiter: <span class="string">','</span>, qualifier: <span class="string">'"'</span>, escape: <span class="string">'\\'</span>,  encloseNumbers: <span class="literal">false</span>}).s <span class="comment">//'"a\\"","b",4,"c"'</span>
 S({firstName: <span class="string">'JP'</span>, lastName: <span class="string">'Richardson'</span>}).toCSV({keys: <span class="literal">true</span>}).s <span class="comment">//'"firstName","lastName"'</span>
 S({firstName: <span class="string">'JP'</span>, lastName: <span class="string">'Richardson'</span>}).toCSV().s <span class="comment">//'"JP","Richardson"'</span></code></pre>
-<h3 id='methods/tofloat-precision'>- toFloat([precision])</h3 id='methods/tofloat-precision'>
+<h3 id='methods/tofloat-precision' id="-tofloat-precision-">- toFloat([precision])</h3 id='methods/tofloat-precision'>
 <p>Return the float value, wraps parseFloat.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'5'</span>).toFloat() <span class="comment">// 5</span>
@@ -822,7 +835,7 @@ S(<span class="string">'-10'</span>).toFloat()  <span class="comment">//-10</spa
 S(<span class="string">'55.3 adfafaf'</span>).toFloat() <span class="comment">// 55.3</span>
 S(<span class="string">'afff 44'</span>).toFloat()  <span class="comment">//NaN</span>
 S(<span class="number">3.45522222333232</span>).toFloat(<span class="number">2</span>) <span class="comment">// 3.46</span></code></pre>
-<h3 id='methods/toint-tointeger'>- toInt() / toInteger()</h3 id='methods/toint-tointeger'>
+<h3 id='methods/toint-tointeger' id="-toint-tointeger-">- toInt() / toInteger()</h3 id='methods/toint-tointeger'>
 <p>Return the number value in integer form. Wrapper for <code>parseInt()</code>. Can also parse hex values.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'5'</span>).toInt(); <span class="comment">//5</span>
@@ -832,14 +845,14 @@ S(<span class="string">'-10'</span>).toInt(); <span class="comment">//-10</span>
 S(<span class="string">'55 adfafaf'</span>).toInt(); <span class="comment">//55</span>
 S(<span class="string">'afff 44'</span>).toInt(); <span class="comment">//NaN</span>
 S(<span class="string">'0xff'</span>).toInt() <span class="comment">//255</span></code></pre>
-<h3 id='methods/tostring'>- toString()</h3 id='methods/tostring'>
+<h3 id='methods/tostring' id="-tostring-">- toString()</h3 id='methods/tostring'>
 <p>Alias: <code>s</code></p>
 <p>Return the string representation of an <code>S</code> object. Not really necessary to use. However, JS engines will look at an object and display its <code>toString()</code> result.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'my name is JP.'</span>).capitalize().toString(); <span class="comment">//My name is JP.</span>
 <span class="keyword">var</span> a = <span class="string">"Hello "</span> + S(<span class="string">'joe!'</span>); <span class="comment">//a = "Hello joe!"</span>
 S(<span class="string">"Hello"</span>).toString() === S(<span class="string">"Hello"</span>).s; <span class="comment">//true</span></code></pre>
-<h3 id='methods/trim'>- trim()</h3 id='methods/trim'>
+<h3 id='methods/trim' id="-trim-">- trim()</h3 id='methods/trim'>
 <p>Return the string with leading and trailing whitespace removed. Reverts to native <code>trim()</code> if it exists.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'hello '</span>).trim().s; <span class="comment">//'hello'</span>
@@ -847,15 +860,15 @@ S(<span class="string">' hello '</span>).trim().s; <span class="comment">//'hell
 S(<span class="string">'\nhello'</span>).trim().s; <span class="comment">//'hello'</span>
 S(<span class="string">'\nhello\r\n'</span>).trim().s; <span class="comment">//'hello'</span>
 S(<span class="string">'\thello\t'</span>).trim().s; <span class="comment">//'hello'</span></code></pre>
-<h3 id='methods/trimleft'>- trimLeft()</h3 id='methods/trimleft'>
+<h3 id='methods/trimleft' id="-trimleft-">- trimLeft()</h3 id='methods/trimleft'>
 <p>Return the string with leading and whitespace removed</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'  How are you?'</span>).trimLeft().s; <span class="comment">//'How are you?';</span></code></pre>
-<h3 id='methods/trimright'>- trimRight()</h3 id='methods/trimright'>
+<h3 id='methods/trimright' id="-trimright-">- trimRight()</h3 id='methods/trimright'>
 <p>Return the string with trailing whitespace removed.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'How are you?   '</span>).trimRight().s; <span class="comment">//'How are you?';</span></code></pre>
-<h3 id='methods/truncate-length-chars'>- truncate(length, [chars])</h3 id='methods/truncate-length-chars'>
+<h3 id='methods/truncate-length-chars' id="-truncate-length-chars-">- truncate(length, [chars])</h3 id='methods/truncate-length-chars'>
 <p>Truncates the string, accounting for word placement and character count.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'this is some long text'</span>).truncate(<span class="number">3</span>).s <span class="comment">//'...'</span>
@@ -864,17 +877,17 @@ S(<span class="string">'this is some long text'</span>).truncate(<span class="nu
 S(<span class="string">'this is some long text'</span>).truncate(<span class="number">12</span>).s <span class="comment">//'this is some...'</span>
 S(<span class="string">'this is some long text'</span>).truncate(<span class="number">11</span>).s <span class="comment">//'this is...'</span>
 S(<span class="string">'this is some long text'</span>).truncate(<span class="number">14</span>, <span class="string">' read more'</span>).s <span class="comment">//'this is some read more'</span></code></pre>
-<h3 id='methods/underscore'>- underscore()</h3 id='methods/underscore'>
+<h3 id='methods/underscore' id="-underscore-">- underscore()</h3 id='methods/underscore'>
 <p>Returns converted camel cased string into a string delimited by underscores.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'dataRate'</span>).underscore().s; <span class="comment">//'data_rate'</span>
 S(<span class="string">'CarSpeed'</span>).underscore().s; <span class="comment">//'_car_speed'</span>
 S(<span class="string">'yesWeCan'</span>).underscore().s; <span class="comment">//'yes_we_can'</span></code></pre>
-<h3 id='methods/unescapehtml'>- unescapeHTML()</h3 id='methods/unescapehtml'>
+<h3 id='methods/unescapehtml' id="-unescapehtml-">- unescapeHTML()</h3 id='methods/unescapehtml'>
 <p>Unescapes the html.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">'&amp;lt;div&amp;gt;hi&amp;lt;/div&amp;gt;'</span>).unescapeHTML().s; <span class="comment">//&lt;div&gt;hi&lt;/div&gt;</span></code></pre>
-<h3 id='methods/wraphtml'>- wrapHTML()</h3 id='methods/wraphtml'>
+<h3 id='methods/wraphtml' id="-wraphtml-">- wrapHTML()</h3 id='methods/wraphtml'>
 <p>wrapHTML helps to avoid concatenation of element with string. 
 the string will be wrapped with HTML Element and their attributes.</p>
 <p>Example:</p>
@@ -887,14 +900,14 @@ S(<span class="string">'Venkat'</span>).wrapHTML(<span class="string">'div'</spa
     <span class="string">"id"</span>: <span class="string">"content"</span>,
     <span class="string">"class"</span>: <span class="string">"left bullet"</span>
 }).s <span class="comment">// &lt;div id="content" class="left bullet"&gt;Venkat&lt;/div&gt;</span></code></pre>
-<h3 id='methods/version'>+ VERSION</h3 id='methods/version'>
+<h3 id='methods/version' id="-version">+ VERSION</h3 id='methods/version'>
 <p>Returns native JavaScript string containing the version of <code>string.js</code>.</p>
 <p>Example:</p>
 <pre><code class="lang-javascript">S.VERSION; <span class="comment">//1.0.0</span></code></pre>
-<h2 id='quirks'>Quirks</h2 id='quirks'>
-<p><code>decodeHtmlEntities()</code> converts <code>&amp;nbsp;</code> to <strong>0xa0</strong> (160) and not <strong>0x10</strong> (20). Most browsers consider 0xa0 to be whitespace characters, Internet Explorer does not despite it being part of the ECMA standard. Google Closure does a good job of normalizing this behavior. This may need to fixed in <code>string.js</code> at some point in time.</p>
-<h2 id='testing'>Testing</h2 id='testing'>
-<h3 id='testing/node-js'>Node.js</h3 id='testing/node-js'>
+<h2 id='quirks' id="quirks">Quirks</h2 id='quirks'>
+<p><code>decodeHtmlEntities()</code> converts <code>&amp;nbsp;</code> to <strong>0xa0</strong> (160) and not <strong>0x10</strong> (20). Most browsers consider 0xa0 to be whitespace characters, Internet Explorer does not despite it being part of the ECMA standard. Google Closure does a good job of normalizing this behavior. This may need to be fixed in <code>string.js</code> at some point in time.</p>
+<h2 id='testing' id="testing">Testing</h2 id='testing'>
+<h3 id='testing/node-js' id="node-js">Node.js</h3 id='testing/node-js'>
 <p>Install the dev dependencies:</p>
 <pre><code><span class="comment">$</span> <span class="comment">npm</span> <span class="comment">install</span> <span class="comment">string</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">development</code></pre>
 <p>Install mocha globally:</p>
@@ -903,13 +916,13 @@ S(<span class="string">'Venkat'</span>).wrapHTML(<span class="string">'div'</spa
 <pre><code>$ cd node_modules/<span class="keyword">string</span>/</code></pre>
 <p>Run test package:</p>
 <pre><code><span class="variable">$ </span>mocha test</code></pre>
-<h3 id='testing/browser'>Browser</h3 id='testing/browser'>
+<h3 id='testing/browser' id="browser">Browser</h3 id='testing/browser'>
 <p><a href="http://stringjs.com/browser.test.html">Click here to run the tests in your web browser.</a></p>
-<h2 id='credits'>Credits</h2 id='credits'>
+<h2 id='credits' id="credits">Credits</h2 id='credits'>
 <p>I have looked at the code by the creators in the libraries mentioned in <strong>Motivation</strong>. As noted in the source code, I&#39;ve specifically used code from Google Closure (Google Inc), Underscore String <a href="http://esa-matti.suuronen.org/">Esa-Matti Suuronen</a>, and php.js (<a href="http://phpjs.org/authors/index">http://phpjs.org/authors/index</a>), <a href="https://github.com/substack/node-ent">Substack</a> and <a href="https://github.com/component/pad">TJ Holowaychuk</a>.</p>
-<h2 id='contributions'>Contributions</h2 id='contributions'>
+<h2 id='contributions' id="contributions">Contributions</h2 id='contributions'>
 <p>If you contribute to this library, just modify <code>string.js</code>, <code>string.test.js</code>, and update <code>README.md</code>. I&#39;ll update the website docs and generate the new <code>string.min.js</code>, changelog and version.</p>
-<h3 id='contributions/contributors'>Contributors</h3 id='contributions/contributors'>
+<h3 id='contributions/contributors' id="contributors">Contributors</h3 id='contributions/contributors'>
 <p>(You can add your name, or I&#39;ll add it if you forget)</p>
 <ul>
 <li>[*] <a href="https://github.com/jprichardson">JP Richardson</a></li>
@@ -927,18 +940,22 @@ S(<span class="string">'Venkat'</span>).wrapHTML(<span class="string">'div'</spa
 <li>[*] <a href="https://github.com/jamesmanning">James Manning</a></li>
 <li>[*] <a href="https://github.com/nfriedly">Nathan Friedly</a></li>
 <li>[*] <a href="https://github.com/arowla">Alison Rowland</a></li>
-<li>[*] <a href="https://github.com/ramsunvtech">Venkatraman.R</a></li>
+<li>[1] <a href="https://github.com/ramsunvtech">Venkatraman.R</a></li>
+<li>[1] <a href="https://github.com/r3Fuze">r3Fuze</a></li>
+<li>[3] <a href="https://github.com/Sergio-Muriel">Sergio Muriel</a></li>
+<li>[1] <a href="https://github.com/hickford">Matt Hickford</a></li>
+<li>[1] <a href="https://github.com/petrbrzek">Petr Brzek</a></li>
 </ul>
-<h2 id='roadmap-to-v2-0'>Roadmap to v2.0</h2 id='roadmap-to-v2-0'>
+<h2 id='roadmap-to-v2-0' id="roadmap-to-v2-0">Roadmap to v2.0</h2 id='roadmap-to-v2-0'>
 <ul>
 <li>break up this module into smaller logically grouped modules. The Node.js version would probably always include most of the functions. <a href="https://github.com/jprichardson/string.js/issues/10">https://github.com/jprichardson/string.js/issues/10</a></li>
 <li>allow a more functional style similar to Underscore and lowdash. This may introduce a <code>chain</code> function though. <a href="https://github.com/jprichardson/string.js/issues/49">https://github.com/jprichardson/string.js/issues/49</a></li>
 <li>language specific plugins i.e. <a href="https://github.com/jprichardson/string.js/pull/46">https://github.com/jprichardson/string.js/pull/46</a></li>
 <li>move this repo over to <a href="https://github.com/stringjs">https://github.com/stringjs</a></li>
 </ul>
-<h2 id='license'>License</h2 id='license'>
+<h2 id='license' id="license">License</h2 id='license'>
 <p>Licensed under MIT.</p>
-<p>Copyright (C) 2012-2014 JP Richardson <a href="&#109;&#x61;&#105;&#108;&#x74;&#x6f;&#x3a;&#106;&#112;&#x72;&#105;&#99;&#104;&#x61;&#114;&#100;&#115;&#x6f;&#x6e;&#x40;&#103;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;">&#106;&#112;&#x72;&#105;&#99;&#104;&#x61;&#114;&#100;&#115;&#x6f;&#x6e;&#x40;&#103;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;</a></p>
+<p>Copyright (C) 2012-2014 JP Richardson <a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#58;&#x6a;&#112;&#x72;&#x69;&#99;&#x68;&#97;&#114;&#x64;&#115;&#111;&#110;&#x40;&#103;&#x6d;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;">&#x6a;&#112;&#x72;&#x69;&#99;&#x68;&#97;&#114;&#x64;&#115;&#111;&#110;&#x40;&#103;&#x6d;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;</a></p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
 <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 <p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>

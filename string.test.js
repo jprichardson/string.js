@@ -213,6 +213,7 @@
         F (S("33").isAlpha());
         F (S("TT....TTTafafetstYY").isAlpha());
         F (S("-áéúóúÁÉÍÓÚãõÃÕàèìòùÀÈÌÒÙâêîôûÂÊÎÔÛäëïöüÄËÏÖÜçÇ").isAlpha());
+        F (S("").isAlpha());
       })
     })
 
@@ -287,6 +288,13 @@
       })
     })
 
+    describe('- latinise', function() {
+      it('should remove diacritics from Latin characters', function() {
+        T (S('crème brûlée').latinise().s === 'creme brulee')
+        T (S('CRÈME BRÛLÉE').latinise().s === 'CREME BRULEE')
+      })
+    })
+
     describe('- length', function() {
       it('should return the length of the string', function() {
         T (S('hello').length === 5);
@@ -319,7 +327,7 @@
       it('should work on numbers', function() {
         T (S(1234).pad(4, 0).s === '1234');
         T (S(1234).pad(7, 0).s === '0012340');
-        T (S(1234).pad(7, 1).s === '1112341');     
+        T (S(1234).pad(7, 1).s === '1112341');
       })
       it('should use the default padding character when given null', function() {
         T (S('hello').pad(5, null).s === 'hello');
@@ -338,7 +346,7 @@
       it('should work on numbers', function() {
         T (S(1234).padLeft(4, 0).s === '1234');
         T (S(1234).padLeft(7, 0).s === '0001234');
-        T (S(1234).padLeft(7, 1).s === '1111234');     
+        T (S(1234).padLeft(7, 1).s === '1111234');
       })
       it('should use the default padding character when given null', function() {
         T (S('hello').padLeft(5, null).s === 'hello');
@@ -357,14 +365,14 @@
       it('should work on numbers', function() {
         T (S(1234).padRight(4, 0).s === '1234');
         T (S(1234).padRight(7, 0).s === '1234000');
-        T (S(1234).padRight(7, 1).s === '1234111');    
+        T (S(1234).padRight(7, 1).s === '1234111');
       })
       it('should use the default padding character when given null', function() {
         T (S('hello').padRight(5, null).s === 'hello');
         T (S('hello').padRight(10, null).s === 'hello     ');
       })
     })
-    
+
 
     describe('- parseCSV([delim],[qualifier],[escape],[lineDelimiter])', function() {
       it('should parse a CSV line into an array', function() {
@@ -382,6 +390,7 @@
         ARY_EQ (S('"a","b""","d","c"').parseCSV(",", "\"", "\""), ['a', 'b"', 'd', 'c'])
         ARY_EQ (S('"a","","c"').parseCSV(), ['a', '', 'c'])
         ARY_EQ (S('"","b","c"').parseCSV(), ['', 'b', 'c'])
+        ARY_EQ (S("'a,',b,'c'").parseCSV(',', "'"), ['a,', 'b', 'c'])
 
         var lines = (S('"a\na","b","c"\n"a", """b\nb", "a"').parseCSV(',', '"', '"', '\n'));
         ARY_EQ(lines[0], [ 'a\na', 'b', 'c' ]);
@@ -440,6 +449,7 @@
       it('should convert the text to url slug', function() {
         T (S('Global Thermonuclear Warfare').slugify().s === 'global-thermonuclear-warfare')
         T (S('Fast JSON Parsing').slugify().s === 'fast-json-parsing')
+        T (S('Crème brûlée').slugify().s === 'creme-brulee')
       })
     })
 
@@ -667,6 +677,9 @@
         T (S('Venkat').wrapHTML('div', {
           "class": "left bullet"
         }).s === '<div class="left bullet">Venkat</div>')
+        T (S('Venkat').wrapHTML('div', {
+          "data-content": "my \"encoded\" content"
+        }).s === '<div data-content="my &quot;encoded&quot; content">Venkat</div>')
         T (S('Venkat').wrapHTML('div', {
           "id": "content",
           "class": "left bullet"
