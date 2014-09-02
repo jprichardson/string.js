@@ -1,3 +1,9 @@
+2.0.0 / 2014-09-02
+------------------
+- bugfix `isAlpha()` for empty strings [#107](https://github.com/jprichardson/string.js/pull/107)
+- added .npmignore. Closes #71
+- `slugify()` behavior changed, added method `latinise()`. [#112](https://github.com/jprichardson/string.js/pull/112)
+
 1.9.1  / 2014-08-05
 -------------------
 * bugfix `parseCSV()` [Sergio-Muriel / #97](https://github.com/jprichardson/string.js/pull/97)
