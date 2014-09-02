@@ -1,3 +1,51 @@
+2.0.0 / 2014-09-02
+------------------
+- bugfix `isAlpha()` for empty strings [#107](https://github.com/jprichardson/string.js/pull/107)
+- added .npmignore. Closes #71
+- `slugify()` behavior changed, added method `latinise()`. [#112](https://github.com/jprichardson/string.js/pull/112)
+
+1.9.1  / 2014-08-05
+-------------------
+* bugfix `parseCSV()` [Sergio-Muriel / #97](https://github.com/jprichardson/string.js/pull/97)
+* bugfix `wrapHTML()` [Sergio-Muriel / #100](https://github.com/jprichardson/string.js/pull/100)
+* optimize `isAlpha()` and `isAlphaNumeric()` [Sergio-Muriel / #101](https://github.com/jprichardson/string.js/pull/101)
+
+1.9.0 / 2014-06-23
+------------------
+* added `wrapHTML()` method, (#90) 
+
+1.8.1 / 2014-04-23
+------------------
+* bugfix: `toBoolean()`/`toBool()` treat `1` as `true`. (arowla / #78)
+
+1.8.0 / 2014-01-13
+------------------
+* Changed behavior of 'between()'. Closes #62
+
+1.7.0 / 2013-11-19
+------------------
+* `padLeft`, `padRight`, and `pad` support numbers as input now (nfriedly / #70)
+
+1.6.1 / 2013-11-07
+------------------
+* fixes to `template()` (jprincipe / #69)
+* added stringjs-rails to docs. Closes #48
+* added Bower support. Closes #61
+
+1.6.0 / 2013-09-16
+------------------
+* modified string.js to make it more extensible (jeffgran / [#57][57])
+* fix browser tests, closes #45, #56
+
+1.5.1 / 2013-08-20
+------------------
+* Fixes bug in `template()` for falsey values. Closes #29
+* added Makefile
+
+1.5.0 / 2013-07-11
+------------------
+* added correct `lines()` implementation. (daxxog/#47) Closes #52
+
 1.4.0 / 2013-
 ------------------
 * updated homepage in `package.json`
@@ -108,3 +156,5 @@
 * Removed development dependency on CoffeeScript and Jasmine
 * Changed testing from Jasmine to Mocha
 * Added `includes` and `contains` methods
+
+[57]: https://github.com/jprichardson/string.js/pull/57

@@ -47,14 +47,13 @@
 
     describe('- between(left, right)', function() {
       it('should extract string between `left` and `right`', function() {
-        T (S('<a>foo</a>').between('<a>', '</a>').s === 'foo')
-        T (S('<a>foo</a></a>').between('<a>', '</a>').s === 'foo')
-        T (S('<a><a>foo</a></a>').between('<a>', '</a>').s === '<a>foo')
-        T (S('<a>foo').between('<a>', '</a>').s === '')
-      })
-      it("should support cyrillic letters", function() {
-        T (S('<a>привет</a>').between('<a>', '</a>').s === 'привет')
-        T (S('<a>как дела</a>').between('<a>', '</a>').s === 'как дела')
+        EQ (S('<a>foo</a>').between('<a>', '</a>').s, 'foo')
+        EQ (S('<a>foo</a></a>').between('<a>', '</a>').s, 'foo')
+        EQ (S('<a><a>foo</a></a>').between('<a>', '</a>').s, '<a>foo')
+        EQ (S('<a>foo').between('<a>', '</a>').s, '')
+        EQ (S('Some strings } are very {weird}, dont you think?').between('{', '}').s, 'weird');
+        EQ (S('This is a test string').between('test').s, ' string');
+        EQ (S('This is a test string').between('', 'test').s, 'This is a ');
       })
     })
 
@@ -66,12 +65,6 @@
         T (S('_car_speed_').camelize().s === 'CarSpeed');
         T (S('yes_we_can').camelize().s === 'yesWeCan');
       })
-
-      it("should support cyrillic letters", function() {
-        T (S('день_рождения').camelize().s === 'деньРождения');
-        T (S('день-рождения').camelize().s === 'деньРождения');
-        T (S('-день-рождения').camelize().s === 'ДеньРождения');
-      })
     })
 
     describe('- capitalize()', function() {
@@ -79,17 +72,11 @@
         T (S('jon').capitalize().s === 'Jon');
         T (S('JP').capitalize().s === 'Jp');
       })
-
-      it("should support cyrillic letters", function() {
-        T (S('день рождения').capitalize().s === 'День рождения');
-        T (S('ДЕНЬ').capitalize().s === 'День');
-      })
     })
 
     describe('- charAt(index)', function() {
       it('should return a native JavaScript string with the character at the specified position', function() {
         T (S('hi').charAt(1) === 'i')
-        T (S('хай').charAt(2) === 'й')
       })
     })
 
@@ -100,11 +87,6 @@
         T (S('').chompLeft('foo').s === '')
         T (S('').chompLeft('').s === '')
       })
-
-      it("should support cyrillic letters", function() {
-        T (S('крестчерепгроб').chompLeft('крест').s === 'черепгроб')
-        T (S('крестчерепгроб').chompLeft('гроб').s === 'крестчерепгроб')
-      })
     })
 
     describe('- chompRight(suffix)', function() {
@@ -114,20 +96,11 @@
         T (S('').chompRight('foo').s === '')
         T (S('').chompRight('').s === '')
       })
-
-      it("should support cyrillic letters", function() {
-        T (S('крестчерепгроб').chompRight('крест').s === 'крестчерепгроб')
-        T (S('крестчерепгроб').chompRight('гроб').s === 'крестчереп')
-      })
     })
 
     describe('- collapseWhitespace()', function() {
       it('should convert all adjacent whitespace characters to a single space and trim the ends', function() {
         T (S('  Strings   \t are   \n\n\t fun\n!  ').collapseWhitespace().s === 'Strings are fun !');
-      })
-
-      it("should support cyrillic words", function() {
-        T (S('  Прошло \t только \n\n\t 5 месяцев с \r\n начала года   ').collapseWhitespace().s === 'Прошло только 5 месяцев с начала года');
       })
     })
 
@@ -135,12 +108,6 @@
       it('should return true if the string contains the specified input string', function() {
         T (S('JavaScript is one of the best languages!').contains('one'));
         F (S('What do you think?').contains('YES!'));
-      })
-
-      it("should support cyrillic words", function() {
-        T (S('Прошло только 5 месяцев с начала года').contains('только'));
-        T (S('Прошло только 5 месяцев с начала года').contains('год'));
-        F (S('Прошло только 5 месяцев с начала года').contains('месяца'));
       })
     })
 
@@ -152,11 +119,6 @@
         EQ (S('JavaScript is fun, therefore Node.js is fun').count("fun"), 2)
         EQ (S('funfunfun').count("fun"), 3)
       })
-
-      it("should support cyrillic words", function() {
-        EQ (S('Прошло только 5 месяцев с начала года').count("JP"), 0)
-        EQ (S('Прошло только-только 5 месяцев с начала года').count("только"), 2)
-      })
     })
 
     describe('- dasherize()', function() {
@@ -165,11 +127,6 @@
         T (S('CarSpeed').dasherize().s === '-car-speed');
         T (S('yesWeCan').dasherize().s === 'yes-we-can');
         T (S('backgroundColor').dasherize().s === 'background-color');
-      });
-
-      it('should support cyrillic words', function() {
-        T (S('потестируем с русским').dasherize().s === 'потестируем-с-русским');
-        T (S('ПотестируемСРусским').dasherize().s === '-потестируем-с-русским');
       })
     })
 
@@ -189,11 +146,6 @@
         T (S("hi").endsWith(''));
         T (S("hi").endsWith('hi'));
       })
-
-      it('should support cyrillic words', function() {
-        T (S('потестируем с русским').endsWith('русским'));
-        F (S('потестируем с русским').endsWith('jon'));
-      })
     })
 
     describe('- ensureLeft(prefix)', function() {
@@ -203,12 +155,6 @@
         T (S('').ensureLeft('foo').s === 'foo')
         T (S('').ensureLeft('').s === '')
       })
-
-      it('should support cyrillic words', function() {
-        T (S('как дела').ensureLeft('как').s === 'как дела')
-        T (S('дела').ensureLeft('как ').s === 'как дела')
-        T (S('').ensureLeft('как ').s === 'как ')
-      })
     })
 
     describe('- ensureRight(suffix)', function() {
@@ -217,11 +163,6 @@
         T (S('foo').ensureRight('bar').s === 'foobar')
         T (S('').ensureRight('foo').s === 'foo')
         T (S('').ensureRight('').s === '')
-      })
-
-      it('should support cyrillic words', function() {
-        T (S('дела').ensureRight(' как').s === 'дела как')
-        T (S('дела как').ensureRight('как').s === 'дела как')
       })
     })
 
@@ -254,24 +195,12 @@
         EQ (S(null).humanize().s, '')
         EQ (S(undefined).humanize().s, '')
       })
-
-      it('should support cyrillic words', function() {
-        EQ (S('как_твои_дела').humanize().s, 'Как твои дела')
-        EQ (S('какТвоиДела').humanize().s, 'Как твои дела')
-        EQ (S('Как твои дела').humanize().s, 'Как твои дела')
-      })
     })
 
     describe('- include(substring)', function() {
       it('should return true if the string contains the specified input string', function() {
         T (S('JavaScript is one of the best languages!').include('one'));
         F (S('What do you think?').include('YES!'));
-      })
-
-      it('should support cyrillic words', function() {
-        T (S('Как твои дела').include('твои'));
-        F (S('Как твои дела').include('как'));
-        T (S('Как твои дела').include('Как'));
       })
     })
 
@@ -284,18 +213,8 @@
         F (S("33").isAlpha());
         F (S("TT....TTTafafetstYY").isAlpha());
         F (S("-áéúóúÁÉÍÓÚãõÃÕàèìòùÀÈÌÒÙâêîôûÂÊÎÔÛäëïöüÄËÏÖÜçÇ").isAlpha());
-      });
-
-      it("should support cyrillic letters", function() {
-        T (S("ябыдабы").isAlpha());
-        T (S("Сбольшойбуквы").isAlpha());
-        T (S("аё").isAlpha());
-        T (S("Ёёёёё").isAlpha());
-        F (S("бкбк43").isAlpha());
-        F (S("33").isAlpha());
-        F (S("TT....TTTafafetstYY").isAlpha());
-        F (S("-áéúóúÁÉÍÓÚãõÃÕàèìòùÀÈÌÒÙâêîôûÂÊÎÔÛäëïöüÄËÏÖÜçÇ").isAlpha());
-      });
+        F (S("").isAlpha());
+      })
     })
 
     describe('- isAlphaNumeric()', function() {
@@ -310,18 +229,7 @@
         F (S("-33").isAlphaNumeric());
         F (S("aaff..").isAlphaNumeric());
         F (S(".áéúóúÁÉÍÓÚãõÃÕàèìòùÀÈÌÒÙâêîôûÂÊÎÔÛäëïöüÄËÏÖÜçÇ1234567890").isAlphaNumeric());
-      });
-
-      it("should support cyrillic letters", function() {
-        T (S("ябыдабы3242").isAlphaNumeric());
-        T (S("С777большойбуквы").isAlphaNumeric());
-        T (S("аё").isAlphaNumeric());
-        T (S("Ёёёёё555").isAlphaNumeric());
-        F (S("бкбк 43").isAlphaNumeric());
-        F (S("-33").isAlphaNumeric());
-        F (S("TT....TTTafafetstYY").isAlphaNumeric());
-        F (S("-áéúóúÁÉÍÓÚãõÃÕàèìòùÀÈÌÒÙâêîôûÂÊÎÔÛäëïöüÄËÏÖÜçÇ").isAlphaNumeric());
-      });
+      })
     })
 
     describe('- isEmpty()', function() {
@@ -348,14 +256,7 @@
         F (S('ÁÉÍÓÚÃÕÀÈÌÒÙÂÊÎÔÛÄËÏÖÜÇ').isLower());
         F (S('áéúóúãõàèìòùâêîôûäëïöüçÁ').isLower());
         F (S('áéúóúãõàèìòùâêîôû äëïöüç').isLower());
-      });
-
-     it("should support cyrillic letters", function() {
-        T (S("ябыдабы").isLower());
-        T (S("эгегей").isLower());
-        F (S("БкБк").isLower());
-        F (S("эюЯ").isLower());
-      });
+      })
     })
 
     describe('- isNumeric()', function() {
@@ -384,14 +285,14 @@
         F (S('áéúóúãõàèìòùâêîôûäëïöüç').isUpper());
         F (S('áéúóúãõàèìòùâêîôûäëïöüçÁ').isUpper());
         F (S('ÁÉÍÓÚÃÕÀÈÌÒÙÂÊÎÔÛÄËÏÖÜÇá').isUpper());
-      });
+      })
+    })
 
-      it("should support cyrillic letters", function() {
-        T (S("ЯБЫДАБЫ").isUpper());
-        F (S("эгегей").isUpper());
-        F (S("БкБк").isUpper());
-        T (S("ЭЮЯ").isUpper());
-      });
+    describe('- latinise', function() {
+      it('should remove diacritics from Latin characters', function() {
+        T (S('crème brûlée').latinise().s === 'creme brulee')
+        T (S('CRÈME BRÛLÉE').latinise().s === 'CREME BRULEE')
+      })
     })
 
     describe('- length', function() {
@@ -412,10 +313,6 @@
       it('should return the substring denoted by N negative left-most characters, equivalent to calling right(-N)', function() {
         T (S('My name is JP').left(-2).s === 'JP');
       })
-      it("should support cyrillic letters", function() {
-        T (S('привет').left(2).s === 'пр');
-        T (S('как дела').left(-4).s === 'дела');
-      })
     })
 
     describe('- pad(len, [char])', function() {
@@ -427,11 +324,14 @@
         T (S('hey').pad(4).s === ' hey');
         T (S('hey').pad(7, '-').s === '--hey--');
       })
-      it("should support cyrillic letters", function() {
-        T (S('привет').pad(6).s === 'привет');
-        T (S('привет').pad(8).s === ' привет ');
-        T (S('привет').pad(10).s === '  привет  ');
-        T (S('привет').pad(10, '*').s === '**привет**');
+      it('should work on numbers', function() {
+        T (S(1234).pad(4, 0).s === '1234');
+        T (S(1234).pad(7, 0).s === '0012340');
+        T (S(1234).pad(7, 1).s === '1112341');
+      })
+      it('should use the default padding character when given null', function() {
+        T (S('hello').pad(5, null).s === 'hello');
+        T (S('hello').pad(10, null).s === '   hello  ');
       })
     })
 
@@ -443,10 +343,14 @@
         T (S('hello').padLeft(6).s === ' hello');
         T (S('hello').padLeft(10, '.').s === '.....hello');
       })
-      it("should support cyrillic letters", function() {
-        T (S('привет').padLeft(6).s === 'привет');
-        T (S('привет').padLeft(8).s === '  привет');
-        T (S('привет').padLeft(10, '@').s === '@@@@привет');
+      it('should work on numbers', function() {
+        T (S(1234).padLeft(4, 0).s === '1234');
+        T (S(1234).padLeft(7, 0).s === '0001234');
+        T (S(1234).padLeft(7, 1).s === '1111234');
+      })
+      it('should use the default padding character when given null', function() {
+        T (S('hello').padLeft(5, null).s === 'hello');
+        T (S('hello').padLeft(10, null).s === '     hello');
       })
     })
 
@@ -458,12 +362,17 @@
         T (S('hello').padRight(6).s === 'hello ');
         T (S('hello').padRight(10, '.').s === 'hello.....');
       })
-      it("should support cyrillic letters", function() {
-        T (S('привет').padRight(6).s === 'привет');
-        T (S('привет').padRight(8).s === 'привет  ');
-        T (S('привет').padRight(10, '@').s === 'привет@@@@');
+      it('should work on numbers', function() {
+        T (S(1234).padRight(4, 0).s === '1234');
+        T (S(1234).padRight(7, 0).s === '1234000');
+        T (S(1234).padRight(7, 1).s === '1234111');
+      })
+      it('should use the default padding character when given null', function() {
+        T (S('hello').padRight(5, null).s === 'hello');
+        T (S('hello').padRight(10, null).s === 'hello     ');
       })
     })
+
 
     describe('- parseCSV([delim],[qualifier],[escape],[lineDelimiter])', function() {
       it('should parse a CSV line into an array', function() {
@@ -481,6 +390,7 @@
         ARY_EQ (S('"a","b""","d","c"').parseCSV(",", "\"", "\""), ['a', 'b"', 'd', 'c'])
         ARY_EQ (S('"a","","c"').parseCSV(), ['a', '', 'c'])
         ARY_EQ (S('"","b","c"').parseCSV(), ['', 'b', 'c'])
+        ARY_EQ (S("'a,',b,'c'").parseCSV(',', "'"), ['a,', 'b', 'c'])
 
         var lines = (S('"a\na","b","c"\n"a", """b\nb", "a"').parseCSV(',', '"', '"', '\n'));
         ARY_EQ(lines[0], [ 'a\na', 'b', 'c' ]);
@@ -493,10 +403,6 @@
         T (S(' ').repeat(5).s === '     ');
         T (S('*').repeat(3).s === '***');
       })
-
-      it("should support cyrillic letters", function() {
-        T (S('я').repeat(5).s === 'яяяяя');
-      })
     })
 
     describe('- replaceAll(substring, replacement)', function() {
@@ -508,12 +414,6 @@
         var e = '\\', q = '"';
         var r = e + q;
         T (S('a').replaceAll(q, r).s === 'a');
-      })
-
-      it("should support cyrillic letters", function() {
-        T (S('Я не верю').replaceAll(' ', '').s === 'Яневерю')
-        T (S('-я-не-верю').replaceAll('-', ' ').s === ' я не верю')
-        F (S('-я-не-верю').replaceAll(/-/, ' ').s === 'я не верю')
       })
     })
 
@@ -536,12 +436,6 @@
       it('should return the substring denoted by N negative right-most characters, equivalent to calling left(-N)', function() {
         T (S('My name is JP').right(-2).s === 'My');
       })
-
-      it("should support cyrillic letters", function() {
-        T (S('Меня зовут колобок').right(2).s === 'ок');
-        T (S('Меня зовут колобок').right(7).s === 'колобок');
-        T (S('Меня зовут колобок').right(-4).s === 'Меня');
-      })
     })
 
     describe('- s', function() {
@@ -549,24 +443,13 @@
         T (S('hi').s === 'hi');
         T (S('hi').toString() === S('hi').s);
       })
-
-      it("should support cyrillic letters", function() {
-        T (S('хай').s === 'хай');
-        T (S('хай').toString() === S('хай').s);
-      })
     })
 
     describe('- slugify', function() {
       it('should convert the text to url slug', function() {
         T (S('Global Thermonuclear Warfare').slugify().s === 'global-thermonuclear-warfare')
         T (S('Fast JSON Parsing').slugify().s === 'fast-json-parsing')
-      })
-
-      it("should support cyrillic letters", function() {
-        T (S('Меня зовут колобок').slugify().s === 'меня-зовут-колобок');
-        T (S('Меня Зовут Колобок').slugify().s === 'меня-зовут-колобок');
-        T (S('меня Зовут колобок').slugify().s === 'меня-зовут-колобок');
-        T (S('Меня_зовут_колобок').slugify().s === 'меня-зовут-колобок');
+        T (S('Crème brûlée').slugify().s === 'creme-brulee')
       })
     })
 
@@ -578,22 +461,11 @@
         T (S("Hi").startsWith(""));
         T (S("JP").startsWith("JP"));
       })
-
-      it("should support cyrillic letters", function() {
-        T (S('Меня зовут колобок').startsWith("Меня"));
-        T (S(' зовут колобок').startsWith(" "));
-        F (S('Меня зовут колобок').startsWith("меня"));
-        F (S('Меня зовут колобок').startsWith("зовут"));
-      })
     })
 
     describe('- stripPunctuation()', function() {
       it('should strip all of the punctuation', function() {
         T (S('My, st[ring] *full* of %punct)').stripPunctuation().s === 'My string full of punct')
-      })
-
-      it("should support cyrillic letters", function() {
-        T (S('Мой к[од] %полон% #тудумарков _которым_ *не* **все** `равно`').stripPunctuation().s === 'Мой код полон тудумарков которым не все равно')
       })
     })
 
@@ -601,11 +473,6 @@
       it('should strip all of the html tags or tags specified by the parameters', function() {
         T (S('<p>just <b>some</b> text</p>').stripTags().s === 'just some text')
         T (S('<p>just <b>some</b> text</p>').stripTags('p').s === 'just <b>some</b> text')
-      })
-
-      it("should support cyrillic letters", function() {
-        T (S('<p>Параграф <b>жырно</b> текст</p>').stripTags().s === 'Параграф жырно текст')
-        T (S('<p>Параграф <b>жырно</b> текст</p>').stripTags('p').s === 'Параграф <b>жырно</b> текст')
       })
     })
 
@@ -618,16 +485,52 @@
         str = "Hello #{name}! How are you doing during the year of #{date-year}?"
         EQ (S(str).template(values, '#{', '}').s, 'Hello JP! How are you doing during the year of 2013?')
 
+        S.TMPL_OPEN = '{'
+        S.TMPL_CLOSE = '}'
         str = "Hello {name}! How are you doing during the year of {date-year}?"
-        EQ (S(str).template(values, '{', '}').s, 'Hello JP! How are you doing during the year of 2013?')
+        EQ (S(str).template(values).s, 'Hello JP! How are you doing during the year of 2013?')
       })
 
-      it("should support cyrillic letters", function() {
-        var tpl, replacements, checkText, _$;
+      it('should return the string replaces with template values with regex chars () as Open/Close', function() {
+        S.TMPL_OPEN = "("
+        S.TMPL_CLOSE = ")"
+        var values = {name: 'JP', 'date-year': 2013}
+        var str = "Hello (name)! How are you doing during the year of (date-year)?"
+        EQ (S(str).template(values).s, 'Hello JP! How are you doing during the year of 2013?')
+      })
 
-        _$ = [ 'Только {{firstAction}}, {{secondAction}} и {{leFinale}} радио "Радонеж"', {firstAction: 'молиться', secondAction: 'поститься', leFinale: 'слушать'}, 'Только молиться, поститься и слушать радио "Радонеж"' ], tpl = _$[0], replacements = _$[1], checkText = _$[2];
+      it('should return the string replaces with template values with regex chars [] as Open/Close', function() {
+        S.TMPL_OPEN = '['
+        S.TMPL_CLOSE = ']'
+        var values = {name: 'JP', 'date-year': 2013}
+        var str = "Hello [name]! How are you doing during the year of [date-year]?"
+        EQ (S(str).template(values).s, 'Hello JP! How are you doing during the year of 2013?')
+      })
 
-        EQ (S(tpl).template(replacements).s, checkText)
+      it('should return the string replaces with template values with regex chars ** as Open/Close', function() {
+        S.TMPL_OPEN = '*'
+        S.TMPL_CLOSE = '*'
+        var values = {name: 'JP', 'date-year': 2013}
+        var str = "Hello *name*! How are you doing during the year of *date-year*?"
+        EQ (S(str).template(values).s, 'Hello JP! How are you doing during the year of 2013?')
+      })
+
+      it('should return the string replaces with template values with regex chars ** as Open/Close', function() {
+        S.TMPL_OPEN = '$'
+        S.TMPL_CLOSE = '$'
+        var values = {name: 'JP', 'date-year': 2013}
+        var str = "Hello $name$! How are you doing during the year of $date-year$?"
+        EQ (S(str).template(values).s, 'Hello JP! How are you doing during the year of 2013?')
+      })
+
+      describe('> when a key has an empty value', function() {
+        it('should still replace with the empty value', function() {
+          S.TMPL_OPEN = '{{'
+          S.TMPL_CLOSE = '}}'
+          var str = "Hello {{name}}"
+          var values = {name: ''}
+          EQ (S(str).template(values).s, "Hello ")
+        })
       })
     })
 
@@ -671,14 +574,8 @@
         T (S(1).toBoolean())
         F (S(-1).toBoolean())
         F (S(0).toBoolean())
-      })
-
-      it("should support cyrillic letters", function() {
-        T (S('да').toBoolean())
-        T (S('дА').toBoolean())
-        T (S('Да').toBoolean())
-        T (S('ДА').toBoolean())
-        F (S('нет').toBoolean())
+        T (S('1').toBoolean())
+        F (S('0').toBoolean())
       })
     })
 
@@ -693,12 +590,6 @@
         EQ (S({firstName: 'JP', lastName: 'Richardson'}).toCSV().s, '"JP","Richardson"');
         EQ (S(['a', null, undefined, 'c']).toCSV().s, '"a","","","c"');
         EQ (S(['my "foo" bar', 'barf']).toCSV({delimiter: ';', qualifier: '"', escape: '"'}).s, '"my ""foo"" bar";"barf"');
-      })
-
-      it("should support cyrillic letters", function() {
-        EQ (S(['а', 'б', 'в']).toCSV().s, '"а","б","в"');
-        EQ (S(['а', 'б', 'в']).toCSV(':').s, '"а":"б":"в"');
-        EQ (S(['а', 'б', 'в']).toCSV(':', null).s, 'а:б:в');
       })
     })
 
@@ -729,13 +620,6 @@
         T (S('\nhello\r\n').trim().s === 'hello');
         T (S('\thello\t').trim().s === 'hello');
       })
-
-      it("should support cyrillic letters", function() {
-        T (S('привет ').trim().s === 'привет');
-        T (S(' привет ').trim().s === 'привет');
-        T (S('\nпривет\n').trim().s === 'привет');
-        T (S('\r\n\tпривет\n').trim().s === 'привет');
-      })
     })
 
     describe('- trimLeft()', function() {
@@ -743,22 +627,12 @@
         T (S('  How are you?').trimLeft().s === 'How are you?');
         T (S(' JP ').trimLeft().s === 'JP ');
       })
-
-      it("should support cyrillic letters", function() {
-        T (S(' привет').trimLeft().s === 'привет');
-        T (S(' привет ').trimLeft().s === 'привет ');
-      })
     })
 
     describe('- trimRight()', function() {
       it('should return the string with trailing whitespace removed', function() {
         T (S('How are you?  ').trimRight().s === 'How are you?');
         T (S(' JP ').trimRight().s === ' JP');
-      })
-
-      it("should support cyrillic letters", function() {
-        T (S(' привет').trimRight().s === ' привет');
-        T (S(' привет ').trimRight().s === ' привет');
       })
     })
 
@@ -772,16 +646,6 @@
         T (S('this is some long text').truncate(14, ' read more').s === 'this is some read more')
         EQ (S('some string').truncate(200).s, 'some string')
       })
-
-      it("should support cyrillic letters", function() {
-        T (S('Привет всем').truncate(6).s === 'Привет...')
-        T (S('Привет всем').truncate(9).s === 'Привет...')
-        EQ (S('Привет всем').truncate(11).s, 'Привет всем')
-        EQ (S('Привет всем').truncate(20).s, 'Привет всем')
-        EQ (S('Я, правда, не до конца понимаю, как это работает').truncate(11).s, 'Я, правда...')
-        EQ (S('Я, правда, не до конца понимаю, как это работает').truncate(13).s, 'Я, правда, не...')
-        EQ (S('Я, правда, не до конца понимаю, как это работает').truncate(16).s, 'Я, правда, не до...')
-      })
     })
 
     describe('- underscore()', function() {
@@ -789,12 +653,6 @@
         T (S('dataRate').underscore().s === 'data_rate');
         T (S('CarSpeed').underscore().s === '_car_speed');
         T (S('yesWeCan').underscore().s === 'yes_we_can');
-      })
-
-      it("should support cyrillic letters", function() {
-        T (S('приветПривет').underscore().s === 'привет_привет');
-        T (S('ПриветПривет').underscore().s === '_привет_привет');
-        T (S('приветПриветПривет').underscore().s === 'привет_привет_привет');
       })
     })
 
@@ -809,6 +667,23 @@
     describe('- valueOf()', function() {
       it('should return the primitive value of the string, wraps native valueOf()', function() {
         T (S('hi').valueOf() === 'hi')
+      })
+    })
+
+    describe('- wrapHTML()', function () {
+      it('should return the string with wrapped HTML Element and their attributes', function () {
+        T (S('Venkat').wrapHTML().s === '<span>Venkat</span>')
+        T (S('Venkat').wrapHTML('div').s === '<div>Venkat</div>')
+        T (S('Venkat').wrapHTML('div', {
+          "class": "left bullet"
+        }).s === '<div class="left bullet">Venkat</div>')
+        T (S('Venkat').wrapHTML('div', {
+          "data-content": "my \"encoded\" content"
+        }).s === '<div data-content="my &quot;encoded&quot; content">Venkat</div>')
+        T (S('Venkat').wrapHTML('div', {
+          "id": "content",
+          "class": "left bullet"
+        }).s === '<div id="content" class="left bullet">Venkat</div>')
       })
     })
 

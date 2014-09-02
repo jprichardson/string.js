@@ -50,6 +50,13 @@ var S = require('string');
 
 Originally, I was using `$s` but glancing over the code, it was easy to confuse `$s` for string.js with `$` for jQuery. Feel free to use the most convenient variable for you.
 
+
+### Rails
+
+Checkout this gem to easily use string.js on the asset pipeline: https://github.com/jesjos/stringjs-rails
+
+
+
 ### Browsers
 
 ```html
@@ -105,6 +112,12 @@ S.restorePrototype(); //be a good citizen and clean up
 `string.js` has been designed to be compatible with Node.js and with IE6+, Firefox 3+, Safari 2+, Chrome 3+. Please [click here][browsertest] to run the tests in your browser. Report any browser issues here: https://github.com/jprichardson/string.js/issues
 
 
+### Extending string.js
+
+See: https://github.com/jprichardson/string.js/pull/57
+
+
+
 Native JavaScript Methods
 -------------------------
 
@@ -138,9 +151,9 @@ This creates a new `string.js` object. The parameter can be anything. The `toStr
 Example:
 
 ```javascript
-S('hello').s //'hello'
-S(['a,b']).s //"'a','b'"
-S({hi: 'jp'}).s //[object Object]
+S('hello').s //"hello"
+S(['a,b']).s //"a,b"
+S({hi: 'jp'}).s //"[object Object]""
 ```
 
 
@@ -151,7 +164,13 @@ Extracts a string between `left` and `right` strings.
 Example:
 
 ```javascript
-S('<a>foobar</a>').between('<a>', '</a>').s; // 'foobar'
+S('<a>foo</a>').between('<a>', '</a>').s // => 'foo'
+S('<a>foo</a></a>').between('<a>', '</a>').s // => 'foo'
+S('<a><a>foo</a></a>').between('<a>', '</a>').s // => '<a>foo'
+S('<a>foo').between('<a>', '</a>').s // => ''
+S('Some strings } are very {weird}, dont you think?').between('{', '}').s // => 'weird'
+S('This is a test string').between('test').s // => ' string'
+S('This is a test string').between('', 'test').s // => 'This is a '
 ```
 
 ### - camelize()
@@ -163,8 +182,8 @@ Example:
 ```javascript
 S('data_rate').camelize().s; //'dataRate'
 S('background-color').camelize().s; //'backgroundColor'
-S('-moz-something').camelize().s; //'mozSomething'
-S('_car_speed_').camelize().s; //'carSpeed'
+S('-moz-something').camelize().s; //'MozSomething'
+S('_car_speed_').camelize().s; //'CarSpeed'
 S('yes_we_can').camelize().s; //'yesWeCan'
 ```
 
@@ -451,6 +470,15 @@ S('HelLO').isUpper() //true
 ```
 
 
+### - latinise() ###
+
+Removes accents from Latin characters.
+
+```javascript
+S('crème brûlée').latinise().s // 'creme brulee'
+```
+
+
 ### - left(n) ###
 
 Return the substring denoted by `n` positive left-most characters.
@@ -474,10 +502,28 @@ Example:
 S('hi').length; //2
 ```
 
+### - lines() ####
+
+Returns an array with the lines. Cross-platform compatible.
+
+Example:
+
+```javascript
+var stuff = "My name is JP\nJavaScript is my fav language\r\nWhat is your fav language?"
+var lines = S(stuff).lines()
+
+console.dir(lines) 
+/*
+[ 'My name is JP',
+  'JavaScript is my fav language',
+  'What is your fav language?' ]
+*/
+```
+
 
 ### - pad(len, [char])
 
-Pads the string in the center with specified character
+Pads the string in the center with specified character. `char` may be a string or a number, defaults is a space. 
 
 Example:
 
@@ -613,12 +659,23 @@ S("Hello").toString() === S("Hello").s; //true
 ```
 
 
+### - setValue(value) ###
+
+Sets the string to a `value`.
+
+```javascript
+var myString = S('War');
+myString.setValue('Peace').s; // 'Peace'
+```
+
+
 ### - slugify() ###
 
-Converts the text into a valid url slug.
+Converts the text into a valid url slug. Removes accents from Latin characters.
 
 ```javascript
 S('Global Thermonuclear Warfare').slugify().s // 'global-thermonuclear-warfare'
+S('Crème brûlée').slugify().s // 'creme-brulee'
 ```
 
 
@@ -884,7 +941,23 @@ Example:
 S('&lt;div&gt;hi&lt;/div&gt;').unescapeHTML().s; //<div>hi</div>
 ```
 
+### - wrapHTML() ###
 
+wrapHTML helps to avoid concatenation of element with string. 
+the string will be wrapped with HTML Element and their attributes.
+
+Example:
+```javascript
+S('Venkat').wrapHTML().s //<span>Venkat</span>
+S('Venkat').wrapHTML('div').s //<div>Venkat</div>
+S('Venkat').wrapHTML('div', {
+    "class": "left bullet"
+}).s //<div class="left bullet">Venkat</div>
+S('Venkat').wrapHTML('div', {
+    "id": "content",
+    "class": "left bullet"
+}).s // <div id="content" class="left bullet">Venkat</div>
+```
 
 ### + VERSION ###
 
@@ -900,7 +973,7 @@ S.VERSION; //1.0.0
 Quirks
 ------
 
-`decodeHtmlEntities()` converts `&nbsp;` to **0xa0** (160) and not **0x10** (20). Most browsers consider 0xa0 to be whitespace characters, Internet Explorer does not despite it being part of the ECMA standard. Google Closure does a good job of normalizing this behavior. This may need to fixed in `string.js` at some point in time.
+`decodeHtmlEntities()` converts `&nbsp;` to **0xa0** (160) and not **0x10** (20). Most browsers consider 0xa0 to be whitespace characters, Internet Explorer does not despite it being part of the ECMA standard. Google Closure does a good job of normalizing this behavior. This may need to be fixed in `string.js` at some point in time.
 
 
 
@@ -912,6 +985,10 @@ Testing
 Install the dev dependencies:
 
     $ npm install string --development
+
+Install mocha globally:
+
+    $ npm install -g mocha
 
 Then navigate to the installed directory:
 
@@ -946,15 +1023,35 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 
 (You can add your name, or I'll add it if you forget)
 
-- [JP Richardson](https://github.com/jprichardson)
-- [Leonardo Otero](https://github.com/oteroleonardo)
-- [Jordan Scales](https://github.com/prezjordan)
-- [Eduardo de Matos](https://github.com/eduardo-matos)
-- [Christian Maughan Tegnér](https://github.com/CMTegner)
-- [Mario Gutierrez](https://github.com/mgutz)
-- [Sean O'Dell](https://github.com/seanodell)
-- [Tim de Koning](https://github.com/Reggino)
-- `<your name here>`
+- [*] [JP Richardson](https://github.com/jprichardson)
+- [*] [Leonardo Otero](https://github.com/oteroleonardo)
+- [*] [Jordan Scales](https://github.com/prezjordan)
+- [*] [Eduardo de Matos](https://github.com/eduardo-matos)
+- [*] [Christian Maughan Tegnér](https://github.com/CMTegner)
+- [*] [Mario Gutierrez](https://github.com/mgutz)
+- [*] [Sean O'Dell](https://github.com/seanodell)
+- [*] [Tim de Koning](https://github.com/Reggino)
+- [*] [David Volm](https://github.com/daxxog)
+- [*] [Jeff Grann](https://github.com/jeffgrann)
+- [*] [Vlad GURDIGA](https://github.com/gurdiga)
+- [*] [Jon Principe](https://github.com/jprincipe)
+- [*] [James Manning](https://github.com/jamesmanning)
+- [*] [Nathan Friedly](https://github.com/nfriedly)
+- [*] [Alison Rowland](https://github.com/arowla)
+- [1] [Venkatraman.R](https://github.com/ramsunvtech)
+- [1] [r3Fuze](https://github.com/r3Fuze)
+- [3] [Sergio Muriel](https://github.com/Sergio-Muriel)
+- [1] [Matt Hickford](https://github.com/hickford)
+- [1] [Petr Brzek](https://github.com/petrbrzek)
+ 
+
+Roadmap to v2.0
+---------------
+- break up this module into smaller logically grouped modules. The Node.js version would probably always include most of the functions. https://github.com/jprichardson/string.js/issues/10
+- allow a more functional style similar to Underscore and lowdash. This may introduce a `chain` function though. https://github.com/jprichardson/string.js/issues/49
+- language specific plugins i.e. https://github.com/jprichardson/string.js/pull/46
+- move this repo over to https://github.com/stringjs
+
 
 
 License
@@ -962,7 +1059,7 @@ License
 
 Licensed under MIT.
 
-Copyright (C) 2012-2013 JP Richardson <jprichardson@gmail.com>
+Copyright (C) 2012-2014 JP Richardson <jprichardson@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
