@@ -288,6 +288,13 @@
       })
     })
 
+    describe('- latinise', function() {
+      it('should remove diacritics from Latin characters', function() {
+        T (S('crème brûlée').latinise().s === 'creme brulee')
+        T (S('CRÈME BRÛLÉE').latinise().s === 'CREME BRULEE')
+      })
+    })
+
     describe('- length', function() {
       it('should return the length of the string', function() {
         T (S('hello').length === 5);
@@ -442,6 +449,7 @@
       it('should convert the text to url slug', function() {
         T (S('Global Thermonuclear Warfare').slugify().s === 'global-thermonuclear-warfare')
         T (S('Fast JSON Parsing').slugify().s === 'fast-json-parsing')
+        T (S('Crème brûlée').slugify().s === 'creme-brulee')
       })
     })
 

@@ -470,6 +470,15 @@ S('HelLO').isUpper() //true
 ```
 
 
+### - latinise() ###
+
+Removes accents from Latin characters.
+
+```javascript
+S('crème brûlée').latinise().s // 'creme brulee'
+```
+
+
 ### - left(n) ###
 
 Return the substring denoted by `n` positive left-most characters.
@@ -662,10 +671,11 @@ myString.setValue('Peace').s; // 'Peace'
 
 ### - slugify() ###
 
-Converts the text into a valid url slug.
+Converts the text into a valid url slug. Removes accents from Latin characters.
 
 ```javascript
 S('Global Thermonuclear Warfare').slugify().s // 'global-thermonuclear-warfare'
+S('Crème brûlée').slugify().s // 'creme-brulee'
 ```
 
 
