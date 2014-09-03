@@ -61,7 +61,7 @@ Checkout this gem to easily use string.js on the asset pipeline: https://github.
 
 ```html
 <!-- HTML5 -->
-<script src="https://raw.github.com/jprichardson/string.js/master/lib/string.min.js"></script>
+<script src="https://rawgit.com/jprichardson/string.js/master/lib/string.min.js"></script>
 
 <!-- Note that in the mime type for Javascript is now officially 'application/javascript'. If you
 set the type to application/javascript in IE browsers, your Javscript will fail. Just don't set a
@@ -69,7 +69,7 @@ type via the script tag and set the mime type from your server. Most browsers lo
 type anyway -->
 
 <!-- For HTML4/IE -->
-<script type="text/javascript" src="https://raw.github.com/jprichardson/lib/string.js/master/string.min.js"></script>
+<script type="text/javascript" src="https://rawgit.com/jprichardson/string.js/master/lib/string.min.js"></script>
 ```
 
 A global variable `window.S` or simply `S` is created.
