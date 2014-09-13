@@ -417,6 +417,14 @@
       })
     })
 
+    describe('- replaceAt(index, replacement)', function() {
+      it('should return the new string with the character at the given index replaced with the replacment string', function() {
+        T (S('Replaceme125').replaceAt(11, '3').s === 'Replaceme123');
+        T (S('I juSt did').replaceAt(4, 's').s === 'I just did');
+        T (S('-£1024').replaceAt(0, '+').s === '+£1024');
+      })
+    })
+
     describe('+ restorePrototype()', function() {
       it('should restore the original String prototype', function() {
         T (typeof ' hi'.endsWith === 'undefined');
