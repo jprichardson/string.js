@@ -619,15 +619,15 @@ S('Yes it does!').replaceAll(' ', '').s; //'Yesitdoes!'
 ```
 
 
-### - strip([string]) ###
+### - strip([string1],[string2],...) ###
 
-Returns a new string with all occurrences of `[string]` removed.
+Returns a new string with all occurrences of `[string1],[string2],...` removed.
 
 Example:
 
 ```javascript
-S(' 1 2 3--__--4 5 6-7__8__9--0').strip([' ', '_', '-']).s; //'1234567890'
-S('can words also be stripped out?').strip(['words', 'also', 'be']).s; //'can    stripped out?'
+S(' 1 2 3--__--4 5 6-7__8__9--0').strip(' ', '_', '-').s; //'1234567890'
+S('can words also be stripped out?').strip('words', 'also', 'be').s; //'can    stripped out?'
 ```
 
 
