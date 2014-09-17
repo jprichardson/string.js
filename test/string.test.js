@@ -417,6 +417,13 @@
       })
     })
 
+    describe('- strip([string])', function() {
+      it('should return the new string with all occurrences in [string] removed', function() {
+        T (S('which ones will it take out one wonders').strip(['on', 'er']).s === 'which es will it take out e wds');
+        T (S(' -- 1 2 - 3 4 5 - -- 6 7 _-- 8  9  0 ').strip(['-', '_', ' ']).s === '1234567890');
+      })
+    })
+
     describe('+ restorePrototype()', function() {
       it('should restore the original String prototype', function() {
         T (typeof ' hi'.endsWith === 'undefined');
