@@ -5,7 +5,7 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
 !(function() {
   "use strict";
 
-  var VERSION = '1.9.0';
+  var VERSION = '2.1.0';
 
   var ENTITIES = {};
 
@@ -349,6 +349,14 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
       //var s = this.s.replace(new RegExp(ss, 'g'), r);
       var s = this.s.split(ss).join(r)
       return new this.constructor(s);
+    },
+
+    strip: function() {
+      var ss = this.s;
+      for(var i= 0, n=arguments.length; i<n; i++) {
+        ss = ss.split(arguments[i]).join('');
+      }
+      return new this.constructor(ss);
     },
 
     right: function(N) {

@@ -7,7 +7,7 @@
     <title>string.js</title>
     
     <link rel="stylesheet" type="text/css" href="//documentup.com/stylesheets/screen.css">
-        <script type="text/javascript" src="string.js"></script>
+            <script type="text/javascript" src="string.js"></script>
     
     <script type="text/javascript">
 
@@ -21,7 +21,7 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-</script> 
+</script>
     
 
     
@@ -247,6 +247,10 @@
                 </li>
               
                 <li>
+                  <a href="#methods/strip-string1-string2">- strip([string1],[string2],...)</a>
+                </li>
+              
+                <li>
                   <a href="#methods/restoreprototype">+ restorePrototype()</a>
                 </li>
               
@@ -437,7 +441,7 @@
 <p>Checkout this gem to easily use string.js on the asset pipeline: <a href="https://github.com/jesjos/stringjs-rails">https://github.com/jesjos/stringjs-rails</a></p>
 <h3 id='usage/browsers' id="browsers">Browsers</h3 id='usage/browsers'>
 <pre><code class="lang-html"><span class="comment">&lt;!-- HTML5 --&gt;</span>
-<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://raw.github.com/jprichardson/string.js/master/lib/string.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://cdn.rawgit.com/jprichardson/string.js/master/lib/string.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
 
 <span class="comment">&lt;!-- Note that in the mime type for Javascript is now officially 'application/javascript'. If you
 set the type to application/javascript in IE browsers, your Javscript will fail. Just don't set a
@@ -445,7 +449,7 @@ type via the script tag and set the mime type from your server. Most browsers lo
 type anyway --&gt;</span>
 
 <span class="comment">&lt;!-- For HTML4/IE --&gt;</span>
-<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"https://raw.github.com/jprichardson/lib/string.js/master/string.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"https://cdn.rawgit.com/jprichardson/string.js/master/lib/string.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
 <p>A global variable <code>window.S</code> or simply <code>S</code> is created.</p>
 <h3 id='usage/amd-support' id="amd-support">AMD Support</h3 id='usage/amd-support'>
 <p>It now <a href="https://github.com/jprichardson/string.js/pull/20">has AMD support</a>. See <a href="http://requirejs.org/">require.js</a> on how to use with AMD modules.</p>
@@ -717,6 +721,11 @@ S(<span class="string">'*'</span>).repeat(<span class="number">3</span>).s; <spa
 <p>Example:</p>
 <pre><code class="lang-javascript">S(<span class="string">' does IT work? '</span>).replaceAll(<span class="string">' '</span>, <span class="string">'_'</span>).s; <span class="comment">//'_does_IT_work?_'</span>
 S(<span class="string">'Yes it does!'</span>).replaceAll(<span class="string">' '</span>, <span class="string">''</span>).s; <span class="comment">//'Yesitdoes!'</span></code></pre>
+<h3 id='methods/strip-string1-string2' id="-strip-string1-string2-">- strip([string1],[string2],...)</h3 id='methods/strip-string1-string2'>
+<p>Returns a new string with all occurrences of <code>[string1],[string2],...</code> removed.</p>
+<p>Example:</p>
+<pre><code class="lang-javascript">S(<span class="string">' 1 2 3--__--4 5 6-7__8__9--0'</span>).strip(<span class="string">' '</span>, <span class="string">'_'</span>, <span class="string">'-'</span>).s; <span class="comment">//'1234567890'</span>
+S(<span class="string">'can words also be stripped out?'</span>).strip(<span class="string">'words'</span>, <span class="string">'also'</span>, <span class="string">'be'</span>).s; <span class="comment">//'can    stripped out?'</span></code></pre>
 <h3 id='methods/restoreprototype' id="-restoreprototype-">+ restorePrototype()</h3 id='methods/restoreprototype'>
 <p>Restore the original String prototype. Typically used in conjunction with <code>extendPrototype()</code>.</p>
 <p>Example:</p>
@@ -945,6 +954,8 @@ S(<span class="string">'Venkat'</span>).wrapHTML(<span class="string">'div'</spa
 <li>[3] <a href="https://github.com/Sergio-Muriel">Sergio Muriel</a></li>
 <li>[1] <a href="https://github.com/hickford">Matt Hickford</a></li>
 <li>[1] <a href="https://github.com/petrbrzek">Petr Brzek</a></li>
+<li>[1] <a href="https://github.com/yumitsu">Alex Zinchenko</a></li>
+<li>[1] <a href="https://github.com/guyellis">Guy Ellis</a></li>
 </ul>
 <h2 id='roadmap-to-v2-0' id="roadmap-to-v2-0">Roadmap to v2.0</h2 id='roadmap-to-v2-0'>
 <ul>
@@ -955,7 +966,7 @@ S(<span class="string">'Venkat'</span>).wrapHTML(<span class="string">'div'</spa
 </ul>
 <h2 id='license' id="license">License</h2 id='license'>
 <p>Licensed under MIT.</p>
-<p>Copyright (C) 2012-2014 JP Richardson <a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#58;&#x6a;&#112;&#x72;&#x69;&#99;&#x68;&#97;&#114;&#x64;&#115;&#111;&#110;&#x40;&#103;&#x6d;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;">&#x6a;&#112;&#x72;&#x69;&#99;&#x68;&#97;&#114;&#x64;&#115;&#111;&#110;&#x40;&#103;&#x6d;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;</a></p>
+<p>Copyright (C) 2012-2014 JP Richardson <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#58;&#x6a;&#x70;&#x72;&#105;&#99;&#104;&#x61;&#114;&#x64;&#x73;&#111;&#x6e;&#x40;&#x67;&#x6d;&#97;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">&#x6a;&#x70;&#x72;&#105;&#99;&#104;&#x61;&#114;&#x64;&#x73;&#111;&#x6e;&#x40;&#x67;&#x6d;&#97;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;</a></p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
 <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 <p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
