@@ -460,14 +460,16 @@
       })
     })
 
-    describe('- startsWith(prefix)', function() {
+    describe('- startsWith(prefixes)', function() {
       it("should return true if the string starts with the input string", function() {
         T (S("JP is a software engineer").startsWith("JP"));
         F (S('wants to change the world').startsWith("politicians"));
         T (S("").startsWith(""));
         T (S("Hi").startsWith(""));
         T (S("JP").startsWith("JP"));
-      })
+        T (S("Chunky Bacon").startsWith("JP", "Chunk"));
+        F (S("Lorem Ipsum").startsWith("Ip", "Sum"));
+      });
     })
 
     describe('- stripPunctuation()', function() {
