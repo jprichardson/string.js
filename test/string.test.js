@@ -138,13 +138,16 @@
       })
     })
 
-    describe('- endsWith(suffix)', function() {
+    describe('- endsWith(suffixes)', function() {
       it("should return true if the string ends with the input string", function() {
         T (S("hello jon").endsWith('jon'));
         F (S('ffffaaa').endsWith('jon'));
         T (S("").endsWith(''));
         T (S("hi").endsWith(''));
         T (S("hi").endsWith('hi'));
+        T (S("test.jpeg").endsWith('png', 'jpg', 'jpeg'));
+        T (S("Chunky Bacon").endsWith(''));
+        F (S("Chunky Bacon").endsWith("nk", "aco"));
       })
     })
 
