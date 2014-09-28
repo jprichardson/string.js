@@ -138,7 +138,7 @@
       })
     })
 
-    describe('- endsWith(suffixes)', function() {
+    describe('- endsWith(suffixe1[, suffix2, ..])', function() {
       it("should return true if the string ends with the input string", function() {
         T (S("hello jon").endsWith('jon'));
         F (S('ffffaaa').endsWith('jon'));
@@ -463,7 +463,7 @@
       })
     })
 
-    describe('- startsWith(prefixes)', function() {
+    describe('- startsWith(prefix1 [, prefix2, ...])', function() {
       it("should return true if the string starts with the input string", function() {
         T (S("JP is a software engineer").startsWith("JP"));
         F (S('wants to change the world').startsWith("politicians"));
