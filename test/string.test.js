@@ -547,6 +547,16 @@
           EQ (S(str).template(values).s, "Hello ")
         })
       })
+
+      describe('> when a key does not exist', function() {
+        it('should still replace with the empty value', function() {
+          S.TMPL_OPEN = '{{'
+          S.TMPL_CLOSE = '}}'
+          var str = "Hello {{name}}"
+          var values = {}
+          EQ (S(str).template(values).s, "Hello ")
+        })
+      })
     })
 
     describe('- times(n)', function() {
