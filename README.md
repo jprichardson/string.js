@@ -1051,7 +1051,7 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - [*] [Nathan Friedly](https://github.com/nfriedly)
 - [*] [Alison Rowland](https://github.com/arowla)
 - [3] [Sergio Muriel](https://github.com/Sergio-Muriel)
-- [2] [Azharul Islam](https://github.com/az7arul)
+- [3] [Azharul Islam](https://github.com/az7arul)
 - [1] [Venkatraman.R](https://github.com/ramsunvtech)
 - [1] [r3Fuze](https://github.com/r3Fuze)
 - [1] [Matt Hickford](https://github.com/hickford)

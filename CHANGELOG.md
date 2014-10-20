@@ -2,7 +2,7 @@
 ------------------
 - `endsWith()`, `startsWith()` accept multiple arguments: [Azharul Islam / #118](https://github.com/jprichardson/string.js/pull/118)
 - `template()`: allow for spaces for readability: [Azharul Islam / #119](https://github.com/jprichardson/string.js/pull/119)
-- 
+- `template()`: if key does not exist, replace with empty string [Azharul Islam / #117](https://github.com/jprichardson/string.js/pull/117)
 
 2.1.0 / 2014-09-22
 ------------------
