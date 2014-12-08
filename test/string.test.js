@@ -676,7 +676,9 @@
     describe('- underscore()', function() {
       it('should convert a camel cased string into a string separated by underscores', function() {
         T (S('dataRate').underscore().s === 'data_rate');
-        T (S('CarSpeed').underscore().s === '_car_speed');
+        T (S('CarSpeed').underscore().s === 'car_speed');
+        F (S('CarSpeed').underscore().s === '_car_speed');
+        T (S('_CarSpeed').underscore().s === '_car_speed');
         T (S('yesWeCan').underscore().s === 'yes_we_can');
       })
     })
