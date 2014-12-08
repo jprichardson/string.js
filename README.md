@@ -938,7 +938,7 @@ Example:
 
 ```javascript
 S('dataRate').underscore().s; //'data_rate'
-S('CarSpeed').underscore().s; //'_car_speed'
+S('CarSpeed').underscore().s; //'car_speed'
 S('yesWeCan').underscore().s; //'yes_we_can'
 ```
 
