@@ -1036,6 +1036,14 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 (You can add your name, or I'll add it if you forget)
 
 - [*] [JP Richardson](https://github.com/jprichardson)
+- [4] [Azharul Islam](https://github.com/az7arul)
+- [3] [Sergio Muriel](https://github.com/Sergio-Muriel)
+- [1] [Venkatraman.R](https://github.com/ramsunvtech)
+- [1] [r3Fuze](https://github.com/r3Fuze)
+- [1] [Matt Hickford](https://github.com/hickford)
+- [1] [Petr Brzek](https://github.com/petrbrzek)
+- [1] [Alex Zinchenko](https://github.com/yumitsu)
+- [1] [Guy Ellis](https://github.com/guyellis)
 - [*] [Leonardo Otero](https://github.com/oteroleonardo)
 - [*] [Jordan Scales](https://github.com/prezjordan)
 - [*] [Eduardo de Matos](https://github.com/eduardo-matos)
@@ -1050,14 +1058,7 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - [*] [James Manning](https://github.com/jamesmanning)
 - [*] [Nathan Friedly](https://github.com/nfriedly)
 - [*] [Alison Rowland](https://github.com/arowla)
-- [3] [Sergio Muriel](https://github.com/Sergio-Muriel)
-- [3] [Azharul Islam](https://github.com/az7arul)
-- [1] [Venkatraman.R](https://github.com/ramsunvtech)
-- [1] [r3Fuze](https://github.com/r3Fuze)
-- [1] [Matt Hickford](https://github.com/hickford)
-- [1] [Petr Brzek](https://github.com/petrbrzek)
-- [1] [Alex Zinchenko](https://github.com/yumitsu)
-- [1] [Guy Ellis](https://github.com/guyellis)
+
  
 
 Roadmap to v2.0
