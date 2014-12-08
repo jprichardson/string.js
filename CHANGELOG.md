@@ -1,3 +1,20 @@
+3.0.0 / 2014-12-08
+------------------
+**BREAKING** Now `underscore()` behaves as one would expect. 
+
+```js
+S('CarSpeed').underscore().s //'_car_speed'
+```
+
+now
+
+```js
+S('CarSpeed').underscore().s //'car_speed'
+```
+
+See [#122](https://github.com/jprichardson/string.js/pull/122) [#98](https://github.com/jprichardson/string.js/issues/98)
+
+
 2.2.0 / 2014-10-20
 ------------------
 - `endsWith()`, `startsWith()` accept multiple arguments: [Azharul Islam / #118](https://github.com/jprichardson/string.js/pull/118)
