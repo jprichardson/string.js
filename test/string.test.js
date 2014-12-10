@@ -420,6 +420,17 @@
       })
     })
 
+    describe('- reverse(string)', function() {
+      it('should return the reversed string', function() {
+        T (S(null).reverse() === null);
+        T (S(undefined).reverse() === undefined);
+
+        EQ (S('').reverse(), '');
+        EQ (S('a').reverse(), 'a');
+        EQ (S('abc').reverse(), 'cba');
+      })
+    })
+
     describe('- strip([string1],[string2],...)', function() {
       it('should return the new string with all occurrences of [string1],[string2],... removed', function() {
         T (S('which ones will it take out one wonders').strip('on', 'er').s === 'which es will it take out e wds');
