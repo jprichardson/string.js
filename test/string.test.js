@@ -428,6 +428,7 @@
         EQ (S('').reverse(), '');
         EQ (S('a').reverse(), 'a');
         EQ (S('abc').reverse(), 'cba');
+        EQ (S('abc').reverse().reverse(), 'abc');
       })
     })
 
