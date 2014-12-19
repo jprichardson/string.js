@@ -425,10 +425,10 @@
         T (S(null).reverse() === null);
         T (S(undefined).reverse() === undefined);
 
-        EQ (S('').reverse(), '');
-        EQ (S('a').reverse(), 'a');
-        EQ (S('abc').reverse(), 'cba');
-        EQ (S('abc').reverse().reverse(), 'abc');
+        EQ (S('').reverse().s, '');
+        EQ (S('a').reverse().s, 'a');
+        EQ (S('abc').reverse().s, 'cba');
+        EQ (S('abc').reverse().reverse().s, 'abc');
       })
     })
 
@@ -508,7 +508,7 @@
 
         var str = "{{greet }} {{ name}}! How are you doing during the year of {{  date-year }}?";
         EQ (S(str).template(values).s, 'Hello JP! How are you doing during the year of 2013?')
-						
+
         str = "Hello #{name}! How are you doing during the year of #{date-year}?"
         EQ (S(str).template(values, '#{', '}').s, 'Hello JP! How are you doing during the year of 2013?')
 

@@ -512,7 +512,7 @@ Example:
 var stuff = "My name is JP\nJavaScript is my fav language\r\nWhat is your fav language?"
 var lines = S(stuff).lines()
 
-console.dir(lines) 
+console.dir(lines)
 /*
 [ 'My name is JP',
   'JavaScript is my fav language',
@@ -523,7 +523,7 @@ console.dir(lines)
 
 ### - pad(len, [char])
 
-Pads the string in the center with specified character. `char` may be a string or a number, defaults is a space. 
+Pads the string in the center with specified character. `char` may be a string or a number, defaults is a space.
 
 Example:
 
@@ -629,6 +629,18 @@ Example:
 S.restorePrototype();
 ```
 
+### - reverse ###
+
+Returns reversed string.
+
+Example:
+
+```javascript
+S('backwards').reverse().s; // 'sdrawkcab'
+S('backwards').reverse().reverse().s; // 'backwards'
+S(undefined).reverse() // undefined
+S(null).reverse() // null
+```
 
 ### - right(n) ###
 
@@ -955,7 +967,7 @@ S('&lt;div&gt;hi&lt;/div&gt;').unescapeHTML().s; //<div>hi</div>
 
 ### - wrapHTML() ###
 
-wrapHTML helps to avoid concatenation of element with string. 
+wrapHTML helps to avoid concatenation of element with string.
 the string will be wrapped with HTML Element and their attributes.
 
 Example:
@@ -1059,7 +1071,7 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - [*] [Nathan Friedly](https://github.com/nfriedly)
 - [*] [Alison Rowland](https://github.com/arowla)
 
- 
+
 
 Roadmap to v2.0
 ---------------
