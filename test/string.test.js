@@ -421,14 +421,28 @@
     })
 
     describe('- reverse(string)', function() {
-      it('should return the reversed string', function() {
-        T (S(null).reverse() === null);
-        T (S(undefined).reverse() === undefined);
+      describe('null and undefined', function() {
+        it('should return empty strings', function() {
+          T (S(null).reverse().s === '');
+          T (S(undefined).reverse().s === '');
+        })
+      })
 
-        EQ (S('').reverse().s, '');
-        EQ (S('a').reverse().s, 'a');
-        EQ (S('abc').reverse().s, 'cba');
-        EQ (S('abc').reverse().reverse().s, 'abc');
+      describe('strings', function() {
+        it('should return the reversed string', function() {
+          EQ (S('').reverse().s, '');
+          EQ (S('a').reverse().s, 'a');
+          EQ (S('abc').reverse().s, 'cba');
+          EQ (S('abc').reverse().reverse().s, 'abc');
+        })
+      })
+
+      describe('arrays and objects', function() {
+        it('should return the reversed string', function() {
+          EQ (S([]).reverse().s, '');
+          EQ (S([1, 2]).reverse().s, '2,1');
+          EQ (S({}).reverse().s, ']tcejbO tcejbo[');
+        })
       })
     })
 
