@@ -4,7 +4,7 @@ min:
 	cat lib/string.js | uglifyjs > lib/string.min.js
 
 size:
-	cat lib/string.js | uglifyjs | gzip | wc -c
+	cat lib/string.min.js | gzip | wc -c
 
 clean:
 	rm -f lib/string.min.js
