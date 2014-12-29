@@ -420,6 +420,32 @@
       })
     })
 
+    describe('- reverse(string)', function() {
+      describe('null and undefined', function() {
+        it('should return empty strings', function() {
+          T (S(null).reverse().s === '');
+          T (S(undefined).reverse().s === '');
+        })
+      })
+
+      describe('strings', function() {
+        it('should return the reversed string', function() {
+          EQ (S('').reverse().s, '');
+          EQ (S('a').reverse().s, 'a');
+          EQ (S('abc').reverse().s, 'cba');
+          EQ (S('abc').reverse().reverse().s, 'abc');
+        })
+      })
+
+      describe('arrays and objects', function() {
+        it('should return the reversed string', function() {
+          EQ (S([]).reverse().s, '');
+          EQ (S([1, 2]).reverse().s, '2,1');
+          EQ (S({}).reverse().s, ']tcejbO tcejbo[');
+        })
+      })
+    })
+
     describe('- strip([string1],[string2],...)', function() {
       it('should return the new string with all occurrences of [string1],[string2],... removed', function() {
         T (S('which ones will it take out one wonders').strip('on', 'er').s === 'which es will it take out e wds');
@@ -496,7 +522,7 @@
 
         var str = "{{greet }} {{ name}}! How are you doing during the year of {{  date-year }}?";
         EQ (S(str).template(values).s, 'Hello JP! How are you doing during the year of 2013?')
-						
+
         str = "Hello #{name}! How are you doing during the year of #{date-year}?"
         EQ (S(str).template(values, '#{', '}').s, 'Hello JP! How are you doing during the year of 2013?')
 
