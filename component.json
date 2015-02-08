@@ -27,5 +27,6 @@
   "development": {},
   "scripts": [
     "lib/string.min.js"
-  ]
+  ],
+  "license": "MIT"
 }
