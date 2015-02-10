@@ -172,7 +172,7 @@
     describe('- escapeHTML()', function() {
       it('should escape the html', function() {
         T (S('<div>Blah & "blah" & \'blah\'</div>').escapeHTML().s ===
-             '&lt;div&gt;Blah &amp; &quot;blah&quot; &amp; &apos;blah&apos;&lt;/div&gt;');
+             '&lt;div&gt;Blah &amp; &quot;blah&quot; &amp; &#39;blah&#39;&lt;/div&gt;');
         T (S('&lt;').escapeHTML().s === '&amp;lt;');
       })
     })
@@ -685,7 +685,7 @@
 
     describe('- unescapeHTML', function() {
       it('should unescape the HTML', function() {
-        T (S('&lt;div&gt;Blah &amp; &quot;blah&quot; &amp; &apos;blah&apos;&lt;/div&gt;').unescapeHTML().s ===
+        T (S('&lt;div&gt;Blah &amp; &quot;blah&quot; &amp; &#39;blah&#39;&lt;/div&gt;').unescapeHTML().s ===
              '<div>Blah & "blah" & \'blah\'</div>');
         T (S('&amp;lt;').unescapeHTML().s === '&lt;');
       })
