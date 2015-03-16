@@ -680,6 +680,7 @@
         F (S('CarSpeed').underscore().s === '_car_speed');
         T (S('_CarSpeed').underscore().s === '_car_speed');
         T (S('yesWeCan').underscore().s === 'yes_we_can');
+        T (S('oneAtATime').underscore().s === 'one_at_a_time');
       })
     })
 
