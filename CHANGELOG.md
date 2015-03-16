@@ -1,3 +1,11 @@
+3.0.1 / 2015-03-16
+------------------
+* bugfix `underscore()` for single letter "words" [#131](https://github.com/jprichardson/string.js/pull/131)
+
+```js
+S('oneAtATime').underscore().s //'one_at_a_time' instead of 'one_at_atime'
+```
+
 3.0.0 / 2014-12-08
 ------------------
 **BREAKING** Now `underscore()` behaves as one would expect. 
