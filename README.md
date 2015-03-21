@@ -702,6 +702,27 @@ S(' 1 2 3--__--4 5 6-7__8__9--0').strip(' ', '_', '-').s; //'1234567890'
 S('can words also be stripped out?').strip('words', 'also', 'be').s; //'can    stripped out?'
 ```
 
+### - stripLeft([chars]) ###
+Returns a new string in which all chars have been stripped from the beginning of the string (default whitespace characters).
+
+Example:
+
+```javascript
+S('  hello ').stripLeft().s; //'hello '
+S('abcz').stripLeft('a-z').s; //'bcz'
+S('www.example.com').stripLeft('w.').s; //'example.com'
+```
+
+### - stripRight([chars]) ###
+Returns a new string in which all chars have been stripped from the end of the string (default whitespace characters).
+
+Example:
+
+```javascript
+S('  hello ').stripRight().s; //'  hello'
+S('abcz').stripRight('a-z').s; //'abc'
+```
+
 
 ### - stripPunctuation()
 
