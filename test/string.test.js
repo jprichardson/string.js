@@ -427,6 +427,55 @@
       })
     })
 
+    describe('- stripLeft(chars)', function () {
+
+      it('should return the new string with all occurences of `chars` removed from left', function () {
+        T (S('hello').stripLeft().s === 'hello');
+        T (S('hello').stripLeft('').s === 'hello');
+        T (S('  hello  ').stripLeft().s === 'hello  ');
+        T (S('foo ').stripLeft().s === 'foo ');
+        T (S('').stripLeft().s === '');
+        T (S(null).stripLeft().s === '');
+        T (S(undefined).stripLeft().s === '');
+        T (S('aazz').stripLeft('a').s === 'zz');
+        T (S('yytest').stripLeft('t').s === 'yytest');
+        T (S('xxxyyxx').stripLeft('x').s === 'yyxx');
+        T (S('abcz').stripLeft('a-z').s === 'bcz');
+        T (S('z alpha z').stripLeft('a-z').s === ' alpha z');
+        T (S('_-foobar-_').stripLeft('_-').s === 'foobar-_');
+
+        T (S('_.foo-_').stripLeft('_.').s === 'foo-_');
+        T (S('?foo ').stripLeft('?').s === 'foo ');
+        T (S('[$]hello-^').stripLeft('^[a-z]$').s === 'hello-^');
+
+        T (S(123).stripLeft(1).s === '23');
+      });
+    });
+
+    describe('- stripRight(chars)', function () {
+
+      it('should return the new string with all occurences of `chars` removed from right', function () {
+        T (S('hello').stripRight().s === 'hello');
+        T (S('hello').stripRight('').s === 'hello');
+        T (S('  hello  ').stripRight().s === '  hello');
+        T (S('  foo').stripRight().s === '  foo');
+        T (S('').stripRight().s === '');
+        T (S(null).stripRight().s === '');
+        T (S(undefined).stripRight().s === '');
+        T (S('aazz').stripRight('z').s === 'aa');
+        T (S('xxxyyxx').stripRight('x').s === 'xxxyy');
+        T (S('abcz').stripRight('a-z').s === 'abc');
+        T (S('z alpha z').stripRight('a-z').s === 'z alpha ');
+        T (S('_-foobar-_').stripRight('_-').s === '_-foobar');
+
+        T (S('_.foo_.').stripRight('_.').s === '_.foo');
+        T (S(' foo?').stripRight('?').s === ' foo');
+        T (S('[$]hello-^').stripRight('^[a-z]$').s === '[$]hello');
+
+        T (S(123).stripRight(3).s === '12');
+      });
+    });
+
     describe('+ restorePrototype()', function() {
       it('should restore the original String prototype', function() {
         T (typeof ' hi'.endsWith === 'undefined');
