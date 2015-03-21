@@ -1,3 +1,8 @@
+3.1.0 / 2015-03-21
+------------------
+- added `stripLeft([chars])` and `stripRight([chars])` [#133](https://github.com/jprichardson/string.js/pull/133)
+
+
 3.0.1 / 2015-03-16
 ------------------
 * bugfix `underscore()` for single letter "words" [#131](https://github.com/jprichardson/string.js/pull/131)
