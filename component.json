@@ -26,6 +26,6 @@
   "dependencies": {},
   "development": {},
   "scripts": [
-    "lib/string.min.js"
+    "dist/string.min.js"
   ]
 }

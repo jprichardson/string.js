@@ -22,8 +22,9 @@
     "escape",
     "unescape"
   ],
-  "main": "./lib/string.min.js",
+  "main": "./dist/string.min.js",
   "ignore": [
+    "lib/",
     "node_modules/",
     "package.json",
     "component.json",
