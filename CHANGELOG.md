@@ -1,3 +1,8 @@
+3.1.1 / 2015-03-26
+------------------
+- hack to work around the improper behavior (modifying of string prototype) of [shelljs](https://github.com/arturadib/shelljs)
+see: [127](https://github.com/jprichardson/string.js/issues/127), [128](https://github.com/jprichardson/string.js/pull/128)
+
 3.1.0 / 2015-03-21
 ------------------
 - added `stripLeft([chars])` and `stripRight([chars])` [#133](https://github.com/jprichardson/string.js/pull/133)
