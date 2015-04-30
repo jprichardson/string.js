@@ -764,6 +764,40 @@
       })
     })
 
+    describe('- beforeFirst()', function () {
+      it('should return before the first occurrence', function () {
+        T (S('abcdabcd').beforeFirst('a').s === '')
+        T (S('abcdabcd').beforeFirst('b').s === 'a')
+        T (S('abcdabcd').beforeFirst('d').s === 'abc')
+        T (S('abcdabcd').beforeFirst('x').s === '')
+      })
+    })
+
+    describe('- beforeLast()', function () {
+      it('should return before the last occurrence', function () {
+        T (S('abcdabcd').beforeLast('a').s === 'abcd')
+        T (S('abcdabcd').beforeLast('d').s === 'abcdabc')
+        T (S('abcdabcd').beforeLast('x').s === '')
+      })
+    })
+
+    describe('- afterFirst()', function () {
+      it('should return after the first occurrence', function () {
+        T (S('abcdabcd').afterFirst('a').s === 'bcdabcd')
+        T (S('abcdabcd').afterFirst('b').s === 'cdabcd')
+        T (S('abcdabcz').afterFirst('z').s === '')
+        T (S('abcdabcd').afterFirst('x').s === '')
+      })
+    })
+
+    describe('- afterLast()', function () {
+      it('should return after the last occurrence', function () {
+        T (S('abcdabcd').afterLast('a').s === 'bcd')
+        T (S('abcdabcd').afterLast('d').s === '')
+        T (S('abcdabcd').afterLast('x').s === '')
+      })
+    })
+
     describe('+ VERSION', function() {
       it('should exist', function() {
         T (S.VERSION)
