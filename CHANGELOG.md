@@ -1,3 +1,8 @@
+3.1.2 / 2015-04-30
+------------------
+- added `beforeFirst([chars])` and `beforeLast([chars])` - substring before first or last occurrence
+- added `afterFirst([chars])` and `afterLast([chars])` - substring after first or last occurrence
+
 3.1.1 / 2015-03-26
 ------------------
 - hack to work around the improper behavior (modifying of string prototype) of [shelljs](https://github.com/arturadib/shelljs)
