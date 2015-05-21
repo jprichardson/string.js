@@ -28,11 +28,7 @@
     "unescape"
   ],
   "author": "JP Richardson <jprichardson@gmail.com>",
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ],
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "mocha": "*",
