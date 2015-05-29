@@ -1,0 +1,14 @@
+{
+  "sauceLabs": true,
+  "browsers": [
+    {
+      "name": "chrome"
+    },
+    {
+      "name": "firefox"
+    },
+    {
+      "name": "safari"
+    }
+  ]
+}
