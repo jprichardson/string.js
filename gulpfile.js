@@ -5,6 +5,7 @@ var gulp = require('gulp'),
   browserify = require('gulp-browserify'),
   SRC = './lib/string.js',
   TEST_SRC = './test/string.test.js',
+  mochify = require('mochify'),
   DEST = 'dist',
   mocha = require('gulp-mocha'),
   SRC_COMPILED = 'string.js',
@@ -19,10 +20,18 @@ gulp.task('browserify', function() {
     .pipe(gulp.dest(DEST));
 });
 
-gulp.task('test', ['browserify'], function () {
+gulp.task('browser-test', function (done) {
+  return mochify( { wd: true } )
+    .on('error', function(err){ if(err) done(err); else done(); })
+    .bundle();
+});
+
+gulp.task('unit-test', ['browserify'], function () {
   return gulp.src(TEST_SRC, {read: false})
     .pipe(mocha({reporter: 'spec', growl: 1}));
 });
+
+gulp.task('test', ['unit-test', 'browser-test']);
 
 gulp.task('clean', function() {
   return gulp.src(DEST)

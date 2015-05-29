@@ -3,3 +3,12 @@ node_js:
   - 0.10
   - 0.12
   - iojs
+
+cache:
+  directories:
+    - node_modules
+
+env:
+  global:
+    - SAUCE_USERNAME=stringjs
+    - SAUCE_ACCESS_KEY=04afebd2-6375-4c09-ada4-c218609ab3da
