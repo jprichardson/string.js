@@ -20,7 +20,7 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
 !(function() {
   "use strict";
 
-  var VERSION = '3.1.1';
+  var VERSION = '3.1.2';
 
   var ENTITIES = {};
 

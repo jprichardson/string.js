@@ -1,3 +1,9 @@
+3.1.2 / 2015-05-29
+-------------------
+
+- fix `extendPrototype()` method
+
+
 3.1.1 / 2015-03-26
 ------------------
 - hack to work around the improper behavior (modifying of string prototype) of [shelljs](https://github.com/arturadib/shelljs)
