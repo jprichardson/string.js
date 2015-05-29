@@ -3,3 +3,8 @@ node_js:
   - 0.10
   - 0.12
   - iojs
+
+env:
+  global:
+    - secure: CD1v7DoAnjgD503/FvF9e3ciJj9L7sqOOMp2s/m01eZZsqdlKxYVAyXaX64ZD2e1tKlJ4YWpnZOB67475u0izP82Mqplv+PuFtlSqYsmoslA/9CiHBizbYvCth91DES+B0wvprdQDD5Ojh/pMPJiF+gn/MogwAc1yWPkneW8Nlk=
+    - secure: WVicBpgC15UexlVVkKh/MfvAw6MobxOYueCv3f3NF7IKx1F9mdjzXYlwSlBLLWE6EujebDmcsglOiWSzFCvn9A8gJLpZFWAa9vAorPqkZmBj4rvlMy0GQ4IEl2cheVoELNjAj1MAwtWTQJiW58BZ5+9oWg7JzU8j4C/F3UNNXeM=
