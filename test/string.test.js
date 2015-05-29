@@ -180,10 +180,10 @@
      describe('+ extendPrototype()', function() {
       it('should extend the String prototype with the extra methods', function() {
         S.extendPrototype();
-        T (" hello!".endsWith('!'));
+        T (" hello!".include('!'));
         S.restorePrototype();
       })
-    })
+    });
 
     describe('- humanize()', function() {
       it('should humanize the string', function() {
@@ -478,11 +478,11 @@
 
     describe('+ restorePrototype()', function() {
       it('should restore the original String prototype', function() {
-        T (typeof ' hi'.endsWith === 'undefined');
+        T (typeof 'hello world'.include === 'undefined');
         S.extendPrototype();
-        T (' hi'.endsWith('hi'));
+        T ('hello world'.include('world'));
         S.restorePrototype();
-        T (typeof ' hi'.endsWith === 'undefined');
+        T (typeof ' hello world'.include === 'undefined');
       })
     })
 
