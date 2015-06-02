@@ -545,7 +545,7 @@
 
         var str = "{{greet }} {{ name}}! How are you doing during the year of {{  date-year }}?";
         EQ (S(str).template(values).s, 'Hello JP! How are you doing during the year of 2013?')
-						
+
         str = "Hello #{name}! How are you doing during the year of #{date-year}?"
         EQ (S(str).template(values, '#{', '}').s, 'Hello JP! How are you doing during the year of 2013?')
 
@@ -612,6 +612,26 @@
       it('should return the string concatenated with itself n times', function() {
         T (S(' ').times(5).s === '     ');
         T (S('*').times(3).s === '***');
+      })
+    })
+
+    describe('- titleCase()', function() {
+      it('should upperCase all words in a camel cased string', function() {
+        T (S('dataRate').titleCase().s === 'DataRate');
+        T (S('CarSpeed').titleCase().s === 'CarSpeed');
+        T (S('yesWeCan').titleCase().s === 'YesWeCan');
+        T (S('backgroundColor').titleCase().s === 'BackgroundColor');
+      })
+      it('should upperCase all words in a string with spaces, underscores, or dashes', function() {
+        T (S('Like ice in the sunshine').titleCase().s === 'Like Ice In The Sunshine');
+        T (S('data_rate').titleCase().s === 'Data_Rate');
+        T (S('background-color').titleCase().s === 'Background-Color');
+        T (S('-moz-something').titleCase().s === '-Moz-Something');
+        T (S('_car_speed_').titleCase().s === '_Car_Speed_');
+        T (S('yes_we_can').titleCase().s === 'Yes_We_Can');
+      })
+      it('can be combined with humanize to create nice titles out of ugly developer strings', function() {
+        EQ (S('   capitalize dash-CamelCase_underscore trim  ').humanize().titleCase().s, 'Capitalize Dash Camel Case Underscore Trim')
       })
     })
 
