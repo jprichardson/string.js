@@ -614,6 +614,31 @@
         T (S('*').times(3).s === '***');
       })
     })
+ 
+    describe('- titleCase()', function() {
+      it('should upperCase all words in a camel cased string', function() {
+        EQ (S('dataRate').titleCase().s, 'DataRate')
+        EQ (S('CarSpeed').titleCase().s, 'CarSpeed')
+        EQ (S('yesWeCan').titleCase().s, 'YesWeCan')
+        EQ (S('backgroundColor').titleCase().s, 'BackgroundColor')
+      })
+      it('should upperCase all words in a string with spaces, underscores, or dashes', function() {
+        EQ (S('Like ice in the sunshine').titleCase().s, 'Like Ice In The Sunshine')
+        EQ (S('data_rate').titleCase().s, 'Data_Rate')
+        EQ (S('background-color').titleCase().s, 'Background-Color')
+        EQ (S('-moz-something').titleCase().s, '-Moz-Something')
+        EQ (S('_car_speed_').titleCase().s, '_Car_Speed_')
+        EQ (S('yes_we_can').titleCase().s, 'Yes_We_Can')
+      })
+      it('can be combined with humanize to create nice titles out of ugly developer strings', function() {
+        EQ (S('   capitalize dash-CamelCase_underscore trim  ').humanize().titleCase().s, 'Capitalize Dash Camel Case Underscore Trim')
+      })
+      it('does not fail on edge cases', function () {
+        EQ (S('').titleCase().s,'')
+        EQ (S(null).titleCase().s,null)
+        EQ (S(undefined).titleCase().s,undefined)
+      })
+    })
 
     describe('- toFloat([precision])', function() {
       it('should return the float value, wraps parseFloat', function() {

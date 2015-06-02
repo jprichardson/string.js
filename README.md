@@ -786,6 +786,24 @@ S('*').times(3).s //'***'
 ```
 
 
+### - titleCase() ###
+
+Returns a string with the first letter of each word uppercased, including hyphenated words
+
+Example:
+
+```javascript
+S('Like ice in the sunshine').titleCase().s // 'Like Ice In The Sunshine'
+S('data_rate').titleCase().s // 'Data_Rate'
+S('background-color').titleCase().s // 'Background-Color'
+S('-moz-something').titleCase().s // '-Moz-Something'
+S('_car_speed_').titleCase().s // '_Car_Speed_'
+S('yes_we_can').titleCase().s // 'Yes_We_Can
+
+S('   capitalize dash-CamelCase_underscore trim  ').humanize().titleCase().s // 'Capitalize Dash Camel Case Underscore Trim'
+```
+
+
 ### - toBoolean() / toBool()
 
 Converts a a logical truth string to boolean. That is: `true`, `1`, `'true'`, `'on'`, or `'yes'`.
@@ -1082,6 +1100,7 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - [*] [James Manning](https://github.com/jamesmanning)
 - [*] [Nathan Friedly](https://github.com/nfriedly)
 - [*] [Alison Rowland](https://github.com/arowla)
+- [*] [Pascal Bihler](https://github.com/pbihler)
 
  
 
