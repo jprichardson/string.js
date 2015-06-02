@@ -20,7 +20,7 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
 !(function() {
   "use strict";
 
-  var VERSION = '3.1.3';
+  var VERSION = '3.2.0';
 
   var ENTITIES = {};
 
@@ -466,6 +466,18 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
     times: function(n) {
       return new this.constructor(new Array(n + 1).join(this.s));
     },
+    
+    titleCase: function() {
+      var s = this.s;
+      if (s) {
+        s = s.replace(/(^[a-z]| [a-z]|-[a-z]|_[a-z])/g, 
+          function($1){
+            return $1.toUpperCase();
+          }
+        );
+      }
+      return new this.constructor(s);
+    },
 
     toBoolean: function() {
       if (typeof this.orig === 'string') {
@@ -605,7 +617,7 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
 
     //#modified from https://github.com/epeli/underscore.string
     underscore: function() {
-      var s = this.trim().s.replace(/([a-z\d])([A-Z]+)/g, '$1_$2').replace(/([A-Z\d]+)([A-Z][a-z])/,'$1_$2').replace(/[-\s]+/g, '_').toLowerCase();
+      var s = this.trim().s.replace(/([a-z\d])([A-Z]+)/g, '$1_$2').replace(/([A-Z\d]+)([A-Z][a-z])/g,'$1_$2').replace(/[-\s]+/g, '_').toLowerCase();
       return new this.constructor(s);
     },
 

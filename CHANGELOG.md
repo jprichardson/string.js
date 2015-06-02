@@ -1,3 +1,8 @@
+3.2.0 / 2015-06-02
+---------------------
+- added `titleCase()` method [#149](https://github.com/jprichardson/string.js/pull/149)
+- fix `underscore()` [#148](https://github.com/jprichardson/string.js/pull/148)
+
 3.1.3 / 2015-05-29
 --------------------
 - fix [#142](https://github.com/jprichardson/string.js/issues/142)
