@@ -515,7 +515,7 @@ Example:
 var stuff = "My name is JP\nJavaScript is my fav language\r\nWhat is your fav language?"
 var lines = S(stuff).lines()
 
-console.dir(lines) 
+console.dir(lines)
 /*
 [ 'My name is JP',
   'JavaScript is my fav language',
@@ -526,7 +526,7 @@ console.dir(lines)
 
 ### - pad(len, [char])
 
-Pads the string in the center with specified character. `char` may be a string or a number, defaults is a space. 
+Pads the string in the center with specified character. `char` may be a string or a number, defaults is a space.
 
 Example:
 
@@ -786,6 +786,24 @@ S('*').times(3).s //'***'
 ```
 
 
+### - titleCase() ###
+
+Returns a string with the first letter of each word uppercased, including hyphenated words
+
+Example:
+
+```javascript
+S('Like ice in the sunshine').titleCase().s // 'Like Ice In The Sunshine'
+S('data_rate').titleCase().s // 'Data_Rate'
+S('background-color').titleCase().s // 'Background-Color'
+S('-moz-something').titleCase().s // '-Moz-Something'
+S('_car_speed_').titleCase().s // '_Car_Speed_'
+S('yes_we_can').titleCase().s // 'Yes_We_Can
+
+S('   capitalize dash-CamelCase_underscore trim  ').humanize().titleCase().s // 'Capitalize Dash Camel Case Underscore Trim'
+```
+
+
 ### - toBoolean() / toBool()
 
 Converts a a logical truth string to boolean. That is: `true`, `1`, `'true'`, `'on'`, or `'yes'`.
@@ -979,7 +997,7 @@ S('&lt;div&gt;hi&lt;/div&gt;').unescapeHTML().s; //<div>hi</div>
 
 ### - wrapHTML() ###
 
-wrapHTML helps to avoid concatenation of element with string. 
+wrapHTML helps to avoid concatenation of element with string.
 the string will be wrapped with HTML Element and their attributes.
 
 Example:
@@ -1083,7 +1101,7 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - [*] [Nathan Friedly](https://github.com/nfriedly)
 - [*] [Alison Rowland](https://github.com/arowla)
 
- 
+
 
 Roadmap to v2.0
 ---------------
@@ -1116,6 +1134,3 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 [aboutjp]: http://about.me/jprichardson
 [twitter]: http://twitter.com/jprichardson
 [procbits]: http://procbits.com
-
-
-
