@@ -38,7 +38,7 @@ gulp.task('clean', function() {
     .pipe(rimraf());
 });
 
-gulp.task('build', ['test', 'clean'], function() {
+gulp.task('build', ['unit-test', 'clean'], function() {
   gulp.src(DEST + '/' + SRC_COMPILED)
     .pipe(uglify())
     .pipe(rename(MIN_FILE))
