@@ -515,7 +515,7 @@ Example:
 var stuff = "My name is JP\nJavaScript is my fav language\r\nWhat is your fav language?"
 var lines = S(stuff).lines()
 
-console.dir(lines) 
+console.dir(lines)
 /*
 [ 'My name is JP',
   'JavaScript is my fav language',
@@ -526,7 +526,7 @@ console.dir(lines)
 
 ### - pad(len, [char])
 
-Pads the string in the center with specified character. `char` may be a string or a number, defaults is a space. 
+Pads the string in the center with specified character. `char` may be a string or a number, defaults is a space.
 
 Example:
 
@@ -682,15 +682,43 @@ S('Crème brûlée').slugify().s // 'creme-brulee'
 ```
 
 
-### - startsWith(prefix)   ###
+### - splitLeft(sep, [maxSplit = -1, [limit]]) ###
+
+Returns an array of strings, split from the left at `sep`. Performs at most `maxSplit` splits, and slices the result into an array with at most `limit` elements.
+
+Example:
+
+```javascript
+S('We built this city').splitLeft(' '); // ['We', 'built', 'this', 'city'];
+S('We built this city').splitLeft(' ', 1); // ['We', 'built this city'];
+S('On Rock N Roll and other Stuff').splitLeft(' ', -1, 4); // ['On', 'Rock', 'N', 'Roll'];
+S('On Rock N Roll and other Stuff').splitLeft(' ', 5, -2); // ['and', 'other Stuff'];
+```
+
+
+### - splitRight(sep, [maxSplit = -1, [limit]]) ###
+
+Returns an array of strings, split from the left at `sep`. Performs at most `maxSplit` splits, and slices the result into an array with at most `limit` elements.
+
+Example:
+
+```javascript
+S('This is all very fun').splitRight(' '); // ['THis', 'built', 'this', 'city'];
+S('and I could do it forever').splitRight(' ', 1); // ['and I could do it', 'forever'];
+S('but nothing matters in the end.').splitRight(' ', -1, 2); // ['the', 'end.'];
+S('but nothing matters in the end.').splitRight(' ', 4, -2); // ['but nothing', 'matters'];
+```
+
+
+### - startsWith(prefix) ###
 
 Return true if the string starts with `prefix`.
 
 Example:
 
 ```javascript
-S("JP is a software engineer").startsWith("JP"); //true
-S('wants to change the world').startsWith("politicians"); //false
+S('JP is a software engineer').startsWith('JP'); //true
+S('wants to change the world').startsWith('politicians'); //false
 ```
 
 
@@ -997,7 +1025,7 @@ S('&lt;div&gt;hi&lt;/div&gt;').unescapeHTML().s; //<div>hi</div>
 
 ### - wrapHTML() ###
 
-wrapHTML helps to avoid concatenation of element with string. 
+wrapHTML helps to avoid concatenation of element with string.
 the string will be wrapped with HTML Element and their attributes.
 
 Example:
@@ -1101,8 +1129,9 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - [*] [Nathan Friedly](https://github.com/nfriedly)
 - [*] [Alison Rowland](https://github.com/arowla)
 - [*] [Pascal Bihler](https://github.com/pbihler)
+- [*] [Daniel Diekmeier](https://github.com/danieldiekmeier)
 
- 
+
 
 Roadmap to v2.0
 ---------------
@@ -1135,6 +1164,3 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 [aboutjp]: http://about.me/jprichardson
 [twitter]: http://twitter.com/jprichardson
 [procbits]: http://procbits.com
-
-
-
