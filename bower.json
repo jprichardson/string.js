@@ -22,7 +22,7 @@
     "escape",
     "unescape"
   ],
-  "main": "./dist/string.js",
+  "main": "./dist/string.min.js",
   "ignore": [
     "lib/",
     "node_modules/",
