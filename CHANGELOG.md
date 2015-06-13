@@ -1,3 +1,8 @@
+3.2.1 / 2015-06-13
+---------------------
+- add missing minified version
+- update phpjs link in README [#154](https://github.com/jprichardson/string.js/pull/154)
+
 3.2.0 / 2015-06-02
 ---------------------
 - added `titleCase()` method [#149](https://github.com/jprichardson/string.js/pull/149)
