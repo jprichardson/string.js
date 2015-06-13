@@ -22,7 +22,7 @@ Here's a list of alternative frameworks:
 * [Google Closure's String](http://closure-library.googlecode.com/svn/docs/namespace_goog_string.html)
 * [Underscore.string](http://epeli.github.com/underscore.string/)
 * [Sugar.js](http://sugarjs.com)
-* [php.js](http://phpjs.org/pages/home)
+* [php.js](http://phpjs.org/functions/)
 
 Why wasn't I happy with any of them? They are all static methods that don't seem to support chaining in a clean way 'OR' they have an odd dependency. Sugar is the notable exception.
 
