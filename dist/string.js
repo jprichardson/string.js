@@ -13,6 +13,68 @@ function count(self, substr) {
 
 module.exports = count
 },{}],2:[function(_dereq_,module,exports){
+function splitLeft(self, sep, maxSplit, limit) {
+
+  if (typeof maxSplit === 'undefined') {
+    var maxSplit = -1;
+  }
+
+  var splitResult = self.split(sep);
+  var splitPart1 = splitResult.slice(0, maxSplit);
+  var splitPart2 = splitResult.slice(maxSplit);
+
+  if (splitPart2.length === 0) {
+    splitResult = splitPart1;
+  } else {
+    splitResult = splitPart1.concat(splitPart2.join(sep));
+  }
+
+  if (typeof limit === 'undefined') {
+    return splitResult;
+  } else if (limit < 0) {
+    return splitResult.slice(limit);
+  } else {
+    return splitResult.slice(0, limit);
+  }
+
+}
+
+module.exports = splitLeft;
+
+},{}],3:[function(_dereq_,module,exports){
+function splitRight(self, sep, maxSplit, limit) {
+
+  if (typeof maxSplit === 'undefined') {
+    var maxSplit = -1;
+  }
+  if (typeof limit === 'undefined') {
+    var limit = 0;
+  }
+
+  var splitResult = [self];
+
+  for (var i = self.length-1; i >= 0; i--) {
+
+    if (
+      splitResult[0].slice(i).indexOf(sep) === 0 &&
+      (splitResult.length <= maxSplit || maxSplit === -1)
+    ) {
+      splitResult.splice(1, 0, splitResult[0].slice(i+sep.length)); // insert
+      splitResult[0] = splitResult[0].slice(0, i)
+    }
+  }
+
+  if (limit >= 0) {
+    return splitResult.slice(-limit);
+  } else {
+    return splitResult.slice(0, -limit);
+  }
+
+}
+
+module.exports = splitRight;
+
+},{}],4:[function(_dereq_,module,exports){
 /*
 string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
 */
@@ -20,7 +82,7 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
 !(function() {
   "use strict";
 
-  var VERSION = '3.2.1';
+  var VERSION = '3.3.0';
 
   var ENTITIES = {};
 
@@ -362,6 +424,14 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
       return new this.constructor(s);
     },
 
+    splitLeft: function(sep, maxSplit, limit) {
+      return _dereq_('./_splitLeft')(this.s, sep, maxSplit, limit)
+    },
+
+    splitRight: function(sep, maxSplit, limit) {
+      return _dereq_('./_splitRight')(this.s, sep, maxSplit, limit)
+    },
+
     strip: function() {
       var ss = this.s;
       for(var i= 0, n=arguments.length; i<n; i++) {
@@ -466,11 +536,11 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
     times: function(n) {
       return new this.constructor(new Array(n + 1).join(this.s));
     },
-    
+
     titleCase: function() {
       var s = this.s;
       if (s) {
-        s = s.replace(/(^[a-z]| [a-z]|-[a-z]|_[a-z])/g, 
+        s = s.replace(/(^[a-z]| [a-z]|-[a-z]|_[a-z])/g,
           function($1){
             return $1.toUpperCase();
           }
@@ -1109,6 +1179,6 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
 
 }).call(this);
 
-},{"./_count":1}]},{},[2])
-(2)
+},{"./_count":1,"./_splitLeft":2,"./_splitRight":3}]},{},[4])
+(4)
 });

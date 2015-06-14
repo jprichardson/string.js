@@ -1,3 +1,7 @@
+3.3.0 / 2015-06-15
+---------------------
+- added `splitRight` and `splitLeft` method [#153](https://github.com/jprichardson/string.js/pull/153)
+
 3.2.1 / 2015-06-13
 ---------------------
 - add missing minified version
