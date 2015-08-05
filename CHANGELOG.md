@@ -1,3 +1,7 @@
+3.3.1 / 2015-08-06
+---------------------
+- fix [#160](https://github.com/jprichardson/string.js/issues/160)
+
 3.3.0 / 2015-06-15
 ---------------------
 - added `splitRight` and `splitLeft` method [#153](https://github.com/jprichardson/string.js/pull/153)
