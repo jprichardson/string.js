@@ -797,10 +797,10 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
 
     for (var i = 0; i < names.length; ++i) {
       var name = names[i];
+      if (name === 'to' || name === 'toEnd') continue;       // get rid of the shelljs prototype messup
       var func = __nsp[name];
       try {
-        // #127: pass extra parameter to keep shelljs happy
-        var type = typeof func.apply('test', ['string']);
+        var type = typeof func.apply('teststring');
         retObj[name] = type;
       } catch (e) {}
     }

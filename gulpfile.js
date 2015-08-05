@@ -20,25 +20,24 @@ gulp.task('browserify', function() {
     .pipe(gulp.dest(DEST));
 });
 
-gulp.task('browser-test', function (done) {
+gulp.task('browserTest', function (done) {
   return mochify( { wd: true } )
     .on('error', function(err){ if(err) done(err); else done(); })
     .bundle();
 });
 
-gulp.task('unit-test', ['browserify'], function () {
+gulp.task('test', ['browserify'], function () {
   return gulp.src(TEST_SRC, {read: false})
     .pipe(mocha({reporter: 'spec', growl: 1}));
 });
 
-gulp.task('test', ['unit-test', 'browser-test']);
 
 gulp.task('clean', function() {
   return gulp.src(DEST)
     .pipe(rimraf());
 });
 
-gulp.task('build', ['unit-test', 'clean'], function() {
+gulp.task('build', ['test', 'clean'], function() {
   gulp.src(DEST + '/' + SRC_COMPILED)
     .pipe(uglify())
     .pipe(rename(MIN_FILE))
