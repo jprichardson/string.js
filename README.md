@@ -346,7 +346,7 @@ Example:
 S('dir').ensureRight('/').s; //'dir/'
 S('dir/').ensureRight('/').s; //'dir/'
 ```
-### = format(arguments...)
+### - format(arguments...)
 
 Replicates String.Format method from .NET framework. 
 You can pass variable number of arguments to the function (denoted by arguments...) and
