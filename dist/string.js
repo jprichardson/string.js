@@ -268,6 +268,18 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
         return new this.constructor(s + suffix);
       }
     },
+    
+    // works just like String.Format in .NET
+    format:  function() {
+    var s = this.s;
+    var args = arguments;
+    var newStr = s.replace(/{(\d+)}/g, function(match, number) { 
+      return (typeof args[number] != 'undefined')
+        ? args[number]
+        : match;
+    });
+    return new this.constructor(newStr);
+  },
 
     humanize: function() { //modified from underscore.string
       if (this.s === null || this.s === undefined)

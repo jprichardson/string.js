@@ -346,7 +346,16 @@ Example:
 S('dir').ensureRight('/').s; //'dir/'
 S('dir/').ensureRight('/').s; //'dir/'
 ```
+### = format(arguments...)
 
+Replicates String.Format method from .NET framework. 
+You can pass variable number of arguments to the function (denoted by arguments...) and
+the placeholders will be replaced by them according to their order (0-based indexes).
+
+```javascript
+S('{0} is awesome').format('string.js').s; // 'string.js is awesome'
+S('{1}$ is more than {0}$').format(10,50).s; // '50$ is more than 10$'
+```
 ### - humanize() ###
 
 Transforms the input into a human friendly form.
