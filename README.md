@@ -67,7 +67,7 @@ Checkout this gem to easily use string.js on the asset pipeline: https://github.
 <script src="https://cdn.rawgit.com/jprichardson/string.js/master/lib/string.min.js"></script>
 
 <!-- Note that in the mime type for Javascript is now officially 'application/javascript'. If you
-set the type to application/javascript in IE browsers, your Javscript will fail. Just don't set a
+set the type to application/javascript in IE browsers, your Javacript will fail. Just don't set a
 type via the script tag and set the mime type from your server. Most browsers look at the server mime
 type anyway -->
 
@@ -110,7 +110,7 @@ S.restorePrototype(); //be a good citizen and clean up
 ```
 
 
-### Browser Compatiblity
+### Browser Compatibility
 
 `string.js` has been designed to be compatible with Node.js and with IE6+, Firefox 3+, Safari 2+, Chrome 3+. Please [click here][browsertest] to run the tests in your browser. Report any browser issues here: https://github.com/jprichardson/string.js/issues
 
@@ -880,7 +880,7 @@ You can either optionally pass in two string arguments or pass in a configuratio
 - `delimiter`: The character that is separates or delimits fields. Default: `,`
 - `qualifier`: The character that encloses fields. Default: `"`
 - `escape`: The character that escapes any incline `qualifier` characters. Default: `\`, in JS this is `\\`
-- `encloseNumbers`: Enclose number objects with the `qualifier` chracter. Default: `true`
+- `encloseNumbers`: Enclose number objects with the `qualifier` character. Default: `true`
 - `keys`: If the input isn't an array, but an object, then if this is set to true, the keys will be output to the CSV line, otherwise it's the object's values. Default: `false`.
 
 Example:
