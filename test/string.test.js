@@ -34,7 +34,7 @@
   describe('string.js', function() {
 
     describe('- constructor', function() {
-      it('should should set the internal "s" property', function() {
+      it('should set the internal "s" property', function() {
         T (S('helo').s === 'helo')
         T (S(5).s === '5')
         T (S(new Date(2012, 1, 1)).s.indexOf('2012') != -1)
