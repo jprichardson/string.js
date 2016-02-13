@@ -582,6 +582,24 @@
       });
     });
 
+    describe('- stripEdges(chars)', function () {
+
+      it ('should return the new string with all occurences of `chars` removed from right and left', function(){
+	T (S('hello').stripEdges().s === 'hello');
+	T (S('hello').stripEdges('').s === 'hello');
+	T (S('    hello    ').stripEdges().s === 'hello');
+	T (S('  hello world   ').stripEdges().s === 'hello world');
+	T (S('  hello    the   world   ').stripEdges().s === 'hello    the   world');
+	T (S('Zzzzz   the world is sleeping zzzzz').stripEdges('z|Z').s === '   the world is sleeping ');
+	T (S('_-foobar-_').stripEdges('-_').s === 'foobar');
+	T (S(null).stripEdges().s === '');
+	T (S(undefined).stripEdges().s === '');
+	T (S('???? foo?').stripEdges('?').s === ' foo');
+	console.log(S('[$]hello-^').stripEdges('^[a-z]$').s);
+        T (S('[$]hello-^').stripEdges('^[a-z]$').s === 'hello');
+      });
+    });
+
     describe('+ restorePrototype()', function() {
       it('should restore the original String prototype', function() {
         T (typeof 'hello world'.include === 'undefined');
