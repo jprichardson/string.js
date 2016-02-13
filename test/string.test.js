@@ -595,8 +595,8 @@
 	T (S(null).stripEdges().s === '');
 	T (S(undefined).stripEdges().s === '');
 	T (S('???? foo?').stripEdges('?').s === ' foo');
-	console.log(S('[$]hello-^').stripEdges('^[a-z]$').s);
         T (S('[$]hello-^').stripEdges('^[a-z]$').s === 'hello');
+	T (S('abczabczabc').stripEdges('a-c').s === 'bczabczab');
       });
     });
 
