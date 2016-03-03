@@ -640,6 +640,7 @@
       it('should strip all of the html tags or tags specified by the parameters', function() {
         T (S('<p>just <b>some</b> text</p>').stripTags().s === 'just some text')
         T (S('<p>just <b>some</b> text</p>').stripTags('p').s === 'just <b>some</b> text')
+        T (S('<i>just</i> some <image/> text').stripTags('i').s === 'just some <image/> text')
       })
     })
 
