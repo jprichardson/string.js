@@ -1,3 +1,7 @@
+3.3.2 / 2016-04-08
+---------------------
+- Compatibility with babel-polyfill
+
 3.3.1 / 2015-08-06
 ---------------------
 - fix [#160](https://github.com/jprichardson/string.js/issues/160)
