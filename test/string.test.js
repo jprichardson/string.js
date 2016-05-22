@@ -120,6 +120,18 @@
         EQ (S('funfunfun').count("fun"), 3)
       })
     })
+    
+    describe('- equalsIgnoreCase()', function() {
+      it('should be equal', function() {
+        T (S('jon').equalsIgnoreCase('Jon'));
+        T (S('Jon').equalsIgnoreCase('jon'));
+        T (S('jon').equalsIgnoreCase('jon'));
+        T (S('Jon').equalsIgnoreCase('Jon'));
+      })
+      it('should not be equal', function() {
+        F (S('John').equalsIgnoreCase('Jon'));
+      })
+    })
 
     describe('- dasherize()', function() {
       it('should convert a camel cased string into a string delimited by dashes', function() {
