@@ -166,6 +166,30 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
     charAt: function(index) {
       return this.s.charAt(index);
     },
+    
+    mask: function(index,sign="*"){
+      var input = this.s;
+      var inputLength = input.length;
+      var sec = "";
+      if(index > 0){
+        var a = inputLength - index;
+        for(var i = 0;i<a;i++){
+          sec = sec.concat(sign);
+        }
+
+        return input.substr(0,index) + sec;
+      } 
+      else{
+        var i;
+        var Index = Math.abs(index);
+        var c = (inputLength - Index);
+        for(i=0;i<c;i++){
+          sec = sec.concat(sign);
+        }
+        return sec + input.substr(c,inputLength) ;
+      }
+
+    },
 
     chompLeft: function(prefix) {
       var s = this.s;
