@@ -185,6 +185,17 @@
       })
     });
 
+    describe('- hashCode()', function() {
+      it('should return a proper Java hash code value for the string', function() {
+        EQ (S('').hashCode(), 0)
+        EQ (S('test').hashCode(), 3556498)
+        EQ (S('Hello World!').hashCode(), -969099747)
+        EQ (S('The quick brown fox jumps over the lazy dog.').hashCode(), -1712403141)
+        EQ (S('f5a5a608').hashCode(), 0)
+        EQ (S('string.js').hashCode(), -189328314)
+      })
+    })
+
     describe('- humanize()', function() {
       it('should humanize the string', function() {
         EQ (S('the_humanize_string_method').humanize().s, 'The humanize string method')

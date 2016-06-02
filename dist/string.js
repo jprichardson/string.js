@@ -13,6 +13,23 @@ function count(self, substr) {
 
 module.exports = count
 },{}],2:[function(_dereq_,module,exports){
+function hashCode(self) {
+  if (self === null || self === undefined)
+    return 0
+
+  var hashCode = 0
+
+  for (var i = 0; i < self.length; i++) {
+    // Discard anything higher than 32-bits
+    hashCode = (31 * hashCode + self.charCodeAt(i)) & 0xFFFFFFFF
+  }
+
+  return hashCode
+}
+
+module.exports = hashCode
+
+},{}],3:[function(_dereq_,module,exports){
 function splitLeft(self, sep, maxSplit, limit) {
 
   if (typeof maxSplit === 'undefined') {
@@ -41,7 +58,7 @@ function splitLeft(self, sep, maxSplit, limit) {
 
 module.exports = splitLeft;
 
-},{}],3:[function(_dereq_,module,exports){
+},{}],4:[function(_dereq_,module,exports){
 function splitRight(self, sep, maxSplit, limit) {
 
   if (typeof maxSplit === 'undefined') {
@@ -74,7 +91,7 @@ function splitRight(self, sep, maxSplit, limit) {
 
 module.exports = splitRight;
 
-},{}],4:[function(_dereq_,module,exports){
+},{}],5:[function(_dereq_,module,exports){
 /*
 string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
 */
@@ -267,6 +284,11 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
       } else {
         return new this.constructor(s + suffix);
       }
+    },
+
+    // Generates a numeric hash code using the Java algorithm
+    hashCode: function() {
+      return _dereq_('./_hashCode')(this.s)
     },
 
     humanize: function() { //modified from underscore.string
@@ -1179,6 +1201,6 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
 
 }).call(this);
 
-},{"./_count":1,"./_splitLeft":2,"./_splitRight":3}]},{},[4])
-(4)
+},{"./_count":1,"./_hashCode":2,"./_splitLeft":3,"./_splitRight":4}]},{},[5])
+(5)
 });
