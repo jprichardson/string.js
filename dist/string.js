@@ -570,6 +570,21 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
       return /^\s*-?0x/i.test(this.s) ? parseInt(this.s, 16) : parseInt(this.s, 10)
     },
 
+    // Parses the string as a sort order
+    // Ascending can be: asc/ascending/1
+    // Descending can be: dsc/desc/descending/-1
+    toSortOrder: function(defaultOrder) {
+      defaultOrder = defaultOrder || 'ascending'
+
+      if (/^(asc|ascending|1)$/i.test(this.s))
+        return 'ascending'
+
+      if (/^(dsc|desc|descending|-1)$/i.test(this.s))
+        return 'descending'
+
+      return defaultOrder
+    },
+
     trim: function() {
       var s;
       if (typeof __nsp.trim === 'undefined')
