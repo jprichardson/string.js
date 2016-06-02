@@ -207,6 +207,14 @@
       })
     })
 
+    describe('- insert(substring, index)', function() {
+      it('should insert `substring` at the specified index in the original string', function() {
+        EQ (S('the string').insert('prefix ').s, 'prefix the string')
+        EQ (S('we can do this').insert(' too', 14).s, 'we can do this too')
+        EQ (S('this is cool').insert('un', 8).s, 'this is uncool')
+      })
+    })
+
     describe('- isAlpha()', function() {
       it("should return true if the string contains only letters", function() {
         T (S("afaf").isAlpha());
