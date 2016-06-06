@@ -170,6 +170,9 @@
     })
 
     describe('- escapeHTML()', function() {
+      it('should return null for a null value', function() {
+        EQ (S(null).escapeHTML().s, null)
+      })
       it('should escape the html', function() {
         T (S('<div>Blah & "blah" & \'blah\'</div>').escapeHTML().s ===
              '&lt;div&gt;Blah &amp; &quot;blah&quot; &amp; &apos;blah&apos;&lt;/div&gt;');
@@ -865,7 +868,10 @@
       })
     })
 
-    describe('- unescapeHTML', function() {
+    describe('- unescapeHTML()', function() {
+      it('should return null for a null value', function() {
+        EQ (S(null).unescapeHTML().s, null)
+      })
       it('should unescape the HTML', function() {
         T (S('&lt;div&gt;Blah &amp; &quot;blah&quot; &amp; &apos;blah&apos;&lt;/div&gt;').unescapeHTML().s ===
              '<div>Blah & "blah" & \'blah\'</div>');
