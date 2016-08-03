@@ -703,7 +703,7 @@ Returns an array of strings, split from the left at `sep`. Performs at most `max
 Example:
 
 ```javascript
-S('This is all very fun').splitRight(' '); // ['THis', 'built', 'this', 'city'];
+S('This is all very fun').splitRight(' '); // ['This', 'is', 'all', 'very', 'fun'];
 S('and I could do it forever').splitRight(' ', 1); // ['and I could do it', 'forever'];
 S('but nothing matters in the end.').splitRight(' ', -1, 2); // ['the', 'end.'];
 S('but nothing matters in the end.').splitRight(' ', 4, -2); // ['but nothing', 'matters'];
