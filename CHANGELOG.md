@@ -1,4 +1,8 @@
-3.3.1 / 2016-10-11
+3.3.3 / 2016-10-11
+---------------------
+- added missing minified version
+
+3.3.2 / 2016-10-11
 ---------------------
 - added `equalsIgnoreCase` [#185](https://github.com/jprichardson/string.js/issues/185)
 
