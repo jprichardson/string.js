@@ -1,3 +1,7 @@
+3.3.1 / 2016-10-11
+---------------------
+- added `equalsIgnoreCase` [#185](https://github.com/jprichardson/string.js/issues/185)
+
 3.3.1 / 2015-08-06
 ---------------------
 - fix [#160](https://github.com/jprichardson/string.js/issues/160)

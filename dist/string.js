@@ -82,7 +82,7 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
 !(function() {
   "use strict";
 
-  var VERSION = '3.3.1';
+  var VERSION = '3.3.2';
 
   var ENTITIES = {};
 
@@ -205,6 +205,11 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
     dasherize: function() {
       var s = this.trim().s.replace(/[_\s]+/g, '-').replace(/([A-Z])/g, '-$1').replace(/-+/g, '-').toLowerCase();
       return new this.constructor(s);
+    },
+    
+    equalsIgnoreCase: function(prefix) {
+      var s = this.s;
+      return s.toLowerCase() == prefix.toLowerCase()
     },
 
     latinise: function() {
