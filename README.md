@@ -2,7 +2,7 @@
 =========
 
 [![build status](https://secure.travis-ci.org/jprichardson/string.js.png)](http://travis-ci.org/jprichardson/string.js)
-
+[![CDNJS](https://img.shields.io/cdnjs/v/string.js.svg)](https://cdnjs.com/libraries/string.js)
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/stringjs.svg)](https://saucelabs.com/u/stringjs)
 
