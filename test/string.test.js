@@ -756,6 +756,13 @@
         EQ (S(null).titleCase().s,null)
         EQ (S(undefined).titleCase().s,undefined)
       })
+      it('TitleCases nordics characters', function () {
+        EQ (S('ämpäri is a finnish word').titleCase().s, 'Ämpäri Is A Finnish Word')
+        EQ (S('Öljy is finnish and means oil').titleCase().s, 'Öljy Is Finnish And Means Oil')
+        EQ (S('åland is a place').titleCase().s, 'Åland Is A Place')
+        EQ (S('ødele sounds like norwegian').titleCase().s, 'Ødele Sounds Like Norwegian')
+        EQ (S('ærlandaa may be norwegian or danish, dunno').titleCase().s, 'Ærlandaa May Be Norwegian Or Danish, Dunno')
+      })
     })
 
     describe('- toFloat([precision])', function() {
