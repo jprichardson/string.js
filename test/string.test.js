@@ -644,7 +644,8 @@
 
     describe('- stripPunctuation()', function() {
       it('should strip all of the punctuation', function() {
-        T (S('My, st[ring] *full* of %punct)').stripPunctuation().s === 'My string full of punct')
+        T (S('My, st[ring] *full* of %punct)').stripPunctuation().s === 'My string full of punct');
+        T (S('Preserve   German  umlauts äöüÄÖÜß').stripPunctuation().s === 'Preserve German umlauts äöüÄÖÜß');
       })
     })
 
