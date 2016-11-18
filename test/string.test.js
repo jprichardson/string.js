@@ -822,6 +822,22 @@
       })
     })
 
+    describe('- toSortOrder(defaultOrder)', function() {
+      it('should return the parsed sort order (or the default value)', function() {
+        EQ (S('asc').toSortOrder(), 'ascending')
+        EQ (S('ascending').toSortOrder(), 'ascending')
+        EQ (S('1').toSortOrder(), 'ascending')
+        EQ (S(1).toSortOrder(), 'ascending')
+        EQ (S('dsc').toSortOrder(), 'descending')
+        EQ (S('desc').toSortOrder(), 'descending')
+        EQ (S('descending').toSortOrder(), 'descending')
+        EQ (S('-1').toSortOrder(), 'descending')
+        EQ (S(-1).toSortOrder(), 'descending')
+        EQ (S('not_valid').toSortOrder('ascending'), 'ascending')
+        EQ (S('also_invalid').toSortOrder('descending'), 'descending')
+      })
+    })
+
     describe('- toString()', function() {
       it('should return the native string', function() {
         T (S('hi').toString() === 'hi');
