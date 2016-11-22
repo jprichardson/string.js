@@ -761,6 +761,16 @@ S('  hello ').stripRight().s; //'  hello'
 S('abcz').stripRight('a-z').s; //'abc'
 ```
 
+### - stripEdges([chars]) ###
+Returns a new string in which all chars have been stripped from the edges of the string (default whitespace characters).
+
+Example:
+
+```javascript
+S('  hello all    the  world !   ').stripEdges().s; //'hello all    the  world !'
+S('__init__').stripRight('_').s; //'init'
+```
+
 
 ### - stripPunctuation()
 
@@ -1137,6 +1147,7 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - [*] [Alison Rowland](https://github.com/arowla)
 - [*] [Pascal Bihler](https://github.com/pbihler)
 - [*] [Daniel Diekmeier](https://github.com/danieldiekmeier)
+- [*] [Etienne Bazin](https://github.com/yolotus)
 
 
 
