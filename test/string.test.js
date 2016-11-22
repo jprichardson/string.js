@@ -196,6 +196,14 @@
         S.restorePrototype();
       })
     });
+    
+    describe('- format(arguments...)',function(){
+      it('should replace placeholders in string with passed arguments',function(){
+        T (S('{0} is awesome!').format('string.js').s ===
+             'string.js is awesome!');
+        T (S('{0} works {1} a {2}, much {3}!').format('This','like','charm',1337).s === 'This works like a charm, much 1337!');
+      })
+    });
 
     describe('- humanize()', function() {
       it('should humanize the string', function() {
