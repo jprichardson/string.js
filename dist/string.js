@@ -143,7 +143,7 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
       var s = this.s;
       var startPos = s.indexOf(left);
       var endPos = s.indexOf(right, startPos + left.length);
-      if (endPos == -1 && right != null)
+      if ((endPos == -1 && right != null) || (startPos == -1)) // return null string even if left string is not found
         return new this.constructor('')
       else if (endPos == -1 && right == null)
         return new this.constructor(s.substring(startPos + left.length))
