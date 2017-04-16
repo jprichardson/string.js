@@ -828,7 +828,13 @@
         T (S('hi').toString() === S('hi').s);
       })
     })
-
+    
+    describe('- toTitleCase()', function() {
+      it('should uppercase first character of all words', function() {
+        T (S('a simple CCTV test').toTitleCase().s === 'A Simple CCTV Test')
+      })
+    })
+ 
     describe('- trim()', function() {
       it('should return the string with leading and trailing whitespace removed', function() {
         T (S('hello ').trim().s === 'hello');
