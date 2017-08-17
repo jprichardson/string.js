@@ -307,6 +307,7 @@
       it('should remove diacritics from Latin characters', function() {
         T (S('crème brûlée').latinise().s === 'creme brulee')
         T (S('CRÈME BRÛLÉE').latinise().s === 'CREME BRULEE')
+        T (S('e\u0301').latinise().s === 'e')
       })
     })
 

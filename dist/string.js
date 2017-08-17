@@ -213,7 +213,7 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
     },
 
     latinise: function() {
-      var s = this.replace(/[^A-Za-z0-9\[\] ]/g, function(x) { return latin_map[x] || x; });
+      var s = this.normalize('NFC').replace(/[^A-Za-z0-9\[\] ]/g, function(x) { return latin_map[x] || x; });
       return new this.constructor(s);
     },
 
