@@ -13,6 +13,65 @@ function count(self, substr) {
 
 module.exports = count
 },{}],2:[function(_dereq_,module,exports){
+function delLeftMost(self, find) {
+  var s = self.s;
+  for (var i = 0; i < s.length; i = i + 1) {
+    var f = s.indexOf(find, i);
+    if (f != -1) {
+       return new self.constructor(s.substr(f + find.length, s.length));
+       break;
+    }
+  }
+  return new self.constructor(s);
+};
+
+module.exports = delLeftMost;
+
+},{}],3:[function(_dereq_,module,exports){
+function delRightMost(self, find) {
+  var s = self.s;
+  for (var i = s.length; i >= 0; i = i - 1) {
+    var f = s.indexOf(find, i);
+    if (f != -1) {
+       return new self.constructor(s.substr(0, f));
+       break;
+    }
+  }
+  return new self.constructor(s);
+};
+
+module.exports = delRightMost;
+
+},{}],4:[function(_dereq_,module,exports){
+function getLeftMost(self, find) {
+  var s = self.s;
+  for (var i = 0; i < s.length; i = i + 1) {
+    var f = s.indexOf(find, i);
+    if (f != -1) {
+       return new self.constructor(s.substr(0, f));
+       break;
+    }
+  }
+  return new self.constructor(s);
+};
+
+module.exports = getLeftMost;
+
+},{}],5:[function(_dereq_,module,exports){
+function getRightMost(self, find) {
+  var s = self.s;
+  for (var i = s.length; i >= 0; i = i - 1) {
+    var f = s.indexOf(find, i);
+    if (f != -1) {
+       return new self.constructor(s.substr(f + find.length, s.length));
+    }
+  }
+  return new self.constructor(s);
+};
+
+module.exports = getRightMost;
+
+},{}],6:[function(_dereq_,module,exports){
 function splitLeft(self, sep, maxSplit, limit) {
 
   if (typeof maxSplit === 'undefined') {
@@ -41,7 +100,7 @@ function splitLeft(self, sep, maxSplit, limit) {
 
 module.exports = splitLeft;
 
-},{}],3:[function(_dereq_,module,exports){
+},{}],7:[function(_dereq_,module,exports){
 function splitRight(self, sep, maxSplit, limit) {
 
   if (typeof maxSplit === 'undefined') {
@@ -74,7 +133,7 @@ function splitRight(self, sep, maxSplit, limit) {
 
 module.exports = splitRight;
 
-},{}],4:[function(_dereq_,module,exports){
+},{}],8:[function(_dereq_,module,exports){
 /*
 string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
 */
@@ -206,7 +265,7 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
       var s = this.trim().s.replace(/[_\s]+/g, '-').replace(/([A-Z])/g, '-$1').replace(/-+/g, '-').toLowerCase();
       return new this.constructor(s);
     },
-    
+
     equalsIgnoreCase: function(prefix) {
       var s = this.s;
       return s.toLowerCase() == prefix.toLowerCase()
@@ -243,6 +302,14 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
       return new this.constructor(s);
     },
 
+    delLeftMost: function(find) {
+      return _dereq_('./_delLeftMost')(this, find)
+    },
+
+    delRightMost: function(find) {
+      return _dereq_('./_delRightMost')(this, find)
+    },
+
     endsWith: function() {
       var suffixes = Array.prototype.slice.call(arguments, 0);
       for (var i = 0; i < suffixes.length; ++i) {
@@ -272,6 +339,14 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
       } else {
         return new this.constructor(s + suffix);
       }
+    },
+
+    getLeftMost: function(find) {
+      return _dereq_('./_getLeftMost')(this, find)
+    },
+
+    getRightMost: function(find) {
+      return _dereq_('./_getRightMost')(this, find)
     },
 
     humanize: function() { //modified from underscore.string
@@ -1184,6 +1259,6 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
 
 }).call(this);
 
-},{"./_count":1,"./_splitLeft":2,"./_splitRight":3}]},{},[4])
-(4)
+},{"./_count":1,"./_delLeftMost":2,"./_delRightMost":3,"./_getLeftMost":4,"./_getRightMost":5,"./_splitLeft":6,"./_splitRight":7}]},{},[8])
+(8)
 });
