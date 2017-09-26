@@ -1137,6 +1137,7 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - [*] [Alison Rowland](https://github.com/arowla)
 - [*] [Pascal Bihler](https://github.com/pbihler)
 - [*] [Daniel Diekmeier](https://github.com/danieldiekmeier)
+- [*] [Stephen J. Carnam](https://github.com/Steveorevo)
 
 
 
