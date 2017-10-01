@@ -749,7 +749,7 @@ S('On Rock N Roll and other Stuff').splitLeft(' ', 5, -2); // ['and', 'other Stu
 
 ### - splitRight(sep, [maxSplit = -1, [limit]]) ###
 
-Returns an array of strings, split from the left at `sep`. Performs at most `maxSplit` splits, and slices the result into an array with at most `limit` elements.
+Returns an array of strings, split from the right at `sep`. Performs at most `maxSplit` splits, and slices the result into an array with at most `limit` elements.
 
 Example:
 
