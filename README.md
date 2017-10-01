@@ -297,6 +297,28 @@ S('3 &lt; 4').decodeHTMLEntities().s; //'3 < 4'
 ```
 
 
+### - delLeftMost(find) ###
+
+Returns the remaining string after removing the first occurrence of `find` and everything to the left of `find` when scanning from **left to right**. If `find` is not found, the unmodified string is returned.
+
+Example:
+
+```javascript
+S('/Parent/child/folders').delLeftMost('/child').s; //'/folders'
+```
+
+
+### - delRightMost(find) ###
+
+Returns the remaining string after removing the first occurrence of `find` and everything to the right of `find` when scanning from **right to left**. If `find` is not found, the unmodified string is returned.
+
+Example:
+
+```javascript
+S('/Parent/child/folders').delRightMost('/child').s; //'/Parent'
+```
+
+
 ### - endsWith(ss) ###
 
 Returns true if the string ends with `ss`.
@@ -330,7 +352,6 @@ S.extendPrototype();
 ```
 
 
-
 ### - ensureLeft(prefix)
 
 Ensures string starts with `prefix`.
@@ -340,6 +361,28 @@ Example:
 ```javascript
 S('subdir').ensureLeft('/').s; //'/subdir'
 S('/subdir').ensureLeft('/').s; //'/subdir'
+```
+
+
+### - getRightMost(find) ###
+
+Finds the first occurrence of `find` and returns everything to the right of `find` (not including `find` itself) when scanning from **right to left**. If `find` is not found, the unmodified string is returned.
+
+Example:
+
+```javascript
+S('/Parent/child/folders').getRightMost('/child').s; //'/folders'
+```
+
+
+### - getLeftMost(find) ###
+
+Finds the first occurrence of `find` and returns everything to the left of `find` (not including `find` itself) when scanning from **left to right**. If `find` is not found, the unmodified string is returned.
+
+Example:
+
+```javascript
+S('/Parent/child/folders').getLeftMost('/child').s; //'/Parent'
 ```
 
 
@@ -353,6 +396,7 @@ Example:
 S('dir').ensureRight('/').s; //'dir/'
 S('dir/').ensureRight('/').s; //'dir/'
 ```
+
 
 ### - humanize() ###
 
