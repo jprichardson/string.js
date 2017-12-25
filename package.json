@@ -1,6 +1,6 @@
 {
   "name": "string",
-  "version": "3.3.3",
+  "version": "3.3.4",
   "description": "string contains methods that aren't included in the vanilla JavaScript string such as escaping html, decoding html entities, stripping tags, etc.",
   "homepage": "http://stringjs.com",
   "repository": {
@@ -28,6 +28,13 @@
     "unescape"
   ],
   "author": "JP Richardson <jprichardson@gmail.com>",
+  "contributors": [
+    {
+      "name" : "Stephen J. Carnam",
+      "email" : "steveorevo@gmail.com",
+      "url" : "http://steveorevo.com/"
+    }
+  ]
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
