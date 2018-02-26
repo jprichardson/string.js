@@ -19,7 +19,7 @@ Here's a list of alternative frameworks:
 
 * [Prototype Framework's String library](http://prototypejs.org/api/string)
 * [Uize.String](http://www.uize.com/reference/Uize.String.html)
-* [Google Closure's String](http://closure-library.googlecode.com/svn/docs/namespace_goog_string.html)
+* [Google Closure's String](https://google.github.io/closure-library/api/goog.string.html)
 * [Underscore.string](http://epeli.github.com/underscore.string/)
 * [Sugar.js](http://sugarjs.com)
 * [php.js](http://phpjs.org/functions/)
