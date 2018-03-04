@@ -206,7 +206,7 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
       var s = this.trim().s.replace(/[_\s]+/g, '-').replace(/([A-Z])/g, '-$1').replace(/-+/g, '-').toLowerCase();
       return new this.constructor(s);
     },
-    
+
     equalsIgnoreCase: function(prefix) {
       var s = this.s;
       return s.toLowerCase() == prefix.toLowerCase()
@@ -690,14 +690,15 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
       return this.s;
     },
 
-    //#modified from https://github.com/epeli/underscore.string
     underscore: function() {
-      var s = this.trim().s.replace(/([a-z\d])([A-Z]+)/g, '$1_$2').replace(/([A-Z\d]+)([A-Z][a-z])/g,'$1_$2').replace(/[-\s]+/g, '_').toLowerCase();
+      var s = this.trim().s.replace(/([A-Z])/g, function (_, m, i) {
+        return (i ? '_' : '') + m.toLowerCase();
+      }).replace(/[\s_-]+/g, '_');
       return new this.constructor(s);
     },
 
     unescapeHTML: function() { //from underscore.string
-      return new this.constructor(this.s.replace(/\&([^;]+);/g, function(entity, entityCode){
+      return new this.constructor(this.s.replace(/&([^;]{1,20});/g, function(entity, entityCode){
         var match;
 
         if (entityCode in escapeChars) {
