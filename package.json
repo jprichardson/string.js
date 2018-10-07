@@ -1,11 +1,11 @@
 {
-  "name": "string",
+  "name": "@chezearth/string",
   "version": "3.3.3",
-  "description": "string contains methods that aren't included in the vanilla JavaScript string such as escaping html, decoding html entities, stripping tags, etc.",
+  "description": "This is a temporary package until I can open a pull request on the original. string contains methods that aren't included in the vanilla JavaScript string such as escaping html, decoding html entities, stripping tags, etc.",
   "homepage": "http://stringjs.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jprichardson/string.js"
+    "url": "https://github.com/chezearth/string.js"
   },
   "keywords": [
     "string",
