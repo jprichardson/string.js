@@ -28,7 +28,10 @@ gulp.task('browserTest', function (done) {
 
 gulp.task('test', gulp.series('bro', function () {
   return gulp.src(TEST_SRC, {read: false})
-    .pipe(mocha(Object.assign({reporter: 'spec', growl: 1})));
+    .pipe(mocha({
+        reporter: 'spec'
+      // , growl: 1
+    }));
 }));
 
 
