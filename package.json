@@ -31,14 +31,15 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "browserify": "^16.2.3",
+    "gulp": "^4.0.0",
     "gulp-bro": "^1.0.3",
-    "gulp-mocha": "^4.1.0",
+    "gulp-mocha": "^6.0.0",
     "gulp-rename": "1.2.0",
     "gulp-rimraf": "^0.1.1",
     "gulp-uglify": "^3.0.1",
     "istanbul": "*",
-    "mocha": "*",
+    "mocha": "^5.2.0",
     "mochify": "^5.8.1",
     "uglify-js": "^3.4.9"
   },
