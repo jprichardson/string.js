@@ -243,3 +243,13 @@ See [#122](https://github.com/jprichardson/string.js/pull/122) [#98](https://git
 * Added `includes` and `contains` methods
 
 [57]: https://github.com/jprichardson/string.js/pull/57
+
+Branch `address-npm-vulnerabilities`
+----------------------------------
+* Tried to clean out package vulnerabilities without breaking the tests
+* Updated Mocha to v 5.2.0
+* Updated Gulp to v 4.0.0
+* Replaced `gulp-browserify` with `gulp-bro` as the former is not supported anymore and its dependencies have vulnerabilities
+* Updated `gulp-mocha` to v 6.0.0. Mocha > v4 and gulp-mocha > v 4.1 both throw errors with `growl` if the notifier is not installed on your machine (but work otherwise). For this reason, I commented `growl: 1` out of the mocha pipe in the gulpfile but it can be included if wanted (on MacOS, run `$ sudo gem install terminal-notifier` in the terminal to install the notifier).
+* Changed `gulpfile.js` to accommodate these changes
+* npm audit returns 0 vulnerabilities
