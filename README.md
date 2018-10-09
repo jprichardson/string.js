@@ -1,6 +1,8 @@
 [string.js](http://stringjs.com)
 =========
 
+* **NOTE**: This is a fork of [jprichardson/string.js](https://github.com/jprichardson/string.js.git), with some dependencies updated to remove vulnerabilities. While the tests have passed and the package seems to work for me, the new packages may have broken something that I haven't found yet.
+
 [![build status](https://secure.travis-ci.org/jprichardson/string.js.png)](http://travis-ci.org/jprichardson/string.js)
 [![CDNJS](https://img.shields.io/cdnjs/v/string.js.svg)](https://cdnjs.com/libraries/string.js)
 
