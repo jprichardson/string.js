@@ -142,9 +142,11 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
     between: function(left, right) {
       var s = this.s;
       var startPos = s.indexOf(left);
-      var endPos = s.indexOf(right, startPos + left.length);
-      if (endPos == -1 && right != null)
+      var endPos = s.indexOf(right, startPos + left.length);      
+      if (startPos == -1 || (endPos == -1 && right))
         return new this.constructor('')
+      else if (endPos == -1 && right != null)
+        return new this.constructor('')      
       else if (endPos == -1 && right == null)
         return new this.constructor(s.substring(startPos + left.length))
       else

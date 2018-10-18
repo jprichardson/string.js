@@ -52,6 +52,7 @@
         EQ (S('<a><a>foo</a></a>').between('<a>', '</a>').s, '<a>foo')
         EQ (S('<a>foo').between('<a>', '</a>').s, '')
         EQ (S('Some strings } are very {weird}, dont you think?').between('{', '}').s, 'weird');
+        EQ (S('Money ] Family').between('[', ']').s, '');
         EQ (S('This is a test string').between('test').s, ' string');
         EQ (S('This is a test string').between('', 'test').s, 'This is a ');
       })
