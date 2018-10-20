@@ -1,12 +1,17 @@
 [string.js](http://stringjs.com)
 =========
 
-* **NOTE**: This is a fork of [jprichardson/string.js](https://github.com/jprichardson/string.js.git), with some dependencies updated to remove vulnerabilities. While the tests have passed and the package seems to work for me, the new packages may have broken something that I haven't found yet.
-
 [![build status](https://secure.travis-ci.org/jprichardson/string.js.png)](http://travis-ci.org/jprichardson/string.js)
 [![CDNJS](https://img.shields.io/cdnjs/v/string.js.svg)](https://cdnjs.com/libraries/string.js)
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/stringjs.svg)](https://saucelabs.com/u/stringjs)
+
+>Note
+>----
+>This is a fork of [jprichardson/string.js](https://github.com/jprichardson/string.js.git) and the text below is entirely his. I have only updated some dependencies to remove vulnerabilities that were identified by NPM's audit. Travis builds successfully for Node 4, 6, 8 and 10 (but not earlier verions of Node or io.js). While the tests have passed and the package seems to work for me, the new dependencies may have broken something that I haven't found yet.
+>[Charles Rethman](https://github.com/chezearth)
+
+
 
 `string.js`, or simply `S` is a lightweight (**< 5 kb** minified and gzipped) JavaScript library for the browser or for Node.js that provides extra String methods. Originally, it modified the String prototype. But I quickly learned that in JavaScript, this is considered poor practice.
 
