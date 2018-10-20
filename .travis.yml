@@ -1,8 +1,11 @@
 language: node_js
 node_js:
-  - 0.10
-  - 0.12
-  - iojs
+  # - 0.10
+  # - 0.12
+  # - iojs
+  - 6.14.4
+  - 8.12.0
+  - 10.11.0
 
 cache:
   directories:

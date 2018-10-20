@@ -2,7 +2,7 @@ var gulp = require('gulp'),
   uglify = require('gulp-uglify'),
   rimraf = require('gulp-rimraf'),
   rename = require('gulp-rename'),
-  browserify = require('gulp-browserify'),
+  bro = require('gulp-bro'),
   SRC = './lib/string.js',
   TEST_SRC = './test/string.test.js',
   mochify = require('mochify'),
@@ -11,9 +11,9 @@ var gulp = require('gulp'),
   SRC_COMPILED = 'string.js',
   MIN_FILE = 'string.min.js';
 
-gulp.task('browserify', function() {
+gulp.task('bro', function() {
   return gulp.src(SRC)
-    .pipe(browserify({
+    .pipe(bro({
       detectGlobals: true,
       standalone: 'S'
     }))
@@ -26,10 +26,13 @@ gulp.task('browserTest', function (done) {
     .bundle();
 });
 
-gulp.task('test', ['browserify'], function () {
+gulp.task('test', gulp.series('bro', function () {
   return gulp.src(TEST_SRC, {read: false})
-    .pipe(mocha({reporter: 'spec', growl: 1}));
-});
+    .pipe(mocha({
+        reporter: 'spec'
+      // , growl: 1
+    }));
+}));
 
 
 gulp.task('clean', function() {
@@ -37,9 +40,9 @@ gulp.task('clean', function() {
     .pipe(rimraf());
 });
 
-gulp.task('build', ['test', 'clean'], function() {
+gulp.task('build', gulp.series(['test', 'clean'], function() {
   gulp.src(DEST + '/' + SRC_COMPILED)
     .pipe(uglify())
     .pipe(rename(MIN_FILE))
     .pipe(gulp.dest(DEST));
-});
+}));
