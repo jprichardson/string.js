@@ -232,7 +232,10 @@ const chainPackages = (obj, methods) => {
   }
 };
 
-chainPackages(StringJs.prototype, new Map(Object.entries({
+// To avoid requiring @babel/polyfill (which bloats everything), just do a
+// simple polyfill for Object.entries.
+const entries = Object.entries || (x => Object.keys(x).map(k => [k, x[k]]));
+chainPackages(StringJs.prototype, new Map(entries({
   between: require('./src/between'),
   template: require('./src/template')
 })));
