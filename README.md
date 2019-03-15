@@ -1,14 +1,10 @@
-[string.js](http://stringjs.com)
-=========
+# [string.js]
 
-[![build status](https://secure.travis-ci.org/jprichardson/string.js.png)](http://travis-ci.org/jprichardson/string.js)
-[![CDNJS](https://img.shields.io/cdnjs/v/string.js.svg)](https://cdnjs.com/libraries/string.js)
-
-[![Sauce Test Status](https://saucelabs.com/browser-matrix/stringjs.svg)](https://saucelabs.com/u/stringjs)
-
-`string.js`, or simply `S` is a lightweight (**< 5 kb** minified and gzipped) JavaScript library for the browser or for Node.js that provides extra String methods. Originally, it modified the String prototype. But I quickly learned that in JavaScript, this is considered poor practice.
-
-
+> [![Build Status](https://travis-ci.org/jprichardson/string.js.svg)](https://travis-ci.org/jprichardson/string.js)
+> [![Build Status](https://saucelabs.com/buildstatus/stringjs)](https://saucelabs.com/builds/a6b2dcdeb5f9485895afb137b3bbc39d)
+> [![CDNJS](https://img.shields.io/cdnjs/v/string.js.svg)](https://cdnjs.com/libraries/string.js)
+>
+> `string.js`, or simply `S` is a lightweight (**< 5 kb** minified and gzipped) JavaScript library for the browser or for Node.js that provides extra String methods. Originally, it modified the String prototype. But I quickly learned that in JavaScript, this is considered poor practice.
 
 Why?
 ----
@@ -1152,19 +1148,10 @@ Roadmap to v2.0
 License
 -------
 
-Licensed under MIT.
-
-Copyright (C) 2012-2016 JP Richardson <jprichardson@gmail.com>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[MIT](LICENSE)
 
 
-
-
+[string.js]: http://stringjs.com
 [testfile]: https://github.com/jprichardson/string.js/blob/master/test/string.test.js
 [browsertest]: http://stringjs.com/browser.test.html
 
