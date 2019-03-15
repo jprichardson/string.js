@@ -1,7 +1,11 @@
-bower.json
-component.json
+test/
+.babelrc
 .documentup.json
+.gitignore
+.idea
+.min-wd
 .travis.yml
 CNAME
-test/
-lib/string.min.js
+gulpfile.js
+lerna.json
+package-lock.json
