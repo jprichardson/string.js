@@ -154,6 +154,16 @@ See [test file][testfile] for more details.
 
 I use the same nomenclature as Objective-C regarding methods. **+** means `static` or `class` method. **-** means `non-static` or `instance` method.
 
+### - append(data) ###
+
+Appends the given string in data to the end of the string.
+
+Example:
+
+```javascript
+S('Hello').append(' World') //"Hello World"
+```
+
 ### - constructor(nativeJsString) ###
 
 This creates a new `string.js` object. The parameter can be anything. The `toString()` method will be called on any objects. Some native objects are used in some functions such as `toCSV()`.
@@ -645,6 +655,16 @@ S('"a","b",       4,"c"').parseCSV(",", null) //[ '"a"', '"b"', '       4', '"c"
 S('"a","b\\"","d","c"').parseCSV() //['a', 'b"', 'd', 'c'])
 S('"a","b\\"","d","c"').parseCSV() //['a', 'b"', 'd', 'c'])
 S('"a\na","b","c"\n"a", """b\nb", "a"').parseCSV(',', '"', '"', '\n')) // [ [ 'a\na', 'b', 'c' ], [ 'a', '"b\nb', 'a' ] ]
+```
+
+### - prepend(data) ###
+
+Prepends the given string in data to the beginning of the string.
+
+Example:
+
+```javascript
+S('World').prepend('Hello ') //"Hello World"
 ```
 
 ### - repeat(n) ###
