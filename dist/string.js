@@ -1,4 +1,11 @@
 !function(e){if("object"==typeof exports)module.exports=e();else if("function"==typeof define&&define.amd)define(e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.S=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
+function append(self, ss) {
+  var s = self.s + ss;
+  return new self.constructor(s);
+};
+module.exports = append;
+
+},{}],2:[function(_dereq_,module,exports){
 function count(self, substr) {
   var count = 0
   var pos = self.indexOf(substr)
@@ -12,7 +19,73 @@ function count(self, substr) {
 }
 
 module.exports = count
-},{}],2:[function(_dereq_,module,exports){
+},{}],3:[function(_dereq_,module,exports){
+function delLeftMost(self, find) {
+  var s = self.s;
+  for (var i = 0; i < s.length; i = i + 1) {
+    var f = s.indexOf(find, i);
+    if (f != -1) {
+       return new self.constructor(s.substr(f + find.length, s.length));
+       break;
+    }
+  }
+  return new self.constructor(s);
+};
+
+module.exports = delLeftMost;
+
+},{}],4:[function(_dereq_,module,exports){
+function delRightMost(self, find) {
+  var s = self.s;
+  for (var i = s.length; i >= 0; i = i - 1) {
+    var f = s.indexOf(find, i);
+    if (f != -1) {
+       return new self.constructor(s.substr(0, f));
+       break;
+    }
+  }
+  return new self.constructor(s);
+};
+
+module.exports = delRightMost;
+
+},{}],5:[function(_dereq_,module,exports){
+function getLeftMost(self, find) {
+  var s = self.s;
+  for (var i = 0; i < s.length; i = i + 1) {
+    var f = s.indexOf(find, i);
+    if (f != -1) {
+       return new self.constructor(s.substr(0, f));
+       break;
+    }
+  }
+  return new self.constructor(s);
+};
+
+module.exports = getLeftMost;
+
+},{}],6:[function(_dereq_,module,exports){
+function getRightMost(self, find) {
+  var s = self.s;
+  for (var i = s.length; i >= 0; i = i - 1) {
+    var f = s.indexOf(find, i);
+    if (f != -1) {
+       return new self.constructor(s.substr(f + find.length, s.length));
+    }
+  }
+  return new self.constructor(s);
+};
+
+module.exports = getRightMost;
+
+},{}],7:[function(_dereq_,module,exports){
+function prepend(self, ss) {
+  var s = ss + self.s;
+  return new self.constructor(s);
+};
+module.exports = prepend;
+
+},{}],8:[function(_dereq_,module,exports){
 function splitLeft(self, sep, maxSplit, limit) {
 
   if (typeof maxSplit === 'undefined') {
@@ -41,7 +114,7 @@ function splitLeft(self, sep, maxSplit, limit) {
 
 module.exports = splitLeft;
 
-},{}],3:[function(_dereq_,module,exports){
+},{}],9:[function(_dereq_,module,exports){
 function splitRight(self, sep, maxSplit, limit) {
 
   if (typeof maxSplit === 'undefined') {
@@ -74,7 +147,7 @@ function splitRight(self, sep, maxSplit, limit) {
 
 module.exports = splitRight;
 
-},{}],4:[function(_dereq_,module,exports){
+},{}],10:[function(_dereq_,module,exports){
 /*
 string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
 */
@@ -138,6 +211,9 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
 
   var __nsp = String.prototype;
   var __sp = S.prototype = {
+    append: function(ss) {
+      return _dereq_('./_append')(this, ss)
+    },
 
     between: function(left, right) {
       var s = this.s;
@@ -206,7 +282,7 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
       var s = this.trim().s.replace(/[_\s]+/g, '-').replace(/([A-Z])/g, '-$1').replace(/-+/g, '-').toLowerCase();
       return new this.constructor(s);
     },
-    
+
     equalsIgnoreCase: function(prefix) {
       var s = this.s;
       return s.toLowerCase() == prefix.toLowerCase()
@@ -243,6 +319,14 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
       return new this.constructor(s);
     },
 
+    delLeftMost: function(find) {
+      return _dereq_('./_delLeftMost')(this, find)
+    },
+
+    delRightMost: function(find) {
+      return _dereq_('./_delRightMost')(this, find)
+    },
+
     endsWith: function() {
       var suffixes = Array.prototype.slice.call(arguments, 0);
       for (var i = 0; i < suffixes.length; ++i) {
@@ -272,6 +356,14 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
       } else {
         return new this.constructor(s + suffix);
       }
+    },
+
+    getLeftMost: function(find) {
+      return _dereq_('./_getLeftMost')(this, find)
+    },
+
+    getRightMost: function(find) {
+      return _dereq_('./_getRightMost')(this, find)
     },
 
     humanize: function() { //modified from underscore.string
@@ -421,6 +513,10 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
         return rows;
       }
       return fields;
+    },
+
+    prepend: function(ss) {
+      return _dereq_('./_prepend')(this, ss)
     },
 
     replaceAll: function(ss, r) {
@@ -1184,6 +1280,6 @@ string.js - Copyright (C) 2012-2014, JP Richardson <jprichardson@gmail.com>
 
 }).call(this);
 
-},{"./_count":1,"./_splitLeft":2,"./_splitRight":3}]},{},[4])
-(4)
+},{"./_append":1,"./_count":2,"./_delLeftMost":3,"./_delRightMost":4,"./_getLeftMost":5,"./_getRightMost":6,"./_prepend":7,"./_splitLeft":8,"./_splitRight":9}]},{},[10])
+(10)
 });

@@ -154,6 +154,16 @@ See [test file][testfile] for more details.
 
 I use the same nomenclature as Objective-C regarding methods. **+** means `static` or `class` method. **-** means `non-static` or `instance` method.
 
+### - append(data) ###
+
+Appends the given string in data to the end of the string.
+
+Example:
+
+```javascript
+S('Hello').append(' World') //"Hello World"
+```
+
 ### - constructor(nativeJsString) ###
 
 This creates a new `string.js` object. The parameter can be anything. The `toString()` method will be called on any objects. Some native objects are used in some functions such as `toCSV()`.
@@ -297,6 +307,28 @@ S('3 &lt; 4').decodeHTMLEntities().s; //'3 < 4'
 ```
 
 
+### - delLeftMost(find) ###
+
+Returns the remaining string after removing the first occurrence of `find` and everything to the left of `find` when scanning from **left to right**. If `find` is not found, the unmodified string is returned.
+
+Example:
+
+```javascript
+S('/Parent/child/folders').delLeftMost('/child').s; //'/folders'
+```
+
+
+### - delRightMost(find) ###
+
+Returns the remaining string after removing the first occurrence of `find` and everything to the right of `find` when scanning from **right to left**. If `find` is not found, the unmodified string is returned.
+
+Example:
+
+```javascript
+S('/Parent/child/folders').delRightMost('/child').s; //'/Parent'
+```
+
+
 ### - endsWith(ss) ###
 
 Returns true if the string ends with `ss`.
@@ -330,7 +362,6 @@ S.extendPrototype();
 ```
 
 
-
 ### - ensureLeft(prefix)
 
 Ensures string starts with `prefix`.
@@ -340,6 +371,28 @@ Example:
 ```javascript
 S('subdir').ensureLeft('/').s; //'/subdir'
 S('/subdir').ensureLeft('/').s; //'/subdir'
+```
+
+
+### - getRightMost(find) ###
+
+Finds the first occurrence of `find` and returns everything to the right of `find` (not including `find` itself) when scanning from **right to left**. If `find` is not found, the unmodified string is returned.
+
+Example:
+
+```javascript
+S('/Parent/child/folders').getRightMost('/child').s; //'/folders'
+```
+
+
+### - getLeftMost(find) ###
+
+Finds the first occurrence of `find` and returns everything to the left of `find` (not including `find` itself) when scanning from **left to right**. If `find` is not found, the unmodified string is returned.
+
+Example:
+
+```javascript
+S('/Parent/child/folders').getLeftMost('/child').s; //'/Parent'
 ```
 
 
@@ -353,6 +406,7 @@ Example:
 S('dir').ensureRight('/').s; //'dir/'
 S('dir/').ensureRight('/').s; //'dir/'
 ```
+
 
 ### - humanize() ###
 
@@ -603,6 +657,16 @@ S('"a","b\\"","d","c"').parseCSV() //['a', 'b"', 'd', 'c'])
 S('"a\na","b","c"\n"a", """b\nb", "a"').parseCSV(',', '"', '"', '\n')) // [ [ 'a\na', 'b', 'c' ], [ 'a', '"b\nb', 'a' ] ]
 ```
 
+### - prepend(data) ###
+
+Prepends the given string in data to the beginning of the string.
+
+Example:
+
+```javascript
+S('World').prepend('Hello ') //"Hello World"
+```
+
 ### - repeat(n) ###
 
 Returns a string repeated `n` times.
@@ -705,7 +769,7 @@ S('On Rock N Roll and other Stuff').splitLeft(' ', 5, -2); // ['and', 'other Stu
 
 ### - splitRight(sep, [maxSplit = -1, [limit]]) ###
 
-Returns an array of strings, split from the left at `sep`. Performs at most `maxSplit` splits, and slices the result into an array with at most `limit` elements.
+Returns an array of strings, split from the right at `sep`. Performs at most `maxSplit` splits, and slices the result into an array with at most `limit` elements.
 
 Example:
 
@@ -1137,6 +1201,7 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - [*] [Alison Rowland](https://github.com/arowla)
 - [*] [Pascal Bihler](https://github.com/pbihler)
 - [*] [Daniel Diekmeier](https://github.com/danieldiekmeier)
+- [*] [Stephen J. Carnam](https://github.com/Steveorevo)
 
 
 

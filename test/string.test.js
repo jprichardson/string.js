@@ -33,6 +33,12 @@
 
   describe('string.js', function() {
 
+    describe('- append(data)', function() {
+      it('should return the string with data appended to the end of the string', function() {
+        T (S('Hello').append(' World!').s === 'Hello World!');
+      });
+    });
+
     describe('- constructor', function() {
       it('should set the internal "s" property', function() {
         T (S('helo').s === 'helo')
@@ -120,7 +126,7 @@
         EQ (S('funfunfun').count("fun"), 3)
       })
     })
-    
+
     describe('- equalsIgnoreCase()', function() {
       it('should be equal', function() {
         T (S('jon').equalsIgnoreCase('Jon'));
@@ -149,6 +155,34 @@
         EQ (S('http:&#47;&#47;').decodeHTMLEntities().s, 'http://')
       })
     })
+
+    describe('- delLeftMost(find)', function() {
+      it('should return remainder of string after the first occurence of find is removed along with everything to the left of find specifically when scanning from left to right', function() {
+        // by a char
+        T (S('Hello World! Goodbye Mars!').delLeftMost(' ').s === 'World! Goodbye Mars!');
+
+        // by string
+        T (S('Hello World! Goodbye Mars!').delLeftMost('Goodbye ').s === 'Mars!');
+        T (S('The extension of picture.jpg').delLeftMost('picture.').s === 'jpg');
+
+        // not found
+        T (S('Hello World! Goodbye Mars!').delLeftMost('xyz123').s === 'Hello World! Goodbye Mars!');
+      });
+    });
+
+    describe('- delRightMost(find)', function() {
+      it('should return remainder of string before the first occurence of find is removed along with everything to the right of find specifically when scanning from right to left', function() {
+        // by a char
+        T (S('Hello World! Goodbye Mars!').delRightMost(' ').s === 'Hello World! Goodbye');
+
+        // by string
+        T (S('Hello World! Goodbye Mars!').delRightMost(' Goodbye').s === 'Hello World!');
+        T (S('Remove the extension from picture.jpg').delRightMost('.jpg').s === 'Remove the extension from picture');
+
+        // not found
+        T (S('Hello World! Goodbye Mars!').delRightMost('xyz123').s === 'Hello World! Goodbye Mars!');
+      });
+    });
 
     describe('- endsWith(suffixe1[, suffix2, ..])', function() {
       it("should return true if the string ends with the input string", function() {
@@ -195,6 +229,34 @@
         T (" hello!".include('!'));
         S.restorePrototype();
       })
+    });
+
+    describe('- getLeftMost(find)', function() {
+      it('should return the left portion of the string that occurs before the first occurence of find when scanning from left to right', function() {
+        // by a char
+        T (S('Hello World! Goodbye Mars!').getLeftMost(' ').s === 'Hello');
+
+        // by string
+        T (S('Hello World! Goodbye Mars!').getLeftMost(' Goodbye').s === 'Hello World!');
+        T (S('/User/Documents has a parent folder of?').getLeftMost('/Documents').s === '/User');
+
+        // not found
+        T (S('Hello World! Goodbye Mars!').getLeftMost('xyz123').s === 'Hello World! Goodbye Mars!');
+      });
+    });
+
+    describe('- getRightMost(find)', function() {
+      it('should return the right portion of the string that occurs after the first occurence of find when scanning from right to left', function() {
+        // by a char
+        T (S('Hello World! Goodbye Mars!').getRightMost(' ').s === 'Mars!');
+
+        // by string
+        T (S('Hello World! Goodbye Mars!').getRightMost('Goodbye ').s === 'Mars!');
+        T (S('The child folder in /User/Documents').getRightMost('/User/').s === 'Documents');
+
+        // not found
+        T (S('Hello World! Goodbye Mars!').getRightMost('xyz123').s === 'Hello World! Goodbye Mars!');
+      });
     });
 
     describe('- humanize()', function() {
@@ -412,6 +474,12 @@
         ARY_EQ(lines[1], [ 'a', '"b\nb', 'a' ]);
       })
     })
+
+    describe('- prepend(data)', function() {
+      it('should return the string with data prepended to the beginning of the string', function() {
+        T (S('World!').prepend('Hello ').s === 'Hello World!');
+      });
+    });
 
     describe('- repeat(n)', function() {
       it('should return the string concatenated with itself n times', function() {
