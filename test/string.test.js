@@ -33,6 +33,12 @@
 
   describe('string.js', function() {
 
+    describe('- append(data)', function() {
+      it('should return the string with data appended to the end of the string', function() {
+        T (S('Hello').append(' World!').s === 'Hello World!');
+      });
+    });
+
     describe('- constructor', function() {
       it('should set the internal "s" property', function() {
         T (S('helo').s === 'helo')
@@ -468,6 +474,12 @@
         ARY_EQ(lines[1], [ 'a', '"b\nb', 'a' ]);
       })
     })
+
+    describe('- prepend(data)', function() {
+      it('should return the string with data prepended to the beginning of the string', function() {
+        T (S('World!').prepend('Hello ').s === 'Hello World!');
+      });
+    });
 
     describe('- repeat(n)', function() {
       it('should return the string concatenated with itself n times', function() {
